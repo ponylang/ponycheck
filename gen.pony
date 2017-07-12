@@ -1,7 +1,9 @@
 use "random"
+use "itertools"
 use "collections"
+use "assert"
 
-class Randomness
+class ref Randomness
     """
     all primitive number method create numbers in range [min, max)
 
@@ -9,7 +11,7 @@ class Randomness
     """
     let _random: Random
 
-    new create(seed: U64 = 42) =>
+    new ref create(seed: U64 = 42) =>
         _random = MT(seed)
 
     fun ref u8(min: U8 = U8.min_value(), max: U8 = U8.max_value()): U8 =>
@@ -40,9 +42,9 @@ class Randomness
         //Fact(min < max, "invalid range for u64")
         // hacky way to get a U64 from for the full range
         if min > U32.max_value().u64() then
-            (u32((min >> 32).u32(), (max >> 32).u32).u64() << 32) or _random.next()
+            (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32) or _random.next()
         elseif max > U32.max_value().u64() then
-            let high = (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32)
+            let high = (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32).u64()
             let low = if high > 0 then
                 _random.next()
             else
@@ -51,7 +53,7 @@ class Randomness
             high or low
         else
             // range within U32 range
-            u32(min.u32(), max.u32())
+            u32(min.u32(), max.u32()).u64()
         end
     
     fun ref u128(min: U128 = U128.min_value(), max: U128 = U128.max_value()): U128   =>
@@ -63,7 +65,6 @@ class Randomness
         if min > U64.max_value().u128() then
             // both above U64 range - chose random low 64 bits
             (u64((min >> 64).u64(), (max >> 64).u64()).u128() << 64) or u64().u128()
-        
         elseif max > U64.max_value().u128() then
             // min below U64 max value
             let high = (u64((min >> 64).u64(), (max >> 64).u64()).u128() << 64)
@@ -82,13 +83,17 @@ class Randomness
     
     fun ref ulong(min: ULong = ULong.min_value(), max: ULong = ULong.max_value()): ULong =>
         //Fact(min < max, "invalid range for ulong")
-        min + u64((max - min).u64()).ulong()
+        u64(min.u64(), max.u64()).ulong()
     
     fun ref usize(min: USize = USize.min_value(), max: USize = USize.max_value()): USize =>
         //Fact(min < max, "invalid range for usize")
-        min + u64((max - min).u64()).usize()
+        u64(min.u64(), max.u64()).usize()
    
     // TODO: those won't work for all ranges
+    // how to create signed ints from a range?
+    // interpret the range min and max as unsigned
+    // generate two unsigneds for negative and positive range (most likely not continuous)
+    // chose one randomly and turn it into signed int
     fun ref i8(min: I8 = I8.min_value(), max: I8 = I8.max_value()): I8       =>
         //Fact(min < max, "invalid range for i8")
         min + _random.int((max - min).u64()).i8()
@@ -132,23 +137,24 @@ class Randomness
 
     fun ref bool(): Bool   => (_random.next() % 2) == 0
 
-
 trait Generator[T]
     fun box generate(rnd: Randomness): T^
 
+    fun box shrink(t: T): (T^, Seq[T]) => (consume t, Array[T](0))
+    /*
     fun map[U](mapFn: {(T): U^} val): Generator[U] =>
         MappedGenerator[T, U](this, mapFn)
-
+    
     fun flatMap[U](flatMapFn: {(T): Generator[U]} val): Generator[U] =>
         """
         for each value of this generator create a generator that is then combined
         """
         FlatMappedGenerator[T, U](this, flatMapFn)
-
+*/
     fun filter(predicate: {(T): (T^, Bool)} val): Generator[T] =>
         FilteredGenerator[T](this, predicate)
 
-
+/*
 class val FlatMappedGenerator[T0, U0] is Generator[U0]
     let _source: Generator[T0] box
     let _flatMapFn: {(T0): Generator[U0]} val
@@ -171,7 +177,7 @@ class val MappedGenerator[T1, U1] is Generator[U1]
 
     fun box generate(rnd: Randomness): U1^ =>
         _mapFn(_source.generate(rnd))
-
+*/
 class val FilteredGenerator[T] is Generator[T]
 
     let _source: Generator[T] box
@@ -202,13 +208,113 @@ interface Shrinkable[T]
     fun shrink(randomness: Randomness, larger: T): List[T]
 */
 
+class val OneOfGenerator[T] is Generator[box->T]
+    """
+    FIXME: this generator will always return box->T and never None
+    but as we cannot get an element from a seq without the possibility of an error
+    we wrap stuff into try end and thus coud theoretically get a None as well
+    """
+    let xs: ReadSeq[T] box
+    let _x: box->T
+
+    new create(xs': ReadSeq[T] box) ? =>
+        Fact(xs'.size() > 0, "empty sequence not supported by oneOf Generator")
+        xs = xs'
+        _x = xs(0)
+
+    fun box generate(rnd: Randomness): box->T =>
+        let idx = rnd.usize(0, xs.size()-1)
+        try
+            xs(idx)
+        else
+            // nasty hack to avoid the 'theoretical' error case
+            // which should not happen, as we compute index by taking the size
+            _x
+        end
+
+type WeightedGenerator[T] is (USize, Generator[T] box)
+
+class val FrequencyGenerator[T] is Generator[T]
+
+    let weightedGenerators: ReadSeq[WeightedGenerator[T]]
+    let _emergencyGen: Generator[T] box
+
+    new create(weightedGenerators': ReadSeq[WeightedGenerator[T]]) ? =>
+        let filtered = Iter[WeightedGenerator[T]](weightedGenerators'.values())
+            .filter({(weightedGen: WeightedGenerator[T]): Bool => weightedGen._1 > 0 })
+            .collect(Array[WeightedGenerator[T]])
+        Fact(filtered.size() > 0, "no generators with weight > 0 given")
+        weightedGenerators = filtered
+        _emergencyGen = filtered(0)._2
+
+    fun box generate(rnd: Randomness): T^ =>
+        let weightSum: USize = try
+            Iter[WeightedGenerator[T]](weightedGenerators.values()).fold[USize](
+                {(acc: USize, weightedGen: WeightedGenerator[T]): USize => weightedGen._1 + acc},
+                0
+            )
+        else
+            0
+        end
+        let desiredSum = rnd.usize(0, weightSum)
+        var runningSum: USize = 0
+        var chosen: (Generator[T] box| None) = None
+        for weightedGen in weightedGenerators.values() do
+            let newSum = runningSum + weightedGen._1
+            if (runningSum < desiredSum) and (desiredSum <= newSum) then
+                // we just crossed or reached the desired sum
+                chosen = weightedGen._2
+                break
+            else
+                // update running sum
+                runningSum = newSum
+            end
+        end
+        match chosen
+        | let x: Generator[T] box => x.generate(rnd)
+          // nasty hack to avoid handling the theoretical error case
+          // where we have no generator and thus would have to change the type signature
+        | None => _emergencyGen.generate(rnd)
+        end
 
 primitive Generators
 
-    
-    fun unit[T](t: T): Generator[box->T] =>
+    fun unit[T](t: T): Generator[box->T]=>
         StaticGenerator[T](consume t)
+
+    fun repeatedly[T](f: {(): T^} val): Generator[T] val =>
+        object val is Generator[T]
+            fun box generate(rnd: Randomness): T^ =>
+                f()
+        end
+
+    fun listOfN[T](n: USize, gen: Generator[T] val): Generator[List[T]] val=>
+        object val is Generator[List[T]]
+            fun box generate(rnd: Randomness): List[T]^ =>
+                let l = List[T].create(n)
+                for i in Range[USize](0, n) do
+                    l.push(gen.generate(rnd))
+                end
+                consume l
+        end
     
+    fun oneOf[T](xs: ReadSeq[T] box): Generator[box->T] ? =>
+        """
+        as it is theoretically possible to error when accessing a ReadSeq by index
+        the one-of generator needs to return ``None`` in the theoretical case
+        which will never happen
+        """
+        OneOfGenerator[T](xs)
+
+    fun frequency[T](weightedGenerators: ReadSeq[WeightedGenerator[T]] box): Generator[T] ? =>
+        FrequencyGenerator[T](weightedGenerators)
+
+    fun zip2[T1, T2](gen1: Generator[T1] val, gen2: Generator[T2] val): Generator[(T1, T2)] val =>
+        object val is Generator[(T1, T2)]
+            fun box generate(rnd: Randomness): (T1^, T2^) =>
+                (gen1.generate(rnd), gen2.generate(rnd))
+        end
+
     fun bool(): Generator[Bool] val =>
         object val is Generator[Bool]
             fun box generate(rnd: Randomness): Bool =>

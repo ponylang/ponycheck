@@ -1,6 +1,6 @@
 CC ?= gcc
 PROGRAM = ponycheck
-
+PONYC ?= ponyc
 DEPS = ponycheck.pony gen.pony
 
 TEST_DEPS = test/*.pony
@@ -10,7 +10,7 @@ current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 
 $(PROGRAM): $(DEPS)
 	echo "MAKE DIR $(current_dir)"
-	CC=$(CC) ponyc --debug .
+	CC=$(CC) $(PONYC) --debug .
 
 run: $(PROGRAM)
 	./$(PROGRAM)
@@ -22,6 +22,6 @@ test: $(PROGRAM) test/test
 	./test/test
 
 test/test: $(TEST_DEPS)
-	CC=$(CC) ponyc test -o test
+	CC=$(CC) $(PONYC) test -o test
 
 .PHONY: test

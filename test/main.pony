@@ -8,7 +8,5 @@ actor Main is TestList
     fun tag tests(test: PonyTest) =>
         """
         """
-        test(NumericRangeLimitsTest)
         test(GenRndTest)
         test(GenFilterTest)
-        test(NumericRangeGeneratorTest)

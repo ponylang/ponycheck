@@ -1,13 +1,14 @@
 use "ponytest"
 use ponycheck = ".."
 use "collections"
+use "itertools"
 
 class GenRndTest is UnitTest
 
     fun name(): String => "Gen/random_behaviour"
 
     fun apply(h: TestHelper) =>
-        let gen = ponycheck.Generators.i32()
+        let gen = ponycheck.Generators.u32()
         let rnd1 = ponycheck.Randomness(0)
         let rnd2 = ponycheck.Randomness(0)
         let rnd3 = ponycheck.Randomness(1)
@@ -16,7 +17,7 @@ class GenRndTest is UnitTest
             let g1 = gen.generate(rnd1)
             let g2 = gen.generate(rnd2)
             let g3 = gen.generate(rnd3)
-            h.assert_eq[I32](g1, g2)
+            h.assert_eq[U32](g1, g2)
             if g1 == g3 then
                 same = same + 1
             end
@@ -29,21 +30,37 @@ class GenFilterTest is UnitTest
 
     fun apply(h: TestHelper) =>
         """ensure that filter condition is met for all generated results"""
-        let gen = ponycheck.Generators.i32().filter({(i: I32^): (I32^, Bool) => (i, (i%2) == 0)})
+        let gen = ponycheck.Generators.u32().filter({(u: U32^): (U32^, Bool) => (u, (u%2) == 0)})
         let rnd = ponycheck.Randomness(123)
         for x in Range(0, 100) do
             let v = gen.generate(rnd)
             h.assert_true((v%2) == 0)
         end
 
-class NumericRangeGeneratorTest is UnitTest
-    fun name(): String => "Gen/numeric_range"
+class GenFrequencyTest is UnitTest
+    fun name(): String => "Gen/frequency"
 
     fun apply(h: TestHelper) =>
-        let range: ponycheck.NumericRange[I32] val = ponycheck.NumericRange[I32](I32(0), I32(10))
-        let gen = ponycheck.NumericGenerator[I32](range, {(rnd: ponycheck.Randomness): I32 => rnd.i32()})
-        let rnd = ponycheck.Randomness(0)
-        for x in Range(0, 100) do
-            let v = gen.generate(rnd)
-            h.assert_true((v >= 0) and (v <=10))
+        """
+        ensure that Generators.frequency(...) generators actually return values
+        from different with given frequency
+        """
+        try
+            let gen = ponycheck.Generators.frequency[U8]([as (USize, ponycheck.Generator[U8]):
+                (1, ponycheck.Generators.unit[U8](U8(0)))
+                (0, ponycheck.Generators.unit[U8](U8(42)))
+                (2, ponycheck.Generators.unit[U8](U8(1)))
+            ])
+            let rnd: ponycheck.Randomness ref = ponycheck.Randomness(456)
+
+            let generated = Array[U8](100)
+            for i in Range(0, 100) do
+                generated(i) = gen.generate(rnd)
+            end
+            h.assert_false(generated.contains(U8(42)), "frequency generated value with 0 weight")
+            h.assert_true(generated.contains(U8(0)), "frequency did not generate value with weight of 1")
+            h.assert_true(generated.contains(U8(1)), "frequency did not generate value with weight of 2")
+        else
+            h.fail("error creating frequency generator")
         end
+            
