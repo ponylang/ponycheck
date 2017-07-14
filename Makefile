@@ -1,27 +1,34 @@
 CC ?= gcc
+SRCDIR = src/ponycheck
 PROGRAM = ponycheck
 PONYC ?= ponyc
-DEPS = ponycheck.pony gen.pony
+DEPS = $(shell ls $(SRCDIR)/*.pony)
 
-TEST_DEPS = test/*.pony
+FLAGS ?=
+ifneq (${DEBUG},)
+    FLAGS += "--debug"
+endif
+
+TEST_PROGRAM = test
+TEST_DEPS = $(shell ls $(SRCDIR)/test/*.pony)
 
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 
 $(PROGRAM): $(DEPS)
-	echo "MAKE DIR $(current_dir)"
-	CC=$(CC) $(PONYC) --debug .
+	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 
 run: $(PROGRAM)
 	./$(PROGRAM)
 
 clean:
-	rm -f $(PROGRAM) test/test
+	rm -f $(PROGRAM) $(TEST_PROGRAM)
 
-test: $(PROGRAM) test/test
-	./test/test
+run_test: $(PROGRAM) $(TEST_PROGRAM)
+	./$(TEST_PROGRAM)
 
-test/test: $(TEST_DEPS)
-	CC=$(CC) $(PONYC) test -o test
+$(TEST_PROGRAM): $(TEST_DEPS)
+	CC=$(CC) $(PONYC) $(SRCDIR)/test
+
 
 .PHONY: test

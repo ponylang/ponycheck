@@ -10,3 +10,4 @@ actor Main is TestList
         """
         test(GenRndTest)
         test(GenFilterTest)
+//        test(PropertyAsUnitTest)
