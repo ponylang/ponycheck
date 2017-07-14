@@ -1,10 +1,10 @@
 use "ponytest"
 
-class PropertyHelper
+class ref PropertyHelper
     let testHelper: TestHelper
     var _did_fail: Bool = false
 
-    new create(h: TestHelper) =>
+    new ref create(h: TestHelper) =>
         testHelper = h
 
     fun assert_true(predicate: Bool, msg: String val = "", loc: SourceLoc val = __loc): Bool val =>

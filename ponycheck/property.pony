@@ -2,36 +2,67 @@ use "ponytest"
 use "collections"
 
 class PropertyParams
+    """
+    parameters for Property Execution
+
+    * seed: the seed for the source of Randomness
+    * numSamples: the number of samples to produce from the property generator
+    """
     let seed: U64
-    let size: USize
     let numSamples: USize
 
-    new create(size': USize = 10,
-               numSamples': USize = 100,
+    new create(numSamples': USize = 100,
                seed': U64 = 42) =>
-        size = size'
         numSamples = numSamples'
         seed = seed'
 
 
 trait Property1[T] is UnitTest
+    """
+    A property that consumes 1 argument of type ``T``.
+
+    A property can be used with ``ponytest`` like a normal UnitTest
+    and be included into an aggregated TestList
+    or simply fed to ``PonyTest.apply(UnitTest iso)``.
+
+
+
+    A property is defined by a ``Generator``, returned by the ``gen()`` method
+    and a ``property`` method that consumes the generators output and
+    verifies a custom property with the help of a ``PropertyHelper``.
+
+    A property is verified if no failed assertion on ``PropertyHelper`` has been
+    reported for all the samples it consumed.
+
+    The property execution can be customized by returning a custom ``PropertyParams``
+    from the ``params()`` method.
+
+    The ``gen()`` method is called exactly once to instantiate the generator.
+    The generator produces ``PropertyParams.numSamples`` samples and each is
+    passed to the ``property`` method for verification.
+
+    If the property did not verify, the given sample is shrunken, if the generator
+    supports shrinking (i.e. implements ``Shrinkable``).
+    The smallest shrunken sample will then be reported to the user.
+
+    """
     fun params(): PropertyParams => PropertyParams
 
     fun gen(): Generator[T] val
 
-    fun property(arg1: T, h: PropertyHelper): T^ ?
+    fun property(arg1: T, h: PropertyHelper ref): T^ ?
         """
         because we need the arg for shrinking and reporting later,
         it needs to be returned by this function again
         in case it is an iso
         """
     
-    fun apply(h: TestHelper) ? =>
+    fun ref apply(h: TestHelper) ? =>
         """
         """
         let parameters = params()
         let rnd = Randomness(parameters.seed)
-        let helper = PropertyHelper(h)
+        let helper: PropertyHelper ref = PropertyHelper(h)
         let generator: Generator[T] val = gen()
         for i in Range[USize].create(0, parameters.numSamples) do
             var sample: T = generator.generate(rnd)
@@ -43,33 +74,43 @@ trait Property1[T] is UnitTest
                 return
             end
             if helper.failed() then
-                var shrinkRounds: USize = 0
-                var shrunken: T = consume sample
-                while true do
-                    (shrunken, let shrinks: Seq[T])= generator.shrink(consume shrunken)
-                    if shrinks.size() == 0 then
-                        break
-                    else
-                        shrinkRounds = shrinkRounds + 1
-                        while shrinks.size() > 0 do
-                            let shrink: T = shrinks.pop()
-                            helper.reset()
-                            let propShrink: T = property(consume shrink, helper)
-                            if helper.failed() then
-                                shrunken = consume propShrink
-                                break // just break out this for loop,
-                                      // try to shrink the failing example further
-                            end
-                        end
-                    end
+                let evaluator = object ref is ShrinkEvaluate[T]
+                                fun ref evaluateShrink(t: T): (T^, Bool) ? =>
+                                    helper.reset()
+                                    let res: T = that.property(consume t, helper)
+                                    (consume res, helper.failed())
                 end
-                // report error with shrunken value
-                helper.reportFailed[T](consume shrunken, parameters, shrinkRounds)
 
-                break
+    
+                (let shrunken: T, let shrinkRounds: USize) = match generator
+                    | let shrinkable: Shrinkable[T] box =>
+                       let that = this
+                       Shrink.shrink[T](
+                            consume sample,
+                            shrinkable,
+                            evaluator
+                        )
+                    else
+                        (consume sample, 0)
+                end
+                helper.reportFailed[T](consume shrunken, parameters, shrinkRounds)
             end
         end
         if not helper.failed() then
             helper.reportSuccess(parameters)
         end
+
+class ref Property1ShrinkEvaluate[T]
+
+    let helper: PropertyHelper ref
+    let property1: Property1[T] ref
+
+    new ref create(helper': PropertyHelper ref, property1': Property1[T] ref) =>
+        helper = helper'
+        property1 = property1'
+
+    fun ref evaluateShrink(t: T): (T^, Bool) ? =>
+        helper.reset()
+        let res: T = property1.property(consume t, helper)
+        (consume res, helper.failed())
 
