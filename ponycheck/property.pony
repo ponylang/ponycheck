@@ -44,7 +44,6 @@ trait Property1[T] is UnitTest
     If the property did not verify, the given sample is shrunken, if the generator
     supports shrinking (i.e. implements ``Shrinkable``).
     The smallest shrunken sample will then be reported to the user.
-
     """
     fun params(): PropertyParams => PropertyParams
 
@@ -59,6 +58,7 @@ trait Property1[T] is UnitTest
     
     fun ref apply(h: TestHelper) ? =>
         """
+        integration into ponytest
         """
         let parameters = params()
         let rnd = Randomness(parameters.seed)
@@ -74,17 +74,9 @@ trait Property1[T] is UnitTest
                 return
             end
             if helper.failed() then
-                let evaluator = object ref is ShrinkEvaluate[T]
-                                fun ref evaluateShrink(t: T): (T^, Bool) ? =>
-                                    helper.reset()
-                                    let res: T = that.property(consume t, helper)
-                                    (consume res, helper.failed())
-                end
-
-    
+                let evaluator = Property1ShrinkEvaluate[T](helper, this)
                 (let shrunken: T, let shrinkRounds: USize) = match generator
                     | let shrinkable: Shrinkable[T] box =>
-                       let that = this
                        Shrink.shrink[T](
                             consume sample,
                             shrinkable,
@@ -101,7 +93,26 @@ trait Property1[T] is UnitTest
         end
 
 class ref Property1ShrinkEvaluate[T]
+    """
+    WORKAROUND, because for some reason:
 
+    ```
+    let that = this
+    object ref is ShrinkEvaluate[T]
+        fun ref evaluate(t: T): (T^, Bool) ? =>
+            helper.reset()
+            let res: T = that.property(consume t, helper)
+            (consume res, helper.failed())
+    end
+    ```
+
+    does not compile:
+
+    ```
+    /home/mwahl/dev/pony/ponycheck/ponycheck/property.pony:78:81: can't find definition of 'T'
+                let evaluator: ShrinkEvaluate[T] = object ref is ShrinkEvaluate[T]
+    ```
+    """
     let helper: PropertyHelper ref
     let property1: Property1[T] ref
 
@@ -109,7 +120,7 @@ class ref Property1ShrinkEvaluate[T]
         helper = helper'
         property1 = property1'
 
-    fun ref evaluateShrink(t: T): (T^, Bool) ? =>
+    fun ref evaluate(t: T): (T^, Bool) ? =>
         helper.reset()
         let res: T = property1.property(consume t, helper)
         (consume res, helper.failed())

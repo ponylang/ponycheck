@@ -3,6 +3,7 @@ use ".."
 use "collections"
 
 class PropertyAsUnitTest is Property1[U8]
+    """this just tests that a property is compatible with ponytest"""
 
     fun name(): String => "property1/asUnitTest"
 
@@ -15,4 +16,4 @@ class PropertyAsUnitTest is Property1[U8]
         end
         consume arg1
 
-
+// TODO: verify failing properties as well
