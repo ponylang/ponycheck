@@ -1,5 +1,5 @@
 use "ponytest"
-use ponycheck = ".."
+use ".."
 use "collections"
 use "itertools"
 
@@ -8,10 +8,10 @@ class GenRndTest is UnitTest
     fun name(): String => "Gen/random_behaviour"
 
     fun apply(h: TestHelper) =>
-        let gen = ponycheck.Generators.u32()
-        let rnd1 = ponycheck.Randomness(0)
-        let rnd2 = ponycheck.Randomness(0)
-        let rnd3 = ponycheck.Randomness(1)
+        let gen = Generators.u32()
+        let rnd1 = Randomness(0)
+        let rnd2 = Randomness(0)
+        let rnd3 = Randomness(1)
         var same: U32 = 0
         for x in Range(0, 100) do
             let g1 = gen.generate(rnd1)
@@ -30,8 +30,8 @@ class GenFilterTest is UnitTest
 
     fun apply(h: TestHelper) =>
         """ensure that filter condition is met for all generated results"""
-        let gen = ponycheck.Generators.u32().filter({(u: U32^): (U32^, Bool) => (u, (u%2) == 0)})
-        let rnd = ponycheck.Randomness(123)
+        let gen = Generators.u32().filter({(u: U32^): (U32^, Bool) => (u, (u%2) == 0)})
+        let rnd = Randomness(123)
         for x in Range(0, 100) do
             let v = gen.generate(rnd)
             h.assert_true((v%2) == 0)
@@ -46,12 +46,12 @@ class GenFrequencyTest is UnitTest
         from different with given frequency
         """
         try
-            let gen = ponycheck.Generators.frequency[U8]([as (USize, ponycheck.Generator[U8]):
-                (1, ponycheck.Generators.unit[U8](U8(0)))
-                (0, ponycheck.Generators.unit[U8](U8(42)))
-                (2, ponycheck.Generators.unit[U8](U8(1)))
+            let gen = Generators.frequency[U8]([as (USize, Generator[U8]):
+                (1, Generators.unit[U8](U8(0)))
+                (0, Generators.unit[U8](U8(42)))
+                (2, Generators.unit[U8](U8(1)))
             ])
-            let rnd: ponycheck.Randomness ref = ponycheck.Randomness(456)
+            let rnd: Randomness ref = Randomness(456)
 
             let generated = Array[U8](100)
             for i in Range(0, 100) do

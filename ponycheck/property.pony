@@ -42,7 +42,7 @@ trait Property1[T] is UnitTest
                 helper.reportError(parameters, 0)
                 return
             end
-            if helper._failed() then
+            if helper.failed() then
                 var shrinkRounds: USize = 0
                 var shrunken: T = consume sample
                 while true do
@@ -55,7 +55,7 @@ trait Property1[T] is UnitTest
                             let shrink: T = shrinks.pop()
                             helper.reset()
                             let propShrink: T = property(consume shrink, helper)
-                            if helper._failed() then
+                            if helper.failed() then
                                 shrunken = consume propShrink
                                 break // just break out this for loop,
                                       // try to shrink the failing example further
@@ -69,7 +69,7 @@ trait Property1[T] is UnitTest
                 break
             end
         end
-        if not helper._failed() then
+        if not helper.failed() then
             helper.reportSuccess(parameters)
         end
 

@@ -23,7 +23,7 @@ class PropertyHelper
         """
         """
 
-    fun _failed(): Bool =>
+    fun failed(): Bool =>
         _did_fail
 
     fun ref reset() =>
