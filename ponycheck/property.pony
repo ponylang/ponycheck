@@ -62,15 +62,15 @@ trait Property1[T] is UnitTest
         """
         let parameters = params()
         let rnd = Randomness(parameters.seed)
-        let helper: PropertyHelper ref = PropertyHelper(h)
-        let generator: Generator[T] val = gen()
+        let helper: PropertyHelper ref = PropertyHelper(parameters, h)
+        let generator: Generator[T] = gen()
         for i in Range[USize].create(0, parameters.numSamples) do
             var sample: T = generator.generate(rnd)
             sample = try
                 property(consume sample, helper)
             else
                 // report error with given sample
-                helper.reportError(parameters, 0)
+                helper.reportError(0)
                 return
             end
             if helper.failed() then
@@ -85,11 +85,11 @@ trait Property1[T] is UnitTest
                     else
                         (consume sample, 0)
                 end
-                helper.reportFailed[T](consume shrunken, parameters, shrinkRounds)
+                helper.reportFailed[T](consume shrunken, shrinkRounds)
             end
         end
         if not helper.failed() then
-            helper.reportSuccess(parameters)
+            helper.reportSuccess()
         end
 
 class ref Property1ShrinkEvaluate[T]
