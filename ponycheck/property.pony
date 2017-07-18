@@ -47,7 +47,7 @@ trait Property1[T] is UnitTest
     """
     fun params(): PropertyParams => PropertyParams
 
-    fun gen(): Generator[T] val
+    fun gen(): Generator[T]
 
     fun property(arg1: T, h: PropertyHelper ref): T^ ?
         """
