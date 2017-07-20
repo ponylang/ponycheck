@@ -32,9 +32,8 @@
  * class MyTest is UnitTest
  *
  *     fun apply(h: TestHelper) =>
- *         Ponycheck.forAll[U8](Generator.unit[U8](0))({(u: U8) =>
- *             h.assert_eq(u, 0)
- *             consume u
+ *         Ponycheck.forAll[U8](Generator.unit[U8](0))({(u: U8, ph: PropertyHelper) =>
+ *             ph.assert_eq(u, 0)
  *         })
  *
  */
@@ -49,14 +48,14 @@ class ForAll[T]
         _gen = gen'
         _helper = testHelper
 
-    fun apply(prop: {(T, PropertyHelper): T^ ?} val) ? =>
+    fun apply(prop: {(T, PropertyHelper) ?} val) ? =>
         """
         execute
         """
         let prop1 = object is Property1[T]
             fun name(): String => ""
             fun gen(): Generator[T] => _gen
-            fun property(arg1: T, h: PropertyHelper): T^ ? =>
+            fun property(arg1: T, h: PropertyHelper) ? =>
                 prop(consume arg1, h)
         end
         prop1.apply(_helper)

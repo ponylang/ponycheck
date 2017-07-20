@@ -23,32 +23,3 @@ interface Shrinkable[T]
                     (consume t, shrinks)
         ```
         """
-
-interface ShrinkEvaluate[T]
-    fun ref evaluate(t: T): (T^, Bool) ?
-
-primitive Shrink
-    fun shrink[T](sample: T, shrinkable: Shrinkable[T] box, shrinkEvaluate: ShrinkEvaluate[T]): (T^, USize) ? =>
-        var shrinkRounds: USize = 0
-        var shrunken: T = consume sample
-        while true do
-            (shrunken, let shrinks: Seq[T])= shrinkable.shrink(consume shrunken)
-            if shrinks.size() == 0 then
-                break
-            else
-                shrinkRounds = shrinkRounds + 1
-                while shrinks.size() > 0 do
-                    let shrinkT: T = shrinks.pop()
-                    (let propShrink, let shrinkFailed) = shrinkEvaluate.evaluate(consume shrinkT)
-                    if shrinkFailed then
-                        shrunken = consume propShrink
-                        break // just break out this for loop,
-                              // try to shrink the failing example further
-                    end
-                end
-                // all shrinks have been processed, but none of them failed
-                break
-            end
-        end
-        (consume shrunken, shrinkRounds)
-

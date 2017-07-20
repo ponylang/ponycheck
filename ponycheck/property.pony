@@ -49,11 +49,8 @@ trait Property1[T] is UnitTest
 
     fun gen(): Generator[T]
 
-    fun ref property(arg1: T, h: PropertyHelper ref): T^ ?
+    fun ref property(arg1: T, h: PropertyHelper ref) ?
         """
-        because we need the arg for shrinking and reporting later,
-        it needs to be returned by this function again
-        in case it is an iso
         """
     
     fun ref apply(h: TestHelper) ? =>
@@ -67,62 +64,62 @@ trait Property1[T] is UnitTest
         let me: Property1[T] = this
         for i in Range[USize].create(0, parameters.numSamples) do
             var sample: T = generator.generate(rnd)
-            sample = try
+
+            // create a string representation before consuming ``sample`` with property
+            (sample, var sampleRepr: String) = _toString(consume sample)
+            // shrink before consuming ``sample`` with property
+            (sample, var shrinks: Seq[T]) = _shrink(consume sample, generator)
+            try
                 me.property(consume sample, helper)
             else
                 // report error with given sample
-                helper.reportError(0)
+                helper.reportError(sampleRepr, 0)
                 error
             end
             if helper.failed() then
-                let evaluator = Property1ShrinkEvaluate[T](helper, this)
-                (let shrunken: T, let shrinkRounds: USize) = match generator
-                    | let shrinkable: Shrinkable[T] box =>
-                       Shrink.shrink[T](
-                            consume sample,
-                            shrinkable,
-                            evaluator
-                        )
+                var shrinkRounds: USize = 0
+                while shrinks.size() > 0 do
+                    var failedShrink: T = shrinks.pop()
+                    (failedShrink, let shrinkRepr: String) = _toString(consume failedShrink)
+                    (failedShrink, let nextShrinks: Seq[T]) = _shrink(consume failedShrink, generator)
+                    helper.reset()
+                    try
+                        me.property(consume failedShrink, helper)
                     else
-                        (consume sample, 0)
+                        helper.reportError(shrinkRepr, shrinkRounds)
+                        error
+                    end
+                    if helper.failed() then
+                        // we have a failing shrink sample
+                        shrinkRounds = shrinkRounds + 1
+                        shrinks = consume nextShrinks
+                        sampleRepr = shrinkRepr
+                        continue
+                    end
                 end
-                helper.reportFailed[T](consume shrunken, shrinkRounds)
+                helper.reportFailed[T](sampleRepr, shrinkRounds)
             end
         end
         if not helper.failed() then
             helper.reportSuccess()
         end
 
-class ref Property1ShrinkEvaluate[T]
-    """
-    WORKAROUND, because for some reason:
+    fun ref _toString(sample: T): (T^, String) =>
+        let str: String = match sample
+        | let stringable: Stringable =>
+            stringable.string()
+        else
+            (digestof sample).string()
+        end
+        (consume sample, str)
 
-    ```
-    let that = this
-    object ref is ShrinkEvaluate[T]
-        fun ref evaluate(t: T): (T^, Bool) ? =>
-            helper.reset()
-            let res: T = that.property(consume t, helper)
-            (consume res, helper.failed())
-    end
-    ```
-
-    does not compile:
-
-    ```
-    /home/mwahl/dev/pony/ponycheck/ponycheck/property.pony:78:81: can't find definition of 'T'
-                let evaluator: ShrinkEvaluate[T] = object ref is ShrinkEvaluate[T]
-    ```
-    """
-    let helper: PropertyHelper ref
-    let property1: Property1[T] ref
-
-    new ref create(helper': PropertyHelper ref, property1': Property1[T] ref) =>
-        helper = helper'
-        property1 = property1'
-
-    fun ref evaluate(t: T): (T^, Bool) ? =>
-        helper.reset()
-        let res: T = property1.property(consume t, helper)
-        (consume res, helper.failed())
-
+    fun ref _shrink(shrinkMe: T, generator: Generator[T]): (T^, Seq[T]) =>
+        """
+        helper for shrinking a value with the generator it was created with (if it is a Shrinkable)
+        """
+        match generator
+        | let shrinkable: Shrinkable[T] box =>
+            shrinkable.shrink(consume shrinkMe)
+        else
+            (consume shrinkMe, List[T](0))
+        end

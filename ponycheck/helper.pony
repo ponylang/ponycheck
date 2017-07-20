@@ -283,11 +283,11 @@ class ref PropertyHelper
         """
 
 
-    fun reportError(shrinkRounds: USize = 0) =>
+    fun reportError(sampleRepr: String, shrinkRounds: USize = 0) =>
         """
         """
 
-    fun reportFailed[T](sample: T, shrinkRounds: USize = 0) =>
+    fun reportFailed[T](sampleRepr: String, shrinkRounds: USize = 0) =>
         """
         """
 
