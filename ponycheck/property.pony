@@ -49,7 +49,7 @@ trait Property1[T] is UnitTest
 
     fun gen(): Generator[T]
 
-    fun property(arg1: T, h: PropertyHelper ref): T^ ?
+    fun ref property(arg1: T, h: PropertyHelper ref): T^ ?
         """
         because we need the arg for shrinking and reporting later,
         it needs to be returned by this function again

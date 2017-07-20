@@ -90,10 +90,167 @@ class ref PropertyHelper
           true)
         true
 
-/*
-    fun assert_eq[A: (Equatable[A] #read & Stringable #read)]
-      (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool =>
-        _th.assert_eq(expect, actual, msg, loc)
+    fun ref assert_isnt[A](
+        not_expect: A,
+        actual: A,
+        msg: String = "",
+        loc: SourceLoc = __loc): Bool =>
+        """
+        Assert that the 2 given expressions resolve to different instances.
+        """
+        if not_expect is actual then
+          _fail(_fmt_msg(loc, "Assert isn't failed. " + msg
+            + " Expected (" + (digestof not_expect).string() + ") isnt ("
+            + (digestof actual).string() + ")"))
+          return false
+        end
+
+        _th.log(
+          _fmt_msg(loc, "Assert isn't passed. " + msg
+            + " Got (" + (digestof not_expect).string() + ") isnt ("
+            + (digestof actual).string() + ")"),
+          true)
+        true
+
+    fun ref assert_eq[A: (Equatable[A] #read & Stringable #read)]
+        (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool =>
+        """
+        Assert that the 2 given expressions are equal.
+        """
+        if expect != actual then
+          _fail(_fmt_msg(loc,  "Assert eq failed. " + msg
+            + " Expected (" + expect.string() + ") == (" + actual.string() + ")"))
+          return false
+        end
+
+        _th.log(_fmt_msg(loc, "Assert eq passed. " + msg
+          + " Got (" + expect.string() + ") == (" + actual.string() + ")"), true)
+        true
+
+     fun ref assert_ne[A: (Equatable[A] #read & Stringable #read)]
+        (not_expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool =>
+        """
+        Assert that the 2 given expressions are not equal.
+        """
+        if not_expect == actual then
+          _fail(_fmt_msg(loc, "Assert ne failed. " + msg
+            + " Expected (" + not_expect.string() + ") != (" + actual.string()
+            + ")"))
+          return false
+        end
+
+        _th.log(
+          _fmt_msg(loc, "Assert ne passed. " + msg
+            + " Got (" + not_expect.string() + ") != (" + actual.string() + ")"),
+          true)
+        true
+
+    fun ref assert_array_eq[A: (Equatable[A] #read & Stringable #read)](
+        expect: ReadSeq[A],
+        actual: ReadSeq[A],
+        msg: String = "",
+        loc: SourceLoc = __loc): Bool =>
+        """
+        Assert that the contents of the 2 given ReadSeqs are equal.
+        """
+        var ok = true
+
+        if expect.size() != actual.size() then
+          ok = false
+        else
+          try
+            var i: USize = 0
+            while i < expect.size() do
+              if expect(i) != actual(i) then
+                ok = false
+                break
+              end
+
+              i = i + 1
+            end
+          else
+            ok = false
+          end
+        end
+
+        if not ok then
+          _fail(_fmt_msg(loc, "Assert EQ failed. " + msg + " Expected ("
+            + _print_array[A](expect) + ") == (" + _print_array[A](actual) + ")"))
+          return false
+        end
+
+        _th.log(
+          _fmt_msg(loc, "Assert EQ passed. " + msg + " Got ("
+            + _print_array[A](expect) + ") == (" + _print_array[A](actual) + ")"),
+          true)
+        true
+
+  fun ref assert_array_eq_unordered[A: (Equatable[A] #read & Stringable #read)](
+    expect: ReadSeq[A],
+    actual: ReadSeq[A],
+    msg: String = "",
+    loc: SourceLoc = __loc): Bool =>
+    """
+    Assert that the contents of the 2 given ReadSeqs are equal ignoring order.
+    """
+    try
+      let missing = Array[box->A]
+      let consumed = Array[Bool].init(false, actual.size())
+      for e in expect.values() do
+        var found = false
+        var i: USize = -1
+        for a in actual.values() do
+          i = i + 1
+          if consumed(i) then continue end
+          if e == a then
+            consumed.update(i, true)
+            found = true
+            break
+          end
+        end
+        if not found then
+          missing.push(e)
+        end
+      end
+
+      let extra = Array[box->A]
+      for (i, c) in consumed.pairs() do
+        if not c then extra.push(actual(i)) end
+      end
+
+      if (extra.size() != 0) or (missing.size() != 0) then
+        _fail(
+          _fmt_msg(loc, "Assert EQ_UNORDERED failed. " + msg
+            + " Expected (" + _print_array[A](expect) + ") == ("
+            + _print_array[A](actual) + "):"
+            + "\nMissing: " + _print_array[box->A](missing)
+            + "\nExtra: " + _print_array[box->A](extra))
+        )
+        return false
+      end
+      _th.log(
+        _fmt_msg(loc, "Assert EQ_UNORDERED passed. " + msg + " Got ("
+          + _print_array[A](expect) + ") == (" + _print_array[A](actual) + ")"),
+        true)
+      true
+    else
+      _fail("Assert EQ_UNORDERED failed from an internal error.")
+      false
+    end
+
+    fun _print_array[A: Stringable #read](array: ReadSeq[A]): String =>
+        """
+        Generate a printable string of the contents of the given readseq to use in
+        error messages.
+        """
+        "[len=" + array.size().string() + ": " + ", ".join(array) + "]"
+
+
+
+    /*
+        fun assert_eq[A: (Equatable[A] #read & Stringable #read)]
+          (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool =>
+            _th.assert_eq(expect, actual, msg, loc)
 
     fun assert_neq[A: (Equatable[A] #read & Stringable #read)]
     (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool

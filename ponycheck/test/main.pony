@@ -11,4 +11,6 @@ actor Main is TestList
         test(GenRndTest)
         test(GenFilterTest)
         test(PropertyAsUnitTest)
+        test(FailingPropertyAsUnitTest)
+        test(ErroringPropertyAsUnitTest)
         test(ForAllTest)
