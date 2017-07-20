@@ -64,14 +64,15 @@ trait Property1[T] is UnitTest
         let rnd = Randomness(parameters.seed)
         let helper: PropertyHelper ref = PropertyHelper(parameters, h)
         let generator: Generator[T] = gen()
+        let me: Property1[T] = this
         for i in Range[USize].create(0, parameters.numSamples) do
             var sample: T = generator.generate(rnd)
             sample = try
-                property(consume sample, helper)
+                me.property(consume sample, helper)
             else
                 // report error with given sample
                 helper.reportError(0)
-                return
+                error
             end
             if helper.failed() then
                 let evaluator = Property1ShrinkEvaluate[T](helper, this)
