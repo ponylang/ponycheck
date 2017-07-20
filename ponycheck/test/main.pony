@@ -14,3 +14,4 @@ actor Main is TestList
         test(FailingPropertyAsUnitTest)
         test(ErroringPropertyAsUnitTest)
         test(ForAllTest)
+        test(MultipleForAllTest)
