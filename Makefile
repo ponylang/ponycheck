@@ -23,5 +23,7 @@ clean:
 test: $(DEPS) $(TEST_DEPS)
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)/test
 
+docs: FLAGS += --pass=docs --docs --output=docs
+docs: $(DEPS) $(TEST_DEPS)
+	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 
-.PHONY: test
