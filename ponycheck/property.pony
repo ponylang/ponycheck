@@ -26,7 +26,6 @@ trait Property1[T] is UnitTest
     or simply fed to ``PonyTest.apply(UnitTest iso)``.
 
 
-
     A property is defined by a ``Generator``, returned by the ``gen()`` method
     and a ``property`` method that consumes the generators output and
     verifies a custom property with the help of a ``PropertyHelper``.
@@ -51,6 +50,8 @@ trait Property1[T] is UnitTest
 
     fun ref property(arg1: T, h: PropertyHelper ref) ?
         """
+        a method verifying that a certain property holds for all given ``arg1``
+        with the help of ``PropertyHelper`` ``h``.
         """
     
     fun ref apply(h: TestHelper) ? =>
@@ -105,6 +106,10 @@ trait Property1[T] is UnitTest
         end
 
     fun ref _toString(sample: T): (T^, String) =>
+        """
+        format the given sample to a string representation,
+        use digestof if nothing else is available
+        """
         let str: String = match sample
         | let stringable: Stringable =>
             stringable.string()

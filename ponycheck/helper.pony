@@ -1,15 +1,24 @@
 use "ponytest"
 
 interface FailureCallback
+    """something to call in case of error"""
     fun fail(msg: String)
 
 interface Logger
+    """something to log messages to"""
     fun log(msg: String, verbose: Bool = false)
 
 type _TestLogger is (FailureCallback val & Logger val)
+    """stripped down interface for TestHelper as this is all we need"""
 
 class ref PropertyHelper
     """
+    Helper for ponycheck properties.
+
+    Contains assertion methods.
+
+    Mirrors the TestHelper assertion API.
+
     logic: don't just fail the runner if an assert method failed,
            record the fail and mark this helper as failed,
            so we can get into the shrinking and reporting phases.
@@ -246,17 +255,6 @@ class ref PropertyHelper
         "[len=" + array.size().string() + ": " + ", ".join(array) + "]"
 
 
-
-    /*
-        fun assert_eq[A: (Equatable[A] #read & Stringable #read)]
-          (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool =>
-            _th.assert_eq(expect, actual, msg, loc)
-
-    fun assert_neq[A: (Equatable[A] #read & Stringable #read)]
-    (expect: A, actual: A, msg: String = "", loc: SourceLoc = __loc): Bool
-    =>
-        _th.assert_neq(expect, actual, msg, loc)
-*/
 /****** END DUPLICATION FROM TESTHELPER *********/
 
     fun ref _fail(msg: String) =>
@@ -280,19 +278,27 @@ class ref PropertyHelper
 
     fun reportSuccess() =>
         """
+        report success to the property test runner
         """
 
 
     fun reportError(sampleRepr: String, shrinkRounds: USize = 0) =>
         """
+        report an error that happened during property evaluation
         """
 
     fun reportFailed[T](sampleRepr: String, shrinkRounds: USize = 0) =>
         """
+        report a failed property
         """
 
     fun box failed(): Bool =>
+        """returns true if a property has failed using this instance"""
         _did_fail
 
     fun ref reset() =>
+        """
+        reset the state of this instance,
+        so that it can be reused for further property executions
+        """
         _did_fail = false
