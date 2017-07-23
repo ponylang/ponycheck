@@ -8,9 +8,9 @@ Property based testing for ponylang.
 * Extensive list of builtin Generators for you convencience (There will be even more)
 * Shrinking of failed samples for more useful test output
 * ...
-* P-R-O-P-E-R-T-Y
-* B-A-S-E-D
-* T-E-S-T-I-N-G !!!
+* **P-R-O-P-E-R-T-Y**
+* **B-A-S-E-D**
+* **T-E-S-T-I-N-G !!!**
 
 
 ### Usage 
