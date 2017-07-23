@@ -288,6 +288,40 @@ primitive Generators
                 f()
         end
 
+    fun seqOf[T](seqFactory: {(USize): Seq[T]} val = {(s: USize): Seq[T] => Array[T].create(s)},
+                 gen: Generator[T],
+                 max: USize = 100): Generator[Seq[T]] =>
+        """
+        fill a seq provided from the given ``seqFactory`` ( defaults to creating an Array)
+        with at most ``max`` samples from the generator ``gen``.
+        """
+        object is Generator[Seq[T]]
+            fun box generate(rnd: Randomness): Seq[T]^ =>
+                let actualSize = rnd.usize(0, max)
+                let seq: Seq[T] = seqFactory(actualSize)
+                for i in Range[USize](0, max) do
+                    seq.push(gen.generate(rnd))
+                end
+                consume seq
+        end
+
+    fun listOf[T](gen: Generator[T], max: USize = 100): Generator[List[T]] =>
+        """
+        create a list from the given Generator
+        with an optional maximum size (default max is 100)
+
+        TODO: move size to generator
+        """
+        object is Generator[List[T]]
+            fun box generate(rnd: Randomness): List[T]^ =>
+                let actualSize = rnd.usize(0, max)
+                let l = List[T].create(actualSize)
+                for i in Range[USize](0, max) do
+                    l.push(gen.generate(rnd))
+                end
+                consume l
+        end
+
     fun listOfN[T](n: USize, gen: Generator[T]): Generator[List[T]] =>
         object is Generator[List[T]]
             fun box generate(rnd: Randomness): List[T]^ =>
