@@ -41,18 +41,6 @@ class ListReverseOneProperty is Property1[List[USize]]
 
     fun property(arg1: List[USize], ph: PropertyHelper) =>
         ph.array_eq(arg1, arg1.reverse())
-
-class ListReverseTwoProperty is Property2[List[USize], List[USize]]
-
-    fun name(): String => "list/reverse/two"
-
-    fun gen(): (Generator[List[USize]], Generator[List[USize]]) =>
-        let gen1 = Generators.listOf[USize](Generators.uSize())
-        let gen2 = Generators.listOf[USize](Generators.uSize())
-        (gen1, gen2)
-
-    fun property(arg1: List[USize], arg2: List[USize], ph: PropertyHelper) =>
-        ph.array_eq[USize](arg1.reverse() ++ arg2.reverse(), (arg1 ++ arg2).reverse())
 ```
 
 Ponycheck comes in two flavors. It is also possible to run multiple properties 
