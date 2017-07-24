@@ -1,5 +1,7 @@
 CC ?= gcc
-SRCDIR = ponycheck
+SRCDIR=ponycheck
+
+EXAMPLES_DIR = examples
 PONYC ?= ponyc
 DEPS = $(shell ls $(SRCDIR)/*.pony)
 
@@ -12,6 +14,8 @@ endif
 
 TEST_PROGRAM = test
 TEST_DEPS = $(shell ls $(SRCDIR)/test/*.pony)
+
+EXAMPLE_DEPS = $(shell ls $(EXAMPLES_DIR)/*.pony)
 
 run_test: test
 	./test $(TESTFLAGS)
@@ -27,3 +31,6 @@ docs: FLAGS += --pass=docs --docs --output=docs
 docs: $(DEPS) $(TEST_DEPS)
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 
+example: $(EXAMPLE_DEPS)
+	cd examples && \
+	    stable env $(PONYC) $(FLAGS)
