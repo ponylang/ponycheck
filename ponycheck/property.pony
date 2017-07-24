@@ -127,7 +127,8 @@ trait Property1[T] is UnitTest
         format the given sample to a string representation,
         use digestof if nothing else is available
         """
-        let str: String = match sample
+        let hackyDownCast: Any box = sample
+        let str: String = match hackyDownCast
         | let stringable: Stringable =>
             stringable.string()
         | let somethingElse: Any =>
