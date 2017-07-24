@@ -1,5 +1,7 @@
 # Ponycheck
 
+![this is awesome](https://img.shields.io/badge/this%20is-awesome-green.svg)
+
 Property based testing for ponylang.
 
 ## Features
