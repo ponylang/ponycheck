@@ -7,14 +7,22 @@ class PropertyParams
 
     * seed: the seed for the source of Randomness
     * numSamples: the number of samples to produce from the property generator
+    * maxShrinkRounds: the maximum rounds of shrinking to perform
+    * maxShrinkSamples: the maximum number of shrunken samples to consider in 1 shrink round
     """
     let seed: U64
     let numSamples: USize
+    let maxShrinkRounds: USize
+    let maxShrinkSamples: USize
 
     new create(numSamples': USize = 100,
-               seed': U64 = 42) =>
+               seed': U64 = 42,
+               maxShrinkRounds': USize = 10,
+               maxShrinkSamples': USize = 100) =>
         numSamples = numSamples'
         seed = seed'
+        maxShrinkRounds = maxShrinkRounds'
+        maxShrinkSamples = maxShrinkSamples'
 
 
 trait Property1[T] is UnitTest
@@ -79,7 +87,15 @@ trait Property1[T] is UnitTest
             end
             if helper.failed() then
                 var shrinkRounds: USize = 0
-                while shrinks.size() > 0 do
+                let numShrinks = shrinks.size()
+
+                // safeguard against generators that generate huge or even infinite shrink seqs
+                let shrinksToIgnore = if numShrinks > parameters.maxShrinkSamples then
+                    numShrinks - parameters.maxShrinkSamples
+                else
+                    0
+                end
+                while (shrinks.size() > shrinksToIgnore) and (shrinkRounds < parameters.maxShrinkRounds) do
                     var failedShrink: T = shrinks.pop()
                     (failedShrink, let shrinkRepr: String) = _toString(consume failedShrink)
                     (failedShrink, let nextShrinks: Seq[T]) = _shrink(consume failedShrink, generator)
