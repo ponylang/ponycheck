@@ -22,7 +22,7 @@ The classical List reverse properties from the quickcheck paper:
 ```pony
 
 use "ponycheck"
-use "collections/persistent"
+use "collections"
 
 class ListReverseProperty is Property1[List[USize]]
     

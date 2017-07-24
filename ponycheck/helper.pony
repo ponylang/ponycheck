@@ -282,15 +282,21 @@ class ref PropertyHelper
         """
 
 
-    fun reportError(sampleRepr: String, shrinkRounds: USize = 0) =>
+    fun reportError(sampleRepr: String,
+                    shrinkRounds: USize = 0,
+                    loc: SourceLoc = __loc) =>
         """
         report an error that happened during property evaluation
         """
+        _th.log(_fmt_msg(loc, "Property errored for sample " + sampleRepr + " (after " + shrinkRounds.string() + " shrinks)"), false)
 
-    fun reportFailed[T](sampleRepr: String, shrinkRounds: USize = 0) =>
+    fun reportFailed[T](sampleRepr: String,
+                        shrinkRounds: USize = 0,
+                        loc: SourceLoc = __loc) =>
         """
         report a failed property
         """
+        _th.fail(_fmt_msg(loc, "Property failed for sample " + sampleRepr + " (after " + shrinkRounds.string() + " shrinks)"))
 
     fun box failed(): Bool =>
         """returns true if a property has failed using this instance"""

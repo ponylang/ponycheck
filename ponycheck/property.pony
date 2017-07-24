@@ -115,6 +115,7 @@ trait Property1[T] is UnitTest
                     end
                 end
                 helper.reportFailed[T](sampleRepr, shrinkRounds)
+                break
             end
         end
         if not helper.failed() then
@@ -129,6 +130,8 @@ trait Property1[T] is UnitTest
         let str: String = match sample
         | let stringable: Stringable =>
             stringable.string()
+        | let somethingElse: Any =>
+            (digestof somethingElse).string()
         else
             (digestof sample).string()
         end
