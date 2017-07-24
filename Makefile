@@ -33,4 +33,7 @@ docs: $(DEPS) $(TEST_DEPS)
 
 example: $(EXAMPLE_DEPS)
 	cd examples && \
+	    stable fetch && \
 	    stable env $(PONYC) $(FLAGS)
+
+.PHONY: fetch

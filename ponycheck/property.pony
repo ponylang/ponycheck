@@ -127,16 +127,7 @@ trait Property1[T] is UnitTest
         format the given sample to a string representation,
         use digestof if nothing else is available
         """
-        let hackyDownCast: Any box = sample
-        let str: String = match hackyDownCast
-        | let stringable: Stringable =>
-            stringable.string()
-        | let somethingElse: Any =>
-            (digestof somethingElse).string()
-        else
-            (digestof sample).string()
-        end
-        (consume sample, str)
+        Stringifier.stringify[T](consume sample)
 
     fun ref _shrink(shrinkMe: T, generator: Generator[T]): (T^, Seq[T]) =>
         """
@@ -148,3 +139,14 @@ trait Property1[T] is UnitTest
         else
             (consume shrinkMe, List[T](0))
         end
+
+primitive Stringifier
+    fun stringify[T](t: T): (T^, String) =>
+        """turn anything into a string"""
+        let digest = (digestof t)
+        let s = iftype T <: Stringable #read then
+          t.string()
+        else
+                "<identity:" + digest.string() + ">"
+        end
+        (consume t, consume s)
