@@ -35,13 +35,14 @@ class _ListReverseMultipleProperties is UnitTest
 
     fun name(): String => "list/properties"
 
-    fun apply(h: TestHelper) =>
-        let gen = Generators.listOf[USize](Generators.uSize())
-        Ponycheck.forAll[List[USize]](gen, h)({
+    fun apply(h: TestHelper) ? =>
+        let gen1 = Generators.listOf[USize](Generators.uSize())
+        Ponycheck.forAll[List[USize]](gen1, h)({
             (arg1: List[USize], ph: PropertyHelper) =>
                 ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
         })
-        Ponycheck.forAll[List[USize]](gen, h)({
+        let gen2 = Generators.listOfN[USize](1, Generators.uSize())
+        Ponycheck.forAll[List[USize]](gen2, h)({
             (arg1: List[USize], ph: PropertyHelper) =>
                 ph.assert_array_eq[USize](arg1, arg1.reverse())
         })
