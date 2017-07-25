@@ -14,25 +14,24 @@ actor Main is TestList
         test(_ListReverseMultipleProperties)
 
 class _ListReverseProperty is Property1[List[USize]]
-    
     fun name(): String => "list/reverse"
 
-    fun gen(): Generator[List[USize]] => Generators.listOf[USize](Generators.uSize())
+    fun gen(): Generator[List[USize]] =>
+        Generators.listOf[USize](Generators.uSize())
     
     fun property(arg1: List[USize], ph: PropertyHelper) =>
         ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
 
 class _ListReverseOneProperty is Property1[List[USize]]
-
     fun name(): String => "list/reverse/one"
 
-    fun gen(): Generator[List[USize]] => Generators.listOfN[USize](1, Generators.uSize())
+    fun gen(): Generator[List[USize]] =>
+        Generators.listOfN[USize](1, Generators.uSize())
 
     fun property(arg1: List[USize], ph: PropertyHelper) =>
         ph.assert_array_eq[USize](arg1, arg1.reverse())
 
 class _ListReverseMultipleProperties is UnitTest
-
     fun name(): String => "list/properties"
 
     fun apply(h: TestHelper) ? =>
@@ -46,4 +45,3 @@ class _ListReverseMultipleProperties is UnitTest
             (arg1: List[USize], ph: PropertyHelper) =>
                 ph.assert_array_eq[USize](arg1, arg1.reverse())
         })
-

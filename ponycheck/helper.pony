@@ -298,8 +298,10 @@ class ref PropertyHelper
         """
         _th.fail(_fmt_msg(loc, "Property failed for sample " + sampleRepr + " (after " + shrinkRounds.string() + " shrinks)"))
 
-    fun box failed(): Bool =>
-        """returns true if a property has failed using this instance"""
+    fun failed(): Bool =>
+        """
+        returns true if a property has failed using this instance
+        """
         _did_fail
 
     fun ref reset() =>

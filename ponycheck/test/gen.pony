@@ -4,7 +4,6 @@ use "collections"
 use "itertools"
 
 class GenRndTest is UnitTest
-
     fun name(): String => "Gen/random_behaviour"
 
     fun apply(h: TestHelper) =>
@@ -29,7 +28,9 @@ class GenFilterTest is UnitTest
     fun name(): String => "Gen/filter"
 
     fun apply(h: TestHelper) =>
-        """ensure that filter condition is met for all generated results"""
+        """
+        ensure that filter condition is met for all generated results
+        """
         let gen = Generators.u32().filter({(u: U32^): (U32^, Bool) => (u, (u%2) == 0)})
         let rnd = Randomness(123)
         for x in Range(0, 100) do
@@ -47,9 +48,9 @@ class GenFrequencyTest is UnitTest
         """
         try
             let gen = Generators.frequency[U8]([as WeightedGenerator[U8]:
-                (1, Generators.unit[U8](U8(0)))
-                (0, Generators.unit[U8](U8(42)))
-                (2, Generators.unit[U8](U8(1)))
+                (1, Generators.unit[U8](0))
+                (0, Generators.unit[U8](42))
+                (2, Generators.unit[U8](1))
             ])
             let rnd: Randomness ref = Randomness(456)
 
@@ -63,4 +64,3 @@ class GenFrequencyTest is UnitTest
         else
             h.fail("error creating frequency generator")
         end
-            

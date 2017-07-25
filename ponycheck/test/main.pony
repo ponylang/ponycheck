@@ -6,8 +6,6 @@ actor Main is TestList
     new make() => None
 
     fun tag tests(test: PonyTest) =>
-        """
-        """
         test(GenRndTest)
         test(GenFilterTest)
         test(PropertyAsUnitTest)

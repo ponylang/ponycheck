@@ -17,7 +17,7 @@ class ref Randomness
     let _random: Random
 
     new ref create(seed: U64 = 42) =>
-        _random = MT(seed)
+        _random = Rand(seed)
 
     fun ref u8(min: U8 = U8.min_value(), max: U8 = U8.max_value()): U8 =>
         """
@@ -34,14 +34,12 @@ class ref Randomness
     fun ref u32(min: U32 = U32.min_value(), max: U32 = U32.max_value()): U32 =>
         """
         generates a U32 in closed interval [min, max] (default: [min_value, max_value])
-
         """
         min + _random.int((max - min).u64() + 1).u32()
     
-    fun ref u64(min: U64 = U64.min_value(), max: U64 = U64.max_value()): U64     =>
+    fun ref u64(min: U64 = U64.min_value(), max: U64 = U64.max_value()): U64 =>
         """
         generates a U64 in closed interval [min, max] (default: [min_value, max_value])
-
         """
         // hacky way to get a U64 from for the full range
         if min > U32.max_value().u64() then
@@ -59,7 +57,7 @@ class ref Randomness
             u32(min.u32(), max.u32()).u64()
         end
 
-    fun ref u128(min: U128 = U128.min_value(), max: U128 = U128.max_value()): U128   =>
+    fun ref u128(min: U128 = U128.min_value(), max: U128 = U128.max_value()): U128 =>
         """
         generates a U128 in closed interval [min, max] (default: [min_value, max_value])
         """
@@ -99,28 +97,28 @@ class ref Randomness
     // interpret the range min and max as unsigned
     // generate two unsigneds for negative and positive range (most likely not continuous)
     // chose one randomly and turn it into signed int
-    fun ref i8(min: I8 = I8.min_value(), max: I8 = I8.max_value()): I8       =>
+    fun ref i8(min: I8 = I8.min_value(), max: I8 = I8.max_value()): I8 =>
         """
         generates a I8 in closed interval [min, max] (default: [min_value, max_value])
         """
         //Fact(min < max, "invalid range for i8")
         min + _random.int((max - min).u64()).i8()
 
-    fun ref i16(min: I16 = I16.min_value(), max: I16 = I16.max_value()): I16     =>
+    fun ref i16(min: I16 = I16.min_value(), max: I16 = I16.max_value()): I16 =>
         """
         generates a I16 in closed interval [min, max] (default: [min_value, max_value])
         """
         //Fact(min < max, "invalid range for i16")
         min + _random.int((max - min).u64()).i16()
 
-    fun ref i32(min: I32 = I32.min_value(), max: I32 = I32.max_value()): I32     =>
+    fun ref i32(min: I32 = I32.min_value(), max: I32 = I32.max_value()): I32 =>
         """
         generates a I32 in closed interval [min, max] (default: [min_value, max_value])
         """
         //Fact(min < max, "invalid range for i32")
         min + _random.int((max - min).u64()).i32()
 
-    fun ref i64(min: I64 = I64.min_value(), max: I64 = I64.max_value()): I64     =>
+    fun ref i64(min: I64 = I64.min_value(), max: I64 = I64.max_value()): I64 =>
         """
         generates a I64 in closed interval [min, max] (default: [min_value, max_value])
         """
@@ -181,7 +179,7 @@ trait box Generator[T]
         for each value of this generator create a generator that is then combined
         """
         FlatMappedGenerator[T, U](this, flatMapFn)
-*/
+    */
     fun box filter(predicate: {(T): (T^, Bool)} val): Generator[T] =>
         FilteredGenerator[T](this, predicate)
 
@@ -198,7 +196,6 @@ class val FlatMappedGenerator[T0, U0] is Generator[U0]
         _flatMapFn(_source.generate(rnd)).generate(rnd)
 
 class val MappedGenerator[T1, U1] is Generator[U1]
-
     let _source: Generator[T1] box
     let _mapFn: {(T1): U1^} val
 
@@ -210,7 +207,6 @@ class val MappedGenerator[T1, U1] is Generator[U1]
         _mapFn(_source.generate(rnd))
 */
 class box FilteredGenerator[T] is Generator[T]
-
     let _source: Generator[T] box
     let _predicate: {(T): (T^, Bool)} val
 
@@ -224,7 +220,6 @@ class box FilteredGenerator[T] is Generator[T]
             (t, matches) = _predicate(_source.generate(rnd))
         end
         consume t
-
 
 class box StaticGenerator[S] is Generator[box->S]
     let _value: S
@@ -266,7 +261,6 @@ class box OneOfGenerator[T] is Generator[box->T]
 type WeightedGenerator[T] is (USize, Generator[T] box)
 
 class box FrequencyGenerator[T] is Generator[T]
-
     let weightedGenerators: ReadSeq[WeightedGenerator[T]]
     let _emergencyGen: Generator[T] box
 
@@ -281,7 +275,8 @@ class box FrequencyGenerator[T] is Generator[T]
     fun box generate(rnd: Randomness): T^ =>
         let weightSum: USize = try
             Iter[WeightedGenerator[T]](weightedGenerators.values()).fold[USize](
-                {(acc: USize, weightedGen: WeightedGenerator[T]): USize => weightedGen._1 + acc},
+                {(acc: USize, weightedGen: WeightedGenerator[T]): USize => weightedGen._1 + acc
+                },
                 0
             )
         else
@@ -309,7 +304,6 @@ class box FrequencyGenerator[T] is Generator[T]
         end
 
 primitive Generators
-
     fun unit[T](t: T): Generator[box->T] =>
         StaticGenerator[T](consume t)
 
@@ -387,14 +381,18 @@ primitive Generators
         end
 
     fun u8(min: U8 = U8.min_value(), max: U8 = U8.max_value()): Generator[U8] =>
-        """create a generator for U8 values"""
+        """
+        create a generator for U8 values
+        """
         object is Generator[U8]
             fun box generate(rnd: Randomness): U8^ =>
                 rnd.u8(min, max)
         end
     
     fun u16(min: U16 = U16.min_value(), max: U16 = U16.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[U16] =>
-        """create a generator for U16 values"""
+        """
+        create a generator for U16 values
+        """
         object is Generator[U16]
             fun box generate(rnd: Randomness): U16^ =>
                 rnd.u16(
@@ -404,7 +402,9 @@ primitive Generators
         end
 
     fun u32(min: U32 = U32.min_value(), max: U32 = U32.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[U32] =>
-        """create a generator for U32 values"""
+        """
+        create a generator for U32 values
+        """
         object is Generator[U32]
             fun box generate(rnd: Randomness): U32^ =>
                 rnd.u32(
@@ -414,7 +414,9 @@ primitive Generators
         end
 
     fun u64(min: U64 = U64.min_value(), max: U64 = U64.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[U64] =>
-        """create a generator for U64 values"""
+        """
+        create a generator for U64 values
+        """
         object is Generator[U64]
             fun box generate(rnd: Randomness): U64^ =>
                 rnd.u64(
@@ -424,7 +426,9 @@ primitive Generators
         end
     
     fun u128(min: U128 = U128.min_value(), max: U128 = U128.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[U128] =>
-        """create a generator for U128 values"""
+        """
+        create a generator for U128 values
+        """
         object is Generator[U128]
             fun box generate(rnd: Randomness): U128^ =>
                 rnd.u128(
@@ -434,7 +438,9 @@ primitive Generators
         end
 
     fun uLong(min: ULong = ULong.min_value(), max: ULong = ULong.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[ULong] =>
-        """create a generator for ULong values"""
+        """
+        create a generator for ULong values
+        """
         object is Generator[ULong]
             fun box generate(rnd: Randomness): ULong^ =>
                 rnd.ulong(
@@ -444,7 +450,9 @@ primitive Generators
         end
 
     fun uSize(min: USize = USize.min_value(), max: USize = USize.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[USize] =>
-        """create a generator for USize values"""
+        """
+        create a generator for USize values
+        """
         object is Generator[USize]
             fun box generate(rnd: Randomness): USize^ =>
                 rnd.usize(
@@ -454,7 +462,9 @@ primitive Generators
         end
 
     fun i8(min: I8 = I8.min_value(), max: I8 = I8.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[I8] =>
-        """create a generator for I8 values"""
+        """
+        create a generator for I8 values
+        """
         object is Generator[I8]
             fun box generate(rnd: Randomness): I8^ =>
                 rnd.i8(
@@ -464,7 +474,9 @@ primitive Generators
         end
 
     fun i16(min: I16 = I16.min_value(), max: I16 = I16.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[I16] =>
-        """create a generator for I16 values"""
+        """
+        create a generator for I16 values
+        """
         object is Generator[I16]
             fun box generate(rnd: Randomness): I16^ =>
                 rnd.i16(
@@ -474,7 +486,9 @@ primitive Generators
         end
 
     fun i32(min: I32 = I32.min_value(), max: I32 = I32.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[I32] =>
-        """create a generator for I32 values"""
+        """
+        create a generator for I32 values
+        """
         object is Generator[I32]
             fun box generate(rnd: Randomness): I32^ =>
                 rnd.i32(
@@ -484,7 +498,9 @@ primitive Generators
         end
 
     fun i64(min: I64 = I64.min_value(), max: I64 = I64.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[I64] =>
-        """create a generator for I64 values"""
+        """
+        create a generator for I64 values
+        """
         object is Generator[I64]
             fun box generate(rnd: Randomness): I64^ =>
                 rnd.i64(
@@ -494,12 +510,16 @@ primitive Generators
         end
 /*
     fun i128(min: I128 = I128.min_value(), max: I128 = I128.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[I128] val =>
-        """create a generator for I128 values"""
+        """
+        create a generator for I128 values
+        """
         let range = NumericRange[I128].create(min, max, minInc, maxInc)
         NumericGenerator[I128](range, {(rnd: Randomness): I128 => rnd.i128()})
 */
     fun iLong(min: ILong = ILong.min_value(), max: ILong = ILong.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[ILong] val =>
-        """create a generator for ILong values"""
+        """
+        create a generator for ILong values
+        """
         object val is Generator[ILong]
             fun box generate(rnd: Randomness): ILong^ =>
                 rnd.ilong(
@@ -509,7 +529,9 @@ primitive Generators
         end
 
     fun iSize(min: ISize = ISize.min_value(), max: ISize = ISize.max_value(), minInc: Bool = true, maxInc: Bool = true): Generator[ISize] val =>
-        """create a generator for ISize values"""
+        """
+        create a generator for ISize values
+        """
         object val is Generator[ISize]
             fun box generate(rnd: Randomness): ISize^ =>
                 rnd.isize(
@@ -517,4 +539,3 @@ primitive Generators
                     if maxInc then max else max + 1 end
                 )
         end
-
