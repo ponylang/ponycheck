@@ -1,7 +1,7 @@
-
-use "ponycheck"
 use "ponytest"
 use "collections"
+use "../ponycheck"
+
 actor Main is TestList
     new create(env: Env) =>
         PonyTest(env, this)
