@@ -55,7 +55,6 @@ for reporting.
 """
 use "ponytest"
 
-
 class ForAll[T]
     let _gen: Generator[T]
     let _helper: TestHelper
@@ -65,9 +64,7 @@ class ForAll[T]
         _helper = testHelper
 
     fun apply(prop: {(T, PropertyHelper) ?} val) ? =>
-        """
-        execute
-        """
+        """execute"""
         let prop1 = object is Property1[T]
             fun name(): String => ""
             fun gen(): Generator[T] => _gen
@@ -75,7 +72,6 @@ class ForAll[T]
                 prop(consume arg1, h)
         end
         prop1.apply(_helper)
-
 
 primitive Ponycheck
     fun forAll[T](gen: Generator[T], h: TestHelper): ForAll[T] =>

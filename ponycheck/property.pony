@@ -145,8 +145,8 @@ primitive Stringifier
         """turn anything into a string"""
         let digest = (digestof t)
         let s = iftype T <: Stringable #read then
-          t.string()
+            t.string()
         else
-                "<identity:" + digest.string() + ">"
+            "<identity:" + digest.string() + ">"
         end
         (consume t, consume s)
