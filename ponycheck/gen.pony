@@ -16,8 +16,8 @@ class ref Randomness
     """
     let _random: Random
 
-    new ref create(seed: U64 = 42) =>
-        _random = Rand(seed)
+    new ref create(seed1: U64 = 42, seed2: U64 = 0) =>
+        _random = Rand(seed1, seed2)
 
     fun ref u8(min: U8 = U8.min_value(), max: U8 = U8.max_value()): U8 =>
         """
