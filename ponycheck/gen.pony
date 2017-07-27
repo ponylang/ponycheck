@@ -23,26 +23,40 @@ class ref Randomness
         """
         generates a U8 in closed interval [min, max] (default: [min_value, max_value])
         """
-        min + _random.int((max - min).u64() + 1).u8()
+        if (min == U8.min_value()) and (max == U8.max_value()) then
+            _random.u8()
+        else
+            min + _random.int((max - min).u64() + 1).u8()
+        end
 
     fun ref u16(min: U16 = U16.min_value(), max: U16 = U16.max_value()): U16 =>
         """
         generates a U16 in closed interval [min, max] (default: [min_value, max_value])
         """
-        min + _random.int((max - min).u64() + 1).u16()
+        if (min == U16.min_value()) and (max == U16.max_value()) then
+            _random.u16()
+        else
+            min + _random.int((max - min).u64() + 1).u16()
+        end
 
     fun ref u32(min: U32 = U32.min_value(), max: U32 = U32.max_value()): U32 =>
         """
         generates a U32 in closed interval [min, max] (default: [min_value, max_value])
         """
-        min + _random.int((max - min).u64() + 1).u32()
-    
+        if (min == U32.min_value()) and (max == U32.max_value()) then
+            _random.u32()
+        else
+            min + _random.int((max - min).u64() + 1).u32()
+        end
+
     fun ref u64(min: U64 = U64.min_value(), max: U64 = U64.max_value()): U64 =>
         """
         generates a U64 in closed interval [min, max] (default: [min_value, max_value])
         """
         // hacky way to get a U64 from for the full range
-        if min > U32.max_value().u64() then
+        if (min == U64.min_value()) and (max == U64.max_value()) then
+            _random.u64()
+        elseif min > U32.max_value().u64() then
             (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32) or _random.next()
         elseif max > U32.max_value().u64() then
             let high = (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32).u64()
@@ -61,7 +75,9 @@ class ref Randomness
         """
         generates a U128 in closed interval [min, max] (default: [min_value, max_value])
         """
-        if min > U64.max_value().u128() then
+        if (min == U128.min_value()) and (max == U128.max_value()) then
+            _random.u128()
+        elseif min > U64.max_value().u128() then
             // both above U64 range - chose random low 64 bits
             (u64((min >> 64).u64(), (max >> 64).u64()).u128() << 64) or u64().u128()
         elseif max > U64.max_value().u128() then
