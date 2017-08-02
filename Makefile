@@ -15,7 +15,7 @@ endif
 TEST_PROGRAM = test
 TEST_DEPS = $(shell ls $(SRCDIR)/test/*.pony)
 
-EXAMPLE_DEPS = $(shell ls $(EXAMPLES_DIR)/*.pony)
+EXAMPLES_DEPS = $(shell ls $(EXAMPLES_DIR)/*.pony)
 
 run_test: test
 	./test $(TESTFLAGS)
@@ -31,8 +31,9 @@ docs: FLAGS += --pass=docs --docs --output=docs
 docs: $(DEPS) $(TEST_DEPS)
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 
-example: $(EXAMPLE_DEPS)
+examples: $(EXAMPLES_DEPS)
 	cd examples && \
-	    CC=$(CC) $(PONYC) $(FLAGS)
+	    CC=$(CC) $(PONYC) $(FLAGS) . && \
+	    ./examples
 
-.PHONY: fetch
+.PHONY: examples fetch
