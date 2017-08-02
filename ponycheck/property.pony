@@ -79,7 +79,7 @@ trait Property1[T] is UnitTest
             // shrink before consuming ``sample`` with property
             (sample, var shrinks: Seq[T]) = _shrink(consume sample, generator)
             try
-                me.property(consume sample, helper)
+                me.property(consume sample, helper)?
             else
                 // report error with given sample
                 helper.reportError(sampleRepr, 0)
@@ -96,12 +96,12 @@ trait Property1[T] is UnitTest
                     0
                 end
                 while (shrinks.size() > shrinksToIgnore) and (shrinkRounds < parameters.maxShrinkRounds) do
-                    var failedShrink: T = shrinks.pop()
+                    var failedShrink: T = shrinks.pop()?
                     (failedShrink, let shrinkRepr: String) = _toString(consume failedShrink)
                     (failedShrink, let nextShrinks: Seq[T]) = _shrink(consume failedShrink, generator)
                     helper.reset()
                     try
-                        me.property(consume failedShrink, helper)
+                        me.property(consume failedShrink, helper)?
                     else
                         helper.reportError(shrinkRepr, shrinkRounds)
                         error

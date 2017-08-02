@@ -260,14 +260,14 @@ class box OneOfGenerator[T] is Generator[box->T]
     let _x: box->T
 
     new box create(xs': ReadSeq[T] box) ? =>
-        Fact(xs'.size() > 0, "empty sequence not supported by oneOf Generator")
+        Fact(xs'.size() > 0, "empty sequence not supported by oneOf Generator")?
         xs = xs'
-        _x = xs(0)
+        _x = xs(0)?
 
     fun box generate(rnd: Randomness): box->T =>
         let idx = rnd.usize(0, xs.size()-1)
         try
-            xs(idx)
+            xs(idx)?
         else
             // nasty hack to avoid the 'theoretical' error case
             // which should not happen, as we compute index by taking the size
@@ -284,9 +284,9 @@ class box FrequencyGenerator[T] is Generator[T]
         let filtered = Iter[WeightedGenerator[T]](weightedGenerators'.values())
             .filter({(weightedGen: WeightedGenerator[T]): Bool => weightedGen._1 > 0 })
             .collect(Array[WeightedGenerator[T]])
-        Fact(filtered.size() > 0, "no generators with weight > 0 given")
+        Fact(filtered.size() > 0, "no generators with weight > 0 given")?
         weightedGenerators = filtered
-        _emergencyGen = filtered(0)._2
+        _emergencyGen = filtered(0)?._2
 
     fun box generate(rnd: Randomness): T^ =>
         let weightSum: USize = try
@@ -294,7 +294,7 @@ class box FrequencyGenerator[T] is Generator[T]
                 {(acc: USize, weightedGen: WeightedGenerator[T]): USize => weightedGen._1 + acc
                 },
                 0
-            )
+            )?
         else
             0
         end
@@ -379,10 +379,10 @@ primitive Generators
         the one-of generator needs to return ``None`` in the theoretical case
         which will never happen
         """
-        OneOfGenerator[T](xs)
+        OneOfGenerator[T](xs)?
 
     fun frequency[T](weightedGenerators: ReadSeq[WeightedGenerator[T]] box): Generator[T] ? =>
-        FrequencyGenerator[T](weightedGenerators)
+        FrequencyGenerator[T](weightedGenerators)?
 
     fun zip2[T1, T2](gen1: Generator[T1], gen2: Generator[T2]): Generator[(T1, T2)] =>
         object is Generator[(T1, T2)]

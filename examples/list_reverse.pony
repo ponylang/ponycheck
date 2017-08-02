@@ -39,9 +39,9 @@ class _ListReverseMultipleProperties is UnitTest
         Ponycheck.forAll[List[USize]](gen1, h)({
             (arg1: List[USize], ph: PropertyHelper) =>
                 ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
-        })
+        })?
         let gen2 = Generators.listOfN[USize](1, Generators.uSize())
         Ponycheck.forAll[List[USize]](gen2, h)({
             (arg1: List[USize], ph: PropertyHelper) =>
                 ph.assert_array_eq[USize](arg1, arg1.reverse())
-        })
+        })?
