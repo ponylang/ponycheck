@@ -51,12 +51,12 @@ class GenFrequencyTest is UnitTest
                 (1, Generators.unit[U8](0))
                 (0, Generators.unit[U8](42))
                 (2, Generators.unit[U8](1))
-            ])
+            ])?
             let rnd: Randomness ref = Randomness(456)
 
             let generated = Array[U8](100)
             for i in Range(0, 100) do
-                generated(i) = gen.generate(rnd)
+                generated(i)? = gen.generate(rnd)
             end
             h.assert_false(generated.contains(U8(42)), "frequency generated value with 0 weight")
             h.assert_true(generated.contains(U8(0)), "frequency did not generate value with weight of 1")

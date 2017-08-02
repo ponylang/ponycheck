@@ -69,9 +69,9 @@ class ForAll[T]
             fun name(): String => ""
             fun gen(): Generator[T] => _gen
             fun property(arg1: T, h: PropertyHelper) ? =>
-                prop(consume arg1, h)
+                prop(consume arg1, h)?
         end
-        prop1.apply(_helper)
+        prop1.apply(_helper)?
 
 primitive Ponycheck
     fun forAll[T](gen: Generator[T], h: TestHelper): ForAll[T] =>

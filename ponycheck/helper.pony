@@ -56,7 +56,7 @@ class ref PropertyHelper
         Assert that the given test function throws an error when run.
         """
         try
-          test()
+          test()?
           _fail(_fmt_msg(loc, "Assert error failed. " + msg))
           false
         else
@@ -69,7 +69,7 @@ class ref PropertyHelper
         Assert that the given test function does not throw an error when run.
         """
         try
-          test()
+          test()?
           _th.log(_fmt_msg(loc, "Assert no error passed. " + msg), true)
           true
         else
@@ -170,7 +170,7 @@ class ref PropertyHelper
           try
             var i: USize = 0
             while i < expect.size() do
-              if expect(i) != actual(i) then
+              if expect(i)? != actual(i)? then
                 ok = false
                 break
               end
@@ -210,9 +210,9 @@ class ref PropertyHelper
         var i: USize = -1
         for a in actual.values() do
           i = i + 1
-          if consumed(i) then continue end
+          if consumed(i)? then continue end
           if e == a then
-            consumed.update(i, true)
+            consumed.update(i, true)?
             found = true
             break
           end
@@ -224,7 +224,7 @@ class ref PropertyHelper
 
       let extra = Array[box->A]
       for (i, c) in consumed.pairs() do
-        if not c then extra.push(actual(i)) end
+        if not c then extra.push(actual(i)?) end
       end
 
       if (extra.size() != 0) or (missing.size() != 0) then
