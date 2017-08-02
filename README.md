@@ -15,9 +15,14 @@ Property based testing for ponylang (>= 0.16.0).
 * **T-E-S-T-I-N-G !!!**
 
 
-### Usage 
+## Usage
 
-**By example:**
+Ponycheck comes in two flavors:
+
+* by implementing the trait ``Property1[T]``
+* by using the ``Ponycheck.forAll`` method in a ``UnitTest``
+
+### Using Property1
 
 The classical List reverse properties from the quickcheck paper:
 
@@ -46,7 +51,9 @@ class ListReverseOneProperty is Property1[List[USize]]
 
 ```
 
-Ponycheck comes in two flavors. It is also possible to run multiple properties 
+### Using Ponycheck.forAll
+
+It is also possible to verify any number of properties
 within one ``UnitTest`` using the ``forAll`` syntax:
 
 ```pony
