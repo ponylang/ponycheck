@@ -9,12 +9,12 @@ use "ponycheck"
 
 class ListReverseProperty is Property1[List[USize]]
 
-    fun name(): String => "list/reverse"
+  fun name(): String => "list/reverse"
 
-    fun gen(): Generator[List[USize]] => Generators.listOf[USize](Generators.uSize())
+  fun gen(): Generator[List[USize]] => Generators.listOf[USize](Generators.uSize())
 
-    fun property(arg1: List[USize], ph: PropertyHelper) =>
-        ph.array_eq[Usize](arg1, arg1.reverse().reverse())
+  fun property(arg1: List[USize], ph: PropertyHelper) =>
+    ph.array_eq[Usize](arg1, arg1.reverse().reverse())
 
 ```
 
@@ -33,14 +33,14 @@ There is a second flavour to ponycheck, we didn't talk about, yet:
 
 ```pony
 class ListReversePropertyWithinAUnitTest is UnitTest
-    fun name(): String => "list/reverse/forall"
+  fun name(): String => "list/reverse/forall"
 
-    fun apply(h: TestHelper) =>
-        let gen = Generators.listOf[USize](Generators.uSize())
-        Ponycheck.forAll[List[USize]](gen, h)({(sample: List[USize], ph: PropertyHelper) =>
-            ph.array_eq[Usize](arg1, arg1.reverse().reverse())
-        })
-        // ... possibly more properties, using ``Ponycheck.forAll``
+  fun apply(h: TestHelper) =>
+    let gen = Generators.listOf[USize](Generators.uSize())
+    Ponycheck.forAll[List[USize]](gen, h)({(sample: List[USize], ph: PropertyHelper) =>
+      ph.array_eq[Usize](arg1, arg1.reverse().reverse())
+    })
+    // ... possibly more properties, using ``Ponycheck.forAll``
 ```
 
 
@@ -56,39 +56,43 @@ for reporting.
 use "ponytest"
 
 class ForAll[T]
-    let _gen: Generator[T]
-    let _helper: TestHelper
+  let _gen: Generator[T]
+  let _helper: TestHelper
 
-    new create(gen': Generator[T], testHelper: TestHelper) =>
-        _gen = gen'
-        _helper = testHelper
+  new create(gen': Generator[T], testHelper: TestHelper) =>
+    _gen = gen'
+    _helper = testHelper
 
-    fun apply(prop: {(T, PropertyHelper) ?} val) ? =>
-        """execute"""
-        let prop1 = object is Property1[T]
-            fun name(): String => ""
-            fun gen(): Generator[T] => _gen
-            fun property(arg1: T, h: PropertyHelper) ? =>
-                prop(consume arg1, h)?
-        end
-        prop1.apply(_helper)?
+  fun apply(prop: {(T, PropertyHelper) ?} val) ? =>
+    """execute"""
+    let prop1 =
+      object is Property1[T]
+        fun name(): String => ""
+
+        fun gen(): Generator[T] => _gen
+
+        fun property(arg1: T, h: PropertyHelper) ? =>
+          prop(consume arg1, h)?
+      end
+    prop1.apply(_helper)?
 
 primitive Ponycheck
-    fun forAll[T](gen: Generator[T], h: TestHelper): ForAll[T] =>
-        """
-        convenience method for running 1 to many properties as part of
-        one ponytest UnitTest.
+  fun forAll[T](gen: Generator[T], h: TestHelper): ForAll[T] =>
+    """
+    convenience method for running 1 to many properties as part of
+    one ponytest UnitTest.
 
-        Example:
+    Example:
 
-        class MyTestWithSomeProperties is UnitTest
-            fun name(): String => "mytest/withMultipleProperties"
+      class MyTestWithSomeProperties is UnitTest
+        fun name(): String => "mytest/withMultipleProperties"
 
-            fun apply(h: TestHelper) =>
-                Ponycheck.forAll[U8](Generators.unit[U8](0), h)({(u: U8, h: PropertyHelper): U8^ =>
-                    h.assert_eq(u, 0)
-                    consume u
-                })
-        """
-        ForAll[T](gen, h)
+        fun apply(h: TestHelper) =>
+          Ponycheck.forAll[U8](Generators.unit[U8](0), h)
+            ({(u: U8, h: PropertyHelper): U8^ =>
+              h.assert_eq(u, 0)
+              consume u
+            })
+    """
+    ForAll[T](gen, h)
 
