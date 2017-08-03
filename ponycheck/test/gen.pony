@@ -50,8 +50,8 @@ class GenFrequencyTest is UnitTest
     from different with given frequency
     """
     try
-      let gen = Generators.frequency[U8](
-        [ as WeightedGenerator[U8]:
+      let gen = Generators.frequency[U8]([
+         as WeightedGenerator[U8]:
           (1, Generators.unit[U8](0))
           (0, Generators.unit[U8](42))
           (2, Generators.unit[U8](1)) ])?
