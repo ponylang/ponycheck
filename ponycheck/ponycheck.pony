@@ -8,14 +8,13 @@ use "collections"
 use "ponycheck"
 
 class ListReverseProperty is Property1[List[USize]]
-
   fun name(): String => "list/reverse"
 
-  fun gen(): Generator[List[USize]] => Generators.listOf[USize](Generators.uSize())
+  fun gen(): Generator[List[USize]] =>
+    Generators.list_of[USize](Generators.usize())
 
   fun property(arg1: List[USize], ph: PropertyHelper) =>
-    ph.array_eq[Usize](arg1, arg1.reverse().reverse())
-
+    ph.array_eq[USize](arg1, arg1.reverse().reverse())
 ```
 
 A property based test in ponytest consists of the following:
@@ -37,10 +36,11 @@ class ListReversePropertyWithinAUnitTest is UnitTest
 
   fun apply(h: TestHelper) =>
     let gen = Generators.listOf[USize](Generators.uSize())
-    Ponycheck.forAll[List[USize]](gen, h)({(sample: List[USize], ph: PropertyHelper) =>
-      ph.array_eq[Usize](arg1, arg1.reverse().reverse())
-    })
-    // ... possibly more properties, using ``Ponycheck.forAll``
+    Ponycheck.forAll[List[USize]](gen, h)(
+      {(sample: List[USize], ph: PropertyHelper) =>
+        ph.array_eq[Usize](arg1, arg1.reverse().reverse())
+      })
+    // ... possibly more properties, using ``Ponycheck.for_all``
 ```
 
 
