@@ -71,22 +71,23 @@ primitive Generators
           f()
       end)
 
-  fun seq_of[T, S: Seq[T] ref = Array[T]](
+  fun seq_of[T, S: Seq[T] ref](
     gen: Generator[T],
     min: USize = 0,
     max: USize = 100)
-    : Generator[Seq[T]]
+    : Generator[S]
   =>
     """
     Create a list from the given Generator with an optional minimum and
     maximum size, defaults are 0 and 100 respectively.
     """
-    Generator[Seq[T]](
-      object is GenObj[Seq[T]]
-        fun generate(rnd: Randomness): Seq[T]^ =>
+    Generator[S](
+      object is GenObj[S]
+        fun generate(rnd: Randomness): S^ =>
+          let size = rnd.usize(min, max)
           Iter[T^](gen.iter(rnd))
-            .take(rnd.usize(min, max))
-            .collect[S](S(rnd.usize(0, max)))
+            .take(size)
+            .collect[S](S.create(size))
       end)
 
   fun one_of[T](xs: ReadSeq[T]): Generator[box->T] ? =>
@@ -113,8 +114,8 @@ primitive Generators
     let filtered =
       Iter[WeightedGenerator[T]](weighted_generators.values())
         .filter(
-          {(weightedGen: WeightedGenerator[T]): Bool =>
-            weightedGen._1 > 0
+          {(weighted_gen: WeightedGenerator[T]): Bool =>
+            weighted_gen._1 > 0
           })
         .collect(Array[WeightedGenerator[T]])
 
@@ -129,8 +130,8 @@ primitive Generators
           try
             Iter[WeightedGenerator[T]](filtered.values())
               .fold[USize](
-                {(acc: USize, weightedGen: WeightedGenerator[T]): USize =>
-                  weightedGen._1 + acc
+                {(acc: USize, weighted_gen: WeightedGenerator[T]): USize =>
+                  weighted_gen._1 + acc
                 },
                 0)?
           else
@@ -138,7 +139,7 @@ primitive Generators
           end
           let desired_sum = rnd.usize(0, weight_sum)
           var running_sum: USize = 0
-          var chosen: (Generator[T] box| None) = None
+          var chosen: (Generator[T] | None) = None
           for weighted_gen in filtered.values() do
             let new_sum = running_sum + weighted_gen._1
             if (running_sum < desired_sum) and (desired_sum <= new_sum) then

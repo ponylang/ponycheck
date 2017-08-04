@@ -1,5 +1,7 @@
 use "ponytest"
 
+// TODO append strings instead of add
+
 interface FailureCallback
   """something to call in case of error"""
   fun fail(msg: String)
@@ -324,15 +326,13 @@ class ref PropertyHelper
   fun tag _format_params(params: PropertyParams): String =>
     "Params(seed=" + params.seed.string() + ")"
 
-
   fun reportSuccess() =>
     """
     report success to the property test runner
     """
 
-
-  fun reportError(sampleRepr: String,
-    shrinkRounds: USize = 0,
+  fun reportError(sample_repr: String,
+    shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
     report an error that happened during property evaluation
@@ -341,16 +341,16 @@ class ref PropertyHelper
       _fmt_msg(
         loc,
         "Property errored for sample "
-          + sampleRepr
+          + sample_repr
           + " (after "
-          + shrinkRounds.string()
+          + shrink_rounds.string()
           + " shrinks)"
       ),
       false
     )
 
-  fun reportFailed[T](sampleRepr: String,
-    shrinkRounds: USize = 0,
+  fun reportFailed[T](sample_repr: String,
+    shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
     report a failed property
@@ -359,9 +359,9 @@ class ref PropertyHelper
       _fmt_msg(
         loc,
         "Property failed for sample "
-          + sampleRepr
+          + sample_repr
           + " (after "
-          + shrinkRounds.string()
+          + shrink_rounds.string()
           + " shrinks)"
       )
     )

@@ -6,23 +6,23 @@ class PropertyParams
   parameters for Property Execution
 
   * seed: the seed for the source of Randomness
-  * numSamples: the number of samples to produce from the property generator
-  * maxShrinkRounds: the maximum rounds of shrinking to perform
-  * maxShrinkSamples: the maximum number of shrunken samples to consider in 1 shrink round
+  * num_samples: the number of samples to produce from the property generator
+  * max_shrink_rounds: the maximum rounds of shrinking to perform
+  * max_shrink_samples: the maximum number of shrunken samples to consider in 1 shrink round
   """
   let seed: U64
-  let numSamples: USize
-  let maxShrinkRounds: USize
-  let maxShrinkSamples: USize
+  let num_samples: USize
+  let max_shrink_rounds: USize
+  let max_shrink_samples: USize
 
-  new create(numSamples': USize = 100,
+  new create(num_samples': USize = 100,
     seed': U64 = 42,
-    maxShrinkRounds': USize = 10,
-    maxShrinkSamples': USize = 100) =>
-    numSamples = numSamples'
+    max_shrink_rounds': USize = 10,
+    max_shrink_samples': USize = 100) =>
+    num_samples = num_samples'
     seed = seed'
-    maxShrinkRounds = maxShrinkRounds'
-    maxShrinkSamples = maxShrinkSamples'
+    max_shrink_rounds = max_shrink_rounds'
+    max_shrink_samples = max_shrink_samples'
 
 
 trait Property1[T] is UnitTest
@@ -45,7 +45,7 @@ trait Property1[T] is UnitTest
   from the ``params()`` method.
 
   The ``gen()`` method is called exactly once to instantiate the generator.
-  The generator produces ``PropertyParams.numSamples`` samples and each is
+  The generator produces ``PropertyParams.num_samples`` samples and each is
   passed to the ``property`` method for verification.
 
   If the property did not verify, the given sample is shrunken, if the generator
@@ -71,51 +71,54 @@ trait Property1[T] is UnitTest
     let helper: PropertyHelper ref = PropertyHelper(parameters, h)
     let generator: Generator[T] = gen()
     let me: Property1[T] = this
-    for i in Range[USize].create(0, parameters.numSamples) do
+    for i in Range[USize].create(0, parameters.num_samples) do
       var sample: T = generator.generate(rnd)
 
       // create a string representation before consuming ``sample`` with property
-      (sample, var sampleRepr: String) = _toString(consume sample)
+      (sample, var sample_repr: String) = _to_string(consume sample)
       // shrink before consuming ``sample`` with property
       (sample, var shrinks: Seq[T]) = _shrink(consume sample, generator)
       try
         me.property(consume sample, helper)?
       else
         // report error with given sample
-        helper.reportError(sampleRepr, 0)
+        helper.reportError(sample_repr, 0)
         error
       end
       if helper.failed() then
-        var shrinkRounds: USize = 0
-        let numShrinks = shrinks.size()
+        var shrink_rounds: USize = 0
+        let num_shrinks = shrinks.size()
 
         // safeguard against generators that generate huge or even infinite shrink seqs
-        let shrinksToIgnore =
-          if numShrinks > parameters.maxShrinkSamples then
-            numShrinks - parameters.maxShrinkSamples
+        let shrinks_to_ignore =
+          if num_shrinks > parameters.max_shrink_samples then
+            num_shrinks - parameters.max_shrink_samples
           else
             0
           end
-        while (shrinks.size() > shrinksToIgnore) and (shrinkRounds < parameters.maxShrinkRounds) do
+        while
+          (shrinks.size() > shrinks_to_ignore)
+            and (shrink_rounds < parameters.max_shrink_rounds)
+        do
           var failedShrink: T = shrinks.pop()?
-          (failedShrink, let shrinkRepr: String) = _toString(consume failedShrink)
-          (failedShrink, let nextShrinks: Seq[T]) = _shrink(consume failedShrink, generator)
+          (failedShrink, let shrink_repr: String) = _to_string(consume failedShrink)
+          (failedShrink, let next_shrinks: Seq[T]) = _shrink(consume failedShrink, generator)
           helper.reset()
           try
             me.property(consume failedShrink, helper)?
           else
-            helper.reportError(shrinkRepr, shrinkRounds)
+            helper.reportError(shrink_repr, shrink_rounds)
             error
           end
           if helper.failed() then
             // we have a failing shrink sample
-            shrinkRounds = shrinkRounds + 1
-            shrinks = consume nextShrinks
-            sampleRepr = shrinkRepr
+            shrink_rounds = shrink_rounds + 1
+            shrinks = consume next_shrinks
+            sample_repr = shrink_repr
             continue
           end
         end
-        helper.reportFailed[T](sampleRepr, shrinkRounds)
+        helper.reportFailed[T](sample_repr, shrink_rounds)
         break
       end
     end
@@ -123,7 +126,7 @@ trait Property1[T] is UnitTest
       helper.reportSuccess()
     end
 
-  fun ref _toString(sample: T): (T^, String) =>
+  fun ref _to_string(sample: T): (T^, String) =>
     """
     format the given sample to a string representation,
     use digestof if nothing else is available
