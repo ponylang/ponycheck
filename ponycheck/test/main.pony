@@ -8,6 +8,8 @@ actor Main is TestList
   fun tag tests(test: PonyTest) =>
     test(GenRndTest)
     test(GenFilterTest)
+    test(GenFrequencyTest)
+    test(SetOfTest)
     test(PropertyAsUnitTest)
     test(FailingPropertyAsUnitTest)
     test(ErroringPropertyAsUnitTest)

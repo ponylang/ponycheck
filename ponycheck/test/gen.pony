@@ -59,7 +59,7 @@ class GenFrequencyTest is UnitTest
 
       let generated = Array[U8](100)
       for i in Range(0, 100) do
-        generated(i)? = gen.generate(rnd)
+        generated.push(gen.generate(rnd))
       end
       h.assert_false(generated.contains(U8(42)), "frequency generated value with 0 weight")
       h.assert_true(generated.contains(U8(0)), "frequency did not generate value with weight of 1")
@@ -67,3 +67,20 @@ class GenFrequencyTest is UnitTest
     else
       h.fail("error creating frequency generator")
     end
+
+class SetOfTest is UnitTest
+  fun name(): String => "Gen/set_of"
+
+  fun apply(h: TestHelper) =>
+    """
+    this mainly tests that a source generator with a smaller range
+    than max is terminating and generating sane sets
+    """
+    let set_gen =
+      Generators.set_of[U8](
+        Generators.u8(),
+        1024)
+    let rnd = Randomness(789)
+    let sample: Set[U8] = set_gen.generate(rnd)
+    h.assert_true(sample.size() <= 256, "something about U8 is not right")
+

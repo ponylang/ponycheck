@@ -116,6 +116,37 @@ primitive Generators
             .collect[S](S.create(size))
       end)
 
+  fun set_of[T: (Hashable #read & Equatable[T] #read)](
+    gen: Generator[T],
+    max: USize = 100)
+    : Generator[Set[T]]
+  =>
+    """
+    Create a generator for sets filled with values
+    of the given generator ``gen``.
+    The returned sets will have a size between ``min`` and ``max``
+    but tend to have fewer than ``max``
+    depending on the feeding generator ``gen``.
+
+    E.g. if the given generator is for ``U8`` values and ``max`` is set to 1024
+    the set will only ever be of size 256 max.
+
+    Also for efficiency purposes and to not loop forever
+    this generator will only try to add at most ``max`` values to the set.
+    If there are duplicates, the set won't grow.
+    """
+    Generator[Set[T]](
+      object is GenObj[Set[T]]
+        fun generate(rnd: Randomness): Set[T]^ =>
+          let size = rnd.usize(0, max)
+          let set = Set[T](size)
+          for i in Range(0, size) do
+            set.set(gen.generate(rnd))
+          end
+          consume set
+      end)
+
+
   fun one_of[T](xs: ReadSeq[T]): Generator[box->T] ? =>
     """
     Generate a random value from the given ReadSeq. An error will be thrown
