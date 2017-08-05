@@ -168,6 +168,35 @@ primitive Generators
           (gen1.generate(rnd), gen2.generate(rnd))
         end)
 
+  fun zip3[T1, T2, T3](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3])
+    : Generator[(T1, T2, T3)]
+  =>
+    Generator[(T1, T2, T3)](
+      object is GenObj[(T1, T2, T3)]
+        fun generate(rnd: Randomness): (T1^, T2^, T3^) =>
+          (gen1.generate(rnd), gen2.generate(rnd), gen3.generate(rnd))
+        end)
+
+  fun zip4[T1, T2, T3, T4](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    gen4: Generator[T4])
+    : Generator[(T1, T2, T3, T4)]
+  =>
+    Generator[(T1, T2, T3, T4)](
+      object is GenObj[(T1, T2, T3, T4)]
+        fun generate(rnd: Randomness): (T1^, T2^, T3^, T4^) =>
+          (gen1.generate(rnd),
+            gen2.generate(rnd),
+            gen3.generate(rnd),
+            gen4.generate(rnd))
+        end)
+
+
   fun bool(): Generator[Bool] =>
     Generator[Bool](
       object is GenObj[Bool]
