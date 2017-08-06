@@ -124,7 +124,7 @@ primitive Generators
     """
     Create a generator for sets filled with values
     of the given generator ``gen``.
-    The returned sets will have a size between ``min`` and ``max``
+    The returned sets will have a size up to ``max``
     but tend to have fewer than ``max``
     depending on the feeding generator ``gen``.
 
