@@ -140,9 +140,9 @@ primitive Generators
         fun generate(rnd: Randomness): Set[T]^ =>
           let size = rnd.usize(0, max)
           let set = Set[T](size)
-          for i in Range(0, size) do
-            set.set(gen.generate(rnd))
-          end
+          set.union(
+            Iter[T^](gen.iter(rnd))
+              .take(size))
           consume set
       end)
 
@@ -170,9 +170,9 @@ primitive Generators
         fun generate(rnd: Randomness): SetIs[T]^ =>
           let size = rnd.usize(0, max)
           let set = SetIs[T](size)
-          for i in Range(0, size) do
-            set.set(gen.generate(rnd))
-          end
+          set.union(
+            Iter[T^](gen.iter(rnd))
+              .take(size))
           consume set
       end)
 
