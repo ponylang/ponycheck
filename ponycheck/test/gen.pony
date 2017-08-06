@@ -2,6 +2,8 @@ use "ponytest"
 use ".."
 use "collections"
 use "itertools"
+use "random"
+use "time"
 
 class GenRndTest is UnitTest
   fun name(): String => "Gen/random_behaviour"
@@ -35,7 +37,7 @@ class GenFilterTest is UnitTest
       (u: U32^): (U32^, Bool) =>
         (u, (u%2) == 0)
     })
-    let rnd = Randomness(123)
+    let rnd = Randomness(Time.millis())
     for x in Range(0, 100) do
       let v = gen.generate(rnd)
       h.assert_true((v%2) == 0)
@@ -55,7 +57,7 @@ class GenFrequencyTest is UnitTest
           (1, Generators.unit[U8](0))
           (0, Generators.unit[U8](42))
           (2, Generators.unit[U8](1)) ])?
-      let rnd: Randomness ref = Randomness(456)
+      let rnd: Randomness ref = Randomness(Time.millis())
 
       let generated = Array[U8](100)
       for i in Range(0, 100) do
@@ -80,7 +82,167 @@ class SetOfTest is UnitTest
       Generators.set_of[U8](
         Generators.u8(),
         1024)
-    let rnd = Randomness(789)
-    let sample: Set[U8] = set_gen.generate(rnd)
-    h.assert_true(sample.size() <= 256, "something about U8 is not right")
+    let rnd = Randomness(Time.millis())
+    for i in Range(0, 100) do
+      let sample: Set[U8] = set_gen.generate(rnd)
+      h.assert_true(sample.size() <= 256, "something about U8 is not right")
+    end
+
+class SetOfMaxTest is UnitTest
+  fun name(): String => "Gen/set_of_max"
+
+  fun apply(h: TestHelper) =>
+    """
+    """
+    let rnd = Randomness(Time.millis())
+    for size in Range[USize](1, U8.max_value().usize()) do
+      let set_gen =
+        Generators.set_of[U8](
+          Generators.u8(),
+          size)
+      let sample: Set[U8] = set_gen.generate(rnd)
+      h.assert_true(sample.size() <= size, "generated set is too big.")
+    end
+
+
+class SetOfEmptyTest is UnitTest
+  fun name(): String => "Gen/set_of_empty"
+
+  fun apply(h: TestHelper) =>
+    """
+    """
+    let set_gen =
+      Generators.set_of[U8](
+        Generators.u8(),
+        0)
+    let rnd = Randomness(Time.millis())
+    for i in Range(0, 100) do
+      let sample: Set[U8] = set_gen.generate(rnd)
+      h.assert_true(sample.size() == 0, "non-empty set created.")
+    end
+
+class SetIsOfIdentityTest is UnitTest
+  fun name(): String => "Gen/set_is_of_identity"
+  fun apply(h: TestHelper) =>
+    """
+    """
+    let set_is_gen_same =
+      Generators.set_is_of[String](
+        Generators.unit[String]("the highlander"),
+        100)
+    let rnd = Randomness(Time.millis())
+    let sample: SetIs[String] = set_is_gen_same.generate(rnd)
+    h.assert_true(sample.size() <= 1,
+        "invalid SetIs instances generated: size " + sample.size().string())
+
+class MapOfEmptyTest is UnitTest
+  fun name(): String => "Gen/map_of_empty"
+
+  fun apply(h: TestHelper) =>
+    """
+    """
+    let map_gen =
+      Generators.map_of[String, I64](
+        Generators.zip2[String, I64](
+          Generators.u8().map[String]({(u: U8): String^ =>
+            let s = u.string()
+            consume s }),
+          Generators.i64(-10, 10)
+          ),
+        0)
+    let rnd = Randomness(Time.millis())
+    let sample = map_gen.generate(rnd)
+    h.assert_eq[USize](sample.size(), 0, "non-empty map created")
+
+class MapOfMaxTest is UnitTest
+  fun name(): String => "Gen/map_of_max"
+
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+
+    for size in Range(1, U8.max_value().usize()) do
+      let map_gen =
+        Generators.map_of[String, I64](
+          Generators.zip2[String, I64](
+            Generators.u16().map[String]({(u: U16): String^ =>
+              let s = u.string()
+              consume s }),
+            Generators.i64(-10, 10)
+            ),
+        size)
+      let sample = map_gen.generate(rnd)
+      h.assert_true(sample.size() <= size, "generated map is too big.")
+    end
+
+class MapOfIdentityTest is UnitTest
+  fun name(): String => "Gen/map_of_identity"
+
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+    let map_gen =
+      Generators.map_of[String, I64](
+        Generators.zip2[String, I64](
+          Generators.repeatedly[String]({(): String^ =>
+            let s = recover String.create(14) end
+            s.add("the highlander")
+            consume s }),
+          Generators.i64(-10, 10)
+          ),
+      100)
+    let sample = map_gen.generate(rnd)
+    h.assert_true(sample.size() <= 1)
+
+class MapIsOfEmptyTest is UnitTest
+  fun name(): String => "Gen/map_is_of_empty"
+
+  fun apply(h: TestHelper) =>
+    """
+    """
+    let map_is_gen =
+      Generators.map_is_of[String, I64](
+        Generators.zip2[String, I64](
+          Generators.u8().map[String]({(u: U8): String^ =>
+            let s = u.string()
+            consume s }),
+          Generators.i64(-10, 10)
+          ),
+        0)
+    let rnd = Randomness(Time.millis())
+    let sample = map_is_gen.generate(rnd)
+    h.assert_eq[USize](sample.size(), 0, "non-empty map created")
+
+class MapIsOfMaxTest is UnitTest
+  fun name(): String => "Gen/map_is_of_max"
+
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+
+    for size in Range(1, U8.max_value().usize()) do
+      let map_is_gen =
+        Generators.map_is_of[String, I64](
+          Generators.zip2[String, I64](
+            Generators.u16().map[String]({(u: U16): String^ =>
+              let s = u.string()
+              consume s }),
+            Generators.i64(-10, 10)
+            ),
+        size)
+      let sample = map_is_gen.generate(rnd)
+      h.assert_true(sample.size() <= size, "generated map is too big.")
+    end
+
+class MapIsOfIdentityTest is UnitTest
+  fun name(): String => "Gen/map_is_of_identity"
+
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+    let map_gen =
+      Generators.map_is_of[String, I64](
+        Generators.zip2[String, I64](
+          Generators.unit[String]("the highlander"),
+          Generators.i64(-10, 10)
+          ),
+      100)
+    let sample = map_gen.generate(rnd)
+    h.assert_true(sample.size() <= 1)
 

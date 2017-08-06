@@ -122,11 +122,11 @@ primitive Generators
     : Generator[Set[T]]
   =>
     """
-    Create a generator for sets filled with values
+    Create a generator for ``Set`` filled with values
     of the given generator ``gen``.
     The returned sets will have a size up to ``max``
     but tend to have fewer than ``max``
-    depending on the feeding generator ``gen``.
+    depending on the source generator ``gen``.
 
     E.g. if the given generator is for ``U8`` values and ``max`` is set to 1024
     the set will only ever be of size 256 max.
@@ -144,6 +144,86 @@ primitive Generators
             set.set(gen.generate(rnd))
           end
           consume set
+      end)
+
+  fun set_is_of[T](
+    gen: Generator[T],
+    max: USize = 100)
+    : Generator[SetIs[T]]
+  =>
+    """
+    Create a generator for ``SetIs`` filled with values
+    of the given generator ``gen``.
+    The returned ``SetIs`` will have a size up to ``max``
+    but tend to have fewer entries
+    depending on the source generator ``gen``.
+
+    E.g. if the given generator is for ``U8`` values and ``max`` is set to 1024
+    the set will only ever be of size 256 max.
+
+    Also for efficiency purposes and to not loop forever
+    this generator will only try to add at most ``max`` values to the set.
+    If there are duplicates, the set won't grow.
+    """
+    Generator[SetIs[T]](
+      object is GenObj[SetIs[T]]
+        fun generate(rnd: Randomness): SetIs[T]^ =>
+          let size = rnd.usize(0, max)
+          let set = SetIs[T](size)
+          for i in Range(0, size) do
+            set.set(gen.generate(rnd))
+          end
+          consume set
+      end)
+
+  fun map_of[K: (Hashable #read & Equatable[K] #read), V](
+    gen: Generator[(K, V)],
+    max: USize = 100)
+    : Generator[Map[K, V]]
+  =>
+    """
+    Create a generator for ``Map`` from a generator of key-value tuples.
+    The generated maps will have a size up to ``max``
+    but tend to have fewer entries depending on the source generator ``gen``.
+
+    If the generator generates key-value pairs with
+    duplicate keys (based on structural equality)
+    the pair that is generated later will overwrite earlier entries in the map.
+    """
+    Generator[Map[K, V]](
+      object is GenObj[Map[K, V]]
+        fun generate(rnd: Randomness): Map[K, V]^ =>
+          let size = rnd.usize(0, max)
+          let map = Map[K, V].create(size)
+          map.concat(
+            Iter[(K^, V^)](gen.iter(rnd))
+              .take(size))
+          consume map
+      end)
+
+  fun map_is_of[K, V](
+    gen: Generator[(K, V)],
+    max: USize = 100)
+    : Generator[MapIs[K, V]]
+  =>
+    """
+    Create a generator for ``MapIs`` from a generator of key-value tuples.
+    The generated maps will have a size up to ``max``
+    but tend to have fewer entries depending on the source generator ``gen``.
+
+    If the generator generates key-value pairs with
+    duplicate keys (based on identity)
+    the pair that is generated later will overwrite earlier entries in the map.
+    """
+    Generator[MapIs[K, V]](
+      object is GenObj[MapIs[K, V]]
+        fun generate(rnd: Randomness): MapIs[K, V]^ =>
+          let size = rnd.usize(0, max)
+          let map = MapIs[K, V].create(size)
+          map.concat(
+            Iter[(K^, V^)](gen.iter(rnd))
+              .take(size))
+          consume map
       end)
 
 
