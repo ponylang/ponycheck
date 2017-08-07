@@ -139,11 +139,9 @@ primitive Generators
       object is GenObj[Set[T]]
         fun generate(rnd: Randomness): Set[T]^ =>
           let size = rnd.usize(0, max)
-          let set = Set[T](size)
-          set.union(
+          Set[T](size) .> union(
             Iter[T^](gen.iter(rnd))
               .take(size))
-          consume set
       end)
 
   fun set_is_of[T](
@@ -169,11 +167,9 @@ primitive Generators
       object is GenObj[SetIs[T]]
         fun generate(rnd: Randomness): SetIs[T]^ =>
           let size = rnd.usize(0, max)
-          let set = SetIs[T](size)
-          set.union(
+          SetIs[T](size) .> union(
             Iter[T^](gen.iter(rnd))
               .take(size))
-          consume set
       end)
 
   fun map_of[K: (Hashable #read & Equatable[K] #read), V](
@@ -194,11 +190,9 @@ primitive Generators
       object is GenObj[Map[K, V]]
         fun generate(rnd: Randomness): Map[K, V]^ =>
           let size = rnd.usize(0, max)
-          let map = Map[K, V].create(size)
-          map.concat(
+          Map[K, V].create(size) .> concat(
             Iter[(K^, V^)](gen.iter(rnd))
               .take(size))
-          consume map
       end)
 
   fun map_is_of[K, V](
@@ -219,11 +213,9 @@ primitive Generators
       object is GenObj[MapIs[K, V]]
         fun generate(rnd: Randomness): MapIs[K, V]^ =>
           let size = rnd.usize(0, max)
-          let map = MapIs[K, V].create(size)
-          map.concat(
+          MapIs[K, V].create(size) .> concat(
             Iter[(K^, V^)](gen.iter(rnd))
               .take(size))
-          consume map
       end)
 
 
