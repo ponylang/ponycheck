@@ -550,3 +550,87 @@ primitive Generators
         fun generate(rnd: Randomness): ISize^ =>
           rnd.isize(min, max)
       end)
+
+  fun string(
+    gen: Generator[U8],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings
+    generated from the bytes returned by the generator ``gen``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): String^ =>
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U8^](gen.iter(rnd))
+            .take(size)
+          let arr: Array[U8] iso = recover Array[U8](size) end
+          for b in gen_iter do
+            arr.push(b)
+          end
+          String.from_iso_array(consume arr)
+      end)
+
+  fun ascii_range(
+    min: USize = 0,
+    max: USize = 100,
+    range: ASCIIRange = ASCIIAll)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings withing the given ``range``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    let range_bytes = range()
+    let fallback = U8(0)
+    let range_bytes_gen = usize(0, range_bytes.size()-1)
+      .map[U8]({(size: USize): U8^ =>
+        try
+          range_bytes(size)?
+        else
+          // should never happen
+          fallback
+        end })
+    string(range_bytes_gen, min, max)
+
+  fun ascii_printable(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of printable ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii_range(min, max, ASCIIPrintable)
+
+  fun ascii_numeric(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of numeric ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii_range(min, max, ASCIIDigits)
+
+  fun ascii_letters(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of ascii letters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii_range(min, max, ASCIILetters)
