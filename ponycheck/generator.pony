@@ -635,6 +635,38 @@ primitive Generators
     """
     ascii_range(min, max, ASCIILetters)
 
+  fun utf32_codepoint_string(
+    gen: Generator[U32],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings
+    from a generator of unicode codepoints
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    """
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): String^ =>
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U32^](gen.iter(rnd))
+            .filter({(cp: U32): Bool =>
+              // excluding surrogate pairs
+              (cp <= 0xD7FF) and (cp >= 0xE000) })
+            .take(size)
+          let s: String iso = recover String(size) end
+          for code_point in gen_iter do
+            s.push_utf32(code_point)
+          end
+          s
+      end)
+
+
   fun unicode(
     min: USize = 0,
     max: USize = 100)
@@ -644,11 +676,48 @@ primitive Generators
     create a generator for unicode strings
     with a minimum length of ``min`` codepoints (default: 0)
     and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
     """
     let range_1 = u32(0x0, 0xD7FF)
     let range_1_size: USize = 0xD7FF
     // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
     let range_2 = u32(0xE000, 0x10FFFF)
+    let range_2_size = U32(0x10FFFF - 0xE000).usize()
+
+    let code_point_gen =
+      try
+        frequency[U32]([
+          (range_1_size, range_1)
+          (range_2_size, range_2)
+        ])?
+      else
+        // should never happen
+        unit[U32](U32(0))
+      end
+    utf32_codepoint_string(code_point_gen, min, max)
+
+  fun unicode_bmp(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for unicode strings
+    from the basic multilingual plane only
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    """
+    let range_1 = u32(0x0, 0xD7FF)
+    let range_1_size: USize = 0xD7FF
+    // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
+    let range_2 = u32(0xE000, 0xFFFF)
     let range_2_size = U32(0xFFFF - 0xE000).usize()
 
     let code_point_gen =
@@ -661,20 +730,5 @@ primitive Generators
         // should never happen
         unit[U32](U32(0))
       end
-    // TODO: create String iso
-    Generator[String](
-      object is GenObj[String]
-        fun generate(rnd: Randomness): String^ =>
-          let size = rnd.usize(min, max)
-          let gen_iter = Iter[U32^](code_point_gen.iter(rnd))
-            .take(size)
-          let s: String iso = recover String(size) end
-          for code_point in gen_iter do
-            s.push_utf32(code_point)
-          end
-          s
-      end)
-
-
-
+    utf32_codepoint_string(code_point_gen, min, max)
 
