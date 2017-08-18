@@ -576,7 +576,7 @@ primitive Generators
           String.from_iso_array(consume arr)
       end)
 
-  fun ascii_range(
+  fun ascii(
     min: USize = 0,
     max: USize = 100,
     range: ASCIIRange = ASCIIAll)
@@ -609,7 +609,7 @@ primitive Generators
     with a minimum length of ``min`` (default: 0)
     and a maximum length of ``max`` (default: 100).
     """
-    ascii_range(min, max, ASCIIPrintable)
+    ascii(min, max, ASCIIPrintable)
 
   fun ascii_numeric(
     min: USize = 0,
@@ -621,7 +621,7 @@ primitive Generators
     with a minimum length of ``min`` (default: 0)
     and a maximum length of ``max`` (default: 100).
     """
-    ascii_range(min, max, ASCIIDigits)
+    ascii(min, max, ASCIIDigits)
 
   fun ascii_letters(
     min: USize = 0,
@@ -633,7 +633,7 @@ primitive Generators
     with a minimum length of ``min`` (default: 0)
     and a maximum length of ``max`` (default: 100).
     """
-    ascii_range(min, max, ASCIILetters)
+    ascii(min, max, ASCIILetters)
 
   fun utf32_codepoint_string(
     gen: Generator[U32],

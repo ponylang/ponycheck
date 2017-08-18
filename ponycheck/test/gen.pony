@@ -250,7 +250,7 @@ class ASCIIRangeTest is UnitTest
   fun name(): String => "Gen/ascii_range"
   fun apply(h: TestHelper) =>
     let rnd = Randomness(Time.millis())
-    let ascii_gen = Generators.ascii_range( where min=1, max=1)
+    let ascii_gen = Generators.ascii( where min=1, max=1, range=ASCIIAll)
 
     for i in Range[USize](0, 100) do
       let sample = ascii_gen.generate(rnd)
