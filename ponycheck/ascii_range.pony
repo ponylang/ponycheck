@@ -26,33 +26,7 @@ primitive ASCIIPrintable
 
 primitive ASCIINonPrintable
   fun apply(): String =>
-    "\x00"      // NUL
-    + "\x01"    // SOH
-    + "\x02"    // STX
-    + "\x03"    // ETX
-    + "\x04"    // EOT
-    + "\x05"    // ENQ
-    + "\x06"    // ACK
-    + "\x07"    // BEL
-    + "\x08"    // BS
-    + "\x0e"    // SO
-    + "\x0f"    // SI
-    + "\x10"    // DLE
-    + "\x11"    // DC1
-    + "\x12"    // DC2
-    + "\x13"    // DC3
-    + "\x14"    // DC4
-    + "\x15"    // NAK
-    + "\x16"    // SYN
-    + "\x17"    // ETB
-    + "\x18"    // CAN
-    + "\x19"    // EM
-    + "\x1a"    // SUB
-    + "\x1b"    // ESC
-    + "\x1c"    // FS
-    + "\x1d"    // GS
-    + "\x1e"    // RS
-    + "\x1f"    // US
+    "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
 
 primitive ASCIIAll
   fun apply(): String =>

@@ -246,3 +246,14 @@ class MapIsOfIdentityTest is UnitTest
     let sample = map_gen.generate(rnd)
     h.assert_true(sample.size() <= 1)
 
+class ASCIIRangeTest is UnitTest
+  fun name(): String => "Gen/ascii_range"
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+
+    for i in Range[USize](0, 100) do
+      let ascii_gen = Generators.ascii_range( where min=1, max=1)
+      let sample = ascii_gen.generate(rnd)
+      h.assert_true(ASCIIAll().contains(sample), "\"" + sample + "\" not valid ascii")
+    end
+

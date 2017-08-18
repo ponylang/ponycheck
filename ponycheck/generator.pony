@@ -551,7 +551,7 @@ primitive Generators
           rnd.isize(min, max)
       end)
 
-  fun string(
+  fun byte_string(
     gen: Generator[U8],
     min: USize = 0,
     max: USize = 100)
@@ -597,7 +597,7 @@ primitive Generators
           // should never happen
           fallback
         end })
-    string(range_bytes_gen, min, max)
+    byte_string(range_bytes_gen, min, max)
 
   fun ascii_printable(
     min: USize = 0,
