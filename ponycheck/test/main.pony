@@ -24,3 +24,5 @@ actor Main is TestList
     test(ErroringPropertyAsUnitTest)
     test(ForAllTest)
     test(MultipleForAllTest)
+    test(ASCIIRangeTest)
+    test(UTF32CodePointStringTest)

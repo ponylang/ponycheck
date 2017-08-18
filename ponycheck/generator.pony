@@ -254,10 +254,10 @@ primitive Generators
     twice as likely as odd ones:
 
     ```pony
-    Generators.frequency[U8](
-      (1, Generators.u8().filter({(u: U8): (U8^, Bool) => (u, (u % 2) == 0 })),
+    Generators.frequency[U8]([
+      (1, Generators.u8().filter({(u: U8): (U8^, Bool) => (u, (u % 2) == 0 }))
       (2, Generators.u8().filter({(u: U8): (U8^, Bool) => (u, (u % 2) != 0 }))
-    )
+    ])
     ```
     """
     let filtered =
@@ -550,3 +550,185 @@ primitive Generators
         fun generate(rnd: Randomness): ISize^ =>
           rnd.isize(min, max)
       end)
+
+  fun byte_string(
+    gen: Generator[U8],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings
+    generated from the bytes returned by the generator ``gen``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): String^ =>
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U8^](gen.iter(rnd))
+            .take(size)
+          let arr: Array[U8] iso = recover Array[U8](size) end
+          for b in gen_iter do
+            arr.push(b)
+          end
+          String.from_iso_array(consume arr)
+      end)
+
+  fun ascii(
+    min: USize = 0,
+    max: USize = 100,
+    range: ASCIIRange = ASCIIAll)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings withing the given ``range``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    let range_bytes = range()
+    let fallback = U8(0)
+    let range_bytes_gen = usize(0, range_bytes.size()-1)
+      .map[U8]({(size: USize): U8^ =>
+        try
+          range_bytes(size)?
+        else
+          // should never happen
+          fallback
+        end })
+    byte_string(range_bytes_gen, min, max)
+
+  fun ascii_printable(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of printable ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii(min, max, ASCIIPrintable)
+
+  fun ascii_numeric(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of numeric ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii(min, max, ASCIIDigits)
+
+  fun ascii_letters(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings of ascii letters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    """
+    ascii(min, max, ASCIILetters)
+
+  fun utf32_codepoint_string(
+    gen: Generator[U32],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for strings
+    from a generator of unicode codepoints
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    """
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): String^ =>
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U32^](gen.iter(rnd))
+            .filter({(cp: U32): Bool =>
+              // excluding surrogate pairs
+              (cp <= 0xD7FF) or (cp >= 0xE000) })
+            .take(size)
+          let s: String iso = recover String(size) end
+          for code_point in gen_iter do
+            s.push_utf32(code_point)
+          end
+          s
+      end)
+
+
+  fun unicode(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for unicode strings
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    """
+    let range_1 = u32(0x0, 0xD7FF)
+    let range_1_size: USize = 0xD7FF
+    // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
+    let range_2 = u32(0xE000, 0x10FFFF)
+    let range_2_size = U32(0x10FFFF - 0xE000).usize()
+
+    let code_point_gen =
+      try
+        frequency[U32]([
+          (range_1_size, range_1)
+          (range_2_size, range_2)
+        ])?
+      else
+        // should never happen
+        unit[U32](U32(0))
+      end
+    utf32_codepoint_string(code_point_gen, min, max)
+
+  fun unicode_bmp(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =>
+    """
+    create a generator for unicode strings
+    from the basic multilingual plane only
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    """
+    let range_1 = u32(0x0, 0xD7FF)
+    let range_1_size: USize = 0xD7FF
+    // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
+    let range_2 = u32(0xE000, 0xFFFF)
+    let range_2_size = U32(0xFFFF - 0xE000).usize()
+
+    let code_point_gen =
+      try
+        frequency[U32]([
+          (range_1_size, range_1)
+          (range_2_size, range_2)
+        ])?
+      else
+        // should never happen
+        unit[U32](U32(0))
+      end
+    utf32_codepoint_string(code_point_gen, min, max)
+
