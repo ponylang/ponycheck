@@ -25,3 +25,4 @@ actor Main is TestList
     test(ForAllTest)
     test(MultipleForAllTest)
     test(ASCIIRangeTest)
+    test(UTF32CodePointStringTest)

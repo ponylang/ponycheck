@@ -657,7 +657,7 @@ primitive Generators
           let gen_iter = Iter[U32^](gen.iter(rnd))
             .filter({(cp: U32): Bool =>
               // excluding surrogate pairs
-              (cp <= 0xD7FF) and (cp >= 0xE000) })
+              (cp <= 0xD7FF) or (cp >= 0xE000) })
             .take(size)
           let s: String iso = recover String(size) end
           for code_point in gen_iter do

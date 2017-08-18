@@ -250,10 +250,26 @@ class ASCIIRangeTest is UnitTest
   fun name(): String => "Gen/ascii_range"
   fun apply(h: TestHelper) =>
     let rnd = Randomness(Time.millis())
+    let ascii_gen = Generators.ascii_range( where min=1, max=1)
 
     for i in Range[USize](0, 100) do
-      let ascii_gen = Generators.ascii_range( where min=1, max=1)
       let sample = ascii_gen.generate(rnd)
       h.assert_true(ASCIIAll().contains(sample), "\"" + sample + "\" not valid ascii")
+    end
+
+class UTF32CodePointStringTest is UnitTest
+  fun name(): String => "Gen/utf32_codepoint_string"
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+    let string_gen = Generators.utf32_codepoint_string(
+      Generators.u32(),
+      50,
+      100)
+
+    for i in Range[USize](0, 100) do
+      let sample = string_gen.generate(rnd)
+      for cp in sample.runes() do
+        h.assert_true((cp <= 0xD7FF ) or (cp >= 0xE000), "\"" + sample + "\" invalid utf32")
+      end
     end
 
