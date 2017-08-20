@@ -201,7 +201,7 @@ class ref Randomness
 
     behavior is undefined if min > max.
     """
-    i64(min.i64(), max.i64()).ilong()
+    min + ulong(0, (max - min).ulong()).ilong()
 
   fun ref isize(
     min: ISize = ISize.min_value(),
@@ -214,7 +214,7 @@ class ref Randomness
 
     behavior is undefined if min > max.
     """
-    i64(min.i64(), max.i64()).isize()
+    min + usize(0, (max - min).usize()).isize()
 
 
   fun ref f32(min: F32 = 0.0, max: F32 = 1.0): F32 =>
