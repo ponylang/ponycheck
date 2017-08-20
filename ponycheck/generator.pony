@@ -519,9 +519,21 @@ primitive Generators
       object is GenObj[I64]
         fun generate(rnd: Randomness): I64^ =>
           rnd.i64(min, max)
-        end)
+      end)
 
-// TODO: add i128 fun
+  fun i128(
+    min: I128 = I128.min_value(),
+    max: I128 = I128.max_value())
+    : Generator[I128]
+  =>
+    """
+    create a generator for I128 values
+    """
+    Generator[I128](
+      object is GenObj[I128]
+        fun generate(rnd: Randomness): I128^ =>
+          rnd.i128(min, max)
+      end)
 
   fun ilong(
     min: ILong = ILong.min_value(),
