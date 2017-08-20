@@ -303,7 +303,7 @@ class ref PropertyHelper
     Generate a printable string of the contents of the given readseq to use in
     error messages.
     """
-    "[len=" + array.size().string() + ": " + ", ".join(array) + "]"
+    "[len=" + array.size().string() + ": " + ", ".join(array.values()) + "]"
 
 
 /****** END DUPLICATION FROM TESTHELPER *********/
