@@ -281,16 +281,12 @@ primitive Generators
       object is GenObj[T]
         fun generate(rnd: Randomness): T^ =>
           let weight_sum: USize =
-            try
-              Iter[WeightedGenerator[T]](filtered.values())
-                .fold[USize](
-                  {(acc: USize, weighted_gen: WeightedGenerator[T]): USize =>
-                    weighted_gen._1 + acc
-                  },
-                  0)?
-            else
-              0
-            end
+            Iter[WeightedGenerator[T]](filtered.values())
+              .fold[USize](
+                0,
+                {(acc: USize, weighted_gen: WeightedGenerator[T]): USize =>
+                  weighted_gen._1 + acc
+                })
           let desired_sum = rnd.usize(0, weight_sum)
           var running_sum: USize = 0
           var chosen: (Generator[T] | None) = None
@@ -795,15 +791,15 @@ primitive Generators
               end
             end
             if (cps-1) >= min then
-              try
-                // add capped by one codepoint
-                let capped: String val = recover val
-                  Iter[U32](s.runes())
-                    .take(cps-1)
-                    .fold[String ref]({(acc: String ref, cp: U32): String ref => acc.>push_utf32(cp) }, String.create(s.size()))?
-                  end
-                shrunken.push(capped)
-              end
+              // add capped by one codepoint
+              let capped: String val = recover val
+                Iter[U32](s.runes())
+                  .take(cps-1)
+                  .fold[String ref](
+                    String.create(s.size()),
+                    {(acc: String ref, cp: U32): String ref => acc.>push_utf32(cp) })
+                end
+              shrunken.push(capped)
             end
           end
           (consume s, shrunken)

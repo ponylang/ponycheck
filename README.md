@@ -2,7 +2,7 @@
 
 ![travis ci build status](https://travis-ci.org/mfelsche/ponycheck.svg?branch=master) ![this is awesome](https://img.shields.io/badge/this%20is-awesome-green.svg)
 
-Property based testing for ponylang (>= 0.18.0).
+Property based testing for ponylang (>= 0.19.0).
 
 ## Features
 
