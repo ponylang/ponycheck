@@ -35,6 +35,8 @@ class box Generator[T] is GenObj[T]
             (t, matches) = predicate(_gen.generate(rnd))
           end
           consume t
+        // TODO: shrink by calling _gen.shrink and filter the returned list
+        // using predicate
       end)
 
   fun map[U](fn: {(T): U^} box): Generator[U] =>
@@ -42,6 +44,8 @@ class box Generator[T] is GenObj[T]
       object is GenObj[U]
         fun generate(rnd: Randomness): U^ =>
           fn(_gen.generate(rnd))
+
+        // TODO: shrink
       end)
 
   fun flat_map[U](fn: {(T): Generator[U]} box): Generator[U] =>
@@ -52,6 +56,7 @@ class box Generator[T] is GenObj[T]
       object is GenObj[U]
         fun generate(rnd: Randomness): U^ =>
           fn(_gen.generate(rnd)).generate(rnd)
+        // TODO: shrink
       end)
 
 type WeightedGenerator[T] is (USize, Generator[T] box)
@@ -367,6 +372,19 @@ primitive Generators
           rnd.bool()
         end)
 
+  fun _int_shrink[T: (Int & Integer[T] val)](t: T^, min: T): (T^, Seq[T]) =>
+    let shrunken = Array[T](3)
+    if t > min then
+      shrunken.push(min)
+    end
+    if t > (min+1) then
+      shrunken.push(min+1)
+    end
+    if t > (min+2) then
+      shrunken.push(t-1)
+    end
+    (consume t, shrunken)
+
   fun u8(
     min: U8 = U8.min_value(),
     max: U8 = U8.max_value())
@@ -375,11 +393,15 @@ primitive Generators
     """
     create a generator for U8 values
     """
+    let that = this
     Generator[U8](
       object is GenObj[U8]
         fun generate(rnd: Randomness): U8^ =>
           rnd.u8(min, max)
-      end)
+
+        fun shrink(u: U8): (U8^, Seq[U8]) =>
+          that._int_shrink[U8](consume u, min)
+        end)
 
   fun u16(
     min: U16 = U16.min_value(),
@@ -389,10 +411,14 @@ primitive Generators
     """
     create a generator for U16 values
     """
+    let that = this
     Generator[U16](
       object is GenObj[U16]
         fun generate(rnd: Randomness): U16^ =>
           rnd.u16(min  max)
+
+        fun shrink(u: U16): (U16^, Seq[U16]) =>
+          that._int_shrink[U16](consume u, min)
       end)
 
   fun u32(
@@ -403,10 +429,14 @@ primitive Generators
     """
     create a generator for U32 values
     """
+    let that = this
     Generator[U32](
       object is GenObj[U32]
         fun generate(rnd: Randomness): U32^ =>
           rnd.u32(min, max)
+
+        fun shrink(u: U32): (U32^, Seq[U32]) =>
+          that._int_shrink[U32](consume u, min)
       end)
 
   fun u64(
@@ -417,10 +447,14 @@ primitive Generators
     """
     create a generator for U64 values
     """
+    let that = this
     Generator[U64](
       object is GenObj[U64]
         fun generate(rnd: Randomness): U64^ =>
           rnd.u64(min, max)
+
+        fun shrink(u: U64): (U64^, Seq[U64]) =>
+          that._int_shrink[U64](consume u, min)
       end)
 
   fun u128(
@@ -431,10 +465,14 @@ primitive Generators
     """
     create a generator for U128 values
     """
+    let that = this
     Generator[U128](
       object is GenObj[U128]
         fun generate(rnd: Randomness): U128^ =>
           rnd.u128(min, max)
+
+        fun shrink(u: U128): (U128^, Seq[U128]) =>
+          that._int_shrink[U128](consume u, min)
       end)
 
   fun usize(
@@ -445,10 +483,14 @@ primitive Generators
     """
     create a generator for USize values
     """
+    let that = this
     Generator[USize](
       object is GenObj[USize]
         fun generate(rnd: Randomness): USize^ =>
           rnd.usize(min, max)
+
+        fun shrink(u: USize): (USize^, Seq[USize]) =>
+          that._int_shrink[USize](consume u, min)
       end)
 
   fun ulong(
@@ -459,10 +501,14 @@ primitive Generators
     """
     create a generator for ULong values
     """
+    let that = this
     Generator[ULong](
       object is GenObj[ULong]
         fun generate(rnd: Randomness): ULong^ =>
           rnd.ulong(min, max)
+
+        fun shrink(u: ULong): (ULong^, Seq[ULong]) =>
+          that._int_shrink[ULong](consume u, min)
       end)
 
   fun i8(
@@ -473,10 +519,14 @@ primitive Generators
     """
     create a generator for I8 values
     """
+    let that = this
     Generator[I8](
       object is GenObj[I8]
         fun generate(rnd: Randomness): I8^ =>
           rnd.i8(min, max)
+
+        fun shrink(i: I8): (I8^, Seq[I8]) =>
+          that._int_shrink[I8](consume i, min)
       end)
 
   fun i16(
@@ -487,10 +537,14 @@ primitive Generators
     """
     create a generator for I16 values
     """
+    let that = this
     Generator[I16](
       object is GenObj[I16]
         fun generate(rnd: Randomness): I16^ =>
           rnd.i16(min, max)
+
+        fun shrink(i: I16): (I16^, Seq[I16]) =>
+          that._int_shrink[I16](consume i, min)
       end)
 
   fun i32(
@@ -501,10 +555,14 @@ primitive Generators
     """
     create a generator for I32 values
     """
+    let that = this
     Generator[I32](
       object is GenObj[I32]
         fun generate(rnd: Randomness): I32^ =>
           rnd.i32(min, max)
+
+        fun shrink(i: I32): (I32^, Seq[I32]) =>
+          that._int_shrink[I32](consume i, min)
       end)
 
   fun i64(
@@ -515,10 +573,14 @@ primitive Generators
     """
     create a generator for I64 values
     """
+    let that = this
     Generator[I64](
       object is GenObj[I64]
         fun generate(rnd: Randomness): I64^ =>
           rnd.i64(min, max)
+
+        fun shrink(i: I64): (I64^, Seq[I64]) =>
+          that._int_shrink[I64](consume i, min)
       end)
 
   fun i128(
@@ -529,10 +591,14 @@ primitive Generators
     """
     create a generator for I128 values
     """
+    let that = this
     Generator[I128](
       object is GenObj[I128]
         fun generate(rnd: Randomness): I128^ =>
           rnd.i128(min, max)
+
+        fun shrink(i: I128): (I128^, Seq[I128]) =>
+          that._int_shrink[I128](consume i, min)
       end)
 
   fun ilong(
@@ -543,10 +609,14 @@ primitive Generators
     """
     create a generator for ILong values
     """
+    let that = this
     Generator[ILong](
       object is GenObj[ILong]
         fun generate(rnd: Randomness): ILong^ =>
           rnd.ilong(min, max)
+
+        fun shrink(i: ILong): (ILong^, Seq[ILong]) =>
+          that._int_shrink[ILong](consume i, min)
       end)
 
   fun isize(
@@ -557,11 +627,16 @@ primitive Generators
     """
     create a generator for ISize values
     """
+    let that = this
     Generator[ISize](
       object is GenObj[ISize]
         fun generate(rnd: Randomness): ISize^ =>
           rnd.isize(min, max)
+
+        fun shrink(i: ISize): (ISize^, Seq[ISize]) =>
+          that._int_shrink[ISize](consume i, min)
       end)
+
 
   fun byte_string(
     gen: Generator[U8],
@@ -586,6 +661,27 @@ primitive Generators
             arr.push(b)
           end
           String.from_iso_array(consume arr)
+
+        fun shrink(s: String): (String^, Seq[String]) =>
+          """
+          shrink string until ``min`` length.
+          try to add empty string and single char string
+          if ``min`` allows this.
+          """
+          let shrunken = Array[String](3)
+          let size = s.size()
+          if size > min then
+            if min == 0 then
+              shrunken.push("")
+            end
+            if (min <= 1) and (size > 1) then
+              shrunken.push(recover val s.substring(0, 1) end)
+            end
+            if (size-1) >= min then
+              shrunken.push(recover val s.substring(0, -1) end)
+            end
+          end
+          (consume s, shrunken)
       end)
 
   fun ascii(
@@ -676,6 +772,41 @@ primitive Generators
             s.push_utf32(code_point)
           end
           s
+
+        fun shrink(s: String): (String^, Seq[String]) =>
+          """
+          strip off codepoints from the end, not just bytes, so we
+          maintain a valid utf8 string
+
+          only shrink until given ``min`` is hit
+          """
+          let shrunken = Array[String](3)
+          let cps: USize = s.codepoints()
+          if cps > min then
+            if min == 0 then
+              shrunken.push("")
+            end
+            if min <= 1 then
+              try
+                // add single code point string
+                shrunken.push(
+                  recover val String.from_utf32(s.runes().next()?) end
+                )
+              end
+            end
+            if (cps-1) >= min then
+              try
+                // add capped by one codepoint
+                let capped: String val = recover val
+                  Iter[U32](s.runes())
+                    .take(cps-1)
+                    .fold[String ref]({(acc: String ref, cp: U32): String ref => acc.>push_utf32(cp) }, String.create(s.size()))?
+                  end
+                shrunken.push(capped)
+              end
+            end
+          end
+          (consume s, shrunken)
       end)
 
 
