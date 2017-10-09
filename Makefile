@@ -9,7 +9,7 @@ FLAGS ?=
 TESTFLAGS ?=
 ifneq (${DEBUG},)
     FLAGS += --debug
-    TESTFLAGS += --verbose
+    #    TESTFLAGS += --verbose
 endif
 
 TEST_PROGRAM = test
