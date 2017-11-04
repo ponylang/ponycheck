@@ -1,51 +1,249 @@
 use "collections"
 use "itertools"
 
-trait box GenObj[T]
-  fun generate(rnd: Randomness): T^
+type ValueAndShrink[T] is (T^, Iterator[T^])
+type GenerateResult[T] is (T^ | ValueAndShrink)
 
-  fun shrink(t: T): (T^, Seq[T]) =>
-    (consume t, Array[T](0))
 
-  fun iter(rnd: Randomness): Iterator[T^]^ =>
-    let gen: GenObj[T] = this
-    object is Iterator[T^]
-      fun ref has_next(): Bool => true
-      fun ref next(): T^ => gen.generate(rnd)
+class _Poperator[T] is Iterator[T^]
+  """
+  iterate over a `Seq` descructively by `pop`ing its elements
+
+  once `has_next()` returns `false`, the `Seq` is empty.
+
+  Nominee for the annual pony class-naming awards
+  """
+
+  let _seq: (Seq[T] | None)
+
+  new create(seq: Seq[T]) =>
+    _seq = seq
+
+  new empty() =>
+    """
+    create an empty poperator
+    that is not backed by any `Seq`
+    for efficiency
+    """
+    _seq = None
+
+  fun has_next(): Bool =>
+    try
+      (_seq as Seq[T]).size() > 0
+    else
+      false
     end
 
+  fun next(): T^ ? =>
+    (_seq as Seq[T]).pop()?
+
+
+trait box GenObj[T]
+  fun generate(rnd: Randomness): GenerateResult[T]
+
+  fun shrink(t: T): ValueAndShrink[T] =>
+    (consume t, _Poperator[T]())
+
+  fun generate_value(rnd: Randomness): T^ =>
+    """
+    simply generate a value and ignore any possible
+    shrink values
+    """
+    match generate(rnd)
+    | let t: T => consume t
+    | (let t: T, _) => consume t
+    end
+
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =>
+    """
+    generate a value and also return a shrink result
+    even if the generator does not return any when calling `generate`.
+    """
+    match generate(rnd)
+    | let t: T => shrink(consume t)
+    | let vas: ValueAndShrink[T] => consume vas
+    end
+
+  fun iter(rnd: Randomness): Iterator[GenerateResult[T]]^ =>
+    let gen: GenObj[T] = this
+
+    object is Iterator[GenerateResult[T]]
+      fun ref has_next(): Bool => true
+      fun ref next(): GenerateResult[T] => gen.generate(rnd)
+    end
+
+  fun value_iter(rnd: Randomness): Iterator[T^]^ =>
+    Iter[GenerateResult[T]](iter(rnd))
+      .map[T^]({ (result: GenerateResult[T]): T^ =>
+          match result
+          | let value_only: T => consume value_only
+          | (let v, _) => consume v
+          end
+        })
+
+  fun value_and_shrink_iter(rnd: Randomness): Iterator[ValueAndShrink[T]]^ =>
+    let gen: GenObj[T] = this
+
+    Iter[GenerateResult[T]](iter(rnd))
+      .map[ValueAndShrink[T]]({ (result: GenerateResult[T]): ValueAndShrink[T] =>
+          match result
+          | let value_only: T => gen.shrink(consume value_only)
+          | let vas: ValueAndShrink[T] => consume vas
+          end
+        })
+
+
+
 class box Generator[T] is GenObj[T]
+  """
+  A Generator is capable of generating random values of a certain type `T`
+  given a source of `Randomness`
+  and knows how to shrink or simplify values of that type.
+
+  When testing a property against one or more given Generators
+  those generators' `generate` methods are being called many times
+  to generate sample values that are then used to validate the property.
+
+  When a failing sample is found, the ponycheck engine is trying to find a
+  smaller or more simple sample by `shrinking` it.
+  If the generator did not provide any shrinked samples
+  as a result of `generate`, its `shrink` method is called
+  to obtain simpler results. Ponycheck obtains more shrunken samples until
+  the property is not failing anymore.
+  The last failing sample, which is considered the most simple one,
+  is then reported to the user.
+  """
   let _gen: GenObj[T]
 
   new create(gen: GenObj[T]) =>
     _gen = gen
 
-  fun generate(rnd: Randomness): T^ =>
+  fun generate(rnd: Randomness): GenerateResult[T] =>
+    """
+    Let this generator generate a value
+    given a source of `Randomness`.
+
+    Also allow for returning a value and pre-generated shrink results
+    as a `ValueAndShrink[T]` instance, a tuple of `(T^, Seq[T])`.
+    This helps propagating shrink results through all kinds of Generator
+    combinators like `filter`, `map` and `flatMap`.
+
+    If implementing a custom `Generator` based on another one,
+    a Generator Combinator, you should use shrunken values
+    returned by `generate` to also return shrunken values based on them
+
+    If generating an example value is costly, it might be more efficient
+    to simply return the generated value and only shrink in big steps or do no
+    shrinking at all.
+    If generating values is lightweight, shrunken values should also be returned.
+    """
     _gen.generate(rnd)
 
-  fun shrink(t: T): (T^, Seq[T]) =>
+  fun shrink(t: T): ValueAndShrink[T] =>
+    """
+    Simplify the given value.
+
+    As the returned value can also be `iso`, it needs to be consumed and returned
+
+    It is preffered to already return a `ValueAndShrink` from `generate`.
+    """
     _gen.shrink(consume t)
 
+  fun generate_value(rnd: Randomness): T^ =>
+    _gen.generate_value(rnd)
+
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =>
+    _gen.generate_and_shrink(rnd)
+
   fun filter(predicate: {(T): (T^, Bool)} box): Generator[T] =>
+    """
+    apply `predicate` to the values generated by this Generator
+    and only values for which `predicate` returns `true`.
+
+    Example:
+
+    ```pony
+    let even_i32s =
+      Generators.i32()
+        .filter(
+          {(t: I32}: (I32^, Bool) => (t % 2) == 0 })
+    ```
+    """
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): T^ =>
-          (var t, var matches) = predicate(_gen.generate(rnd))
-          while not matches do
-            (t, matches) = predicate(_gen.generate(rnd))
+        fun generate(rnd: Randomness): GenerateResult[T] =>
+          (let t: T, let shrunken: Iterator[T^]) = _gen.generate_and_shrink(rnd)
+          (let t1, let matches) = predicate(consume t)
+          if not matches then
+            generate(rnd) // recurse, this might recurse infinitely
+          else
+            // filter the shrunken examples
+            (consume t1, _filter_shrunken(shrunken))
           end
-          consume t
-        // TODO: shrink by calling _gen.shrink and filter the returned list
-        // using predicate
+
+        fun shrink(t: T): ValueAndShrink[T] =>
+          """
+          shrink `t` using the generator this one filters upon
+          and call the filter predicate on the shrunken values
+          """
+          (let s, let shrunken: Iterator[T^]) = _gen.shrink(consume t)
+          (consume s, _filter_shrunken(shrunken))
+
+        fun _filter_shrunken(shrunken: Iterator[T^]): Iterator[T^] =>
+          Iter[T^](shrunken)
+            .filter_map({
+              (t: T): (T^| None) =>
+                match predicate(consume t)
+                | (let matching: T, true) => consume matching
+                end
+            })
       end)
 
-  fun map[U](fn: {(T): U^} box): Generator[U] =>
+  fun map[U](fn: {(T): U^} box)
+    : Generator[U]
+  =>
+    """
+    apply function `fn` to each value of this iterator
+    and yield the results.
+
+    Example:
+
+    ```pony
+    let single_code_point_string_gen =
+      Generators.u32()
+        .map[String]({(u: U32): String => String.from_utf32(u) })
+    ```
+    """
     Generator[U](
       object is GenObj[U]
-        fun generate(rnd: Randomness): U^ =>
-          fn(_gen.generate(rnd))
+        fun generate(rnd: Randomness): GenerateResult[U] =>
+          (let generated: T, let shrunken: Iterator[T^]) =
+            _gen.generate_and_shrink(rnd)
 
-        // TODO: shrink
+          (fn(consume generated), _map_shrunken(shrunken))
+
+        fun shrink(u: U): ValueAndShrink[U] =>
+          """
+          We can only shrink if T is a subtype of U.
+
+          This method should in general not be called on this generator
+          as it is always returning shrinks with the call to `generate`
+          and they should be used for executing the shrink, but in case
+          a strange hierarchy of generators is used, which does not make use of
+          the pre-generated shrink results, we keep this method here.
+          """
+          match u
+          | let ut: T =>
+            (let uts: T, let shrunken: Iterator[T^]) = _gen.shrink(consume ut)
+            (fn(consume uts), _map_shrunken(shrunken))
+          else
+            (consume u, _Poperator.empty())
+          end
+
+        fun _map_shrunken(shrunken: Iterator[T^]): Iterator[U^] =>
+          Iter[T^](shrunken)
+            .map[U^]({(t: T): U^ => fn(consume t) })
+
       end)
 
   fun flat_map[U](fn: {(T): Generator[U]} box): Generator[U] =>
@@ -54,9 +252,19 @@ class box Generator[T] is GenObj[T]
     """
     Generator[U](
       object is GenObj[U]
-        fun generate(rnd: Randomness): U^ =>
-          fn(_gen.generate(rnd)).generate(rnd)
-        // TODO: shrink
+        fun generate(rnd: Randomness): GenerateResult[U] =>
+          (let value: T, let shrunken: Iterator[T^]) =
+            _gen.generate_and_shrink(rnd)
+          let value_result = fn(consume value).generate(rnd)
+
+          // apply fn to all shrink results and call the resulting generator
+          let shrink_result =
+            Iter[T^](shrunken)
+              .map[U^]({
+                (t: T): U^ =>
+                  fn(consume t).generate_value(rnd) // ignore shrinks here
+              })
+          (consume value_result, shrink_result)
       end)
 
 type WeightedGenerator[T] is (USize, Generator[T] box)
@@ -72,7 +280,7 @@ primitive Generators
     Generator[box->T](
       object is GenObj[box->T]
         let _t: T = consume t
-        fun generate(rnd: Randomness): this->T => _t
+        fun generate(rnd: Randomness): GenerateResult[box->T] => _t
       end)
 
   fun repeatedly[T](f: {(): T^} box): Generator[T] =>
@@ -98,9 +306,10 @@ primitive Generators
     """
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): T^ =>
+        fun generate(rnd: Randomness): GenerateResult[T] =>
           f()
       end)
+
 
   fun seq_of[T, S: Seq[T] ref](
     gen: Generator[T],
@@ -109,16 +318,36 @@ primitive Generators
     : Generator[S]
   =>
     """
-    Create a seq from the given Generator with an optional minimum and
+    Create a `Seq` from the values of the given Generator with an optional minimum and
     maximum size, defaults are 0 and 100 respectively.
     """
     Generator[S](
       object is GenObj[S]
-        fun generate(rnd: Randomness): S^ =>
+        fun generate(rnd: Randomness): GenerateResult[S] =>
           let size = rnd.usize(min, max)
-          Iter[T^](gen.iter(rnd))
-            .take(size)
-            .collect[S](S.create(size))
+
+          (let result: S, let shrink_result: Seq[S]) =
+            Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
+              .take(size)
+              .fold[(S, Seq[S])]((S.create(size), Array[S](size)), {
+                // aggregate T values into Seq S
+                // and T shrinks into separate Seqs of shrunken values
+                ((s: S, final_shrinks: Seq[S]), (t: T, t_shrinks: Seq[T])) =>
+                  s.push(consume t)
+                  for (i, t_shrink) in Iter[T^](_Poperator(t_shrinks)).enum() do
+                    // upsert
+                    try
+                      final_shrinks(i)?
+                        .push(consume t_shrink)
+                    else
+                      final_shrinks.push(
+                        S.create(1).>push(consume t_shrink)
+                      )
+                    end
+                  end
+                  (consume s, final_shrinks)
+              })
+          (consume result, _Poperator(shrink_results))
       end)
 
   fun set_of[T: (Hashable #read & Equatable[T] #read)](
@@ -144,9 +373,27 @@ primitive Generators
       object is GenObj[Set[T]]
         fun generate(rnd: Randomness): Set[T]^ =>
           let size = rnd.usize(0, max)
-          Set[T](size) .> union(
-            Iter[T^](gen.iter(rnd))
-              .take(size))
+
+          (let result: Set[T], let shrink_results: Seq[Set[T]]) =
+            Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
+              .take(size)
+              .fold[(Set[T], Seq[Set[T]]]((Set[T](size), Array[Set[T]](size)), {
+                ((s: Set[T], final_shrinks: Seq[Set[T]]), (t: T, t_shrinks: Seq[T])) =>
+                  s.set(consume t)
+                  for (i, t_shrink) in Iter[T^](_Poperator(t_shrinks)).enum() do
+                    // upsert
+                    try
+                      final_shrinks(i)?
+                        .set(consume t_shrink)
+                    else
+                        final_shrinks.push(
+                          Set[T].create(1).>set(consume t_shrink)
+                        )
+                      end
+                    end
+                  (consume s, final_shrinks)
+            })
+          (consume result, _Poperator(shrink_results))
       end)
 
   fun set_is_of[T](
@@ -168,13 +415,32 @@ primitive Generators
     this generator will only try to add at most ``max`` values to the set.
     If there are duplicates, the set won't grow.
     """
+    // TODO: how to remove code duplications
     Generator[SetIs[T]](
       object is GenObj[SetIs[T]]
         fun generate(rnd: Randomness): SetIs[T]^ =>
           let size = rnd.usize(0, max)
-          SetIs[T](size) .> union(
-            Iter[T^](gen.iter(rnd))
-              .take(size))
+
+          (let result: SetIs[T], let shrink_result: Seq[SetIs[T]]) =
+            Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
+              .take(size)
+              .fold[(SetIs[T], Seq[SetIs[T]])]((SetIs[T](size), Array[SetIs[T]](size)), {
+                ((s: SetIs[T], final_shrinks: Seq[SetIs[T]]), (t: T, t_shrinks: Seq[T])) =>
+                  s.set(consume t)
+                  for (i, t_shrink) in Iter[T^](_Poperator(t_shrinks)).enum() do
+                    // upsert
+                    try
+                      final_shrinks(i)?
+                        .set(consume t_shrink)
+                    else
+                        final_shrinks.push(
+                          SetIs[T].create(1).>set(consume t_shrink)
+                        )
+                      end
+                    end
+                  (consume s, final_shrinks)
+              })
+          (consume result, _Poperator(shrink_result))
       end)
 
   fun map_of[K: (Hashable #read & Equatable[K] #read), V](
@@ -193,11 +459,26 @@ primitive Generators
     """
     Generator[Map[K, V]](
       object is GenObj[Map[K, V]]
-        fun generate(rnd: Randomness): Map[K, V]^ =>
+        fun generate(rnd: Randomness): GenerateResult[Map[K, V]] =>
           let size = rnd.usize(0, max)
+          let result: Map[K, V] = result.create(size)
+          let shrink_results = Array[Map[K, V]](size)
+
+          Iter[(K^, V^)](gen.iter(rnd))
+            .map({(gen_result: GenerateResult[(K, V)]): ValueAndShrink[(K, V)] =>
+              match gen_result
+              | let value_only: (K, V) => gen.shrink(consume value_only)
+              | let vas: ValueAndShrink[(K, V)] => consume vas
+              end
+            })
+            .take(size))
+            .fold[ValueAndShrink[Map[K, V]]((consume result, shrink_results), {
+              ((m: Map[K, V], final_shrinks: Seq[Map[K, V]), (pair: (K, V), pair_shrinks: Seq[(K, V)])) =>
+                (let k: K, let v: V) = consume pair
+                m.update(k, v)
+
+            })
           Map[K, V].create(size) .> concat(
-            Iter[(K^, V^)](gen.iter(rnd))
-              .take(size))
       end)
 
   fun map_is_of[K, V](
@@ -216,7 +497,7 @@ primitive Generators
     """
     Generator[MapIs[K, V]](
       object is GenObj[MapIs[K, V]]
-        fun generate(rnd: Randomness): MapIs[K, V]^ =>
+        fun generate(rnd: Randomness): GenerateResult[MapIs[K, V]] =>
           let size = rnd.usize(0, max)
           MapIs[K, V].create(size) .> concat(
             Iter[(K^, V^)](gen.iter(rnd))
@@ -252,11 +533,11 @@ primitive Generators
     The weights are of type ``USize`` and control how likely a value is chosen.
     The likelihood of a value ``v`` to be chosen
     is ``weight_v`` / ``weights_sum``.
-    If all ``weighted_generators`` have a size of ``1`` the distribution
+    If all ``weighted_generators`` have equal size the distribution
     will be uniform.
 
-    Example of a generator to output even ``U8`` values
-    twice as likely as odd ones:
+    Example of a generator to output odd ``U8`` values
+    twice as likely as even ones:
 
     ```pony
     Generators.frequency[U8]([
@@ -279,7 +560,7 @@ primitive Generators
 
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): T^ =>
+        fun generate(rnd: Randomness): GenerateResult[T] =>
           let weight_sum: USize =
             Iter[WeightedGenerator[T]](filtered.values())
               .fold[USize](
@@ -318,9 +599,23 @@ primitive Generators
     """
     Generator[(T1, T2)](
       object is GenObj[(T1, T2)]
-        fun generate(rnd: Randomness): (T1^, T2^) =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2)] =>
           (gen1.generate(rnd), gen2.generate(rnd))
-        end)
+
+        fun shrink(t: (T1, T2)): ValueAndShrink[(T1, T2)] =>
+          (let t1, let t2) = consume t
+          (let t11, let t1_shrunken: Seq[T1]) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken: Seq[T2]) = gen2.shrink(consume t2)
+
+          let shrunken: Array[(T1, T2)] = Array[(T1, T2)](
+            t1_shrunken.size().min(t2_shrunken.size()))
+          while (t1_shrunken.size() > 0) and (t2_shrunken.size() > 0) do
+            try
+              shrunken.push((t1_shrunken.pop()?, t2_shrunken.pop()?))
+            end
+          end
+          ((consume t11, consume t21), shrunken)
+      end)
 
   fun zip3[T1, T2, T3](
     gen1: Generator[T1],
@@ -334,8 +629,23 @@ primitive Generators
     """
     Generator[(T1, T2, T3)](
       object is GenObj[(T1, T2, T3)]
-        fun generate(rnd: Randomness): (T1^, T2^, T3^) =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3)] =>
           (gen1.generate(rnd), gen2.generate(rnd), gen3.generate(rnd))
+
+        fun shrink(t: (T1, T2, T3)): ValueAndShrink[(T1, T2, T3)] =>
+          (let t1, let t2, let t3) = consume t
+          (let t11, let t1_shrunken: Seq[T1]) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken: Seq[T2]) = gen2.shrink(consume t2)
+          (let t31, let t3_shrunken: Seq[T3]) = gen3.shrink(consume t3)
+
+          let shrunken: Array[(T1, T2, T3)] = Array[(T1, T2, T3)](
+            t1_shrunken.size().min(t2_shrunken.size()).min(t3_shrunken.size()))
+          while (t1_shrunken.size() > 0) and (t2_shrunken.size() > 0) and (t3_shrunken.size() > 0) do
+            try
+              shrunken.push((t1_shrunken.pop()?, t2_shrunken.pop()?, t3_shrunken.pop()?))
+            end
+          end
+          ((consume t11, consume t21, consume t31), shrunken)
         end)
 
   fun zip4[T1, T2, T3, T4](
@@ -351,11 +661,36 @@ primitive Generators
     """
     Generator[(T1, T2, T3, T4)](
       object is GenObj[(T1, T2, T3, T4)]
-        fun generate(rnd: Randomness): (T1^, T2^, T3^, T4^) =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3, T4)] =>
           (gen1.generate(rnd),
             gen2.generate(rnd),
             gen3.generate(rnd),
             gen4.generate(rnd))
+
+        fun shrink(t: (T1, T2, T3, T4)): ValueAndShrink[(T1, T2, T3, T4)] =>
+          (let t1, let t2, let t3, let t4) = consume t
+          (let t11, let t1_shrunken: Seq[T1]) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken: Seq[T2]) = gen2.shrink(consume t2)
+          (let t31, let t3_shrunken: Seq[T3]) = gen3.shrink(consume t3)
+          (let t41, let t4_shrunken: Seq[T4]) = gen4.shrink(consume t4)
+
+          let shrunken: Array[(T1, T2, T3, T4)] = Array[(T1, T2, T3, T4)](
+            t1_shrunken.size()
+              .min(t2_shrunken.size())
+              .min(t3_shrunken.size())
+              .min(t4_shrunken.size())
+          )
+          while (t1_shrunken.size() > 0) and (t2_shrunken.size() > 0)
+            and (t3_shrunken.size() > 0) and (t4_shrunken.size() > 0) do
+            try
+              shrunken.push(
+                (t1_shrunken.pop()?,
+                    t2_shrunken.pop()?,
+                    t3_shrunken.pop()?,
+                    t4_shrunken.pop()?))
+            end
+          end
+          ((consume t11, consume t21, consume t31, consume t41), shrunken)
         end)
 
   fun bool(): Generator[Bool] =>
@@ -648,7 +983,7 @@ primitive Generators
     """
     Generator[String](
       object is GenObj[String]
-        fun generate(rnd: Randomness): String^ =>
+        fun generate(rnd: Randomness): GenerateResult[String] =>
           let size = rnd.usize(min, max)
           let gen_iter = Iter[U8^](gen.iter(rnd))
             .take(size)
@@ -658,7 +993,7 @@ primitive Generators
           end
           String.from_iso_array(consume arr)
 
-        fun shrink(s: String): (String^, Seq[String]) =>
+        fun shrink(s: String): ValueAndShrink[String] =>
           """
           shrink string until ``min`` length.
           try to add empty string and single char string
