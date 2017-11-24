@@ -1,56 +1,42 @@
 use "collections"
+use "debug"
 use "assert"
 use "itertools"
 
-type ValueAndShrink[T] is (T^, Iterator[T^])
-type GenerateResult[T] is (T^ | ValueAndShrink)
+type ValueAndShrink[T1] is (T1^, Iterator[T1^])
+type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
 
 
-class _Poperator[T] is Iterator[T^]
-  """
-  iterate over a `Seq` descructively by `pop`ing its elements
+class CountdownIter is Iterator[USize]
+  """temporary workaround until Range supports negative step"""
+  var _cur: USize
+  let _to: USize
 
-  once `has_next()` returns `false`, the `Seq` is empty.
+  new create(from: USize, to: USize) ? =>
+    Fact(from >= to, "invalid args for CountdownIter")?
+    _cur = from
+    _to = to
 
-  Nominee for the annual pony class-naming awards
-  """
+  fun ref has_next(): Bool =>
+    _cur > _to
 
-  let _seq: (Seq[T] | None)
-
-  new create(seq: Seq[T]) =>
-    _seq = seq
-
-  new empty() =>
-    """
-    create an empty poperator
-    that is not backed by any `Seq`
-    for efficiency
-    """
-    _seq = None
-
-  fun has_next(): Bool =>
-    try
-      (_seq as Seq[T]).size() > 0
-    else
-      false
-    end
-
-  fun next(): T^ ? =>
-    (_seq as Seq[T]).pop()?
+  fun ref next(): USize =>
+    _cur = _cur - 1
 
 
 trait box GenObj[T]
   fun generate(rnd: Randomness): GenerateResult[T]
 
   fun shrink(t: T): ValueAndShrink[T] =>
-    (consume t, _Poperator[T]())
+    (consume t, _Poperator[T].empty())
 
   fun generate_value(rnd: Randomness): T^ =>
     """
     simply generate a value and ignore any possible
     shrink values
     """
-    match generate(rnd)
+    let g = this
+    match g.generate(rnd)
     | let t: T => consume t
     | (let t: T, _) => consume t
     end
@@ -60,39 +46,43 @@ trait box GenObj[T]
     generate a value and also return a shrink result
     even if the generator does not return any when calling `generate`.
     """
-    match generate(rnd)
-    | let t: T => shrink(consume t)
-    | let vas: ValueAndShrink[T] => consume vas
+    let g = this
+    match g.generate(rnd)
+    | let t: T => g.shrink(consume t)
+    | (let t: T, let shrinks: Iterator[T^])=> (consume t, shrinks)
     end
 
   fun iter(rnd: Randomness): Iterator[GenerateResult[T]]^ =>
-    let gen: GenObj[T] = this
+    let that: GenObj[T] = this
 
     object is Iterator[GenerateResult[T]]
       fun ref has_next(): Bool => true
-      fun ref next(): GenerateResult[T] => gen.generate(rnd)
+      fun ref next(): GenerateResult[T] => that.generate(rnd)
     end
 
-  fun value_iter(rnd: Randomness): Iterator[T^]^ =>
-    Iter[GenerateResult[T]](iter(rnd))
-      .map[T^]({ (result: GenerateResult[T]): T^ =>
-          match result
-          | let value_only: T => consume value_only
-          | (let v, _) => consume v
-          end
-        })
+  fun value_iter(rnd: Randomness): Iterator[T^] =>
+    let that: GenObj[T] = this
 
-  fun value_and_shrink_iter(rnd: Randomness): Iterator[ValueAndShrink[T]]^ =>
-    let gen: GenObj[T] = this
+    object is Iterator[T^]
+      fun ref has_next(): Bool => true
+      fun ref next(): T^ =>
+        match that.generate(rnd)
+        | let value_only: T => consume value_only
+        | (let v: T, _) => consume v
+        end
+    end
 
-    Iter[GenerateResult[T]](iter(rnd))
-      .map[ValueAndShrink[T]]({ (result: GenerateResult[T]): ValueAndShrink[T] =>
-          match result
-          | let value_only: T => gen.shrink(consume value_only)
-          | let vas: ValueAndShrink[T] => consume vas
-          end
-        })
+  fun value_and_shrink_iter(rnd: Randomness): Iterator[ValueAndShrink[T]] =>
+    let that: GenObj[T] = this
 
+    object is Iterator[ValueAndShrink[T]]
+      fun ref has_next(): Bool => true
+      fun ref next(): ValueAndShrink[T] =>
+        match that.generate(rnd)
+        | let value_only: T => that.shrink(consume value_only)
+        | (let v: T, let shrinks: Iterator[T^]) => (consume v, consume shrinks)
+        end
+    end
 
 
 class box Generator[T] is GenObj[T]
@@ -192,10 +182,10 @@ class box Generator[T] is GenObj[T]
 
         fun _filter_shrunken(shrunken: Iterator[T^]): Iterator[T^] =>
           Iter[T^](shrunken)
-            .filter_map({
+            .filter_map[T^]({
               (t: T): (T^| None) =>
                 match predicate(consume t)
-                | (let matching: T, true) => consume matching
+                | (let matching: T^, true) => consume matching
                 end
             })
       end)
@@ -238,7 +228,7 @@ class box Generator[T] is GenObj[T]
             (let uts: T, let shrunken: Iterator[T^]) = _gen.shrink(consume ut)
             (fn(consume uts), _map_shrunken(shrunken))
           else
-            (consume u, _Poperator.empty())
+            (consume u, _Poperator[U].empty())
           end
 
         fun _map_shrunken(shrunken: Iterator[T^]): Iterator[U^] =>
@@ -256,15 +246,18 @@ class box Generator[T] is GenObj[T]
         fun generate(rnd: Randomness): GenerateResult[U] =>
           (let value: T, let shrunken: Iterator[T^]) =
             _gen.generate_and_shrink(rnd)
-          let value_result = fn(consume value).generate(rnd)
+          let value_result: U = fn(consume value).generate_value(rnd)
 
           // apply fn to all shrink results and call the resulting generator
-          let shrink_result =
-            Iter[T^](shrunken)
-              .map[U^]({
-                (t: T): U^ =>
-                  fn(consume t).generate_value(rnd) // ignore shrinks here
-              })
+          let shrink_result: Iterator[U^] =
+            object is Iterator[U^]
+              let local_shrunken: Iterator[T^] = shrunken
+
+              fun ref has_next(): Bool => shrunken.has_next()
+              fun ref next(): U^ ? =>
+                let shrink: T = local_shrunken.next()?
+                fn(consume shrink).generate_value(rnd)
+            end
           (consume value_result, shrink_result)
       end)
 
@@ -325,36 +318,36 @@ primitive Generators
     Create a `Seq` from the values of the given Generator with an optional minimum and
     maximum size, defaults are 0 and 100 respectively.
     """
+
     Generator[S](
       object is GenObj[S]
+        let _gen: GenObj[T] = gen
         fun generate(rnd: Randomness): GenerateResult[S] =>
           let size = rnd.usize(min, max)
+          let initial: (S, Array[S]) = (S.create(size), Array[S](size))
 
-          (let result: S, let shrink_result: Seq[S]) =
-            Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
+          let result: S =
+            Iter[T^](_gen.value_iter(rnd))
               .take(size)
-              .fold[(S, Seq[S])]((S.create(size), Array[S](size)), {
-                // aggregate T values into Seq S
-                // and T shrinks into separate Seqs of shrunken values
-                ((s: S, final_shrinks: Seq[S]), (t: T, t_shrinks: Iterator[T^])) =>
-                  s.push(consume t)
-                  for (i, t_shrink) in Iter[T^](t_shrinks).enum() do
-                    // upsert
-                    let shrink_seq =
-                      try
-                        final_shrinks(i)?
-                      else
-                        let tmp = S.create(1)
-                        final_shrinks.push(tmp)
-                        tmp
-                      end
-                    shrink_seq.push(consume t_shrink)
-                  end
-                  (consume s, final_shrinks)
-              })
-          // TODO: add some more smaller samples, maybe empty collection
-          (consume result, _Poperator(shrink_results))
+              .collect[S](S.create(size))
+
+          // create shrink_iter with smaller seqs and elements generated from _gen.value_iter
+          let shrink_iter =
+            try
+              let countdown_iter = CountdownIter(size, min)?
+              Iter[USize](countdown_iter)
+                .map_stateful[S^]({
+                  (s: USize): S^ =>
+                    Iter[T^](_gen.value_iter(rnd))
+                      .take(s)
+                      .collect[S](S.create(s))
+                })
+            else
+              _Poperator[S].empty()
+            end
+          (consume result, shrink_iter)
       end)
+
 
   fun set_of[T: (Hashable #read & Equatable[T] #read)](
     gen: Generator[T],
@@ -377,31 +370,27 @@ primitive Generators
     """
     Generator[Set[T]](
       object is GenObj[Set[T]]
-        fun generate(rnd: Randomness): Set[T]^ =>
+        let _gen: GenObj[T] = gen
+        fun generate(rnd: Randomness): GenerateResult[Set[T]] =>
           let size = rnd.usize(0, max)
-
-          (let result: Set[T], let shrink_results: Seq[Set[T]]) =
-            Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
+          let result: Set[T] =
+            Set[T].create(size).>union(
+              Iter[T^](_gen.value_iter(rnd))
               .take(size)
-              .fold[(Set[T], Seq[Set[T]])]((Set[T](size), Array[Set[T]](size)), {
-                ((s: Set[T], final_shrinks: Seq[Set[T]]), (t: T, t_shrinks: Iterator[T^])) =>
-                  s.set(consume t)
-                  for (i, t_shrink) in Iter[T^](t_shrinks).enum() do
-                    // upsert
-                    let shrink_set =
-                      try
-                        final_shrinks(i)?
-                      else
-                        let tmp = Set[T].create(1)
-                        final_shrinks.push(tmp)
-                        tmp
-                      end
-                    shrink_set.set(consume t_shrink)
-                  end
-                  (consume s, final_shrinks)
-            })
-          // TODO: add some more smaller samples, maybe empty collection
-          (consume result, _Poperator(shrink_results))
+            )
+          let shrink_iter: Iterator[Set[T]^] =
+            try
+              Iter[USize](CountdownIter(size, 0)?)
+                .map_stateful[Set[T]^]({
+                  (s: USize): Set[T]^ =>
+                    Set[T].create(s).>union(
+                      Iter[T^](_gen.value_iter(rnd)).take(s)
+                    )
+                  })
+            else
+              _Poperator[Set[T]^].empty()
+            end
+          (consume result, shrink_iter)
       end)
 
   fun set_is_of[T](
@@ -426,14 +415,16 @@ primitive Generators
     // TODO: how to remove code duplications
     Generator[SetIs[T]](
       object is GenObj[SetIs[T]]
-        fun generate(rnd: Randomness): SetIs[T]^ =>
+        fun generate(rnd: Randomness): GenerateResult[SetIs[T]] =>
           let size = rnd.usize(0, max)
 
           (let result: SetIs[T], let shrink_result: Seq[SetIs[T]]) =
             Iter[ValueAndShrink[T]](gen.value_and_shrink_iter(rnd))
               .take(size)
               .fold[(SetIs[T], Seq[SetIs[T]])]((SetIs[T](size), Array[SetIs[T]](size)), {
-                ((s: SetIs[T], final_shrinks: Seq[SetIs[T]]), (t: T, t_shrinks: Iterator[T^])) =>
+                (agg: (SetIs[T], Seq[SetIs[T]]), elem: (T, Iterator[T^])): (SetIs[T]^, Seq[SetIs[T]]^) =>
+                  (let s, let final_shrinks) = consume agg
+                  (let t: T, let t_shrinks: Iterator[T^]) = consume elem
                   s.set(consume t)
                   for (i, t_shrink) in Iter[T^](t_shrinks).enum() do
                     // upsert
@@ -447,10 +438,10 @@ primitive Generators
                       end
                     shrink_set.set(consume t_shrink)
                   end
-                  (consume s, final_shrinks)
+                  (consume s, consume final_shrinks)
               })
           // TODO: add some more smaller samples, maybe empty collection
-          (consume result, _Poperator(shrink_result))
+          (consume result, _Poperator[SetIs[T]](shrink_result))
       end)
 
   fun map_of[K: (Hashable #read & Equatable[K] #read), V](
@@ -475,12 +466,14 @@ primitive Generators
           (let result: Map[K, V], let shrink_result: Seq[Map[K, V]]) =
             Iter[ValueAndShrink[(K^, V^)]](gen.value_and_shrink_iter(rnd))
               .take(size)
-              .fold[ValueAndShrink[Map[K, V]]((Map[K, V].create(size), Array[Map[K, V]].create(size)), {
-                ((m: Map[K, V], final_shrinks: Seq[Map[K, V]), (pair: (K, V), pair_shrinks: Iterator[(K^, V^)])) =>
+              .fold[(Map[K, V], Seq[Map[K, V]])]((Map[K, V].create(size), Array[Map[K, V]].create(size)), {
+                (agg: (Map[K, V], Seq[Map[K, V]]), elem: ((K, V), Iterator[(K^, V^)])): (Map[K, V]^, Seq[Map[K, V]]^) =>
+                  (let m, let final_shrinks) = consume agg
+                  (let pair, let pair_shrinks) = consume elem
                   (let k: K, let v: V) = consume pair
-                  m.update(k, v)
+                  m.update(k, consume v)
 
-                  for (i, pair_shrink) in Iter[T^](pair_shrinks).enum() do
+                  for (i, pair_shrink) in Iter[(K^, V^)](pair_shrinks).enum() do
                     (let pk, let pv) = consume pair_shrink
                     // upsert
                     let shrink_map =
@@ -497,7 +490,7 @@ primitive Generators
 
               })
           // TODO: add some more smaller samples, maybe empty collection
-          (consume result, _Poperator(shrink_result))
+          (consume result, _Poperator[Map[K, V]](shrink_result))
 
       end)
 
@@ -523,12 +516,15 @@ primitive Generators
           (let result: MapIs[K, V], let shrink_result: Seq[MapIs[K, V]]) =
             Iter[ValueAndShrink[(K^, V^)]](gen.value_and_shrink_iter(rnd))
               .take(size)
-              .fold[ValueAndShrink[MapIs[K, V]]((MapIs[K, V].create(size), Array[MapIs[K, V]].create(size)), {
-                ((m: MapIs[K, V], final_shrinks: Seq[MapIs[K, V]), (pair: (K, V), pair_shrinks: Iterator[(K^, V^)])) =>
-                  (let k: K, let v: V) = consume pair
-                  m.update(k, v)
+              .fold[(MapIs[K, V], Seq[MapIs[K, V]])]((MapIs[K, V].create(size), Array[MapIs[K, V]].create(size)), {
 
-                  for (i, pair_shrink) in Iter[T^](pair_shrinks).enum() do
+                (agg: (MapIs[K, V], Seq[MapIs[K, V]]), elem: ((K, V), Iterator[(K^, V^)])): (MapIs[K, V]^, Seq[MapIs[K, V]]^) =>
+                  (let m, let final_shrinks) = consume agg
+                  (let pair, let pair_shrinks) = consume elem
+                  (let k: K, let v: V) = consume pair
+                  m.update(consume k, consume v)
+
+                  for (i, pair_shrink) in Iter[(K^, V^)](pair_shrinks).enum() do
                     (let pk, let pv) = consume pair_shrink
                     // upsert
                     let shrink_map =
@@ -545,7 +541,7 @@ primitive Generators
 
               })
           // TODO: add some more smaller samples, maybe empty collection
-          (consume result, _Poperator(shrink_result))
+          (consume result, _Poperator[MapIs[K, V]](shrink_result))
       end)
 
 
@@ -594,7 +590,7 @@ primitive Generators
     ])
     ```
     """
-    Fact(weighted_generators.size() > 0, "cannot use frequency on empty ReadSeq[WeightedGenerator]")
+    Fact(weighted_generators.size() > 0, "cannot use frequency on empty ReadSeq[WeightedGenerator]")?
 
     // nasty hack to avoid handling the theoretical error case where we have
     // no generator and thus would have to change the type signature
@@ -607,7 +603,7 @@ primitive Generators
             Iter[WeightedGenerator[T]](weighted_generators.values())
               .fold[USize](
                 0,
-                {(acc: USize, weighted_gen: WeightedGenerator[T]): USize =>
+                {(acc: USize, weighted_gen: WeightedGenerator[T]): USize^ =>
                   weighted_gen._1 + acc
                 })
           let desired_sum = rnd.usize(0, weight_sum)
@@ -716,10 +712,10 @@ primitive Generators
 
         fun shrink(t: (T1, T2, T3, T4)): ValueAndShrink[(T1, T2, T3, T4)] =>
           (let t1, let t2, let t3, let t4) = consume t
-          (let t11, let t1_shrunken: Seq[T1]) = gen1.shrink(consume t1)
-          (let t21, let t2_shrunken: Seq[T2]) = gen2.shrink(consume t2)
-          (let t31, let t3_shrunken: Seq[T3]) = gen3.shrink(consume t3)
-          (let t41, let t4_shrunken: Seq[T4]) = gen4.shrink(consume t4)
+          (let t11, let t1_shrunken) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken) = gen2.shrink(consume t2)
+          (let t31, let t3_shrunken) = gen3.shrink(consume t3)
+          (let t41, let t4_shrunken) = gen4.shrink(consume t4)
 
           let shrunken = Iter[T1^](t1_shrunken)
             .zip3[T2^, T3^, T4^](t2_shrunken, t3_shrunken, t4_shrunken)
@@ -736,18 +732,63 @@ primitive Generators
           rnd.bool()
         end)
 
-  fun _int_shrink[T: (Int & Integer[T] val)](t: T^, min: T): (T^, Seq[T]) =>
-    let shrunken = Array[T](3)
-    if t > min then
-      shrunken.push(min)
-    end
-    if t > (min+1) then
-      shrunken.push(min+1)
-    end
-    if t > (min+2) then
-      shrunken.push(t-1)
-    end
-    (consume t, shrunken)
+  fun _int_shrink[T: (Int & Integer[T] val)](t: T^, min: T): ValueAndShrink[T] =>
+    """
+    subtracts or adds
+    -1
+    -2
+    (max-min) * 1/16
+              * 2/16
+              * 3/16
+              * ...
+    """
+    let relation = t.compare(min)
+    let t_copy: T = T.create(t)
+    let identity_op = {(t: T): T^ => t_copy }
+    let sub_op =
+      match relation
+      | Less => t~add()
+      | Equal => identity_op
+      | Greater => t~sub()
+      end
+    let div_op =
+      object
+        fun apply(x: T): T^ =>
+          let operand = ((x / 8) * t_copy)
+          match relation
+          | Less => t_copy + operand
+          | Equal => t_copy
+          | Greater => t_copy - operand
+          end
+      end
+    let take_while_op =
+      {(x: T): Bool =>
+        match relation
+        | Less => (x < min) and (x > t_copy) // guard against overflow
+        | Equal => false
+        | Greater => (x > min) and (x < t_copy) // guard against overflow
+        end
+      }
+
+    let sub_iter = Iter[T^](Range[T^](1, 2))
+      .map[T^](sub_op)
+      .take_while(take_while_op)
+    let div_iter = Iter[T^](Range[T^](1, 15))
+      .map[T^](div_op)
+      .take_while(take_while_op)
+    let min_iter =
+      match relation
+      | let _: (Less | Greater) => _Poperator[T]([min])
+      | Equal => _Poperator[T].empty()
+      end
+
+    let shrunken_iter = Iter[T].chain(
+      [
+        sub_iter
+        div_iter
+        min_iter
+      ].values())
+    (consume t, shrunken_iter)
 
   fun u8(
     min: U8 = U8.min_value(),
@@ -763,7 +804,7 @@ primitive Generators
         fun generate(rnd: Randomness): U8^ =>
           rnd.u8(min, max)
 
-        fun shrink(u: U8): (U8^, Seq[U8]) =>
+        fun shrink(u: U8): ValueAndShrink[U8] =>
           that._int_shrink[U8](consume u, min)
         end)
 
@@ -781,7 +822,7 @@ primitive Generators
         fun generate(rnd: Randomness): U16^ =>
           rnd.u16(min  max)
 
-        fun shrink(u: U16): (U16^, Seq[U16]) =>
+        fun shrink(u: U16): ValueAndShrink[U16] =>
           that._int_shrink[U16](consume u, min)
       end)
 
@@ -799,7 +840,7 @@ primitive Generators
         fun generate(rnd: Randomness): U32^ =>
           rnd.u32(min, max)
 
-        fun shrink(u: U32): (U32^, Seq[U32]) =>
+        fun shrink(u: U32): ValueAndShrink[U32] =>
           that._int_shrink[U32](consume u, min)
       end)
 
@@ -817,7 +858,7 @@ primitive Generators
         fun generate(rnd: Randomness): U64^ =>
           rnd.u64(min, max)
 
-        fun shrink(u: U64): (U64^, Seq[U64]) =>
+        fun shrink(u: U64): ValueAndShrink[U64] =>
           that._int_shrink[U64](consume u, min)
       end)
 
@@ -835,7 +876,7 @@ primitive Generators
         fun generate(rnd: Randomness): U128^ =>
           rnd.u128(min, max)
 
-        fun shrink(u: U128): (U128^, Seq[U128]) =>
+        fun shrink(u: U128): ValueAndShrink[U128] =>
           that._int_shrink[U128](consume u, min)
       end)
 
@@ -850,10 +891,10 @@ primitive Generators
     let that = this
     Generator[USize](
       object is GenObj[USize]
-        fun generate(rnd: Randomness): USize^ =>
+        fun generate(rnd: Randomness): GenerateResult[USize] =>
           rnd.usize(min, max)
 
-        fun shrink(u: USize): (USize^, Seq[USize]) =>
+        fun shrink(u: USize): ValueAndShrink[USize] =>
           that._int_shrink[USize](consume u, min)
       end)
 
@@ -871,7 +912,7 @@ primitive Generators
         fun generate(rnd: Randomness): ULong^ =>
           rnd.ulong(min, max)
 
-        fun shrink(u: ULong): (ULong^, Seq[ULong]) =>
+        fun shrink(u: ULong): ValueAndShrink[ULong] =>
           that._int_shrink[ULong](consume u, min)
       end)
 
@@ -889,7 +930,7 @@ primitive Generators
         fun generate(rnd: Randomness): I8^ =>
           rnd.i8(min, max)
 
-        fun shrink(i: I8): (I8^, Seq[I8]) =>
+        fun shrink(i: I8): ValueAndShrink[I8] =>
           that._int_shrink[I8](consume i, min)
       end)
 
@@ -907,7 +948,7 @@ primitive Generators
         fun generate(rnd: Randomness): I16^ =>
           rnd.i16(min, max)
 
-        fun shrink(i: I16): (I16^, Seq[I16]) =>
+        fun shrink(i: I16): ValueAndShrink[I16] =>
           that._int_shrink[I16](consume i, min)
       end)
 
@@ -925,7 +966,7 @@ primitive Generators
         fun generate(rnd: Randomness): I32^ =>
           rnd.i32(min, max)
 
-        fun shrink(i: I32): (I32^, Seq[I32]) =>
+        fun shrink(i: I32): ValueAndShrink[I32] =>
           that._int_shrink[I32](consume i, min)
       end)
 
@@ -943,7 +984,7 @@ primitive Generators
         fun generate(rnd: Randomness): I64^ =>
           rnd.i64(min, max)
 
-        fun shrink(i: I64): (I64^, Seq[I64]) =>
+        fun shrink(i: I64): ValueAndShrink[I64] =>
           that._int_shrink[I64](consume i, min)
       end)
 
@@ -961,7 +1002,7 @@ primitive Generators
         fun generate(rnd: Randomness): I128^ =>
           rnd.i128(min, max)
 
-        fun shrink(i: I128): (I128^, Seq[I128]) =>
+        fun shrink(i: I128): ValueAndShrink[I128] =>
           that._int_shrink[I128](consume i, min)
       end)
 
@@ -979,7 +1020,7 @@ primitive Generators
         fun generate(rnd: Randomness): ILong^ =>
           rnd.ilong(min, max)
 
-        fun shrink(i: ILong): (ILong^, Seq[ILong]) =>
+        fun shrink(i: ILong): ValueAndShrink[ILong] =>
           that._int_shrink[ILong](consume i, min)
       end)
 
@@ -997,7 +1038,7 @@ primitive Generators
         fun generate(rnd: Randomness): ISize^ =>
           rnd.isize(min, max)
 
-        fun shrink(i: ISize): (ISize^, Seq[ISize]) =>
+        fun shrink(i: ISize): ValueAndShrink[ISize] =>
           that._int_shrink[ISize](consume i, min)
       end)
 
@@ -1018,7 +1059,7 @@ primitive Generators
       object is GenObj[String]
         fun generate(rnd: Randomness): GenerateResult[String] =>
           let size = rnd.usize(min, max)
-          let gen_iter = Iter[U8^](gen.iter(rnd))
+          let gen_iter = Iter[U8^](gen.value_iter(rnd))
             .take(size)
           let arr: Array[U8] iso = recover Array[U8](size) end
           for b in gen_iter do
@@ -1029,23 +1070,26 @@ primitive Generators
         fun shrink(s: String): ValueAndShrink[String] =>
           """
           shrink string until ``min`` length.
-          try to add empty string and single char string
-          if ``min`` allows this.
           """
-          let shrunken = Array[String](3)
-          let size = s.size()
-          if size > min then
-            if min == 0 then
-              shrunken.push("")
+          var str: String = s.trim(0, s.size()-1)
+          let shorten_iter: Iterator[String^] =
+            object is Iterator[String^]
+              fun ref has_next(): Bool => str.size() > min
+              fun ref next(): String^ =>
+                str = str.trim(0, str.size()-1)
             end
-            if (min <= 1) and (size > 1) then
-              shrunken.push(recover val s.substring(0, 1) end)
+          let min_iter =
+            if s.size() > min then
+              _Poperator[String]([s.trim(0, min)])
+            else
+              _Poperator[String].empty()
             end
-            if (size-1) >= min then
-              shrunken.push(recover val s.substring(0, -1) end)
-            end
-          end
-          (consume s, shrunken)
+          let shrink_iter =
+            Iter[String^].chain([
+              shorten_iter
+              min_iter
+            ].values())
+          (consume s, shrink_iter)
       end)
 
   fun ascii(
@@ -1124,9 +1168,9 @@ primitive Generators
     """
     Generator[String](
       object is GenObj[String]
-        fun generate(rnd: Randomness): String^ =>
+        fun generate(rnd: Randomness): GenerateResult[String] =>
           let size = rnd.usize(min, max)
-          let gen_iter = Iter[U32^](gen.iter(rnd))
+          let gen_iter = Iter[U32^](gen.value_iter(rnd))
             .filter({(cp: U32): Bool =>
               // excluding surrogate pairs
               (cp <= 0xD7FF) or (cp >= 0xE000) })
@@ -1137,42 +1181,51 @@ primitive Generators
           end
           s
 
-        fun shrink(s: String): (String^, Seq[String]) =>
+        fun shrink(s: String): ValueAndShrink[String] =>
           """
           strip off codepoints from the end, not just bytes, so we
           maintain a valid utf8 string
 
           only shrink until given ``min`` is hit
           """
-          let shrunken = Array[String](3)
-          let cps: USize = s.codepoints()
-          if cps > min then
-            if min == 0 then
-              shrunken.push("")
+          var shrink_base = s
+          let s_len = s.codepoints()
+          let shorten_iter: Iterator[String^] =
+            if s_len > min then
+              Iter[String^].repeat_value(consume shrink_base)
+                .map_stateful[String^](
+                  object
+                    var len: USize = s_len - 1
+                    fun ref apply(str: String): String =>
+                      Generators._trim_codepoints(str, len = len - 1)
+                  end
+                ).take_while({(t: String): Bool => t.codepoints() > min})
+            else
+              _Poperator[String].empty()
             end
-            if min <= 1 then
-              try
-                // add single code point string
-                shrunken.push(
-                  recover val String.from_utf32(s.runes().next()?) end
-                )
-              end
+          let min_iter =
+            if s_len > min then
+              _Poperator[String]([
+                  Generators._trim_codepoints(s, min)
+                ])
+            else
+              _Poperator[String].empty()
             end
-            if (cps-1) >= min then
-              // add capped by one codepoint
-              let capped: String val = recover val
-                Iter[U32](s.runes())
-                  .take(cps-1)
-                  .fold[String ref](
-                    String.create(s.size()),
-                    {(acc: String ref, cp: U32): String ref => acc.>push_utf32(cp) })
-                end
-              shrunken.push(capped)
-            end
-          end
-          (consume s, shrunken)
+          let shrink_iter = Iter[String^].chain([
+              shorten_iter
+              min_iter
+            ].values())
+          (consume s, shrink_iter)
       end)
 
+  fun _trim_codepoints(s: String, trim_to: USize): String =>
+    recover val
+      Iter[U32](s.runes())
+        .take(trim_to)
+        .fold[String ref](
+          String.create(trim_to),
+          {(acc: String ref, cp: U32): String ref^ => acc.>push_utf32(cp) })
+    end
 
   fun unicode(
     min: USize = 0,

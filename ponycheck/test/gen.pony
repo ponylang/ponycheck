@@ -15,9 +15,9 @@ class GenRndTest is UnitTest
     let rnd3 = Randomness(1)
     var same: U32 = 0
     for x in Range(0, 100) do
-      let g1 = gen.generate(rnd1)
-      let g2 = gen.generate(rnd2)
-      let g3 = gen.generate(rnd3)
+      let g1 = gen.generate_value(rnd1)
+      let g2 = gen.generate_value(rnd2)
+      let g3 = gen.generate_value(rnd3)
       h.assert_eq[U32](g1, g2)
       if g1 == g3 then
         same = same + 1
@@ -39,7 +39,7 @@ class GenFilterTest is UnitTest
     })
     let rnd = Randomness(Time.millis())
     for x in Range(0, 100) do
-      let v = gen.generate(rnd)
+      let v = gen.generate_value(rnd)
       h.assert_true((v%2) == 0)
     end
 
@@ -61,7 +61,7 @@ class GenFrequencyTest is UnitTest
 
       let generated = Array[U8](100)
       for i in Range(0, 100) do
-        generated.push(gen.generate(rnd))
+        generated.push(gen.generate_value(rnd))
       end
       h.assert_false(generated.contains(U8(42)), "frequency generated value with 0 weight")
       h.assert_true(generated.contains(U8(0)), "frequency did not generate value with weight of 1")
@@ -84,7 +84,7 @@ class SetOfTest is UnitTest
         1024)
     let rnd = Randomness(Time.millis())
     for i in Range(0, 100) do
-      let sample: Set[U8] = set_gen.generate(rnd)
+      let sample: Set[U8] = set_gen.generate_value(rnd)
       h.assert_true(sample.size() <= 256, "something about U8 is not right")
     end
 
@@ -100,7 +100,7 @@ class SetOfMaxTest is UnitTest
         Generators.set_of[U8](
           Generators.u8(),
           size)
-      let sample: Set[U8] = set_gen.generate(rnd)
+      let sample: Set[U8] = set_gen.generate_value(rnd)
       h.assert_true(sample.size() <= size, "generated set is too big.")
     end
 
@@ -117,7 +117,7 @@ class SetOfEmptyTest is UnitTest
         0)
     let rnd = Randomness(Time.millis())
     for i in Range(0, 100) do
-      let sample: Set[U8] = set_gen.generate(rnd)
+      let sample: Set[U8] = set_gen.generate_value(rnd)
       h.assert_true(sample.size() == 0, "non-empty set created.")
     end
 
@@ -131,7 +131,7 @@ class SetIsOfIdentityTest is UnitTest
         Generators.unit[String]("the highlander"),
         100)
     let rnd = Randomness(Time.millis())
-    let sample: SetIs[String] = set_is_gen_same.generate(rnd)
+    let sample: SetIs[String] = set_is_gen_same.generate_value(rnd)
     h.assert_true(sample.size() <= 1,
         "invalid SetIs instances generated: size " + sample.size().string())
 
@@ -151,7 +151,7 @@ class MapOfEmptyTest is UnitTest
           ),
         0)
     let rnd = Randomness(Time.millis())
-    let sample = map_gen.generate(rnd)
+    let sample = map_gen.generate_value(rnd)
     h.assert_eq[USize](sample.size(), 0, "non-empty map created")
 
 class MapOfMaxTest is UnitTest
@@ -164,13 +164,13 @@ class MapOfMaxTest is UnitTest
       let map_gen =
         Generators.map_of[String, I64](
           Generators.zip2[String, I64](
-            Generators.u16().map[String]({(u: U16): String^ =>
-              let s = u.string()
-              consume s }),
+            Generators.u16().map[String^]({(u: U16): String^ =>
+              u.string()
+            }),
             Generators.i64(-10, 10)
             ),
         size)
-      let sample = map_gen.generate(rnd)
+      let sample = map_gen.generate_value(rnd)
       h.assert_true(sample.size() <= size, "generated map is too big.")
     end
 
@@ -189,7 +189,7 @@ class MapOfIdentityTest is UnitTest
           Generators.i64(-10, 10)
           ),
       100)
-    let sample = map_gen.generate(rnd)
+    let sample = map_gen.generate_value(rnd)
     h.assert_true(sample.size() <= 1)
 
 class MapIsOfEmptyTest is UnitTest
@@ -208,7 +208,7 @@ class MapIsOfEmptyTest is UnitTest
           ),
         0)
     let rnd = Randomness(Time.millis())
-    let sample = map_is_gen.generate(rnd)
+    let sample = map_is_gen.generate_value(rnd)
     h.assert_eq[USize](sample.size(), 0, "non-empty map created")
 
 class MapIsOfMaxTest is UnitTest
@@ -227,7 +227,7 @@ class MapIsOfMaxTest is UnitTest
             Generators.i64(-10, 10)
             ),
         size)
-      let sample = map_is_gen.generate(rnd)
+      let sample = map_is_gen.generate_value(rnd)
       h.assert_true(sample.size() <= size, "generated map is too big.")
     end
 
@@ -243,7 +243,7 @@ class MapIsOfIdentityTest is UnitTest
           Generators.i64(-10, 10)
           ),
       100)
-    let sample = map_gen.generate(rnd)
+    let sample = map_gen.generate_value(rnd)
     h.assert_true(sample.size() <= 1)
 
 class ASCIIRangeTest is UnitTest
@@ -253,7 +253,7 @@ class ASCIIRangeTest is UnitTest
     let ascii_gen = Generators.ascii( where min=1, max=1, range=ASCIIAll)
 
     for i in Range[USize](0, 100) do
-      let sample = ascii_gen.generate(rnd)
+      let sample = ascii_gen.generate_value(rnd)
       h.assert_true(ASCIIAll().contains(sample), "\"" + sample + "\" not valid ascii")
     end
 
@@ -267,7 +267,7 @@ class UTF32CodePointStringTest is UnitTest
       100)
 
     for i in Range[USize](0, 100) do
-      let sample = string_gen.generate(rnd)
+      let sample = string_gen.generate_value(rnd)
       for cp in sample.runes() do
         h.assert_true((cp <= 0xD7FF ) or (cp >= 0xE000), "\"" + sample + "\" invalid utf32")
       end
