@@ -33,4 +33,4 @@ actor Main is TestList
     test(ASCIIStringShrinkTest)
     test(MinASCIIStringShrinkTest)
     test(UnicodeStringShrinkTest)
-    //test(MinUnicodeStringShrinkTest)
+    test(MinUnicodeStringShrinkTest)

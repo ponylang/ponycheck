@@ -1,4 +1,5 @@
 use "ponytest"
+use "itertools"
 use "collections"
 
 class PropertyParams
@@ -71,13 +72,12 @@ trait Property1[T] is UnitTest
     let helper: PropertyHelper ref = PropertyHelper(parameters, h)
     let generator: Generator[T] = gen()
     let me: Property1[T] = this
-    for i in Range[USize].create(0, parameters.num_samples) do
-      var sample: T = generator.generate(rnd)
+    for i_sample in Range[USize].create(0, parameters.num_samples) do
+
+      (var sample: T, var shrinks: Iterator[T^]) = generator.generate_and_shrink(rnd)
 
       // create a string representation before consuming ``sample`` with property
       (sample, var sample_repr: String) = _to_string(consume sample)
-      // shrink before consuming ``sample`` with property
-      (sample, var shrinks: Seq[T]) = _shrink(consume sample, generator)
       try
         me.property(consume sample, helper)?
       else
@@ -87,25 +87,14 @@ trait Property1[T] is UnitTest
       end
       if helper.failed() then
         var shrink_rounds: USize = 0
-        let num_shrinks = shrinks.size()
-
+        // the shrinking Iterator is an iterator that returns more and more
+        // shrunken samples from the generator
         // safeguard against generators that generate huge or even infinite shrink seqs
-        let shrinks_to_ignore =
-          if num_shrinks > parameters.max_shrink_samples then
-            num_shrinks - parameters.max_shrink_samples
-          else
-            0
-          end
-        while
-          (shrinks.size() > shrinks_to_ignore)
-            and (shrink_rounds < parameters.max_shrink_rounds)
-        do
-          var failedShrink: T = shrinks.pop()?
-          (failedShrink, let shrink_repr: String) = _to_string(consume failedShrink)
-          (failedShrink, let next_shrinks: Seq[T]) = _shrink(consume failedShrink, generator)
+        for (i, shrink) in Iter[T^](shrinks).enum().take(parameters.max_shrink_samples) do
+          (let local_shrink, let shrink_repr: String) = _to_string(consume shrink)
           helper.reset()
           try
-            me.property(consume failedShrink, helper)?
+            me.property(consume local_shrink, helper)?
           else
             helper.reportError(shrink_repr, shrink_rounds)
             error
@@ -113,9 +102,11 @@ trait Property1[T] is UnitTest
           if helper.failed() then
             // we have a failing shrink sample
             shrink_rounds = shrink_rounds + 1
-            shrinks = consume next_shrinks
             sample_repr = shrink_repr
             continue
+          else
+            // we have a sample that did not fail and thus can stop shrinking
+            break
           end
         end
         helper.reportFailed[T](sample_repr, shrink_rounds)
@@ -132,17 +123,6 @@ trait Property1[T] is UnitTest
     use digestof if nothing else is available
     """
     Stringifier.stringify[T](consume sample)
-
-  fun ref _shrink(shrinkMe: T, generator: Generator[T]): (T^, Seq[T]) =>
-    """
-    helper for shrinking a value with the generator it was created with (if it is a Shrinkable)
-    """
-    match generator
-    | let shrinkable: Shrinkable[T] box =>
-      shrinkable.shrink(consume shrinkMe)
-    else
-      (consume shrinkMe, List[T](0))
-    end
 
 primitive Stringifier
   fun stringify[T](t: T): (T^, String) =>
