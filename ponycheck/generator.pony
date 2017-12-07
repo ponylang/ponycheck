@@ -734,48 +734,34 @@ primitive Generators
 
   fun _int_shrink[T: (Int & Integer[T] val)](t: T^, min: T): ValueAndShrink[T] =>
     """
-    subtracts or adds
-    -1
-    -2
-    (max-min) * 1/16
-              * 2/16
-              * 3/16
-              * ...
     """
     let relation = t.compare(min)
     let t_copy: T = T.create(t)
-    let identity_op = {(t: T): T^ => t_copy }
-    let sub_op =
-      match relation
-      | Less => t~add()
-      | Equal => identity_op
-      | Greater => t~sub()
-      end
-    let div_op =
-      object
-        fun apply(x: T): T^ =>
-          let operand = ((x / 8) * t_copy)
+
+    let sub_iter =
+      object is Iterator[T^]
+        var cur: T = t_copy
+        var _subtract: F64 = 1.0
+
+        fun ref subtract(): T =>
+          // f(x) = x + (2^-5 * x^2)
+          T.from[F64](_subtract = _subtract + (0.03125 * _subtract * _subtract))
+
+        fun ref has_next(): Bool =>
           match relation
-          | Less => t_copy + operand
-          | Equal => t_copy
-          | Greater => t_copy - operand
+          | Less => (cur < min) and (cur >= t_copy) // guard against overflow
+          | Equal => false
+          | Greater => (cur > min) and (cur <= t_copy) // guard against overflow
+          end
+
+        fun ref next(): T^ =>
+          match relation
+          | Less => cur = cur + subtract()
+          | Equal => cur
+          | Greater => cur = cur - subtract()
           end
       end
-    let take_while_op =
-      {(x: T): Bool =>
-        match relation
-        | Less => (x < min) and (x > t_copy) // guard against overflow
-        | Equal => false
-        | Greater => (x > min) and (x < t_copy) // guard against overflow
-        end
-      }
 
-    let sub_iter = Iter[T^](Range[T^](1, 2))
-      .map[T^](sub_op)
-      .take_while(take_while_op)
-    let div_iter = Iter[T^](Range[T^](1, 15))
-      .map[T^](div_op)
-      .take_while(take_while_op)
     let min_iter =
       match relation
       | let _: (Less | Greater) => _Poperator[T]([min])
@@ -784,8 +770,7 @@ primitive Generators
 
     let shrunken_iter = Iter[T].chain(
       [
-        sub_iter
-        div_iter
+        Iter[T^](sub_iter).skip(1)
         min_iter
       ].values())
     (consume t, shrunken_iter)
