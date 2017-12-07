@@ -69,10 +69,9 @@ class SignedShrinkTest is ShrinkTest
     h.assert_true(shrinksx.contains(I64.min_value()))
     h.assert_false(shrinksx.contains(I64.min_value() + 100), "shrink arg included in shrink list")
 
-    let gen2 = Generators.i64(-10, 10)
-    for x in Iter[I64](shrink[I64](gen2, 10)).take(100) do
-      Debug(x.string())
-    end
+    let gen2 = Generators.i64(-10, 20)
+    let cross_0_shrinks = _collect_shrinks[I64](gen2, 20)
+    h.assert_array_eq[I64]([19; 18; 17; 16; 15; 14; 13; 12; 11; 10; 9; 8; 7; 6; 5; 4; 3; 1; -1; -3; -5; -7; -9; -10], cross_0_shrinks)
 
 
 class MinSignedShrinkTest is ShrinkTest
