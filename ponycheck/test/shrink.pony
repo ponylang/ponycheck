@@ -16,79 +16,69 @@ trait ShrinkTest is UnitTest
   fun _size(shrinks: Iterator[Any^]): USize =>
     Iter[Any^](shrinks).count()
 
+  fun _test_int_constraints[T: (Int & Integer[T] val)](
+    h: TestHelper,
+    gen: Generator[T],
+    x: T,
+    min: T = T.min_value()
+  ) ?
+    =>
+    let shrinks = shrink[T](gen, min)
+    h.assert_false(shrinks.has_next(), "non-empty shrinks for minimal value " + min.string())
+
+    let shrinks1 = _collect_shrinks[T](gen, min + 1)
+    h.assert_array_eq[T]([min], shrinks1, "didn't include min in shrunken list of samples")
+
+    let shrinks2 = shrink[T](gen, x)
+    h.assert_true(
+      Iter[T^](shrinks2)
+        .all(
+          {(u: T): Bool =>
+            match x.compare(min)
+            | Less =>
+              (u <= min) and (u > x)
+            | Equal => true
+            | Greater =>
+              (u >= min) and (u < x)
+            end
+          }),
+      "generated shrinks from " + x.string() + " that violate minimum or maximum")
+
+    let count_shrinks = shrink[T](gen, x)
+    let max_count =
+      if (x - min) < 0 then
+        -(x - min)
+      else
+        x - min
+      end
+    let actual_count = T.from[USize](Iter[T^](count_shrinks).count())
+    h.assert_true(
+      actual_count <= max_count,
+      "generated too much values from " + x.string() + " : " + actual_count.string() + " > " + max_count.string())
+
 class UnsignedShrinkTest is ShrinkTest
   fun name(): String => "shrink/unsigned_generators"
 
-  fun apply(h: TestHelper) =>
+  fun apply(h: TestHelper)? =>
     let gen = Generators.u8()
+    _test_int_constraints[U8](h, gen, U8(42))?
+    _test_int_constraints[U8](h, gen, U8.max_value())?
 
-
-    let shrinks = shrink[U8](gen, U8.min_value())
-    h.assert_false(shrinks.has_next(), "shrunk minimal value to non-empty list of samples")
-
-    let shrinks1 = _collect_shrinks[U8](gen, U8(1))
-
-    h.assert_eq[USize](1, shrinks1.size(), "create too much results")
-    h.assert_true(shrinks1.contains(U8.min_value()), "didn't include min in shrunken list of samples")
-
-    let collected = _collect_shrinks[U8](gen, U8.max_value())
-    h.assert_true(collected.contains(U8.min_value()))
-    h.assert_true(collected.contains(U8.min_value() / 2))
-
-class MinUnsignedShrinkTest is ShrinkTest
-  fun name(): String => "shrink/min_unsigned_generators"
-
-  fun apply(h: TestHelper) =>
     let min = U64(10)
-    let gen = Generators.u64(where min=min)
-
-    let shrinks = shrink[U64](gen, min)
-    h.assert_false(shrinks.has_next(), "non-empty shrinks for minimal value")
-
-    let shrinks2 = shrink[U64](gen, 42)
-    h.assert_true(
-      Iter[U64^](shrinks2)
-        .all({(u: U64): Bool => (u >= min) and (u < 42) }),
-      "generated shrinks that violate minimum or maximum")
-
+    let gen_min = Generators.u64(where min=min)
+    _test_int_constraints[U64](h, gen_min, 42, min)?
 
 class SignedShrinkTest is ShrinkTest
   fun name(): String => "shrink/signed_generators"
 
   fun apply(h: TestHelper) ? =>
     let gen = Generators.i64()
-
-    let shrinksmin = shrink[I64](gen, I64.min_value())
-    h.assert_false(shrinksmin.has_next(), "shrunk minimal value to non-empty list of samples")
-
-    let shrinks1 = _collect_shrinks[I64](gen, I64.min_value() + 1)
-    h.assert_eq[I64](I64.min_value(), shrinks1(0)?, "didn't include min in shrunken list of samples")
-    h.assert_false(shrinks1.contains(I64.min_value() + 1), "shrink arg included in shrink list")
-
-    let shrinksx = _collect_shrinks[I64](gen, I64.min_value() + 100)
-    h.assert_true(shrinksx.contains(I64.min_value()))
-    h.assert_false(shrinksx.contains(I64.min_value() + 100), "shrink arg included in shrink list")
+    _test_int_constraints[I64](h, gen, (I64.min_value() + 100))?
 
     let gen2 = Generators.i64(-10, 20)
-    let cross_0_shrinks = _collect_shrinks[I64](gen2, 20)
-    h.assert_array_eq[I64]([19; 18; 17; 16; 15; 14; 13; 12; 11; 10; 9; 8; 7; 6; 5; 4; 3; 1; -1; -3; -5; -7; -9; -10], cross_0_shrinks)
-
-
-class MinSignedShrinkTest is ShrinkTest
-  fun name(): String => "shrink/min_signed_generators"
-
-  fun apply(h: TestHelper) =>
-    let min = I16(-10)
-    let gen = Generators.i16(where min=min)
-
-    let shrinks = shrink[I16](gen, min)
-    h.assert_false(shrinks.has_next(), "non-empty shrinks for minimal value")
-
-    let shrinks2 = shrink[I16](gen, -2)
-    h.assert_true(
-      Iter[I16](shrinks)
-        .all({(i: I16): Bool => i >= min}),
-      "generated shrinks that violate minimum")
+    _test_int_constraints[I64](h, gen2, 20, -10)?
+    _test_int_constraints[I64](h, gen2, 30, -10)?
+    _test_int_constraints[I64](h, gen2, -12, -10)? // weird case but should still work
 
 
 class ASCIIStringShrinkTest is ShrinkTest
@@ -96,10 +86,6 @@ class ASCIIStringShrinkTest is ShrinkTest
 
   fun apply(h: TestHelper) =>
     let gen = Generators.ascii(where min=0)
-
-    for s in Iter[String](shrink[String](gen, "")).take(100) do
-      Debug("|" + s + "|")
-    end
 
     let shrinks_min = shrink[String](gen, "")
     h.assert_false(shrinks_min.has_next(), "non-empty shrinks for minimal value")
@@ -169,4 +155,19 @@ class MinUnicodeStringShrinkTest is ShrinkTest
       "shrinks contain sample value")
 
 
+class FilterMapShrinkTest is ShrinkTest
+  fun name(): String => "shrink/filter_map"
+
+  fun apply(h: TestHelper) =>
+    let gen: Generator[U64] =
+      Generators.u8()
+        .filter({(byte: U8): (U8^, Bool) => (byte, byte > 10) })
+        .map[U64]({(byte: U8): U64^ => (byte * 2).u64() })
+    // shrink from 100 and only expect even values > 20
+    let shrink_iter = shrink[U64](gen, U64(100))
+    h.assert_true(
+      Iter[U64](shrink_iter)
+        .all({(u: U64): Bool =>
+          (u > 20) and ((u % 2) == 0) }),
+      "shrinking does not maintain filter invariants")
 
