@@ -70,6 +70,43 @@ class GenFrequencyTest is UnitTest
       h.fail("error creating frequency generator")
     end
 
+class SeqOfTest is UnitTest
+  fun name(): String => "Gen/seq_of"
+
+  fun apply(h: TestHelper) =>
+    let seq_gen =
+      Generators.seq_of[U8, Array[U8]](
+        Generators.u8(),
+        0,
+        10)
+    let rnd = Randomness(Time.millis())
+    h.assert_true(
+      Iter[Array[U8]^](seq_gen.value_iter(rnd))
+        .take(100)
+        .all({
+          (a: Array[U8]): Bool =>
+            (a.size() >= 0) and (a.size() <= 10) }),
+      "Seqs generated with Generators.seq_of are out of bounds")
+
+    match seq_gen.generate(rnd)
+    | (let gen_sample: Array[U8], let shrinks: Iter[Array[U8]^]) =>
+      let max_size = gen_sample.size()
+      h.assert_true(
+        Iter[Array[U8]^](shrinks)
+          .take(100)
+          .all({(a: Array[U8]): Bool =>
+            if not (a.size() < max_size) then
+              h.log(a.size().string() + " > " + max_size.string())
+              false
+            else
+              true
+            end
+          }),
+        "shrinking of Generators.seq_of produces too big Seqs")
+    else
+      h.fail("Generators.seq_of did not produce any shrinks")
+    end
+
 class SetOfTest is UnitTest
   fun name(): String => "Gen/set_of"
 
