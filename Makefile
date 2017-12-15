@@ -8,7 +8,7 @@ DEPS = $(shell ls $(SRCDIR)/*.pony)
 FLAGS ?=
 TESTFLAGS ?=
 ifneq (${DEBUG},)
-    FLAGS += --debug --verbose=2
+    FLAGS += --debug
     #    TESTFLAGS += --verbose
 endif
 
