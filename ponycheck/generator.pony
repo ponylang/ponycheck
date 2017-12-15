@@ -16,6 +16,27 @@ type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
   of shrunken values based upon this value.
   """
 
+class CountdownIter[T: (Int & Integer[T] val) = USize] is Iterator[T]
+  """
+  workaround until 0.21.0 is released and Range supports negative steps
+
+  `from` is exclusive, `to` is inclusive
+  """
+  var _cur: T
+  let _to: T
+
+  new create(from: T, to: T = T.min_value()) =>
+    _cur = from
+    _to = to
+
+  fun ref has_next(): Bool =>
+    _cur > _to
+
+  fun ref next(): T =>
+    let res = _cur - 1
+    _cur = res
+    res
+
 trait box GenObj[T]
   fun generate(rnd: Randomness): GenerateResult[T]
 
@@ -319,8 +340,8 @@ primitive Generators
 
           // create shrink_iter with smaller seqs and elements generated from _gen.value_iter
           let shrink_iter =
-            Iter[USize](Range(size, min, -1))
-              .skip(1)
+            Iter[USize](CountdownIter(size, min)) //Range(size, min, -1))
+              // .skip(1)
               .map_stateful[S^]({
                 (s: USize): S^ =>
                   Iter[T^](_gen.value_iter(rnd))
@@ -361,8 +382,8 @@ primitive Generators
               .take(size)
             )
           let shrink_iter: Iterator[Set[T]^] =
-            Iter[USize](Range(size, 0, -1))
-              .skip(1)
+            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+              //.skip(1)
               .map_stateful[Set[T]^]({
                 (s: USize): Set[T]^ =>
                   Set[T].create(s).>union(
@@ -404,8 +425,8 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[SetIs[T]^] =
-            Iter[USize](Range(size, 0, -1))
-              .skip(1)
+            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+              //.skip(1)
               .map_stateful[SetIs[T]^]({
                 (s: USize): SetIs[T]^ =>
                   SetIs[T].create(s).>union(
@@ -441,8 +462,8 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[Map[K, V]^] =
-            Iter[USize](Range(size, 0, -1))
-              .skip(1)
+            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+              // .skip(1)
               .map_stateful[Map[K, V]^]({
                 (s: USize): Map[K, V]^ =>
                   Map[K, V].create(s).>concat(
@@ -479,8 +500,8 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[MapIs[K, V]^] =
-            Iter[USize](Range(size, 0, -1))
-              .skip(1)
+            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+              // .skip(1)
               .map_stateful[MapIs[K, V]^]({
                 (s: USize): MapIs[K, V]^ =>
                   MapIs[K, V].create(s).>concat(
@@ -1189,7 +1210,7 @@ primitive Generators
           """
           var shrink_base = s
           let s_len = s.codepoints()
-          let shorten_iter: Iterator[String^] =
+          let shrink_iter: Iterator[String^] =
             if s_len > min then
               Iter[String^].repeat_value(consume shrink_base)
                 .map_stateful[String^](
@@ -1198,22 +1219,12 @@ primitive Generators
                     fun ref apply(str: String): String =>
                       Generators._trim_codepoints(str, len = len - 1)
                   end
-                ).take_while({(t: String): Bool => t.codepoints() > min})
+                ).take(s_len - min)
+                // take_while is buggy in pony < 0.21.0
+                //.take_while({(t: String): Bool => t.codepoints() > min})
             else
               Poperator[String].empty()
             end
-          let min_iter =
-            if s_len > min then
-              Poperator[String]([
-                  Generators._trim_codepoints(s, min)
-                ])
-            else
-              Poperator[String].empty()
-            end
-          let shrink_iter = Iter[String^].chain([
-              shorten_iter
-              min_iter
-            ].values())
           (consume s, shrink_iter)
       end)
 

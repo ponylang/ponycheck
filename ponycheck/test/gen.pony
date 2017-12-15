@@ -96,7 +96,7 @@ class SeqOfTest is UnitTest
           .take(100)
           .all({(a: Array[U8]): Bool =>
             if not (a.size() < max_size) then
-              h.log(a.size().string() + " > " + max_size.string())
+              h.log(a.size().string() + " >= " + max_size.string())
               false
             else
               true
