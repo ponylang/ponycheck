@@ -1,5 +1,4 @@
 use "collections"
-use "debug"
 use "assert"
 use "itertools"
 
@@ -21,7 +20,7 @@ trait box GenObj[T]
   fun generate(rnd: Randomness): GenerateResult[T]
 
   fun shrink(t: T): ValueAndShrink[T] =>
-    (consume t, _Poperator[T].empty())
+    (consume t, Poperator[T].empty())
 
   fun generate_value(rnd: Randomness): T^ =>
     """
@@ -221,7 +220,7 @@ class box Generator[T] is GenObj[T]
             (let uts: T, let shrunken: Iterator[T^]) = _gen.shrink(consume ut)
             (fn(consume uts), _map_shrunken(shrunken))
           else
-            (consume u, _Poperator[U].empty())
+            (consume u, Poperator[U].empty())
           end
 
         fun _map_shrunken(shrunken: Iterator[T^]): Iterator[U^] =>
@@ -234,24 +233,13 @@ class box Generator[T] is GenObj[T]
     """
     For each value of this generator create a generator that is then combined.
     """
+    // TODO: enable proper shrinking:
     Generator[U](
       object is GenObj[U]
         fun generate(rnd: Randomness): GenerateResult[U] =>
-          (let value: T, let shrunken: Iterator[T^]) =
-            _gen.generate_and_shrink(rnd)
-          let value_result: U = fn(consume value).generate_value(rnd)
+          let value: T = _gen.generate_value(rnd)
+          fn(consume value).generate_and_shrink(rnd)
 
-          // apply fn to all shrink results and call the resulting generator
-          let shrink_result: Iterator[U^] =
-            object is Iterator[U^]
-              let local_shrunken: Iterator[T^] = shrunken
-
-              fun ref has_next(): Bool => shrunken.has_next()
-              fun ref next(): U^ ? =>
-                let shrink: T = local_shrunken.next()?
-                fn(consume shrink).generate_value(rnd)
-            end
-          (consume value_result, shrink_result)
       end)
 
 type WeightedGenerator[T] is (USize, Generator[T] box)
@@ -260,7 +248,7 @@ type WeightedGenerator[T] is (USize, Generator[T] box)
   """
 
 primitive Generators
-  fun unit[T](t: T): Generator[box->T] =>
+  fun unit[T](t: T, do_shrink: Bool = false): Generator[box->T] =>
     """
     Generate a reference to the same value over and over again.
 
@@ -270,7 +258,12 @@ primitive Generators
     Generator[box->T](
       object is GenObj[box->T]
         let _t: T = consume t
-        fun generate(rnd: Randomness): GenerateResult[box->T] => _t
+        fun generate(rnd: Randomness): GenerateResult[box->T] =>
+          if do_shrink then
+            (_t, Iter[box->T].repeat_value(_t))
+          else
+            _t
+          end
       end)
 
   fun repeatedly[T](f: {(): T^} box): Generator[T] =>
@@ -498,7 +491,7 @@ primitive Generators
       end)
 
 
-  fun one_of[T](xs: ReadSeq[T]): Generator[box->T] ? =>
+  fun one_of[T](xs: ReadSeq[T], do_shrink: Bool = false): Generator[box->T] ? =>
     """
     Generate a random value from the given ReadSeq. An error will be thrown
     if the given ReadSeq is empty.
@@ -513,7 +506,12 @@ primitive Generators
         fun generate(rnd: Randomness): GenerateResult[box->T] =>
           let idx = rnd.usize(0, xs.size() - 1)
           try
-            xs(idx)?
+            let res = xs(idx)?
+            if do_shrink then
+              (res, Iter[box->T].repeat_value(res))
+            else
+              res
+            end
           else
             err // will never occur
           end
@@ -675,6 +673,54 @@ primitive Generators
           ((consume t11, consume t21, consume t31, consume t41), shrunken)
         end)
 
+  fun map2[T1, T2, T3](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    fn: {(T1, T2): T3^})
+    : Generator[T3]
+  =>
+    """
+    convenience combinator for mapping 2 generators into 1
+    """
+    Generators.zip2[T1, T2](gen1, gen2)
+      .map[T3]({(arg: (T1, T2)): T3^ =>
+        (let arg1, let arg2) = consume arg
+        fn(consume arg1, consume arg2)
+      })
+
+  fun map3[T1, T2, T3, T4](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    fn: {(T1, T2, T3): T4^})
+    : Generator[T4]
+  =>
+    """
+    convenience combinator for mapping 3 generators into 1
+    """
+    Generators.zip3[T1, T2, T3](gen1, gen2, gen3)
+      .map[T4]({(arg: (T1, T2, T3)): T4^ =>
+        (let arg1, let arg2, let arg3) = consume arg
+        fn(consume arg1, consume arg2, consume arg3)
+      })
+
+  fun map4[T1, T2, T3, T4, T5](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    gen4: Generator[T4],
+    fn: {(T1, T2, T3, T4): T5^})
+    : Generator[T5]
+  =>
+    """
+    convenience combinator for mapping 4 generators into 1
+    """
+    Generators.zip4[T1, T2, T3, T4](gen1, gen2, gen3, gen4)
+      .map[T5]({(arg: (T1, T2, T3, T4)): T5^ =>
+        (let arg1, let arg2, let arg3, let arg4) = consume arg
+        fn(consume arg1, consume arg2, consume arg3, consume arg4)
+      })
+
   fun bool(): Generator[Bool] =>
     """
     create a generator of bool values.
@@ -732,8 +778,8 @@ primitive Generators
 
     let min_iter =
       match relation
-      | let _: (Less | Greater) => _Poperator[T]([min])
-      | Equal => _Poperator[T].empty()
+      | let _: (Less | Greater) => Poperator[T]([min])
+      | Equal => Poperator[T].empty()
       end
 
     let shrunken_iter = Iter[T].chain(
@@ -1033,9 +1079,9 @@ primitive Generators
             end
           let min_iter =
             if s.size() > min then
-              _Poperator[String]([s.trim(0, min)])
+              Poperator[String]([s.trim(0, min)])
             else
-              _Poperator[String].empty()
+              Poperator[String].empty()
             end
           let shrink_iter =
             Iter[String^].chain([
@@ -1154,15 +1200,15 @@ primitive Generators
                   end
                 ).take_while({(t: String): Bool => t.codepoints() > min})
             else
-              _Poperator[String].empty()
+              Poperator[String].empty()
             end
           let min_iter =
             if s_len > min then
-              _Poperator[String]([
+              Poperator[String]([
                   Generators._trim_codepoints(s, min)
                 ])
             else
-              _Poperator[String].empty()
+              Poperator[String].empty()
             end
           let shrink_iter = Iter[String^].chain([
               shorten_iter
