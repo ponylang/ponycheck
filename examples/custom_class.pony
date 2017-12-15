@@ -47,7 +47,7 @@ class _CustomClassMapProperty is Property1[MyLittlePony]
 
   fun gen(): Generator[MyLittlePony] =>
     let name_gen = Generators.ascii_letters(5, 10)
-    let cuteness_gen = Generators.u64(1, 100)
+    let cuteness_gen = Generators.u64(11, 100)
     let color_gen =
       try
         Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
@@ -84,7 +84,7 @@ class _CustomClassFlatMapProperty is Property1[MyLittlePony]
 
   fun gen(): Generator[MyLittlePony] =>
     let name_gen = Generators.ascii_letters(5, 10)
-    let cuteness_gen = Generators.u64(1, 100)
+    let cuteness_gen = Generators.u64(11, 100)
     let color_gen =
       try
         Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
@@ -129,7 +129,7 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
     Generator[MyLittlePony](
       object is GenObj[MyLittlePony]
         let name_gen: Generator[String] = Generators.ascii_printable(5, 10)
-        let cuteness_gen: Generator[U64] = Generators.u64(1, 100)
+        let cuteness_gen: Generator[U64] = Generators.u64(11, 100)
         let color_gen: Generator[Color] =
           try
             Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
