@@ -31,5 +31,5 @@ install:
 
 script:
   - free -h
-  - make test && ./test --exclude="(fail)"
+  - make test && /usr/bin/time -v ./test --exclude="(fail)"
   - make examples
