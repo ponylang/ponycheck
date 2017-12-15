@@ -30,5 +30,6 @@ install:
   - bash .travis_install.bash
 
 script:
+  - free -h
   - make test && ./test --exclude="(fail)"
   - make examples
