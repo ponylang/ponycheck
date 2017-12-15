@@ -33,6 +33,38 @@ class MyLittlePony is Stringable
       String(17 + name.size()).>append("Pony(\"" + name + "\", " + cuteness.string() + ", " + color.string() + ")")
     end
 
+class _CustomClassMapProperty is Property1[MyLittlePony]
+  """
+  The go-to approach for creating custom classes are the
+  `Generators.map2`, `Generators.map3` and `Generators.map4` combinators and
+  of course the `map` method on `Generator` itself (for single argument
+  constructors).
+
+  Generators created like this have better shrinking support
+  and their creation is much more readable than the `flat_map` solution below.
+  """
+  fun name(): String => "custom_class/map"
+
+  fun gen(): Generator[MyLittlePony] =>
+    let name_gen = Generators.ascii_letters(5, 10)
+    let cuteness_gen = Generators.u64(1, 100)
+    let color_gen =
+      try
+        Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
+      else
+        Generators.unit[Color](Pink)
+      end
+    Generators.map3[String, U64, Color, MyLittlePony](
+      name_gen,
+      cuteness_gen,
+      color_gen,
+      {(name, cuteness, color) =>
+        MyLittlePony(name, cuteness, color)
+      })
+
+  fun property(pony: MyLittlePony, ph: PropertyHelper) =>
+    ph.assert_true(pony.is_cute())
+
 class _CustomClassFlatMapProperty is Property1[MyLittlePony]
   """
   It is possible to create a generator using `flat_map` on a source
@@ -67,38 +99,6 @@ class _CustomClassFlatMapProperty is Property1[MyLittlePony]
           })
       })
     })
-
-  fun property(pony: MyLittlePony, ph: PropertyHelper) =>
-    ph.assert_true(pony.is_cute())
-
-class _CustomClassMapProperty is Property1[MyLittlePony]
-  """
-  The go-to approach for creating custom classes are the
-  `Generators.map2`, `Generators.map3` and `Generators.map4` combinators and
-  of course the `map` method on `Generator` itself (for single argument
-  constructors).
-
-  Generators created like this have better shrinking support
-  and their creation is much more readable than the `flat_map` solution above.
-  """
-  fun name(): String => "custom_class/map"
-
-  fun gen(): Generator[MyLittlePony] =>
-    let name_gen = Generators.ascii_letters(5, 10)
-    let cuteness_gen = Generators.u64(1, 100)
-    let color_gen =
-      try
-        Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
-      else
-        Generators.unit[Color](Pink)
-      end
-    Generators.map3[String, U64, Color, MyLittlePony](
-      name_gen,
-      cuteness_gen,
-      color_gen,
-      {(name, cuteness, color) =>
-        MyLittlePony(name, cuteness, color)
-      })
 
   fun property(pony: MyLittlePony, ph: PropertyHelper) =>
     ph.assert_true(pony.is_cute())
