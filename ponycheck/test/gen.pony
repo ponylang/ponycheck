@@ -93,7 +93,6 @@ class SeqOfTest is UnitTest
       let max_size = gen_sample.size()
       h.assert_true(
         Iter[Array[U8]^](shrinks)
-          .take(100)
           .all({(a: Array[U8]): Bool =>
             if not (a.size() < max_size) then
               h.log(a.size().string() + " >= " + max_size.string())
