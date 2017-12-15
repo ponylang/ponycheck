@@ -1,6 +1,7 @@
 use "ponytest"
 use "itertools"
 use "collections"
+use "time"
 
 class PropertyParams
   """
@@ -17,7 +18,7 @@ class PropertyParams
   let max_shrink_samples: USize
 
   new create(num_samples': USize = 100,
-    seed': U64 = 42,
+    seed': U64 = Time.millis(),
     max_shrink_rounds': USize = 10,
     max_shrink_samples': USize = 100) =>
     num_samples = num_samples'
@@ -90,6 +91,9 @@ trait Property1[T] is UnitTest
         // the shrinking Iterator is an iterator that returns more and more
         // shrunken samples from the generator
         // safeguard against generators that generate huge or even infinite shrink seqs
+        if (not shrinks.has_next()) then
+          h.log("no shrinks available")
+        end
         for (i, shrink) in Iter[T^](shrinks).enum().take(parameters.max_shrink_samples) do
           (let local_shrink, let shrink_repr: String) = _to_string(consume shrink)
           helper.reset()
@@ -100,11 +104,13 @@ trait Property1[T] is UnitTest
             error
           end
           if helper.failed() then
+            //h.log("shrink: " + shrink_repr + " did fail")
             // we have a failing shrink sample
             shrink_rounds = shrink_rounds + 1
             sample_repr = shrink_repr
             continue
           else
+            h.log("shrink: " + shrink_repr + " did not fail")
             // we have a sample that did not fail and thus can stop shrinking
             break
           end

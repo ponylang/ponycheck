@@ -1,4 +1,4 @@
-class ref _Poperator[T] is Iterator[T^]
+class ref Poperator[T] is Iterator[T^]
   """
   iterate over a `Seq` descructively by `pop`ing its elements
 
