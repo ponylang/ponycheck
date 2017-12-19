@@ -161,13 +161,13 @@ class FilterMapShrinkTest is ShrinkTest
   fun apply(h: TestHelper) =>
     let gen: Generator[U64] =
       Generators.u8()
-        .filter({(byte: U8): (U8^, Bool) => (byte, byte > 10) })
-        .map[U64]({(byte: U8): U64^ => (byte * 2).u64() })
+        .filter({(byte) => (byte, byte > 10) })
+        .map[U64]({(byte) => (byte * 2).u64() })
     // shrink from 100 and only expect even values > 20
     let shrink_iter = shrink[U64](gen, U64(100))
     h.assert_true(
       Iter[U64](shrink_iter)
-        .all({(u: U64): Bool =>
+        .all({(u) =>
           (u > 20) and ((u % 2) == 0) }),
       "shrinking does not maintain filter invariants")
 

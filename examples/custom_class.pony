@@ -91,10 +91,10 @@ class _CustomClassFlatMapProperty is Property1[MyLittlePony]
       else
         Generators.unit[Color](Pink)
       end
-    color_gen.flat_map[MyLittlePony]({(color: Color)(cuteness_gen, name_gen): Generator[MyLittlePony] =>
-      name_gen.flat_map[MyLittlePony]({(name: String)(color, cuteness_gen): Generator[MyLittlePony] =>
+    color_gen.flat_map[MyLittlePony]({(color: Color)(cuteness_gen, name_gen) =>
+      name_gen.flat_map[MyLittlePony]({(name: String)(color, cuteness_gen) =>
         cuteness_gen
-          .map[MyLittlePony]({(cuteness: U64)(color, name): MyLittlePony =>
+          .map[MyLittlePony]({(cuteness: U64)(color, name) =>
             MyLittlePony.create(name, cuteness, color)
           })
       })
@@ -145,8 +145,8 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
           let shrinks =
             Iter[String^](name_shrinks)
               .zip2[U64^, Color^](cuteness_shrinks, color_shrinks)
-              .map[MyLittlePony^]({(t: (String^, U64^, Color^)): MyLittlePony^ =>
-                (let n: String, let cute: U64, let col: Color) = consume t
+              .map[MyLittlePony^]({(zipped) =>
+                (let n: String, let cute: U64, let col: Color) = consume zipped
                 MyLittlePony(consume n, consume cute, consume col)
               })
           (consume res, shrinks)

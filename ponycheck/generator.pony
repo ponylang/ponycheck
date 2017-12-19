@@ -170,7 +170,7 @@ class box Generator[T] is GenObj[T]
     let even_i32s =
       Generators.i32()
         .filter(
-          {(t: I32}: (I32^, Bool) => (t % 2) == 0 })
+          {(t) => (t, ((t % 2) == 0)) })
     ```
     """
     Generator[T](
@@ -215,7 +215,7 @@ class box Generator[T] is GenObj[T]
     ```pony
     let single_code_point_string_gen =
       Generators.u32()
-        .map[String]({(u: U32): String => String.from_utf32(u) })
+        .map[String]({(u) => String.from_utf32(u) })
     ```
     """
     Generator[U](
@@ -246,7 +246,7 @@ class box Generator[T] is GenObj[T]
 
         fun _map_shrunken(shrunken: Iterator[T^]): Iterator[U^] =>
           Iter[T^](shrunken)
-            .map[U^]({(t: T): U^ => fn(consume t) })
+            .map[U^]({(t) => fn(consume t) })
 
       end)
 
@@ -557,8 +557,8 @@ primitive Generators
 
     ```pony
     Generators.frequency[U8]([
-      (1, Generators.u8().filter({(u: U8): (U8^, Bool) => (u, (u % 2) == 0 }))
-      (2, Generators.u8().filter({(u: U8): (U8^, Bool) => (u, (u % 2) != 0 }))
+      (1, Generators.u8().filter({(u) => (u, (u % 2) == 0 }))
+      (2, Generators.u8().filter({(u) => (u, (u % 2) != 0 }))
     ])
     ```
     """
@@ -575,6 +575,7 @@ primitive Generators
             Iter[WeightedGenerator[T]](weighted_generators.values())
               .fold[USize](
                 0,
+                // segfaults when types are removed - TODO: investigate
                 {(acc: USize, weighted_gen: WeightedGenerator[T]): USize^ =>
                   weighted_gen._1 + acc
                 })
@@ -704,7 +705,7 @@ primitive Generators
     convenience combinator for mapping 2 generators into 1
     """
     Generators.zip2[T1, T2](gen1, gen2)
-      .map[T3]({(arg: (T1, T2)): T3^ =>
+      .map[T3]({(arg) =>
         (let arg1, let arg2) = consume arg
         fn(consume arg1, consume arg2)
       })
@@ -720,7 +721,7 @@ primitive Generators
     convenience combinator for mapping 3 generators into 1
     """
     Generators.zip3[T1, T2, T3](gen1, gen2, gen3)
-      .map[T4]({(arg: (T1, T2, T3)): T4^ =>
+      .map[T4]({(arg) =>
         (let arg1, let arg2, let arg3) = consume arg
         fn(consume arg1, consume arg2, consume arg3)
       })
@@ -737,7 +738,7 @@ primitive Generators
     convenience combinator for mapping 4 generators into 1
     """
     Generators.zip4[T1, T2, T3, T4](gen1, gen2, gen3, gen4)
-      .map[T5]({(arg: (T1, T2, T3, T4)): T5^ =>
+      .map[T5]({(arg) =>
         (let arg1, let arg2, let arg3, let arg4) = consume arg
         fn(consume arg1, consume arg2, consume arg3, consume arg4)
       })
@@ -1126,7 +1127,7 @@ primitive Generators
     let range_bytes = range()
     let fallback = U8(0)
     let range_bytes_gen = usize(0, range_bytes.size()-1)
-      .map[U8]({(size: USize): U8^ =>
+      .map[U8]({(size) =>
         try
           range_bytes(size)?
         else
@@ -1191,7 +1192,7 @@ primitive Generators
         fun generate(rnd: Randomness): GenerateResult[String] =>
           let size = rnd.usize(min, max)
           let gen_iter = Iter[U32^](gen.value_iter(rnd))
-            .filter({(cp: U32): Bool =>
+            .filter({(cp) =>
               // excluding surrogate pairs
               (cp <= 0xD7FF) or (cp >= 0xE000) })
             .take(size)
@@ -1221,7 +1222,7 @@ primitive Generators
                   end
                 ).take(s_len - min)
                 // take_while is buggy in pony < 0.21.0
-                //.take_while({(t: String): Bool => t.codepoints() > min})
+                //.take_while({(t) => t.codepoints() > min})
             else
               Poperator[String].empty()
             end
@@ -1234,7 +1235,7 @@ primitive Generators
         .take(trim_to)
         .fold[String ref](
           String.create(trim_to),
-          {(acc: String ref, cp: U32): String ref^ => acc.>push_utf32(cp) })
+          {(acc, cp) => acc.>push_utf32(cp) })
     end
 
   fun unicode(
