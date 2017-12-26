@@ -37,12 +37,35 @@ class ref PropertyHelper
 
 /****** START DUPLICATION FROM TESTHELPER ********/
 
+  fun log(msg: String, verbose: Bool = false) =>
+    """
+    Log the given message.
+
+    The verbose parameter allows messages to be printed only when the --verbose
+    command line option is used. For example, by default assert failures are
+    logged, but passes are not. With --verbose both passes and fails are
+    reported.
+
+    Logs are printed one test at a time to avoid interleaving log lines from
+    concurrent tests.
+    """
+    _th.log(msg, verbose)
+
+  fun fail(msg: String = "Test failed") =>
+    """
+    Flag the test as having failed.
+    """
+    _th.fail(msg)
+
   fun ref assert_false(
     predicate: Bool,
     msg: String val = "",
     loc: SourceLoc val = __loc)
     : Bool val
   =>
+    """
+    Assert that the given expression is false.
+    """
     if predicate then
       _fail(_fmt_msg(loc, "Assert false failed. " + msg))
       return false
@@ -56,6 +79,9 @@ class ref PropertyHelper
     loc: SourceLoc val = __loc)
     : Bool val
   =>
+    """
+    Assert that the given expression is true.
+    """
     if not predicate then
       _fail(_fmt_msg(loc, "Assert true failed. " + msg))
       return false
