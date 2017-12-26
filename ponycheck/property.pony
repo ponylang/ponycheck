@@ -137,6 +137,8 @@ primitive Stringifier
     let s =
       iftype T <: Stringable #read then
         t.string()
+      elseif T <: ReadSeq[Stringable] #read then
+        "[" + " ".join(t.values()) + "]"
       else
         "<identity:" + digest.string() + ">"
       end
