@@ -51,11 +51,11 @@ class ref PropertyHelper
     """
     _th.log(msg, verbose)
 
-  fun fail(msg: String = "Test failed") =>
+  fun ref fail(msg: String = "Test failed") =>
     """
     Flag the test as having failed.
     """
-    _th.fail(msg)
+    _fail(msg)
 
   fun ref assert_false(
     predicate: Bool,
