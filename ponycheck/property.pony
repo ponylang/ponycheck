@@ -27,7 +27,8 @@ class PropertyParams
     max_shrink_samples = max_shrink_samples'
 
 
-trait Property1[T] is UnitTest
+trait val Property1[T]
+  // TODO fix docs
   """
   A property that consumes 1 argument of type ``T``.
 
@@ -54,81 +55,79 @@ trait Property1[T] is UnitTest
   supports shrinking (i.e. implements ``Shrinkable``).
   The smallest shrunken sample will then be reported to the user.
   """
+  fun name(): String
+
   fun params(): PropertyParams => PropertyParams
 
-  fun gen(): Generator[T]
+  fun val gen(): Generator[T]
 
-  fun ref property(arg1: T, h: PropertyHelper ref) ?
+  fun val property(arg1: T, h: PropertyHelper ref) ?
     """
     a method verifying that a certain property holds for all given ``arg1``
     with the help of ``PropertyHelper`` ``h``.
     """
 
-  fun ref apply(h: TestHelper) ? =>
-    """
-    integration into ponytest
-    """
-    let parameters = params()
-    let rnd = Randomness(parameters.seed)
-    let helper: PropertyHelper ref = PropertyHelper(parameters, h)
-    let generator: Generator[T] = gen()
-    let me: Property1[T] = this
-    for i_sample in Range[USize].create(0, parameters.num_samples) do
+  // fun ref apply(h: TestHelper) ? =>
+  //   """
+  //   integration into ponytest
+  //   """
+  //   let parameters = params()
+  //   let rnd = Randomness(parameters.seed)
+  //   let helper: PropertyHelper ref = PropertyHelper(parameters, h)
+  //   let generator: Generator[T] = gen()
+  //   let me: Property1[T] = this
+  //   for i_sample in Range[USize].create(0, parameters.num_samples) do
 
-      (var sample: T, var shrinks: Iterator[T^]) = generator.generate_and_shrink(rnd)
+  //     (var sample: T, var shrinks: Iterator[T^]) = generator.generate_and_shrink(rnd)
 
-      // create a string representation before consuming ``sample`` with property
-      (sample, var sample_repr: String) = _to_string(consume sample)
-      try
-        me.property(consume sample, helper)?
-      else
-        // report error with given sample
-        helper.reportError(sample_repr, 0)
-        error
-      end
-      if helper.failed() then
-        var shrink_rounds: USize = 0
-        // the shrinking Iterator is an iterator that returns more and more
-        // shrunken samples from the generator
-        // safeguard against generators that generate huge or even infinite shrink seqs
-        if (not shrinks.has_next()) then
-          h.log("no shrinks available")
-        end
-        for (i, shrink) in Iter[T^](shrinks).enum().take(parameters.max_shrink_samples) do
-          (let local_shrink, let shrink_repr: String) = _to_string(consume shrink)
-          helper.reset()
-          try
-            me.property(consume local_shrink, helper)?
-          else
-            helper.reportError(shrink_repr, shrink_rounds)
-            error
-          end
-          if helper.failed() then
-            //h.log("shrink: " + shrink_repr + " did fail")
-            // we have a failing shrink sample
-            shrink_rounds = shrink_rounds + 1
-            sample_repr = shrink_repr
-            continue
-          else
-            h.log("shrink: " + shrink_repr + " did not fail")
-            // we have a sample that did not fail and thus can stop shrinking
-            break
-          end
-        end
-        helper.reportFailed[T](sample_repr, shrink_rounds)
-        break
-      end
-    end
-    if not helper.failed() then
-      helper.reportSuccess()
-    end
+  //     // create a string representation before consuming ``sample`` with property
+  //     (sample, var sample_repr: String) = _to_string(consume sample)
+  //     try
+  //       me.property(consume sample, helper)?
+  //     else
+  //       // report error with given sample
+  //       helper.reportError(sample_repr, 0)
+  //       error
+  //     end
+  //     if helper.failed() then
+  //       var shrink_rounds: USize = 0
+  //       // the shrinking Iterator is an iterator that returns more and more
+  //       // shrunken samples from the generator
+  //       // safeguard against generators that generate huge or even infinite shrink seqs
+  //       if (not shrinks.has_next()) then
+  //         h.log("no shrinks available")
+  //       end
+  //       for (i, shrink) in Iter[T^](shrinks).enum().take(parameters.max_shrink_samples) do
+  //         (let local_shrink, let shrink_repr: String) = _to_string(consume shrink)
+  //         helper.reset()
+  //         try
+  //           me.property(consume local_shrink, helper)?
+  //         else
+  //           helper.reportError(shrink_repr, shrink_rounds)
+  //           error
+  //         end
+  //         if helper.failed() then
+  //           //h.log("shrink: " + shrink_repr + " did fail")
+  //           // we have a failing shrink sample
+  //           shrink_rounds = shrink_rounds + 1
+  //           sample_repr = shrink_repr
+  //           continue
+  //         else
+  //           h.log("shrink: " + shrink_repr + " did not fail")
+  //           // we have a sample that did not fail and thus can stop shrinking
+  //           break
+  //         end
+  //       end
+  //       helper.reportFailed[T](sample_repr, shrink_rounds)
+  //       break
+  //     end
+  //   end
+  //   if not helper.failed() then
+  //     helper.reportSuccess()
+  //   end
 
-  fun ref _to_string(sample: T): (T^, String) =>
-    """
-    format the given sample to a string representation,
-    use digestof if nothing else is available
-    """
-    Stringifier.stringify[T](consume sample)
+  fun val unit_test(): Property1UnitTest[T]^ =>
+    Property1UnitTest[T](this)
 
 primitive Stringifier
   fun stringify[T](t: T): (T^, String) =>
@@ -143,3 +142,17 @@ primitive Stringifier
         "<identity:" + digest.string() + ">"
       end
     (consume t, consume s)
+
+class iso Property1UnitTest[T] is UnitTest
+  let _prop1: Property1[T]
+
+  new iso create(p1: Property1[T]) =>
+    _prop1 = p1
+
+  fun name(): String =>
+    _prop1.name()
+
+  fun ref apply(h: TestHelper) ? =>
+    error // TODO
+
+

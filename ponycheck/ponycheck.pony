@@ -35,9 +35,9 @@ class ListReversePropertyWithinAUnitTest is UnitTest
   fun name(): String => "list/reverse/forall"
 
   fun apply(h: TestHelper) =>
-    let gen = Generators.listOf[USize](Generators.uSize())
+    let gen = recover val Generators.listOf[USize](Generators.usize()) end
     Ponycheck.forAll[List[USize]](gen, h)(
-      {(sample: List[USize], ph: PropertyHelper) =>
+      {(sample, ph) =>
         ph.array_eq[Usize](arg1, arg1.reverse().reverse())
       })
     // ... possibly more properties, using ``Ponycheck.for_all``
@@ -55,24 +55,23 @@ for reporting.
 """
 use "ponytest"
 
-
 primitive Ponycheck
-  fun forAll[T](gen: Generator[T], h: TestHelper): ForAll[T] =>
+  fun forAll[T](gen: Generator[T] val, h: TestHelper): ForAll[T] =>
     """
     convenience method for running 1 to many properties as part of
     one ponytest UnitTest.
 
     Example:
-
+      ```pony
       class MyTestWithSomeProperties is UnitTest
         fun name(): String => "mytest/withMultipleProperties"
 
         fun apply(h: TestHelper) =>
-          Ponycheck.forAll[U8](Generators.unit[U8](0), h)
-            ({(u: U8, h: PropertyHelper): U8^ =>
+          Ponycheck.forAll[U8](recover Generators.unit[U8](0) end, h)(
+            {(u, h) =>
               h.assert_eq(u, 0)
               consume u
             })
+      ```
     """
     ForAll[T](gen, h)
-
