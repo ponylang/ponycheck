@@ -8,7 +8,7 @@ class ForAll[T]
     _gen = gen'
     _helper = testHelper
 
-  fun ref apply(prop: {(T, PropertyHelper) ?} val) ? =>
+  fun ref apply(prop: {(T, PropertyHelper) ?} val) =>
     """execute"""
     (object val is Property1[T]
       fun name(): String => ""
@@ -18,4 +18,4 @@ class ForAll[T]
       fun property(arg1: T, h: PropertyHelper) ? =>
         prop(consume arg1, h)?
     end)
-      .unit_test().apply(_helper)?
+      .unit_test().apply(_helper)
