@@ -11,6 +11,7 @@ class val PropertyParams
   * num_samples: the number of samples to produce from the property generator
   * max_shrink_rounds: the maximum rounds of shrinking to perform
   * max_shrink_samples: the maximum number of shrunken samples to consider in 1 shrink round
+  * timeout: the timeout for the ponytest runner, in nanseconds
   """
   let seed: U64
   let num_samples: USize
@@ -33,13 +34,13 @@ class val PropertyParams
 
 
 trait val Property1[T]
-  // TODO fix docs
   """
   A property that consumes 1 argument of type ``T``.
 
   A property can be used with ``ponytest`` like a normal UnitTest
   and be included into an aggregated TestList
-  or simply fed to ``PonyTest.apply(UnitTest iso)``.
+  or simply fed to ``PonyTest.apply(UnitTest iso)`` with the ``unit_test``
+  method.
 
 
   A property is defined by a ``Generator``, returned by the ``gen()`` method
@@ -49,15 +50,15 @@ trait val Property1[T]
   A property is verified if no failed assertion on ``PropertyHelper`` has been
   reported for all the samples it consumed.
 
-  The property execution can be customized by returning a custom ``PropertyParams``
-  from the ``params()`` method.
+  The property execution can be customized by returning a custom
+  ``PropertyParams`` from the ``params()`` method.
 
   The ``gen()`` method is called exactly once to instantiate the generator.
   The generator produces ``PropertyParams.num_samples`` samples and each is
   passed to the ``property`` method for verification.
 
-  If the property did not verify, the given sample is shrunken, if the generator
-  supports shrinking (i.e. implements ``Shrinkable``).
+  If the property did not verify, the given sample is shrunken, if the
+  generator supports shrinking (i.e. implements ``Shrinkable``).
   The smallest shrunken sample will then be reported to the user.
   """
   fun name(): String
@@ -66,7 +67,7 @@ trait val Property1[T]
 
   fun val gen(): Generator[T]
 
-  fun val property(arg1: T, h: PropertyHelper ref) ?
+  fun val property(arg1: T, h: PropertyHelper) ?
     """
     a method verifying that a certain property holds for all given ``arg1``
     with the help of ``PropertyHelper`` ``h``.
@@ -107,6 +108,7 @@ actor _Runner[T]
   let _h: TestHelper
   let _rnd: Randomness
   let _ph: PropertyHelper
+  var _shrinker: Iterator[T^] = _EmptyIterator[T^]
 
   new create(p1: Property1[T], h: TestHelper) =>
     _prop1 = consume p1
@@ -119,10 +121,7 @@ actor _Runner[T]
       complete()
       return
     end
-    // TODO remove explicit types and vars
-    (var sample: T, var shrinks: Iterator[T^]) =
-      _prop1.gen().generate_and_shrink(_rnd)
-
+    (var sample, _shrinker) = _prop1.gen().generate_and_shrink(_rnd)
     // create a string representation before consuming ``sample`` with property
     (sample, let sample_repr) = Stringify[T](consume sample)
     try
@@ -134,49 +133,49 @@ actor _Runner[T]
       return
     end
     if _ph.failed() then
-      try
-        do_shrink(shrinks, sample_repr)?
+      // the shrinking Iterator is an iterator that returns more and more
+      // shrunken samples from the generator
+      // safeguard against generators that generate huge or even infinite shrink
+      if not _shrinker.has_next() then
+        _h.log("no shrinks available")
       else
-        fail()
-        return
+        do_shrink(sample_repr)
       end
+      fail()
+      return
     end
 
     run(n + 1)
 
-  // TODO make recursive behavior
-  fun ref do_shrink(shrinks: Iterator[T^], sample_repr': String) ? =>
-    var sample_repr = sample_repr'
-    var shrink_rounds: USize = 0
-    // the shrinking Iterator is an iterator that returns more and more
-    // shrunken samples from the generator
-    // safeguard against generators that generate huge or even infinite shrink seqs
-    if (not shrinks.has_next()) then
-      _h.log("no shrinks available")
-    end
-    for (i, shrink) in Iter[T^](shrinks).enum().take(_prop1.params().max_shrink_samples) do
-      (let local_shrink, let shrink_repr: String) = Stringify[T](consume shrink)
-      _ph.reset()
+  be do_shrink(repr: String, rounds: USize = 0) =>
+    (let shrink, let shrink_repr) =
       try
-        _prop1.property(consume local_shrink, _ph)?
+        Stringify[T](_shrinker.next()?)
       else
-        _ph.report_error(shrink_repr, shrink_rounds)
-        error
+        _ph.report_failed[T](repr, rounds)
+        return
       end
-      if _ph.failed() then
-        //_h.log("shrink: " + shrink_repr + " did fail")
-        // we have a failing shrink sample
-        // TODO fix this mess
-        shrink_rounds = shrink_rounds + 1
-        sample_repr = shrink_repr
-        continue
-      else
-        _h.log("shrink: " + shrink_repr + " did not fail")
-        // we have a sample that did not fail and thus can stop shrinking
-        break
-      end
+
+    _ph.reset()
+
+    try
+      _prop1.property(consume shrink, _ph)?
+    else
+      _ph.report_error(shrink_repr, rounds)
+      fail()
+      return
     end
-    _ph.report_failed[T](sample_repr, shrink_rounds)
+
+    if not _ph.failed() then
+      // we have a sample that did not fail and thus can stop shrinking
+      _h.log("shrink: " + shrink_repr + " did not fail")
+      _ph.report_failed[T](repr, rounds)
+      return
+    end
+
+    //_h.log("shrink: " + shrink_repr + " did fail")
+    // we have a failing shrink sample
+    do_shrink(shrink_repr, rounds + 1)
 
   fun ref complete() =>
     if not _ph.failed() then
@@ -186,3 +185,7 @@ actor _Runner[T]
 
   fun ref fail() =>
     _h.complete(false)
+
+class _EmptyIterator[T]
+  fun ref has_next(): Bool => false
+  fun ref next(): T^ ? => error
