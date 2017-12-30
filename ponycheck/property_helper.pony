@@ -352,12 +352,12 @@ class ref PropertyHelper
   fun tag _format_params(params: PropertyParams): String =>
     "Params(seed=" + params.seed.string() + ")"
 
-  fun reportSuccess() =>
+  fun report_success() =>
     """
     report success to the property test runner
     """
 
-  fun reportError(sample_repr: String,
+  fun report_error(sample_repr: String,
     shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
@@ -375,7 +375,7 @@ class ref PropertyHelper
       false
     )
 
-  fun reportFailed[T](sample_repr: String,
+  fun report_failed[T](sample_repr: String,
     shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
