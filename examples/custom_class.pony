@@ -1,7 +1,5 @@
 use "../ponycheck"
-use "collections"
 use "itertools"
-use "time"
 
 primitive Blue is Stringable
   fun string(): String iso^ => "blue".clone()
