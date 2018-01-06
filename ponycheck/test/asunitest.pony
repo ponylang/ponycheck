@@ -1,7 +1,5 @@
 use "ponytest"
 use ".."
-use "itertools"
-use "collections"
 
 class PropertyAsUnitTest is Property1[U8]
   """

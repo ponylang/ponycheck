@@ -1,9 +1,6 @@
 use "ponytest"
 use ".."
-use "random"
-use "time"
 use "itertools"
-use "debug"
 
 trait ShrinkTest is UnitTest
   fun shrink[T](gen: Generator[T], shrink_elem: T): Iterator[T^] =>

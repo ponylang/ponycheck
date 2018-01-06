@@ -1,6 +1,4 @@
 use "ponytest"
-use "itertools"
-use "collections"
 use "../ponycheck"
 
 
