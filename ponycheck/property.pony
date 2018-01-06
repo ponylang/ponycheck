@@ -108,6 +108,7 @@ actor _Runner[T]
   let _h: TestHelper
   let _rnd: Randomness
   let _ph: PropertyHelper
+  let _gen: Generator[T]
   var _shrinker: Iterator[T^] = _EmptyIterator[T^]
 
   new create(p1: Property1[T], h: TestHelper) =>
@@ -115,13 +116,14 @@ actor _Runner[T]
     _h = consume h
     _rnd = Randomness(_prop1.params().seed)
     _ph = PropertyHelper(_prop1.params(), _h)
+    _gen = _prop1.gen()
 
   be run(n: USize = 0) =>
     if n == _prop1.params().num_samples then
       complete()
       return
     end
-    (var sample, _shrinker) = _prop1.gen().generate_and_shrink(_rnd)
+    (var sample, _shrinker) = _gen.generate_and_shrink(_rnd)
     // create a string representation before consuming ``sample`` with property
     (sample, let sample_repr) = Stringify[T](consume sample)
     try

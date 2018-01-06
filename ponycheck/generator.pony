@@ -416,12 +416,11 @@ primitive Generators
     Generator[SetIs[T]](
       object is GenObj[SetIs[T]]
         fun generate(rnd: Randomness): GenerateResult[SetIs[T]] =>
-          let _gen: GenObj[T] = gen
           let size = rnd.usize(0, max)
 
           let result: SetIs[T] =
             SetIs[T].create(size).>union(
-              Iter[T^](_gen.value_iter(rnd))
+              Iter[T^](gen.value_iter(rnd))
                 .take(size)
             )
           let shrink_iter: Iterator[SetIs[T]^] =
@@ -430,7 +429,7 @@ primitive Generators
               .map_stateful[SetIs[T]^]({
                 (s: USize): SetIs[T]^ =>
                   SetIs[T].create(s).>union(
-                    Iter[T^](_gen.value_iter(rnd)).take(s)
+                    Iter[T^](gen.value_iter(rnd)).take(s)
                   )
                 })
           (consume result, shrink_iter)
@@ -453,12 +452,11 @@ primitive Generators
     Generator[Map[K, V]](
       object is GenObj[Map[K, V]]
         fun generate(rnd: Randomness): GenerateResult[Map[K, V]] =>
-          let _gen: GenObj[(K, V)] = gen
           let size = rnd.usize(0, max)
 
           let result: Map[K, V] =
             Map[K, V].create(size).>concat(
-              Iter[(K^, V^)](_gen.value_iter(rnd))
+              Iter[(K^, V^)](gen.value_iter(rnd))
                 .take(size)
             )
           let shrink_iter: Iterator[Map[K, V]^] =
@@ -467,7 +465,7 @@ primitive Generators
               .map_stateful[Map[K, V]^]({
                 (s: USize): Map[K, V]^ =>
                   Map[K, V].create(s).>concat(
-                    Iter[(K^, V^)](_gen.value_iter(rnd)).take(s)
+                    Iter[(K^, V^)](gen.value_iter(rnd)).take(s)
                   )
                 })
           (consume result, shrink_iter)
@@ -491,12 +489,11 @@ primitive Generators
     Generator[MapIs[K, V]](
       object is GenObj[MapIs[K, V]]
         fun generate(rnd: Randomness): GenerateResult[MapIs[K, V]] =>
-          let _gen: GenObj[(K, V)] = gen
           let size = rnd.usize(0, max)
 
           let result: MapIs[K, V] =
             MapIs[K, V].create(size).>concat(
-              Iter[(K^, V^)](_gen.value_iter(rnd))
+              Iter[(K^, V^)](gen.value_iter(rnd))
                 .take(size)
             )
           let shrink_iter: Iterator[MapIs[K, V]^] =
@@ -505,7 +502,7 @@ primitive Generators
               .map_stateful[MapIs[K, V]^]({
                 (s: USize): MapIs[K, V]^ =>
                   MapIs[K, V].create(s).>concat(
-                    Iter[(K^, V^)](_gen.value_iter(rnd)).take(s)
+                    Iter[(K^, V^)](gen.value_iter(rnd)).take(s)
                   )
                 })
           (consume result, shrink_iter)
@@ -841,7 +838,7 @@ primitive Generators
     Generator[U16](
       object is GenObj[U16]
         fun generate(rnd: Randomness): U16^ =>
-          rnd.u16(min  max)
+          rnd.u16(min, max)
 
         fun shrink(u: U16): ValueAndShrink[U16] =>
           that._int_shrink[U16](consume u, min)
