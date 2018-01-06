@@ -21,7 +21,7 @@ run_test: test
 	./test $(TESTFLAGS)
 
 clean:
-	rm -f test
+	rm -f test $(EXAMPLES_DIR)/examples
 
 
 test: $(DEPS) $(TEST_DEPS)
@@ -32,8 +32,8 @@ docs: $(DEPS) $(TEST_DEPS)
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 
 examples: $(EXAMPLES_DEPS)
-	cd examples && \
+	cd $(EXAMPLES_DIR) && \
 	    CC=$(CC) $(PONYC) $(FLAGS) . && \
 	    ./examples
 
-.PHONY: examples fetch
+.PHONY: examples fetch clean
