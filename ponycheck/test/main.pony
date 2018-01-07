@@ -34,3 +34,4 @@ actor Main is TestList
     test(UnicodeStringShrinkTest)
     test(MinUnicodeStringShrinkTest)
     test(FilterMapShrinkTest)
+    test(RunnerInfiniteShrinkTest)

@@ -1,17 +1,12 @@
 use "ponytest"
 
-// TODO append strings instead of add
-
-interface FailureCallback
-  """something to call in case of error"""
-  fun fail(msg: String)
-
-interface Logger
-  """something to log messages to"""
+interface val PropertyResultNotify
+  """stripped down interface for TestHelper as this is all we need"""
   fun log(msg: String, verbose: Bool = false)
 
-type _TestLogger is (FailureCallback val & Logger val)
-  """stripped down interface for TestHelper as this is all we need"""
+  fun fail(msg: String)
+
+  fun complete(success: Bool)
 
 class ref PropertyHelper
   """
@@ -27,10 +22,10 @@ class ref PropertyHelper
   """
   let _params: PropertyParams
   let _params_fmt: String
-  let _th: _TestLogger
+  let _th: PropertyResultNotify
   var _did_fail: Bool = false
 
-  new ref create(params: PropertyParams, h: _TestLogger) =>
+  new ref create(params: PropertyParams, h: PropertyResultNotify) =>
     _params = params
     _params_fmt = _format_params(params)
     _th = h
