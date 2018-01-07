@@ -56,7 +56,7 @@ for reporting.
 use "ponytest"
 
 primitive Ponycheck
-  fun forAll[T](gen: Generator[T] val, h: TestHelper): ForAll[T] =>
+  fun for_all[T](gen: Generator[T] val, h: TestHelper): ForAll[T] =>
     """
     convenience method for running 1 to many properties as part of
     one ponytest UnitTest.

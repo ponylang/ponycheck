@@ -28,13 +28,13 @@ class _ListReverseMultipleProperties is UnitTest
     let g = Generators
 
     let gen1 = recover val g.seq_of[USize, Array[USize]](g.usize()) end
-    Ponycheck.forAll[Array[USize]](gen1, h)(
+    Ponycheck.for_all[Array[USize]](gen1, h)(
       {(arg1, ph) =>
         ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
       })
 
     let gen2 = recover val g.seq_of[USize, Array[USize]](g.usize(), 1, 1) end
-    Ponycheck.forAll[Array[USize]](gen2, h)(
+    Ponycheck.for_all[Array[USize]](gen2, h)(
       {(arg1, ph) =>
         ph.assert_array_eq[USize](arg1, arg1.reverse())
       })
