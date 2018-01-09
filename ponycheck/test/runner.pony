@@ -29,7 +29,6 @@ class iso RunnerInfiniteShrinkTest is UnitTest
 
   fun apply(h: TestHelper) =>
     h.long_test(20_000_000_000)
-    let property = InfiniteShrinkProperty
     let property_notify =
       object val is PropertyResultNotify
         fun log(msg: String, verbose: Bool) =>
@@ -41,8 +40,12 @@ class iso RunnerInfiniteShrinkTest is UnitTest
           h.log("COMPLETE: " + success.string())
           h.complete(not success)
       end
+    let property = recover iso InfiniteShrinkProperty end
+    let params = property.params()
+
     let runner = PropertyRunner[String](
-      recover InfiniteShrinkProperty end,
+      consume property,
+      params,
       property_notify)
     runner.run()
 

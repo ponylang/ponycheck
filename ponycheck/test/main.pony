@@ -1,4 +1,5 @@
 use "ponytest"
+use ".."
 
 actor Main is TestList
   new create(env: Env) => PonyTest(env, this)
@@ -20,9 +21,10 @@ actor Main is TestList
     test(MapIsOfEmptyTest)
     test(MapIsOfMaxTest)
     test(MapIsOfIdentityTest)
-    test(PropertyAsUnitTest.unit_test())
-    test(FailingPropertyAsUnitTest.unit_test())
-    test(ErroringPropertyAsUnitTest.unit_test())
+    test(SuccessfulPropertyTest)
+    test(Property1UnitTest[U8](SuccessfulProperty))
+    test(FailingPropertyTest)
+    test(ErroringPropertyTest)
     test(ForAllTest)
     test(MultipleForAllTest)
     test(ASCIIRangeTest)

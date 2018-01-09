@@ -8,14 +8,15 @@ class ForAll[T]
     _gen = gen'
     _helper = testHelper
 
-  fun ref apply(prop: {(T, PropertyHelper) ?} val) =>
+  fun ref apply(prop: {(T, PropertyHelper) ?} val) ? =>
     """execute"""
-    (object val is Property1[T]
-      fun name(): String => ""
+    Property1UnitTest[T](
+      (object iso is Property1[T]
+        fun name(): String => ""
 
-      fun gen(): Generator[T] => _gen
+        fun gen(): Generator[T] => _gen
 
-      fun property(arg1: T, h: PropertyHelper) ? =>
-        prop(consume arg1, h)?
-    end)
-      .unit_test().apply(_helper)
+        fun property(arg1: T, h: PropertyHelper) ? =>
+          prop(consume arg1, h)?
+      end)
+    ).apply(_helper)?

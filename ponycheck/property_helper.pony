@@ -1,12 +1,25 @@
-use "ponytest"
-
 interface val PropertyResultNotify
   """stripped down interface for TestHelper as this is all we need"""
+
   fun log(msg: String, verbose: Bool = false)
+    """
+    log a message to the outside world
+    """
 
   fun fail(msg: String)
+    """
+    called when a Property has failed (did not hold for a sample)
+    or when execution errored.
+    
+    Does not necessarily denote completeness of the property execution,
+    see `complete(success: Bool)` for that purpose.
+    """
 
   fun complete(success: Bool)
+    """
+    called when the Property execution is complete
+    signalling whether it was successful or not.
+    """
 
 class ref PropertyHelper
   """
@@ -85,7 +98,7 @@ class ref PropertyHelper
     true
 
   fun ref assert_error(
-    test: ITest box,
+    test: {(): None ?} box,
     msg: String = "",
     loc: SourceLoc = __loc)
     : Bool
@@ -103,7 +116,7 @@ class ref PropertyHelper
     end
 
   fun ref assert_no_error(
-    test: ITest box,
+    test: {(): None ?} box,
     msg: String = "",
     loc: SourceLoc = __loc)
     : Bool
@@ -347,18 +360,14 @@ class ref PropertyHelper
   fun tag _format_params(params: PropertyParams): String =>
     "Params(seed=" + params.seed.string() + ")"
 
-  fun report_success() =>
-    """
-    report success to the property test runner
-    """
-
   fun report_error(sample_repr: String,
     shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
     report an error that happened during property evaluation
+    and signal failure to the notify
     """
-    _th.log(
+    _th.fail(
       _fmt_msg(
         loc,
         "Property errored for sample "
@@ -366,15 +375,14 @@ class ref PropertyHelper
           + " (after "
           + shrink_rounds.string()
           + " shrinks)"
-      ),
-      false
+      )
     )
 
-  fun report_failed[T](sample_repr: String,
+  fun report_failed(sample_repr: String,
     shrink_rounds: USize = 0,
     loc: SourceLoc = __loc) =>
     """
-    report a failed property
+    report a failed property and signal failure to the notify
     """
     _th.fail(
       _fmt_msg(

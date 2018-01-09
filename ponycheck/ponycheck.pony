@@ -67,7 +67,7 @@ primitive Ponycheck
         fun name(): String => "mytest/withMultipleProperties"
 
         fun apply(h: TestHelper) =>
-          Ponycheck.forAll[U8](recover Generators.unit[U8](0) end, h)(
+          Ponycheck.for_all[U8](recover Generators.unit[U8](0) end, h)(
             {(u, h) =>
               h.assert_eq(u, 0)
               consume u
