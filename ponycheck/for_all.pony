@@ -11,12 +11,12 @@ class ForAll[T]
   fun ref apply(prop: {(T, PropertyHelper) ?} val) ? =>
     """execute"""
     Property1UnitTest[T](
-      (object iso is Property1[T]
+      object iso is Property1[T]
         fun name(): String => ""
 
         fun gen(): Generator[T] => _gen
 
         fun property(arg1: T, h: PropertyHelper) ? =>
           prop(consume arg1, h)?
-      end)
+      end
     ).apply(_helper)?
