@@ -8,9 +8,9 @@ actor Main is TestList
   new make() => None
 
   fun tag tests(test: PonyTest) =>
-    test(_ListReverseProperty.unit_test())
-    test(_ListReverseOneProperty.unit_test())
+    test(Property1UnitTest[Array[USize]](_ListReverseProperty))
+    test(Property1UnitTest[Array[USize]](_ListReverseOneProperty))
     test(_ListReverseMultipleProperties)
-    test(_CustomClassFlatMapProperty.unit_test())
-    test(_CustomClassMapProperty.unit_test())
-    test(_CustomClassCustomGeneratorProperty.unit_test())
+    test(Property1UnitTest[MyLittlePony](_CustomClassFlatMapProperty))
+    test(Property1UnitTest[MyLittlePony](_CustomClassMapProperty))
+    test(Property1UnitTest[MyLittlePony](_CustomClassCustomGeneratorProperty))
