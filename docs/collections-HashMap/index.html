@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="manifest" href="../img/manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="application-name" content="ponycheck" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="../img/mstile-150x150.png" />
+  
+  <title>class HashMap - ponycheck</title>
+  <link rel="stylesheet" href="../css/main.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "class HashMap";
+    var mkdocs_page_input_path = "collections-HashMap.md";
+    var mkdocs_page_url = "/collections-HashMap/";
+  </script>
+  
+  <script type="text/javascript" src="../js/bundle.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ponycheck</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">ponycheck</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponycheck</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponycheck--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Randomness/">class Randomness</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyRunner/">actor PropertyRunner</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_EmptyIterator/">class _EmptyIterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_Stringify/">primitive _Stringify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyResultNotify/">interface PropertyResultNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyHelper/">class PropertyHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyParams/">class PropertyParams</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Property1/">trait Property1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Poperator/">class Poperator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Ponycheck/">primitive Ponycheck</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ValueAndShrink/">type ValueAndShrink</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenerateResult/">type GenerateResult</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-CountdownIter/">class CountdownIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenObj/">trait GenObj</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Generator/">class Generator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-WeightedGenerator/">type WeightedGenerator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Generators/">primitive Generators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ForAll/">class ForAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINUL/">primitive ASCIINUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIDigits/">primitive ASCIIDigits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIWhiteSpace/">primitive ASCIIWhiteSpace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPunctuation/">primitive ASCIIPunctuation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersLower/">primitive ASCIILettersLower</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersUpper/">primitive ASCIILettersUpper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILetters/">primitive ASCIILetters</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPrintable/">primitive ASCIIPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINonPrintable/">primitive ASCIINonPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAll/">primitive ASCIIAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAllWithNUL/">primitive ASCIIAllWithNUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIRange/">type ASCIIRange</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package assert</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../assert--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Assert/">primitive Assert</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Fact/">primitive Fact</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package builtin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../builtin--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U8/">primitive U8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U16/">primitive U16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U32/">primitive U32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U64/">primitive U64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ULong/">primitive ULong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-USize/">primitive USize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U128/">primitive U128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Unsigned/">type Unsigned</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stringable/">interface Stringable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-String/">class String</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringBytes/">class StringBytes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringRunes/">class StringRunes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UTF32Encoder/">primitive _UTF32Encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdinNotify/">interface StdinNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DisposableActor/">interface DisposableActor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stdin/">actor Stdin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeq/">type ByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeqIter/">interface ByteSeqIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-OutStream/">interface OutStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdStream/">actor StdStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-SourceLoc/">interface SourceLoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I8/">primitive I8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I16/">primitive I16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I32/">primitive I32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I64/">primitive I64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ILong/">primitive ILong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ISize/">primitive ISize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I128/">primitive I128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Signed/">type Signed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Seq/">interface Seq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ArithmeticConvertible/">trait _ArithmeticConvertible</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Real/">trait Real</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Integer/">trait Integer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_SignedInteger/">trait _SignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UnsignedInteger/">trait _UnsignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-FloatingPoint/">trait FloatingPoint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Number/">type Number</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Int/">type Int</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadSeq/">interface ReadSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadElement/">interface ReadElement</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Pointer/">struct Pointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Platform/">primitive Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-None/">primitive None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-MaybePointer/">struct MaybePointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Iterator/">interface Iterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F32/">primitive F32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F64/">primitive F64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Float/">type Float</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Env/">class Env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DoNotOptimise/">primitive DoNotOptimise</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Less/">primitive Less</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equal/">primitive Equal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Greater/">primitive Greater</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Compare/">type Compare</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-HasEq/">interface HasEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equatable/">interface Equatable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Comparable/">interface Comparable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Bool/">primitive Bool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventID/">type AsioEventID</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventNotify/">interface AsioEventNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEvent/">primitive AsioEvent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Array/">class Array</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayKeys/">class ArrayKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayValues/">class ArrayValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayPairs/">class ArrayPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Any/">interface Any</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AmbientAuth/">primitive AmbientAuth</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ToString/">primitive _ToString</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package collections</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../collections--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Sort/">primitive Sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Set/">type Set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetIs/">type SetIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashSet/">class HashSet</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetValues/">class SetValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-RingBuffer/">class RingBuffer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Reverse/">class Reverse</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Range/">class Range</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapEmpty/">primitive _MapEmpty</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapDeleted/">primitive _MapDeleted</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapIs/">type MapIs</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">class HashMap</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hashmap91k-k-v-v-h-hashfunction91k93-val93">HashMap[K: K, V: V, H: HashFunction[K] val]</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions">Public Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#private-functions">Private Functions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapKeys/">class MapKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapValues/">class MapValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapPairs/">class MapPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNode/">class ListNode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-List/">class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNodes/">class ListNodes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListValues/">class ListValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Hashable/">interface Hashable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashFunction/">interface HashFunction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashEq/">primitive HashEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashIs/">primitive HashIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashByteSeq/">primitive HashByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flag/">interface Flag</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flags/">class Flags</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package itertools</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../itertools--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-Iter/">class Iter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_None/">primitive _None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_EmptyIter/">class _EmptyIter</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponytest</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponytest--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-UnitTest/">trait UnitTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestList/">trait TestList</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-ITest/">interface ITest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestHelper/">class TestHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-PonyTest/">actor PonyTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Group/">trait _Group</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_ExclusiveGroup/">actor _ExclusiveGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_SimultaneousGroup/">actor _SimultaneousGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Color/">primitive _Color</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package random</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../random--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorShift128Plus/">class XorShift128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorOshiro128Plus/">class XorOshiro128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Rand/">type Rand</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Random/">trait Random</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-MT/">class MT</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Dice/">class Dice</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package time</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../time--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timers/">actor Timers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-TimerNotify/">interface TimerNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timer/">class Timer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_Clock/">type _Clock</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockRealtime/">primitive _ClockRealtime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockMonotonic/">primitive _ClockMonotonic</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Time/">primitive Time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Nanos/">primitive Nanos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Date/">class Date</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_TimingWheel/">class _TimingWheel</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">source</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/randomness/">randomness.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_runner/">property_runner.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_helper/">property_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property/">property.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/poperator/">poperator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ponycheck/">ponycheck.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/generator/">generator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/for_all/">for_all.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ascii_range/">ascii_range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/assert/assert/">assert.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/unsigned/">unsigned.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stringable/">stringable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/string/">string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stdin/">stdin.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/std_stream/">std_stream.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/source_loc/">source_loc.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/signed/">signed.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/seq/">seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/real/">real.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/read_seq/">read_seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/pointer/">pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/platform/">platform.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/none/">none.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/maybe_pointer/">maybe_pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/iterator/">iterator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/float/">float.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/env/">env.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/do_not_optimise/">do_not_optimise.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/compare/">compare.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/bool/">bool.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/asio_event/">asio_event.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/array/">array.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/any/">any.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/ambient_auth/">ambient_auth.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/_to_string/">_to_string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/sort/">sort.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/set/">set.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/ring_buffer/">ring_buffer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/reverse/">reverse.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/range/">range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/map/">map.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list_node/">list_node.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list/">list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/hashable/">hashable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/flag/">flag.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/itertools/iter/">iter.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/unit_test/">unit_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_list/">test_list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_helper/">test_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/pony_test/">pony_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_group/">_group.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_color/">_color.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xorshift/">xorshift.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xoroshiro/">xoroshiro.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/random/">random.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/mt/">mt.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/dice/">dice.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timers/">timers.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer_notify/">timer_notify.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer/">timer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/time/">time.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/nanos/">nanos.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/date/">date.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/_timing_wheel/">_timing_wheel.pony</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ponycheck</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>package collections &raquo;</li>
+        
+      
+    
+    <li>class HashMap</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hashmap91k-k-v-v-h-hashfunction91k93-val93">HashMap[K: K, V: V, H: <a href="../collections-HashFunction">HashFunction</a>[K] val]</h1>
+<p><span class="source-link"><a href="../src/collections/map/#L15">[Source]</a></span></p>
+<p>A quadratic probing hash map. Resize occurs at a load factor of 0.75. A
+resized map has 2 times the space. The hash function can be plugged in to the
+type to create different kinds of maps.</p>
+<pre><code class="pony">class ref HashMap[K: K, V: V, H: HashFunction[K] val]
+</code></pre>
+
+<h2 id="constructors">Constructors</h2>
+<h3 id="create">create</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L24">[Source]</a></span></p>
+<pre><code class="pony">new ref create(
+  prealloc: USize val = seq)
+: HashMap[K, V, H] ref^
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li>prealloc: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<ul>
+<li><a href="../collections-HashMap">HashMap</a>[K, V, H] ref^</li>
+</ul>
+<hr />
+<h2 id="public-functions">Public Functions</h2>
+<h3 id="size">size</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L33">[Source]</a></span></p>
+<p>The number of items in the map.</p>
+<pre><code class="pony">fun box size()
+: USize val
+</code></pre>
+
+<h4 id="returns_1">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="space">space</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L39">[Source]</a></span></p>
+<p>The available space in the map. Resize will happen when
+size / space &gt;= 0.75.</p>
+<pre><code class="pony">fun box space()
+: USize val
+</code></pre>
+
+<h4 id="returns_2">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="apply">apply</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L46">[Source]</a></span></p>
+<p>Gets a value from the map. Raises an error if no such item exists.</p>
+<pre><code class="pony">fun box apply(
+  key: box-&gt;K!)
+: this-&gt;V ?
+</code></pre>
+
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li>key: box-&gt;K!</li>
+</ul>
+<h4 id="returns_3">Returns</h4>
+<ul>
+<li>this-&gt;V ?</li>
+</ul>
+<hr />
+<h3 id="update">update</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L58">[Source]</a></span></p>
+<p>Sets a value in the map. Returns the old value if there was one, otherwise
+returns None. If there was no previous value, this may trigger a resize.</p>
+<pre><code class="pony">fun ref update(
+  key: K,
+  value: V)
+: (V^ | None val)
+</code></pre>
+
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li>key: K</li>
+<li>value: V</li>
+</ul>
+<h4 id="returns_4">Returns</h4>
+<ul>
+<li>(V^ | <a href="../builtin-None">None</a> val)</li>
+</ul>
+<hr />
+<h3 id="upsert">upsert</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L83">[Source]</a></span></p>
+<p>Combines a provided value with the current value for the provided key
+using the provided function. If the provided key has not been added to
+the map yet, it sets its value to the provided value.</p>
+<p>As a simple example, say we had a map with I64 values and we wanted to
+add 4 to the current value for key "test", which let's say is currently 2.
+We call</p>
+<p>m.upsert("test", 4, {(x, y) =&gt; x - y })</p>
+<p>This changes the value associated with "test" to -2.</p>
+<p>If we have not yet added the key "new-key" to the map and we call</p>
+<p>m.upsert("new-key", 4, {(x, y) =&gt; x - y })</p>
+<p>then "new-key" is added to the map with a value of -4.</p>
+<p>Returns the value that we set the key to</p>
+<pre><code class="pony">fun ref upsert(
+  key: K,
+  value: V,
+  f: {(V, V): V^}[K, V, H] box)
+: V ?
+</code></pre>
+
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li>key: K</li>
+<li>value: V</li>
+<li>f: {(V, V): V^}[K, V, H] box</li>
+</ul>
+<h4 id="returns_5">Returns</h4>
+<ul>
+<li>V ?</li>
+</ul>
+<hr />
+<h3 id="insert">insert</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L128">[Source]</a></span></p>
+<p>Set a value in the map. Returns the new value, allowing reuse.</p>
+<pre><code class="pony">fun ref insert(
+  key: K,
+  value: V)
+: V ?
+</code></pre>
+
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li>key: K</li>
+<li>value: V</li>
+</ul>
+<h4 id="returns_6">Returns</h4>
+<ul>
+<li>V ?</li>
+</ul>
+<hr />
+<h3 id="insert_if_absent">insert_if_absent</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L152">[Source]</a></span></p>
+<p>Set a value in the map if the key doesn't already exist in the Map.
+Saves an extra lookup when doing a pattern like:</p>
+<pre><code class="pony">if not my_map.contains(my_key) then
+  my_map(my_key) = my_value
+end
+</code></pre>
+
+<p>Returns the value, the same as <code>insert</code>, allowing 'insert_if_absent'
+to be used as a drop-in replacement for <code>insert</code>.</p>
+<pre><code class="pony">fun ref insert_if_absent(
+  key: K,
+  value: V)
+: V ?
+</code></pre>
+
+<h4 id="parameters_5">Parameters</h4>
+<ul>
+<li>key: K</li>
+<li>value: V</li>
+</ul>
+<h4 id="returns_7">Returns</h4>
+<ul>
+<li>V ?</li>
+</ul>
+<hr />
+<h3 id="remove">remove</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L187">[Source]</a></span></p>
+<p>Delete a value from the map and return it. Raises an error if there was no
+value for the given key.</p>
+<pre><code class="pony">fun ref remove(
+  key: box-&gt;K!)
+: (K^ , V^) ?
+</code></pre>
+
+<h4 id="parameters_6">Parameters</h4>
+<ul>
+<li>key: box-&gt;K!</li>
+</ul>
+<h4 id="returns_8">Returns</h4>
+<ul>
+<li>(K^ , V^) ?</li>
+</ul>
+<hr />
+<h3 id="get_or_else">get_or_else</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L206">[Source]</a></span></p>
+<p>Get the value associated with provided key if present. Otherwise,
+return the provided alternate value.</p>
+<pre><code class="pony">fun box get_or_else(
+  key: box-&gt;K!,
+  alt: this-&gt;V)
+: this-&gt;V
+</code></pre>
+
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li>key: box-&gt;K!</li>
+<li>alt: this-&gt;V</li>
+</ul>
+<h4 id="returns_9">Returns</h4>
+<ul>
+<li>this-&gt;V</li>
+</ul>
+<hr />
+<h3 id="contains">contains</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L225">[Source]</a></span></p>
+<p>Checks whether the map contains the key k</p>
+<pre><code class="pony">fun box contains(
+  k: box-&gt;K!)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li>k: box-&gt;K!</li>
+</ul>
+<h4 id="returns_10">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="concat">concat</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L232">[Source]</a></span></p>
+<p>Add K, V pairs from the iterator to the map.</p>
+<pre><code class="pony">fun ref concat(
+  iter: Iterator[(K^ , V^)] ref)
+: None val
+</code></pre>
+
+<h4 id="parameters_9">Parameters</h4>
+<ul>
+<li>iter: <a href="../builtin-Iterator">Iterator</a>[(K^ , V^)] ref</li>
+</ul>
+<h4 id="returns_11">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="add91optional-h2-hashfunction91this-k93-val93">add[optional H2: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;K!] val]</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L240">[Source]</a></span></p>
+<p>This with the new (key, value) mapping.</p>
+<pre><code class="pony">fun box add[optional H2: HashFunction[this-&gt;K!] val](
+  key: this-&gt;K!,
+  value: this-&gt;V!)
+: HashMap[this-&gt;K!, this-&gt;V!, H2] ref^
+</code></pre>
+
+<h4 id="parameters_10">Parameters</h4>
+<ul>
+<li>key: this-&gt;K!</li>
+<li>value: this-&gt;V!</li>
+</ul>
+<h4 id="returns_12">Returns</h4>
+<ul>
+<li><a href="../collections-HashMap">HashMap</a>[this-&gt;K!, this-&gt;V!, H2] ref^</li>
+</ul>
+<hr />
+<h3 id="sub91optional-h2-hashfunction91this-k93-val93">sub[optional H2: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;K!] val]</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L252">[Source]</a></span></p>
+<p>This without the given key.</p>
+<pre><code class="pony">fun box sub[optional H2: HashFunction[this-&gt;K!] val](
+  key: this-&gt;K!,
+  value: this-&gt;V!)
+: HashMap[this-&gt;K!, this-&gt;V!, H2] ref^
+</code></pre>
+
+<h4 id="parameters_11">Parameters</h4>
+<ul>
+<li>key: this-&gt;K!</li>
+<li>value: this-&gt;V!</li>
+</ul>
+<h4 id="returns_13">Returns</h4>
+<ul>
+<li><a href="../collections-HashMap">HashMap</a>[this-&gt;K!, this-&gt;V!, H2] ref^</li>
+</ul>
+<hr />
+<h3 id="next_index">next_index</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L264">[Source]</a></span></p>
+<p>Given an index, return the next index that has a populated key and value.
+Raise an error if there is no next populated index.</p>
+<pre><code class="pony">fun box next_index(
+  prev: USize val = seq)
+: USize val ?
+</code></pre>
+
+<h4 id="parameters_12">Parameters</h4>
+<ul>
+<li>prev: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_14">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val ?</li>
+</ul>
+<hr />
+<h3 id="index">index</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L276">[Source]</a></span></p>
+<p>Returns the key and value at a given index.
+Raise an error if the index is not populated.</p>
+<pre><code class="pony">fun box index(
+  i: USize val)
+: (this-&gt;K , this-&gt;V) ?
+</code></pre>
+
+<h4 id="parameters_13">Parameters</h4>
+<ul>
+<li>i: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_15">Returns</h4>
+<ul>
+<li>(this-&gt;K , this-&gt;V) ?</li>
+</ul>
+<hr />
+<h3 id="compact">compact</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L283">[Source]</a></span></p>
+<p>Minimise the memory used for the map.</p>
+<pre><code class="pony">fun ref compact()
+: None val
+</code></pre>
+
+<h4 id="returns_16">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="clone91optional-h2-hashfunction91this-k93-val93">clone[optional H2: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;K!] val]</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L289">[Source]</a></span></p>
+<p>Create a clone. The key and value types may be different due to aliasing
+and viewpoint adaptation.</p>
+<pre><code class="pony">fun box clone[optional H2: HashFunction[this-&gt;K!] val]()
+: HashMap[this-&gt;K!, this-&gt;V!, H2] ref^
+</code></pre>
+
+<h4 id="returns_17">Returns</h4>
+<ul>
+<li><a href="../collections-HashMap">HashMap</a>[this-&gt;K!, this-&gt;V!, H2] ref^</li>
+</ul>
+<hr />
+<h3 id="clear">clear</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L303">[Source]</a></span></p>
+<p>Remove all entries.</p>
+<pre><code class="pony">fun ref clear()
+: None val
+</code></pre>
+
+<h4 id="returns_18">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="keys">keys</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L367">[Source]</a></span></p>
+<p>Return an iterator over the keys.</p>
+<pre><code class="pony">fun box keys()
+: MapKeys[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^
+</code></pre>
+
+<h4 id="returns_19">Returns</h4>
+<ul>
+<li><a href="../collections-MapKeys">MapKeys</a>[K, V, H, this-&gt;<a href="../collections-HashMap">HashMap</a>[K, V, H] ref] ref^</li>
+</ul>
+<hr />
+<h3 id="values">values</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L373">[Source]</a></span></p>
+<p>Return an iterator over the values.</p>
+<pre><code class="pony">fun box values()
+: MapValues[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^
+</code></pre>
+
+<h4 id="returns_20">Returns</h4>
+<ul>
+<li><a href="../collections-MapValues">MapValues</a>[K, V, H, this-&gt;<a href="../collections-HashMap">HashMap</a>[K, V, H] ref] ref^</li>
+</ul>
+<hr />
+<h3 id="pairs">pairs</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L379">[Source]</a></span></p>
+<p>Return an iterator over the keys and values.</p>
+<pre><code class="pony">fun box pairs()
+: MapPairs[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^
+</code></pre>
+
+<h4 id="returns_21">Returns</h4>
+<ul>
+<li><a href="../collections-MapPairs">MapPairs</a>[K, V, H, this-&gt;<a href="../collections-HashMap">HashMap</a>[K, V, H] ref] ref^</li>
+</ul>
+<hr />
+<h2 id="private-functions">Private Functions</h2>
+<h3 id="_search">_search</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L312">[Source]</a></span></p>
+<p>Return a slot number and whether or not it's currently occupied.</p>
+<pre><code class="pony">fun box _search(
+  key: box-&gt;K!)
+: (USize val , Bool val)
+</code></pre>
+
+<h4 id="parameters_14">Parameters</h4>
+<ul>
+<li>key: box-&gt;K!</li>
+</ul>
+<h4 id="returns_22">Returns</h4>
+<ul>
+<li>(<a href="../builtin-USize">USize</a> val , <a href="../builtin-Bool">Bool</a> val)</li>
+</ul>
+<hr />
+<h3 id="_resize">_resize</h3>
+<p><span class="source-link"><a href="../src/collections/map/#L348">[Source]</a></span></p>
+<p>Change the available space.</p>
+<pre><code class="pony">fun ref _resize(
+  len: USize val)
+: None val
+</code></pre>
+
+<h4 id="parameters_15">Parameters</h4>
+<ul>
+<li>len: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_23">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../collections-MapKeys/" class="btn btn-neutral float-right" title="class MapKeys">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../collections-MapIs/" class="btn btn-neutral" title="type MapIs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../collections-MapIs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../collections-MapKeys/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

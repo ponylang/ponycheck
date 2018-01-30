@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="manifest" href="../img/manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="application-name" content="ponycheck" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="../img/mstile-150x150.png" />
+  
+  <title>primitive Generators - ponycheck</title>
+  <link rel="stylesheet" href="../css/main.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "primitive Generators";
+    var mkdocs_page_input_path = "ponycheck-Generators.md";
+    var mkdocs_page_url = "/ponycheck-Generators/";
+  </script>
+  
+  <script type="text/javascript" src="../js/bundle.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ponycheck</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">ponycheck</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponycheck</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponycheck--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Randomness/">class Randomness</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyRunner/">actor PropertyRunner</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_EmptyIterator/">class _EmptyIterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_Stringify/">primitive _Stringify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyResultNotify/">interface PropertyResultNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyHelper/">class PropertyHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyParams/">class PropertyParams</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Property1/">trait Property1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Poperator/">class Poperator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Ponycheck/">primitive Ponycheck</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ValueAndShrink/">type ValueAndShrink</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenerateResult/">type GenerateResult</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-CountdownIter/">class CountdownIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenObj/">trait GenObj</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Generator/">class Generator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-WeightedGenerator/">type WeightedGenerator</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">primitive Generators</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#generators">Generators</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions">Public Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#private-functions">Private Functions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ForAll/">class ForAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINUL/">primitive ASCIINUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIDigits/">primitive ASCIIDigits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIWhiteSpace/">primitive ASCIIWhiteSpace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPunctuation/">primitive ASCIIPunctuation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersLower/">primitive ASCIILettersLower</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersUpper/">primitive ASCIILettersUpper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILetters/">primitive ASCIILetters</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPrintable/">primitive ASCIIPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINonPrintable/">primitive ASCIINonPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAll/">primitive ASCIIAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAllWithNUL/">primitive ASCIIAllWithNUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIRange/">type ASCIIRange</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package assert</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../assert--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Assert/">primitive Assert</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Fact/">primitive Fact</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package builtin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../builtin--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U8/">primitive U8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U16/">primitive U16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U32/">primitive U32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U64/">primitive U64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ULong/">primitive ULong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-USize/">primitive USize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U128/">primitive U128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Unsigned/">type Unsigned</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stringable/">interface Stringable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-String/">class String</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringBytes/">class StringBytes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringRunes/">class StringRunes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UTF32Encoder/">primitive _UTF32Encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdinNotify/">interface StdinNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DisposableActor/">interface DisposableActor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stdin/">actor Stdin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeq/">type ByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeqIter/">interface ByteSeqIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-OutStream/">interface OutStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdStream/">actor StdStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-SourceLoc/">interface SourceLoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I8/">primitive I8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I16/">primitive I16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I32/">primitive I32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I64/">primitive I64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ILong/">primitive ILong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ISize/">primitive ISize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I128/">primitive I128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Signed/">type Signed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Seq/">interface Seq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ArithmeticConvertible/">trait _ArithmeticConvertible</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Real/">trait Real</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Integer/">trait Integer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_SignedInteger/">trait _SignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UnsignedInteger/">trait _UnsignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-FloatingPoint/">trait FloatingPoint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Number/">type Number</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Int/">type Int</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadSeq/">interface ReadSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadElement/">interface ReadElement</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Pointer/">struct Pointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Platform/">primitive Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-None/">primitive None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-MaybePointer/">struct MaybePointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Iterator/">interface Iterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F32/">primitive F32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F64/">primitive F64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Float/">type Float</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Env/">class Env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DoNotOptimise/">primitive DoNotOptimise</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Less/">primitive Less</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equal/">primitive Equal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Greater/">primitive Greater</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Compare/">type Compare</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-HasEq/">interface HasEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equatable/">interface Equatable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Comparable/">interface Comparable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Bool/">primitive Bool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventID/">type AsioEventID</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventNotify/">interface AsioEventNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEvent/">primitive AsioEvent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Array/">class Array</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayKeys/">class ArrayKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayValues/">class ArrayValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayPairs/">class ArrayPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Any/">interface Any</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AmbientAuth/">primitive AmbientAuth</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ToString/">primitive _ToString</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package collections</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../collections--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Sort/">primitive Sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Set/">type Set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetIs/">type SetIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashSet/">class HashSet</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetValues/">class SetValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-RingBuffer/">class RingBuffer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Reverse/">class Reverse</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Range/">class Range</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapEmpty/">primitive _MapEmpty</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapDeleted/">primitive _MapDeleted</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashMap/">class HashMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapKeys/">class MapKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapValues/">class MapValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapPairs/">class MapPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNode/">class ListNode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-List/">class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNodes/">class ListNodes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListValues/">class ListValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Hashable/">interface Hashable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashFunction/">interface HashFunction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashEq/">primitive HashEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashIs/">primitive HashIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashByteSeq/">primitive HashByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flag/">interface Flag</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flags/">class Flags</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package itertools</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../itertools--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-Iter/">class Iter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_None/">primitive _None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_EmptyIter/">class _EmptyIter</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponytest</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponytest--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-UnitTest/">trait UnitTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestList/">trait TestList</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-ITest/">interface ITest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestHelper/">class TestHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-PonyTest/">actor PonyTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Group/">trait _Group</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_ExclusiveGroup/">actor _ExclusiveGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_SimultaneousGroup/">actor _SimultaneousGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Color/">primitive _Color</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package random</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../random--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorShift128Plus/">class XorShift128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorOshiro128Plus/">class XorOshiro128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Rand/">type Rand</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Random/">trait Random</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-MT/">class MT</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Dice/">class Dice</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package time</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../time--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timers/">actor Timers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-TimerNotify/">interface TimerNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timer/">class Timer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_Clock/">type _Clock</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockRealtime/">primitive _ClockRealtime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockMonotonic/">primitive _ClockMonotonic</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Time/">primitive Time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Nanos/">primitive Nanos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Date/">class Date</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_TimingWheel/">class _TimingWheel</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">source</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/randomness/">randomness.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_runner/">property_runner.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_helper/">property_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property/">property.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/poperator/">poperator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ponycheck/">ponycheck.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/generator/">generator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/for_all/">for_all.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ascii_range/">ascii_range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/assert/assert/">assert.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/unsigned/">unsigned.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stringable/">stringable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/string/">string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stdin/">stdin.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/std_stream/">std_stream.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/source_loc/">source_loc.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/signed/">signed.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/seq/">seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/real/">real.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/read_seq/">read_seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/pointer/">pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/platform/">platform.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/none/">none.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/maybe_pointer/">maybe_pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/iterator/">iterator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/float/">float.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/env/">env.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/do_not_optimise/">do_not_optimise.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/compare/">compare.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/bool/">bool.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/asio_event/">asio_event.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/array/">array.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/any/">any.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/ambient_auth/">ambient_auth.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/_to_string/">_to_string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/sort/">sort.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/set/">set.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/ring_buffer/">ring_buffer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/reverse/">reverse.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/range/">range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/map/">map.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list_node/">list_node.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list/">list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/hashable/">hashable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/flag/">flag.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/itertools/iter/">iter.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/unit_test/">unit_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_list/">test_list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_helper/">test_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/pony_test/">pony_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_group/">_group.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_color/">_color.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xorshift/">xorshift.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xoroshiro/">xoroshiro.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/random/">random.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/mt/">mt.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/dice/">dice.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timers/">timers.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer_notify/">timer_notify.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer/">timer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/time/">time.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/nanos/">nanos.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/date/">date.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/_timing_wheel/">_timing_wheel.pony</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ponycheck</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>package ponycheck &raquo;</li>
+        
+      
+    
+    <li>primitive Generators</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="generators">Generators</h1>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L271">[Source]</a></span></p>
+<pre><code class="pony">primitive val Generators
+</code></pre>
+
+<h2 id="constructors">Constructors</h2>
+<h3 id="create">create</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L271">[Source]</a></span></p>
+<pre><code class="pony">new val create()
+: Generators val^
+</code></pre>
+
+<h4 id="returns">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generators">Generators</a> val^</li>
+</ul>
+<hr />
+<h2 id="public-functions">Public Functions</h2>
+<h3 id="unit91t-t93">unit[T: T]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L272">[Source]</a></span></p>
+<p>Generate a reference to the same value over and over again.</p>
+<p>This reference will be of type <code>box-&gt;T</code> and not just <code>T</code>
+as this generator will need to keep a reference to the given value.</p>
+<pre><code class="pony">fun box unit[T: T](
+  t: T,
+  do_shrink: Bool val = seq)
+: Generator[box-&gt;T] box
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li>t: T</li>
+<li>do_shrink: <a href="../builtin-Bool">Bool</a> val = seq</li>
+</ul>
+<h4 id="returns_1">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[box-&gt;T] box</li>
+</ul>
+<hr />
+<h3 id="repeatedly91t-t93">repeatedly[T: T]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L290">[Source]</a></span></p>
+<p>Generate values by calling the lambda <code>f</code> repeatedly,
+once for every invocation of <code>generate</code>.</p>
+<p><code>f</code> needs to return an ephemeral type <code>T^</code>, that means
+in most cases it needs to consume its returned value.
+Otherwise we would end up with
+an alias for <code>T</code> which is <code>T!</code>.
+(e.g. <code>String iso</code> would be returned as <code>String iso!</code>
+which is a <code>String tag</code>).</p>
+<p>Example:</p>
+<pre><code class="pony">Generators.repeatedly[Writer]({(): Writer^ =&gt;
+  let writer = Writer.&gt;write(&quot;consume me, please&quot;)
+  consume writer
+})
+</code></pre>
+
+<pre><code class="pony">fun box repeatedly[T: T](
+  f: {(): T^}[T] box)
+: Generator[T] box
+</code></pre>
+
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li>f: {(): T^}[T] box</li>
+</ul>
+<h4 id="returns_2">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[T] box</li>
+</ul>
+<hr />
+<h3 id="seq_of91t-t-s-seq91t93-ref93">seq_of[T: T, S: <a href="../builtin-Seq">Seq</a>[T] ref]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L318">[Source]</a></span></p>
+<p>Create a <code>Seq</code> from the values of the given Generator with an optional minimum and
+maximum size, defaults are 0 and 100 respectively.</p>
+<pre><code class="pony">fun box seq_of[T: T, S: Seq[T] ref](
+  gen: Generator[T] box,
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[S] box
+</code></pre>
+
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_3">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[S] box</li>
+</ul>
+<hr />
+<h3 id="set_of91t-hashable-read-equatable91t93-read93">set_of[T: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[T] #read)]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L355">[Source]</a></span></p>
+<p>Create a generator for <code>Set</code> filled with values
+of the given generator <code>gen</code>.
+The returned sets will have a size up to <code>max</code>
+but tend to have fewer than <code>max</code>
+depending on the source generator <code>gen</code>.</p>
+<p>E.g. if the given generator is for <code>U8</code> values and <code>max</code> is set to 1024
+the set will only ever be of size 256 max.</p>
+<p>Also for efficiency purposes and to not loop forever
+this generator will only try to add at most <code>max</code> values to the set.
+If there are duplicates, the set won't grow.</p>
+<pre><code class="pony">fun box set_of[T: (Hashable #read &amp; Equatable[T] #read)](
+  gen: Generator[T] box,
+  max: USize val = seq)
+: Generator[HashSet[T, HashEq[T] val] ref] box
+</code></pre>
+
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_4">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashSet">HashSet</a>[T, <a href="../collections-HashEq">HashEq</a>[T] val] ref] box</li>
+</ul>
+<hr />
+<h3 id="set_is_of91t-t93">set_is_of[T: T]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L396">[Source]</a></span></p>
+<p>Create a generator for <code>SetIs</code> filled with values
+of the given generator <code>gen</code>.
+The returned <code>SetIs</code> will have a size up to <code>max</code>
+but tend to have fewer entries
+depending on the source generator <code>gen</code>.</p>
+<p>E.g. if the given generator is for <code>U8</code> values and <code>max</code> is set to 1024
+the set will only ever be of size 256 max.</p>
+<p>Also for efficiency purposes and to not loop forever
+this generator will only try to add at most <code>max</code> values to the set.
+If there are duplicates, the set won't grow.</p>
+<pre><code class="pony">fun box set_is_of[T: T](
+  gen: Generator[T] box,
+  max: USize val = seq)
+: Generator[HashSet[T, HashIs[T!] val] ref] box
+</code></pre>
+
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_5">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashSet">HashSet</a>[T, <a href="../collections-HashIs">HashIs</a>[T!] val] ref] box</li>
+</ul>
+<hr />
+<h3 id="map_of91k-hashable-read-equatable91k93-read-v-v93">map_of[K: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[K] #read), V: V]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L438">[Source]</a></span></p>
+<p>Create a generator for <code>Map</code> from a generator of key-value tuples.
+The generated maps will have a size up to <code>max</code>
+but tend to have fewer entries depending on the source generator <code>gen</code>.</p>
+<p>If the generator generates key-value pairs with
+duplicate keys (based on structural equality)
+the pair that is generated later will overwrite earlier entries in the map.</p>
+<pre><code class="pony">fun box map_of[K: (Hashable #read &amp; Equatable[K] #read), V: V](
+  gen: Generator[(K , V)] box,
+  max: USize val = seq)
+: Generator[HashMap[K, V, HashEq[K] val] ref] box
+</code></pre>
+
+<h4 id="parameters_5">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[(K , V)] box</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_6">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashMap">HashMap</a>[K, V, <a href="../collections-HashEq">HashEq</a>[K] val] ref] box</li>
+</ul>
+<hr />
+<h3 id="map_is_of91k-k-v-v93">map_is_of[K: K, V: V]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L475">[Source]</a></span></p>
+<p>Create a generator for <code>MapIs</code> from a generator of key-value tuples.
+The generated maps will have a size up to <code>max</code>
+but tend to have fewer entries depending on the source generator <code>gen</code>.</p>
+<p>If the generator generates key-value pairs with
+duplicate keys (based on identity)
+the pair that is generated later will overwrite earlier entries in the map.</p>
+<pre><code class="pony">fun box map_is_of[K: K, V: V](
+  gen: Generator[(K , V)] box,
+  max: USize val = seq)
+: Generator[HashMap[K, V, HashIs[K] val] ref] box
+</code></pre>
+
+<h4 id="parameters_6">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[(K , V)] box</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_7">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashMap">HashMap</a>[K, V, <a href="../collections-HashIs">HashIs</a>[K] val] ref] box</li>
+</ul>
+<hr />
+<h3 id="one_of91t-t93">one_of[T: T]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L512">[Source]</a></span></p>
+<p>Generate a random value from the given ReadSeq. An error will be thrown
+if the given ReadSeq is empty.</p>
+<p>Generators created with this method do not support shrinking.</p>
+<pre><code class="pony">fun box one_of[T: T](
+  xs: ReadSeq[T] box,
+  do_shrink: Bool val = seq)
+: Generator[box-&gt;T] box ?
+</code></pre>
+
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li>xs: <a href="../builtin-ReadSeq">ReadSeq</a>[T] box</li>
+<li>do_shrink: <a href="../builtin-Bool">Bool</a> val = seq</li>
+</ul>
+<h4 id="returns_8">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[box-&gt;T] box ?</li>
+</ul>
+<hr />
+<h3 id="frequency91t-t93">frequency[T: T]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L538">[Source]</a></span></p>
+<p>chose a value of one of the given Generators,
+while controlling the distribution with the associated weights.</p>
+<p>The weights are of type <code>USize</code> and control how likely a value is chosen.
+The likelihood of a value <code>v</code> to be chosen
+is <code>weight_v</code> / <code>weights_sum</code>.
+If all <code>weighted_generators</code> have equal size the distribution
+will be uniform.</p>
+<p>Example of a generator to output odd <code>U8</code> values
+twice as likely as even ones:</p>
+<pre><code class="pony">Generators.frequency[U8]([
+  (1, Generators.u8().filter({(u) =&gt; (u, (u % 2) == 0 }))
+  (2, Generators.u8().filter({(u) =&gt; (u, (u % 2) != 0 }))
+])
+</code></pre>
+
+<pre><code class="pony">fun box frequency[T: T](
+  weighted_generators: ReadSeq[(USize val , Generator[T] box)] box)
+: Generator[T] box ?
+</code></pre>
+
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li>weighted_generators: <a href="../builtin-ReadSeq">ReadSeq</a>[(<a href="../builtin-USize">USize</a> val , <a href="../ponycheck-Generator">Generator</a>[T] box)] box</li>
+</ul>
+<h4 id="returns_9">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[T] box ?</li>
+</ul>
+<hr />
+<h3 id="zip291t1-t1-t2-t293">zip2[T1: T1, T2: T2]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L599">[Source]</a></span></p>
+<p>zip two generators into a generator of a 2-tuple
+containing the values generated by both generators.</p>
+<pre><code class="pony">fun box zip2[T1: T1, T2: T2](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box)
+: Generator[(T1 , T2)] box
+</code></pre>
+
+<h4 id="parameters_9">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+</ul>
+<h4 id="returns_10">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2)] box</li>
+</ul>
+<hr />
+<h3 id="zip391t1-t1-t2-t2-t3-t393">zip3[T1: T1, T2: T2, T3: T3]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L626">[Source]</a></span></p>
+<p>zip three generators into a generator of a 3-tuple
+containing the values generated by those three generators.</p>
+<pre><code class="pony">fun box zip3[T1: T1, T2: T2, T3: T3](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box,
+  gen3: Generator[T3] box)
+: Generator[(T1 , T2 , T3)] box
+</code></pre>
+
+<h4 id="parameters_10">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+<li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
+</ul>
+<h4 id="returns_11">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2 , T3)] box</li>
+</ul>
+<hr />
+<h3 id="zip491t1-t1-t2-t2-t3-t3-t4-t493">zip4[T1: T1, T2: T2, T3: T3, T4: T4]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L658">[Source]</a></span></p>
+<p>zip four generators into a generator of a 4-tuple
+containing the values generated by those four generators.</p>
+<pre><code class="pony">fun box zip4[T1: T1, T2: T2, T3: T3, T4: T4](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box,
+  gen3: Generator[T3] box,
+  gen4: Generator[T4] box)
+: Generator[(T1 , T2 , T3 , T4)] box
+</code></pre>
+
+<h4 id="parameters_11">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+<li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
+<li>gen4: <a href="../ponycheck-Generator">Generator</a>[T4] box</li>
+</ul>
+<h4 id="returns_12">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2 , T3 , T4)] box</li>
+</ul>
+<hr />
+<h3 id="map291t1-t1-t2-t2-t3-t393">map2[T1: T1, T2: T2, T3: T3]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L695">[Source]</a></span></p>
+<p>convenience combinator for mapping 2 generators into 1</p>
+<pre><code class="pony">fun box map2[T1: T1, T2: T2, T3: T3](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box,
+  fn: {(T1, T2): T3^}[T1, T2, T3] ref)
+: Generator[T3] box
+</code></pre>
+
+<h4 id="parameters_12">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+<li>fn: {(T1, T2): T3^}[T1, T2, T3] ref</li>
+</ul>
+<h4 id="returns_13">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[T3] box</li>
+</ul>
+<hr />
+<h3 id="map391t1-t1-t2-t2-t3-t3-t4-t493">map3[T1: T1, T2: T2, T3: T3, T4: T4]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L710">[Source]</a></span></p>
+<p>convenience combinator for mapping 3 generators into 1</p>
+<pre><code class="pony">fun box map3[T1: T1, T2: T2, T3: T3, T4: T4](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box,
+  gen3: Generator[T3] box,
+  fn: {(T1, T2, T3): T4^}[T1, T2, T3, T4] ref)
+: Generator[T4] box
+</code></pre>
+
+<h4 id="parameters_13">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+<li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
+<li>fn: {(T1, T2, T3): T4^}[T1, T2, T3, T4] ref</li>
+</ul>
+<h4 id="returns_14">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[T4] box</li>
+</ul>
+<hr />
+<h3 id="map491t1-t1-t2-t2-t3-t3-t4-t4-t5-t593">map4[T1: T1, T2: T2, T3: T3, T4: T4, T5: T5]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L726">[Source]</a></span></p>
+<p>convenience combinator for mapping 4 generators into 1</p>
+<pre><code class="pony">fun box map4[T1: T1, T2: T2, T3: T3, T4: T4, T5: T5](
+  gen1: Generator[T1] box,
+  gen2: Generator[T2] box,
+  gen3: Generator[T3] box,
+  gen4: Generator[T4] box,
+  fn: {(T1, T2, T3, T4): T5^}[T1, T2, T3, T4, T5] ref)
+: Generator[T5] box
+</code></pre>
+
+<h4 id="parameters_14">Parameters</h4>
+<ul>
+<li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
+<li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
+<li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
+<li>gen4: <a href="../ponycheck-Generator">Generator</a>[T4] box</li>
+<li>fn: {(T1, T2, T3, T4): T5^}[T1, T2, T3, T4, T5] ref</li>
+</ul>
+<h4 id="returns_15">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[T5] box</li>
+</ul>
+<hr />
+<h3 id="bool">bool</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L743">[Source]</a></span></p>
+<p>create a generator of bool values.</p>
+<pre><code class="pony">fun box bool()
+: Generator[Bool val] box
+</code></pre>
+
+<h4 id="returns_16">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-Bool">Bool</a> val] box</li>
+</ul>
+<hr />
+<h3 id="u8">u8</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L811">[Source]</a></span></p>
+<p>create a generator for U8 values</p>
+<pre><code class="pony">fun box u8(
+  min: U8 val = seq,
+  max: U8 val = seq)
+: Generator[U8 val] box
+</code></pre>
+
+<h4 id="parameters_15">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-U8">U8</a> val = seq</li>
+<li>max: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_17">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U8">U8</a> val] box</li>
+</ul>
+<hr />
+<h3 id="u16">u16</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L829">[Source]</a></span></p>
+<p>create a generator for U16 values</p>
+<pre><code class="pony">fun box u16(
+  min: U16 val = seq,
+  max: U16 val = seq)
+: Generator[U16 val] box
+</code></pre>
+
+<h4 id="parameters_16">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-U16">U16</a> val = seq</li>
+<li>max: <a href="../builtin-U16">U16</a> val = seq</li>
+</ul>
+<h4 id="returns_18">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U16">U16</a> val] box</li>
+</ul>
+<hr />
+<h3 id="u32">u32</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L847">[Source]</a></span></p>
+<p>create a generator for U32 values</p>
+<pre><code class="pony">fun box u32(
+  min: U32 val = seq,
+  max: U32 val = seq)
+: Generator[U32 val] box
+</code></pre>
+
+<h4 id="parameters_17">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-U32">U32</a> val = seq</li>
+<li>max: <a href="../builtin-U32">U32</a> val = seq</li>
+</ul>
+<h4 id="returns_19">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U32">U32</a> val] box</li>
+</ul>
+<hr />
+<h3 id="u64">u64</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L865">[Source]</a></span></p>
+<p>create a generator for U64 values</p>
+<pre><code class="pony">fun box u64(
+  min: U64 val = seq,
+  max: U64 val = seq)
+: Generator[U64 val] box
+</code></pre>
+
+<h4 id="parameters_18">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-U64">U64</a> val = seq</li>
+<li>max: <a href="../builtin-U64">U64</a> val = seq</li>
+</ul>
+<h4 id="returns_20">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U64">U64</a> val] box</li>
+</ul>
+<hr />
+<h3 id="u128">u128</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L883">[Source]</a></span></p>
+<p>create a generator for U128 values</p>
+<pre><code class="pony">fun box u128(
+  min: U128 val = seq,
+  max: U128 val = seq)
+: Generator[U128 val] box
+</code></pre>
+
+<h4 id="parameters_19">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-U128">U128</a> val = seq</li>
+<li>max: <a href="../builtin-U128">U128</a> val = seq</li>
+</ul>
+<h4 id="returns_21">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U128">U128</a> val] box</li>
+</ul>
+<hr />
+<h3 id="usize">usize</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L901">[Source]</a></span></p>
+<p>create a generator for USize values</p>
+<pre><code class="pony">fun box usize(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[USize val] box
+</code></pre>
+
+<h4 id="parameters_20">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_22">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-USize">USize</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ulong">ulong</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L919">[Source]</a></span></p>
+<p>create a generator for ULong values</p>
+<pre><code class="pony">fun box ulong(
+  min: ULong val = seq,
+  max: ULong val = seq)
+: Generator[ULong val] box
+</code></pre>
+
+<h4 id="parameters_21">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-ULong">ULong</a> val = seq</li>
+<li>max: <a href="../builtin-ULong">ULong</a> val = seq</li>
+</ul>
+<h4 id="returns_23">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ULong">ULong</a> val] box</li>
+</ul>
+<hr />
+<h3 id="i8">i8</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L937">[Source]</a></span></p>
+<p>create a generator for I8 values</p>
+<pre><code class="pony">fun box i8(
+  min: I8 val = seq,
+  max: I8 val = seq)
+: Generator[I8 val] box
+</code></pre>
+
+<h4 id="parameters_22">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-I8">I8</a> val = seq</li>
+<li>max: <a href="../builtin-I8">I8</a> val = seq</li>
+</ul>
+<h4 id="returns_24">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I8">I8</a> val] box</li>
+</ul>
+<hr />
+<h3 id="i16">i16</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L955">[Source]</a></span></p>
+<p>create a generator for I16 values</p>
+<pre><code class="pony">fun box i16(
+  min: I16 val = seq,
+  max: I16 val = seq)
+: Generator[I16 val] box
+</code></pre>
+
+<h4 id="parameters_23">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-I16">I16</a> val = seq</li>
+<li>max: <a href="../builtin-I16">I16</a> val = seq</li>
+</ul>
+<h4 id="returns_25">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I16">I16</a> val] box</li>
+</ul>
+<hr />
+<h3 id="i32">i32</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L973">[Source]</a></span></p>
+<p>create a generator for I32 values</p>
+<pre><code class="pony">fun box i32(
+  min: I32 val = seq,
+  max: I32 val = seq)
+: Generator[I32 val] box
+</code></pre>
+
+<h4 id="parameters_24">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-I32">I32</a> val = seq</li>
+<li>max: <a href="../builtin-I32">I32</a> val = seq</li>
+</ul>
+<h4 id="returns_26">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I32">I32</a> val] box</li>
+</ul>
+<hr />
+<h3 id="i64">i64</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L991">[Source]</a></span></p>
+<p>create a generator for I64 values</p>
+<pre><code class="pony">fun box i64(
+  min: I64 val = seq,
+  max: I64 val = seq)
+: Generator[I64 val] box
+</code></pre>
+
+<h4 id="parameters_25">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-I64">I64</a> val = seq</li>
+<li>max: <a href="../builtin-I64">I64</a> val = seq</li>
+</ul>
+<h4 id="returns_27">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I64">I64</a> val] box</li>
+</ul>
+<hr />
+<h3 id="i128">i128</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1009">[Source]</a></span></p>
+<p>create a generator for I128 values</p>
+<pre><code class="pony">fun box i128(
+  min: I128 val = seq,
+  max: I128 val = seq)
+: Generator[I128 val] box
+</code></pre>
+
+<h4 id="parameters_26">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-I128">I128</a> val = seq</li>
+<li>max: <a href="../builtin-I128">I128</a> val = seq</li>
+</ul>
+<h4 id="returns_28">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I128">I128</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ilong">ilong</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1027">[Source]</a></span></p>
+<p>create a generator for ILong values</p>
+<pre><code class="pony">fun box ilong(
+  min: ILong val = seq,
+  max: ILong val = seq)
+: Generator[ILong val] box
+</code></pre>
+
+<h4 id="parameters_27">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-ILong">ILong</a> val = seq</li>
+<li>max: <a href="../builtin-ILong">ILong</a> val = seq</li>
+</ul>
+<h4 id="returns_29">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ILong">ILong</a> val] box</li>
+</ul>
+<hr />
+<h3 id="isize">isize</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1045">[Source]</a></span></p>
+<p>create a generator for ISize values</p>
+<pre><code class="pony">fun box isize(
+  min: ISize val = seq,
+  max: ISize val = seq)
+: Generator[ISize val] box
+</code></pre>
+
+<h4 id="parameters_28">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>max: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_30">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ISize">ISize</a> val] box</li>
+</ul>
+<hr />
+<h3 id="byte_string">byte_string</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1064">[Source]</a></span></p>
+<p>create a generator for strings
+generated from the bytes returned by the generator <code>gen</code>
+with a minimum length of <code>min</code> (default: 0)
+and a maximum length of <code>max</code> (default: 100).</p>
+<pre><code class="pony">fun box byte_string(
+  gen: Generator[U8 val] box,
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_29">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U8">U8</a> val] box</li>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_31">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ascii">ascii</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1113">[Source]</a></span></p>
+<p>create a generator for strings withing the given <code>range</code>
+with a minimum length of <code>min</code> (default: 0)
+and a maximum length of <code>max</code> (default: 100).</p>
+<pre><code class="pony">fun box ascii(
+  min: USize val = seq,
+  max: USize val = seq,
+  range: (ASCIINUL val | ASCIIDigits val | ASCIIWhiteSpace val | 
+    ASCIIPunctuation val | ASCIILettersLower val | ASCIILettersUpper val | 
+    ASCIILetters val | ASCIIPrintable val | ASCIINonPrintable val | 
+    ASCIIAll val | ASCIIAllWithNUL val) = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_30">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>range: (<a href="../ponycheck-ASCIINUL">ASCIINUL</a> val | <a href="../ponycheck-ASCIIDigits">ASCIIDigits</a> val | <a href="../ponycheck-ASCIIWhiteSpace">ASCIIWhiteSpace</a> val | 
+    <a href="../ponycheck-ASCIIPunctuation">ASCIIPunctuation</a> val | <a href="../ponycheck-ASCIILettersLower">ASCIILettersLower</a> val | <a href="../ponycheck-ASCIILettersUpper">ASCIILettersUpper</a> val | 
+    <a href="../ponycheck-ASCIILetters">ASCIILetters</a> val | <a href="../ponycheck-ASCIIPrintable">ASCIIPrintable</a> val | <a href="../ponycheck-ASCIINonPrintable">ASCIINonPrintable</a> val | 
+    <a href="../ponycheck-ASCIIAll">ASCIIAll</a> val | <a href="../ponycheck-ASCIIAllWithNUL">ASCIIAllWithNUL</a> val) = seq</li>
+</ul>
+<h4 id="returns_32">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ascii_printable">ascii_printable</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1136">[Source]</a></span></p>
+<p>create a generator for strings of printable ascii characters
+with a minimum length of <code>min</code> (default: 0)
+and a maximum length of <code>max</code> (default: 100).</p>
+<pre><code class="pony">fun box ascii_printable(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_31">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_33">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ascii_numeric">ascii_numeric</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1148">[Source]</a></span></p>
+<p>create a generator for strings of numeric ascii characters
+with a minimum length of <code>min</code> (default: 0)
+and a maximum length of <code>max</code> (default: 100).</p>
+<pre><code class="pony">fun box ascii_numeric(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_32">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_34">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="ascii_letters">ascii_letters</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1160">[Source]</a></span></p>
+<p>create a generator for strings of ascii letters
+with a minimum length of <code>min</code> (default: 0)
+and a maximum length of <code>max</code> (default: 100).</p>
+<pre><code class="pony">fun box ascii_letters(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_33">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_35">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="utf32_codepoint_string">utf32_codepoint_string</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1172">[Source]</a></span></p>
+<p>create a generator for strings
+from a generator of unicode codepoints
+with a minimum length of <code>min</code> codepoints (default: 0)
+and a maximum length of <code>max</code> codepoints (default: 100).</p>
+<p>Note that the byte length of the generated string can be up to 4 times
+the size in code points.</p>
+<pre><code class="pony">fun box utf32_codepoint_string(
+  gen: Generator[U32 val] box,
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_34">Parameters</h4>
+<ul>
+<li>gen: <a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U32">U32</a> val] box</li>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_36">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="unicode">unicode</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1238">[Source]</a></span></p>
+<p>create a generator for unicode strings
+with a minimum length of <code>min</code> codepoints (default: 0)
+and a maximum length of <code>max</code> codepoints (default: 100).</p>
+<p>Note that the byte length of the generated string can be up to 4 times
+the size in code points.</p>
+<pre><code class="pony">fun box unicode(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_35">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_37">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="unicode_bmp">unicode_bmp</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1270">[Source]</a></span></p>
+<p>create a generator for unicode strings
+from the basic multilingual plane only
+with a minimum length of <code>min</code> codepoints (default: 0)
+and a maximum length of <code>max</code> codepoints (default: 100).</p>
+<p>Note that the byte length of the generated string can be up to 4 times
+the size in code points.</p>
+<pre><code class="pony">fun box unicode_bmp(
+  min: USize val = seq,
+  max: USize val = seq)
+: Generator[String val] box
+</code></pre>
+
+<h4 id="parameters_36">Parameters</h4>
+<ul>
+<li>min: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>max: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_38">Returns</h4>
+<ul>
+<li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
+</ul>
+<hr />
+<h3 id="eq">eq</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L272">[Source]</a></span></p>
+<pre><code class="pony">fun box eq(
+  that: Generators val)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_37">Parameters</h4>
+<ul>
+<li>that: <a href="../ponycheck-Generators">Generators</a> val</li>
+</ul>
+<h4 id="returns_39">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="ne">ne</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L272">[Source]</a></span></p>
+<pre><code class="pony">fun box ne(
+  that: Generators val)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_38">Parameters</h4>
+<ul>
+<li>that: <a href="../ponycheck-Generators">Generators</a> val</li>
+</ul>
+<h4 id="returns_40">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h2 id="private-functions">Private Functions</h2>
+<h3 id="_int_shrink91t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93">_int_shrink[T: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[T] val)]</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L753">[Source]</a></span></p>
+<pre><code class="pony">fun box _int_shrink[T: ((I8 val | I16 val | I32 val | 
+    I64 val | I128 val | ILong val | 
+    ISize val | U8 val | U16 val | 
+    U32 val | U64 val | U128 val | 
+    ULong val | USize val) &amp; Integer[T] val)](
+  t: T^,
+  min: T)
+: (T^ , Iterator[T^] ref)
+</code></pre>
+
+<h4 id="parameters_39">Parameters</h4>
+<ul>
+<li>t: T^</li>
+<li>min: T</li>
+</ul>
+<h4 id="returns_41">Returns</h4>
+<ul>
+<li>(T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref)</li>
+</ul>
+<hr />
+<h3 id="_trim_codepoints">_trim_codepoints</h3>
+<p><span class="source-link"><a href="../src/ponycheck/generator/#L1229">[Source]</a></span></p>
+<pre><code class="pony">fun box _trim_codepoints(
+  s: String val,
+  trim_to: USize val)
+: String val
+</code></pre>
+
+<h4 id="parameters_40">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> val</li>
+<li>trim_to: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_42">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> val</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ponycheck-ForAll/" class="btn btn-neutral float-right" title="class ForAll">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ponycheck-WeightedGenerator/" class="btn btn-neutral" title="type WeightedGenerator"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ponycheck-WeightedGenerator/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ponycheck-ForAll/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

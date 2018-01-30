@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="manifest" href="../img/manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="application-name" content="ponycheck" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="../img/mstile-150x150.png" />
+  
+  <title>class String - ponycheck</title>
+  <link rel="stylesheet" href="../css/main.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "class String";
+    var mkdocs_page_input_path = "builtin-String.md";
+    var mkdocs_page_url = "/builtin-String/";
+  </script>
+  
+  <script type="text/javascript" src="../js/bundle.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ponycheck</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">ponycheck</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponycheck</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponycheck--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Randomness/">class Randomness</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyRunner/">actor PropertyRunner</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_EmptyIterator/">class _EmptyIterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-_Stringify/">primitive _Stringify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyResultNotify/">interface PropertyResultNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyHelper/">class PropertyHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-PropertyParams/">class PropertyParams</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Property1/">trait Property1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Poperator/">class Poperator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Ponycheck/">primitive Ponycheck</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ValueAndShrink/">type ValueAndShrink</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenerateResult/">type GenerateResult</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-CountdownIter/">class CountdownIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-GenObj/">trait GenObj</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Generator/">class Generator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-WeightedGenerator/">type WeightedGenerator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-Generators/">primitive Generators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ForAll/">class ForAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINUL/">primitive ASCIINUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIDigits/">primitive ASCIIDigits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIWhiteSpace/">primitive ASCIIWhiteSpace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPunctuation/">primitive ASCIIPunctuation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersLower/">primitive ASCIILettersLower</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILettersUpper/">primitive ASCIILettersUpper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIILetters/">primitive ASCIILetters</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIPrintable/">primitive ASCIIPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIINonPrintable/">primitive ASCIINonPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAll/">primitive ASCIIAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIAllWithNUL/">primitive ASCIIAllWithNUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck-ASCIIRange/">type ASCIIRange</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package assert</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../assert--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Assert/">primitive Assert</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../assert-Fact/">primitive Fact</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package builtin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../builtin--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U8/">primitive U8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U16/">primitive U16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U32/">primitive U32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U64/">primitive U64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ULong/">primitive ULong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-USize/">primitive USize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-U128/">primitive U128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Unsigned/">type Unsigned</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stringable/">interface Stringable</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">class String</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#string">String</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#implements">Implements</a></li>
+        
+            <li><a class="toctree-l4" href="#constructors">Constructors</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions">Public Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#private-functions">Private Functions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringBytes/">class StringBytes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StringRunes/">class StringRunes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UTF32Encoder/">primitive _UTF32Encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdinNotify/">interface StdinNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DisposableActor/">interface DisposableActor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Stdin/">actor Stdin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeq/">type ByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ByteSeqIter/">interface ByteSeqIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-OutStream/">interface OutStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-StdStream/">actor StdStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-SourceLoc/">interface SourceLoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I8/">primitive I8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I16/">primitive I16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I32/">primitive I32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I64/">primitive I64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ILong/">primitive ILong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ISize/">primitive ISize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-I128/">primitive I128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Signed/">type Signed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Seq/">interface Seq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ArithmeticConvertible/">trait _ArithmeticConvertible</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Real/">trait Real</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Integer/">trait Integer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_SignedInteger/">trait _SignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_UnsignedInteger/">trait _UnsignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-FloatingPoint/">trait FloatingPoint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Number/">type Number</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Int/">type Int</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadSeq/">interface ReadSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ReadElement/">interface ReadElement</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Pointer/">struct Pointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Platform/">primitive Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-None/">primitive None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-MaybePointer/">struct MaybePointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Iterator/">interface Iterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F32/">primitive F32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-F64/">primitive F64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Float/">type Float</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Env/">class Env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-DoNotOptimise/">primitive DoNotOptimise</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Less/">primitive Less</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equal/">primitive Equal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Greater/">primitive Greater</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Compare/">type Compare</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-HasEq/">interface HasEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Equatable/">interface Equatable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Comparable/">interface Comparable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Bool/">primitive Bool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventID/">type AsioEventID</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEventNotify/">interface AsioEventNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AsioEvent/">primitive AsioEvent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Array/">class Array</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayKeys/">class ArrayKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayValues/">class ArrayValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-ArrayPairs/">class ArrayPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-Any/">interface Any</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-AmbientAuth/">primitive AmbientAuth</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../builtin-_ToString/">primitive _ToString</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package collections</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../collections--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Sort/">primitive Sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Set/">type Set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetIs/">type SetIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashSet/">class HashSet</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-SetValues/">class SetValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-RingBuffer/">class RingBuffer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Reverse/">class Reverse</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Range/">class Range</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapEmpty/">primitive _MapEmpty</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-_MapDeleted/">primitive _MapDeleted</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashMap/">class HashMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapKeys/">class MapKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapValues/">class MapValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-MapPairs/">class MapPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNode/">class ListNode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-List/">class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListNodes/">class ListNodes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-ListValues/">class ListValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Hashable/">interface Hashable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashFunction/">interface HashFunction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashEq/">primitive HashEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashIs/">primitive HashIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-HashByteSeq/">primitive HashByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flag/">interface Flag</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../collections-Flags/">class Flags</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package itertools</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../itertools--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-Iter/">class Iter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_None/">primitive _None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../itertools-_EmptyIter/">class _EmptyIter</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponytest</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ponytest--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-UnitTest/">trait UnitTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestList/">trait TestList</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-ITest/">interface ITest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-TestHelper/">class TestHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-PonyTest/">actor PonyTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Group/">trait _Group</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_ExclusiveGroup/">actor _ExclusiveGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_SimultaneousGroup/">actor _SimultaneousGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponytest-_Color/">primitive _Color</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package random</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../random--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorShift128Plus/">class XorShift128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-XorOshiro128Plus/">class XorOshiro128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Rand/">type Rand</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Random/">trait Random</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-MT/">class MT</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../random-Dice/">class Dice</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package time</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../time--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timers/">actor Timers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-TimerNotify/">interface TimerNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Timer/">class Timer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_Clock/">type _Clock</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockRealtime/">primitive _ClockRealtime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_ClockMonotonic/">primitive _ClockMonotonic</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Time/">primitive Time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Nanos/">primitive Nanos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-Date/">class Date</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../time-_TimingWheel/">class _TimingWheel</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">source</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/randomness/">randomness.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_runner/">property_runner.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property_helper/">property_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/property/">property.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/poperator/">poperator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ponycheck/">ponycheck.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/generator/">generator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/for_all/">for_all.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponycheck/ascii_range/">ascii_range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/assert/assert/">assert.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/unsigned/">unsigned.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stringable/">stringable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/string/">string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/stdin/">stdin.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/std_stream/">std_stream.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/source_loc/">source_loc.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/signed/">signed.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/seq/">seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/real/">real.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/read_seq/">read_seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/pointer/">pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/platform/">platform.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/none/">none.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/maybe_pointer/">maybe_pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/iterator/">iterator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/float/">float.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/env/">env.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/do_not_optimise/">do_not_optimise.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/compare/">compare.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/bool/">bool.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/asio_event/">asio_event.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/array/">array.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/any/">any.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/ambient_auth/">ambient_auth.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/builtin/_to_string/">_to_string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/sort/">sort.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/set/">set.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/ring_buffer/">ring_buffer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/reverse/">reverse.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/range/">range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/map/">map.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list_node/">list_node.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/list/">list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/hashable/">hashable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/collections/flag/">flag.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/itertools/iter/">iter.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/unit_test/">unit_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_list/">test_list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/test_helper/">test_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/pony_test/">pony_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_group/">_group.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/ponytest/_color/">_color.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xorshift/">xorshift.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/xoroshiro/">xoroshiro.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/random/">random.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/mt/">mt.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/random/dice/">dice.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timers/">timers.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer_notify/">timer_notify.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/timer/">timer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/time/">time.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/nanos/">nanos.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/date/">date.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../src/time/_timing_wheel/">_timing_wheel.pony</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ponycheck</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>package builtin &raquo;</li>
+        
+      
+    
+    <li>class String</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="string">String</h1>
+<p><span class="source-link"><a href="../src/builtin/string/#L7">[Source]</a></span></p>
+<p>A String is an ordered collection of characters.</p>
+<p>Strings don't specify an encoding.</p>
+<p>Example usage of some common String methods:</p>
+<pre><code class="pony">actor Main
+  new create(env: Env) =&gt;
+    try
+      // construct a new string
+      let str = &quot;Hello&quot;
+
+      // make an uppercased version
+      let str_upper = str.upper()
+      // make a reversed version
+      let str_reversed = str.reverse()
+
+      // add &quot; world&quot; to the end of our original string
+      let str_new = str.add(&quot; world&quot;)
+
+      // count occurrences of letter &quot;l&quot;
+      let count = str_new.count(&quot;l&quot;)
+
+      // find first occurrence of letter &quot;w&quot;
+      let first_w = str_new.find(&quot;w&quot;)
+      // find first occurrence of letter &quot;d&quot;
+      let first_d = str_new.find(&quot;d&quot;)
+
+      // get substring capturing &quot;world&quot;
+      let substr = str_new.substring(first_w, first_d+1)
+      // clone substring
+      let substr_clone = substr.clone()
+
+      // print our substr
+      env.out.print(consume substr)
+  end
+</code></pre>
+
+<pre><code class="pony">class val String is
+  Seq[U8 val] ref,
+  Comparable[String box] ref,
+  Stringable box
+</code></pre>
+
+<h4 id="implements">Implements</h4>
+<ul>
+<li><a href="../builtin-Seq">Seq</a>[<a href="../builtin-U8">U8</a> val] ref</li>
+<li><a href="../builtin-Comparable">Comparable</a>[<a href="../builtin-String">String</a> box] ref</li>
+<li><a href="../builtin-Stringable">Stringable</a> box</li>
+</ul>
+<hr />
+<h2 id="constructors">Constructors</h2>
+<h3 id="create">create</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L52">[Source]</a></span></p>
+<p>An empty string. Enough space for len bytes is reserved.</p>
+<pre><code class="pony">new ref create(
+  len: USize val = seq)
+: String ref^
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li>len: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h3 id="from_array">from_array</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L61">[Source]</a></span></p>
+<p>Create a string from an array, reusing the underlying data pointer.</p>
+<pre><code class="pony">new val from_array(
+  data: Array[U8 val] val)
+: String val^
+</code></pre>
+
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li>data: <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val</li>
+</ul>
+<h4 id="returns_1">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> val^</li>
+</ul>
+<hr />
+<h3 id="from_iso_array">from_iso_array</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L69">[Source]</a></span></p>
+<p>Create a string from an array, reusing the underlying data pointer</p>
+<pre><code class="pony">new iso from_iso_array(
+  data: Array[U8 val] iso)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li>data: <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] iso</li>
+</ul>
+<h4 id="returns_2">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="from_cpointer">from_cpointer</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L80">[Source]</a></span></p>
+<p>Return a string from binary pointer data without making a
+copy. This must be done only with C-FFI functions that return
+pony_alloc'd character arrays. If a null pointer is given then an
+empty string is returned.</p>
+<pre><code class="pony">new ref from_cpointer(
+  str: Pointer[U8 val] ref,
+  len: USize val,
+  alloc: USize val = seq)
+: String ref^
+</code></pre>
+
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] ref</li>
+<li>len: <a href="../builtin-USize">USize</a> val</li>
+<li>alloc: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_3">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h3 id="from_cstring">from_cstring</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L98">[Source]</a></span></p>
+<p>Return a string from a pointer to a null-terminated cstring
+without making a copy. The data is not copied. This must be done
+only with C-FFI functions that return pony_alloc'd character
+arrays. The pointer is scanned for the first null byte, which will
+be interpreted as the null terminator. Note that the scan is
+unbounded; the pointed to data must be null-terminated within
+the allocated array to preserve memory safety. If a null pointer
+is given then an empty string is returned.</p>
+<pre><code class="pony">new ref from_cstring(
+  str: Pointer[U8 val] ref)
+: String ref^
+</code></pre>
+
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] ref</li>
+</ul>
+<h4 id="returns_4">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h3 id="copy_cpointer">copy_cpointer</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L126">[Source]</a></span></p>
+<p>Create a string by copying a fixed number of bytes from a pointer.</p>
+<pre><code class="pony">new ref copy_cpointer(
+  str: Pointer[U8 val] box,
+  len: USize val)
+: String ref^
+</code></pre>
+
+<h4 id="parameters_5">Parameters</h4>
+<ul>
+<li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] box</li>
+<li>len: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_5">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h3 id="copy_cstring">copy_cstring</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L142">[Source]</a></span></p>
+<p>Create a string by copying a null-terminated C string. Note that
+the scan is unbounded; the pointed to data must be null-terminated
+within the allocated array to preserve memory safety. If a null
+pointer is given then an empty string is returned.</p>
+<pre><code class="pony">new ref copy_cstring(
+  str: Pointer[U8 val] box)
+: String ref^
+</code></pre>
+
+<h4 id="parameters_6">Parameters</h4>
+<ul>
+<li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] box</li>
+</ul>
+<h4 id="returns_6">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h3 id="from_utf32">from_utf32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L167">[Source]</a></span></p>
+<p>Create a UTF-8 string from a single UTF-32 code point.</p>
+<pre><code class="pony">new ref from_utf32(
+  value: U32 val)
+: String ref^
+</code></pre>
+
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li>value: <a href="../builtin-U32">U32</a> val</li>
+</ul>
+<h4 id="returns_7">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> ref^</li>
+</ul>
+<hr />
+<h2 id="public-functions">Public Functions</h2>
+<h3 id="push_utf32">push_utf32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L187">[Source]</a></span></p>
+<p>Push a UTF-32 code point.</p>
+<pre><code class="pony">fun ref push_utf32(
+  value: U32 val)
+: None val
+</code></pre>
+
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li>value: <a href="../builtin-U32">U32</a> val</li>
+</ul>
+<h4 id="returns_8">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="cpointer">cpointer</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L214">[Source]</a></span></p>
+<p>Returns a C compatible pointer to the underlying string allocation.</p>
+<pre><code class="pony">fun box cpointer(
+  offset: USize val = seq)
+: Pointer[U8 val] tag
+</code></pre>
+
+<h4 id="parameters_9">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_9">Returns</h4>
+<ul>
+<li><a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] tag</li>
+</ul>
+<hr />
+<h3 id="cstring">cstring</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L220">[Source]</a></span></p>
+<p>Returns a C compatible pointer to a null-terminated version of the
+string, safe to pass to an FFI function that doesn't accept a size
+argument, expecting a null-terminator. If the underlying string
+is already null terminated, this is returned; otherwise the string
+is copied into a new, null-terminated allocation.</p>
+<pre><code class="pony">fun box cstring()
+: Pointer[U8 val] tag
+</code></pre>
+
+<h4 id="returns_10">Returns</h4>
+<ul>
+<li><a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] tag</li>
+</ul>
+<hr />
+<h3 id="array">array</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L237">[Source]</a></span></p>
+<p>Returns an Array[U8] that that reuses the underlying data pointer.</p>
+<pre><code class="pony">fun val array()
+: Array[U8 val] val
+</code></pre>
+
+<h4 id="returns_11">Returns</h4>
+<ul>
+<li><a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val</li>
+</ul>
+<hr />
+<h3 id="size">size</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L245">[Source]</a></span></p>
+<p>Returns the length of the string data in bytes.</p>
+<pre><code class="pony">fun box size()
+: USize val
+</code></pre>
+
+<h4 id="returns_12">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="codepoints">codepoints</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L251">[Source]</a></span></p>
+<p>Returns the number of unicode code points in the string between the two
+offsets. Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
+<pre><code class="pony">fun box codepoints(
+  from: ISize val = seq,
+  to: ISize val = seq)
+: USize val
+</code></pre>
+
+<h4 id="parameters_10">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_13">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="space">space</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L274">[Source]</a></span></p>
+<p>Returns the space available for data, not including the null terminator.</p>
+<pre><code class="pony">fun box space()
+: USize val
+</code></pre>
+
+<h4 id="returns_14">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="reserve">reserve</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L280">[Source]</a></span></p>
+<p>Reserve space for len bytes. An additional byte will be reserved for the
+null terminator.</p>
+<pre><code class="pony">fun ref reserve(
+  len: USize val)
+: None val
+</code></pre>
+
+<h4 id="parameters_11">Parameters</h4>
+<ul>
+<li>len: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_15">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="compact">compact</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L296">[Source]</a></span></p>
+<p>Try to remove unused space, making it available for garbage collection. The
+request may be ignored. The string is returned to allow call chaining.</p>
+<pre><code class="pony">fun ref compact()
+: None val
+</code></pre>
+
+<h4 id="returns_16">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="recalc">recalc</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L315">[Source]</a></span></p>
+<p>Recalculates the string length. This is only needed if the string is
+changed via an FFI call. If a null terminator byte is not found within the
+allocated length, the size will not be changed.</p>
+<pre><code class="pony">fun ref recalc()
+: None val
+</code></pre>
+
+<h4 id="returns_17">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="truncate">truncate</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L331">[Source]</a></span></p>
+<p>Truncates the string at the minimum of len and space. Ensures there is a
+null terminator. Does not check for null terminators inside the string.</p>
+<p>Note that memory is not freed by this operation.</p>
+<pre><code class="pony">fun ref truncate(
+  len: USize val)
+: None val
+</code></pre>
+
+<h4 id="parameters_12">Parameters</h4>
+<ul>
+<li>len: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_18">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="trim_in_place">trim_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L347">[Source]</a></span></p>
+<p>Trim the string to a portion of itself, covering <code>from</code> until <code>to</code>.
+Unlike slice, the operation does not allocate a new string nor copy
+elements.</p>
+<pre><code class="pony">fun ref trim_in_place(
+  from: USize val = seq,
+  to: USize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_13">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>to: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_19">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="trim">trim</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L365">[Source]</a></span></p>
+<p>Return a shared portion of this string, covering <code>from</code> until <code>to</code>.
+Both the original and the new string are immutable, as they share memory.
+The operation does not allocate a new string pointer nor copy elements.</p>
+<pre><code class="pony">fun val trim(
+  from: USize val = seq,
+  to: USize val = seq)
+: String val
+</code></pre>
+
+<h4 id="parameters_14">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>to: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_20">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> val</li>
+</ul>
+<hr />
+<h3 id="chop">chop</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L389">[Source]</a></span></p>
+<p>Chops the string in half at the split point requested and returns both
+the left and right portions. The original string is trimmed in place and
+returned as the right portion. If the split point is larger than the
+string, the left portion is the original string and the right portion
+is a new empty string.
+Both strings are isolated and mutable, as they do not share memory.
+The operation does not allocate a new string pointer nor copy elements.</p>
+<pre><code class="pony">fun iso chop(
+  split_point: USize val)
+: (String iso^ , String iso^)
+</code></pre>
+
+<h4 id="parameters_15">Parameters</h4>
+<ul>
+<li>split_point: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_21">Returns</h4>
+<ul>
+<li>(<a href="../builtin-String">String</a> iso^ , <a href="../builtin-String">String</a> iso^)</li>
+</ul>
+<hr />
+<h3 id="is_null_terminated">is_null_terminated</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L415">[Source]</a></span></p>
+<p>Return true if the string is null-terminated and safe to pass to an FFI
+function that doesn't accept a size argument, expecting a null-terminator.
+This method checks that there is a null byte just after the final position
+of populated bytes in the string, but does not check for other null bytes
+which may be present earlier in the content of the string.
+If you need a null-terminated copy of this string, use the clone method.</p>
+<pre><code class="pony">fun box is_null_terminated()
+: Bool val
+</code></pre>
+
+<h4 id="returns_22">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="utf32">utf32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L426">[Source]</a></span></p>
+<p>Return a UTF32 representation of the character at the given offset and the
+number of bytes needed to encode that character. If the offset does not
+point to the beginning of a valid UTF8 encoding, return 0xFFFD (the unicode
+replacement character) and a length of one. Raise an error if the offset is
+out of bounds.</p>
+<pre><code class="pony">fun box utf32(
+  offset: ISize val)
+: (U32 val , U8 val) ?
+</code></pre>
+
+<h4 id="parameters_16">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+</ul>
+<h4 id="returns_23">Returns</h4>
+<ul>
+<li>(<a href="../builtin-U32">U32</a> val , <a href="../builtin-U8">U8</a> val) ?</li>
+</ul>
+<hr />
+<h3 id="apply">apply</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L512">[Source]</a></span></p>
+<p>Returns the i-th byte. Raise an error if the index is out of bounds.</p>
+<pre><code class="pony">fun box apply(
+  i: USize val)
+: U8 val ?
+</code></pre>
+
+<h4 id="parameters_17">Parameters</h4>
+<ul>
+<li>i: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_24">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="update">update</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L518">[Source]</a></span></p>
+<p>Change the i-th byte. Raise an error if the index is out of bounds.</p>
+<pre><code class="pony">fun ref update(
+  i: USize val,
+  value: U8 val)
+: U8 val ?
+</code></pre>
+
+<h4 id="parameters_18">Parameters</h4>
+<ul>
+<li>i: <a href="../builtin-USize">USize</a> val</li>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_25">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="at_offset">at_offset</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L528">[Source]</a></span></p>
+<p>Returns the byte at the given offset. Raise an error if the offset is out
+of bounds.</p>
+<pre><code class="pony">fun box at_offset(
+  offset: ISize val)
+: U8 val ?
+</code></pre>
+
+<h4 id="parameters_19">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+</ul>
+<h4 id="returns_26">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="update_offset">update_offset</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L535">[Source]</a></span></p>
+<p>Changes a byte in the string, returning the previous byte at that offset.
+Raise an error if the offset is out of bounds.</p>
+<pre><code class="pony">fun ref update_offset(
+  offset: ISize val,
+  value: U8 val)
+: U8 val ?
+</code></pre>
+
+<h4 id="parameters_20">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_27">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="clone">clone</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L542">[Source]</a></span></p>
+<p>Returns a copy of the string. The resulting string is
+null-terminated even if the original is not.</p>
+<pre><code class="pony">fun box clone()
+: String iso^
+</code></pre>
+
+<h4 id="returns_28">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="find">find</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L554">[Source]</a></span></p>
+<p>Return the index of the n-th instance of s in the string starting from the
+beginning. Raise an error if there is no n-th occurrence of s or s is empty.</p>
+<pre><code class="pony">fun box find(
+  s: String box,
+  offset: ISize val = seq,
+  nth: USize val = seq)
+: ISize val ?
+</code></pre>
+
+<h4 id="parameters_21">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_29">Returns</h4>
+<ul>
+<li><a href="../builtin-ISize">ISize</a> val ?</li>
+</ul>
+<hr />
+<h3 id="rfind">rfind</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L583">[Source]</a></span></p>
+<p>Return the index of n-th instance of <code>s</code> in the string starting from the
+end. The <code>offset</code> represents the highest index to included in the search.
+Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code> is empty.</p>
+<pre><code class="pony">fun box rfind(
+  s: String box,
+  offset: ISize val = seq,
+  nth: USize val = seq)
+: ISize val ?
+</code></pre>
+
+<h4 id="parameters_22">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_30">Returns</h4>
+<ul>
+<li><a href="../builtin-ISize">ISize</a> val ?</li>
+</ul>
+<hr />
+<h3 id="contains">contains</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L614">[Source]</a></span></p>
+<p>Returns true if contains s as a substring, false otherwise.</p>
+<pre><code class="pony">fun box contains(
+  s: String box,
+  offset: ISize val = seq,
+  nth: USize val = seq)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_23">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_31">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="count">count</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L642">[Source]</a></span></p>
+<p>Counts the non-overlapping occurrences of s in the string.</p>
+<pre><code class="pony">fun box count(
+  s: String box,
+  offset: ISize val = seq)
+: USize val
+</code></pre>
+
+<h4 id="parameters_24">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_32">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="at">at</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L665">[Source]</a></span></p>
+<p>Returns true if the substring s is present at the given offset.</p>
+<pre><code class="pony">fun box at(
+  s: String box,
+  offset: ISize val = seq)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_25">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_33">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="delete">delete</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L677">[Source]</a></span></p>
+<p>Delete len bytes at the supplied offset, compacting the string in place.</p>
+<pre><code class="pony">fun ref delete(
+  offset: ISize val,
+  len: USize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_26">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+<li>len: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_34">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="substring">substring</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L690">[Source]</a></span></p>
+<p>Returns a substring. Index range [<code>from</code> .. <code>to</code>) is half-open.
+Returns an empty string if nothing is in the range.</p>
+<p>Note that this operation allocates a new string to be returned. For
+similar operations that don't allocate a new string, see <code>trim</code> and
+<code>trim_in_place</code>.</p>
+<pre><code class="pony">fun box substring(
+  from: ISize val,
+  to: ISize val = seq)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_27">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-ISize">ISize</a> val</li>
+<li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_35">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="lower">lower</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L713">[Source]</a></span></p>
+<p>Returns a lower case version of the string.</p>
+<pre><code class="pony">fun box lower()
+: String iso^
+</code></pre>
+
+<h4 id="returns_36">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="lower_in_place">lower_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L721">[Source]</a></span></p>
+<p>Transforms the string to lower case. Currently only knows ASCII case.</p>
+<pre><code class="pony">fun ref lower_in_place()
+: None val
+</code></pre>
+
+<h4 id="returns_37">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="upper">upper</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L737">[Source]</a></span></p>
+<p>Returns an upper case version of the string. Currently only knows ASCII
+case.</p>
+<pre><code class="pony">fun box upper()
+: String iso^
+</code></pre>
+
+<h4 id="returns_38">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="upper_in_place">upper_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L746">[Source]</a></span></p>
+<p>Transforms the string to upper case.</p>
+<pre><code class="pony">fun ref upper_in_place()
+: None val
+</code></pre>
+
+<h4 id="returns_39">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="reverse">reverse</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L762">[Source]</a></span></p>
+<p>Returns a reversed version of the string.</p>
+<pre><code class="pony">fun box reverse()
+: String iso^
+</code></pre>
+
+<h4 id="returns_40">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="reverse_in_place">reverse_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L770">[Source]</a></span></p>
+<p>Reverses the byte order in the string. This needs to be changed to handle
+UTF-8 correctly.</p>
+<pre><code class="pony">fun ref reverse_in_place()
+: None val
+</code></pre>
+
+<h4 id="returns_41">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="push">push</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L788">[Source]</a></span></p>
+<p>Add a byte to the end of the string.</p>
+<pre><code class="pony">fun ref push(
+  value: U8 val)
+: None val
+</code></pre>
+
+<h4 id="parameters_28">Parameters</h4>
+<ul>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_42">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="pop">pop</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L797">[Source]</a></span></p>
+<p>Remove a byte from the end of the string.</p>
+<pre><code class="pony">fun ref pop()
+: U8 val ?
+</code></pre>
+
+<h4 id="returns_43">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="unshift">unshift</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L808">[Source]</a></span></p>
+<p>Adds a byte to the beginning of the string.</p>
+<pre><code class="pony">fun ref unshift(
+  value: U8 val)
+: None val
+</code></pre>
+
+<h4 id="parameters_29">Parameters</h4>
+<ul>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_44">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="shift">shift</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L822">[Source]</a></span></p>
+<p>Removes a byte from the beginning of the string.</p>
+<pre><code class="pony">fun ref shift()
+: U8 val ?
+</code></pre>
+
+<h4 id="returns_45">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="append">append</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L835">[Source]</a></span></p>
+<p>Append the elements from a sequence, starting from the given offset.</p>
+<pre><code class="pony">fun ref append(
+  seq: ReadSeq[U8 val] box,
+  offset: USize val = seq,
+  len: USize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_30">Parameters</h4>
+<ul>
+<li>seq: <a href="../builtin-ReadSeq">ReadSeq</a>[<a href="../builtin-U8">U8</a> val] box</li>
+<li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>len: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_46">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="concat">concat</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L863">[Source]</a></span></p>
+<p>Add len iterated bytes to the end of the string, starting from the given
+offset.</p>
+<pre><code class="pony">fun ref concat(
+  iter: Iterator[U8 val] ref,
+  offset: USize val = seq,
+  len: USize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_31">Parameters</h4>
+<ul>
+<li>iter: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-U8">U8</a> val] ref</li>
+<li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>len: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_47">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="clear">clear</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L892">[Source]</a></span></p>
+<p>Truncate the string to zero length.</p>
+<pre><code class="pony">fun ref clear()
+: None val
+</code></pre>
+
+<h4 id="returns_48">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="insert">insert</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L899">[Source]</a></span></p>
+<p>Returns a version of the string with the given string inserted at the given
+offset.</p>
+<pre><code class="pony">fun box insert(
+  offset: ISize val,
+  that: String val)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_32">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+<li>that: <a href="../builtin-String">String</a> val</li>
+</ul>
+<h4 id="returns_49">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="insert_in_place">insert_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L908">[Source]</a></span></p>
+<p>Inserts the given string at the given offset. Appends the string if the
+offset is out of bounds.</p>
+<pre><code class="pony">fun ref insert_in_place(
+  offset: ISize val,
+  that: String box)
+: None val
+</code></pre>
+
+<h4 id="parameters_33">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_50">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="insert_byte">insert_byte</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L921">[Source]</a></span></p>
+<p>Inserts a byte at the given offset. Appends if the offset is out of bounds.</p>
+<pre><code class="pony">fun ref insert_byte(
+  offset: ISize val,
+  value: U8 val)
+: None val
+</code></pre>
+
+<h4 id="parameters_34">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val</li>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_51">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="cut">cut</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L933">[Source]</a></span></p>
+<p>Returns a version of the string with the given range deleted.
+Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
+<pre><code class="pony">fun box cut(
+  from: ISize val,
+  to: ISize val = seq)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_35">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-ISize">ISize</a> val</li>
+<li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_52">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="cut_in_place">cut_in_place</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L942">[Source]</a></span></p>
+<p>Cuts the given range out of the string.
+Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
+<pre><code class="pony">fun ref cut_in_place(
+  from: ISize val,
+  to: ISize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_36">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-ISize">ISize</a> val</li>
+<li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_53">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="remove">remove</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L964">[Source]</a></span></p>
+<p>Remove all instances of s from the string. Returns the count of removed
+instances.</p>
+<pre><code class="pony">fun ref remove(
+  s: String box)
+: USize val
+</code></pre>
+
+<h4 id="parameters_37">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_54">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="replace">replace</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L981">[Source]</a></span></p>
+<p>Replace up to n occurrences of <code>from</code> in <code>this</code> with <code>to</code>. If n is 0, all
+occurrences will be replaced. Returns the count of replaced occurrences.</p>
+<pre><code class="pony">fun ref replace(
+  from: String box,
+  to: String box,
+  n: USize val = seq)
+: USize val
+</code></pre>
+
+<h4 id="parameters_38">Parameters</h4>
+<ul>
+<li>from: <a href="../builtin-String">String</a> box</li>
+<li>to: <a href="../builtin-String">String</a> box</li>
+<li>n: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_55">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="split_by">split_by</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1006">[Source]</a></span></p>
+<p>Split the string into an array of strings that are delimited by <code>delim</code> in
+the original string. If <code>n &gt; 0</code>, then the split count is limited to n.</p>
+<p>Adjacent delimiters result in a zero length entry in the array. For
+example, <code>"1,,2".split(",") =&gt; ["1", "", "2"]</code>.</p>
+<p>An empty delimiter results in an array that contains a single element equal
+to the whole string.</p>
+<pre><code class="pony">fun box split_by(
+  delim: String val,
+  n: USize val = seq)
+: Array[String val] iso^
+</code></pre>
+
+<h4 id="parameters_39">Parameters</h4>
+<ul>
+<li>delim: <a href="../builtin-String">String</a> val</li>
+<li>n: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_56">Returns</h4>
+<ul>
+<li><a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] iso^</li>
+</ul>
+<hr />
+<h3 id="split">split</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1037">[Source]</a></span></p>
+<p>Split the string into an array of strings. Any character in the delimiter
+string is accepted as a delimiter. If <code>n &gt; 0</code>, then the split count is
+limited to n.</p>
+<p>Adjacent delimiters result in a zero length entry in the array. For
+example, <code>"1,,2".split(",") =&gt; ["1", "", "2"]</code>.</p>
+<pre><code class="pony">fun box split(
+  delim: String val = seq,
+  n: USize val = seq)
+: Array[String val] iso^
+</code></pre>
+
+<h4 id="parameters_40">Parameters</h4>
+<ul>
+<li>delim: <a href="../builtin-String">String</a> val = seq</li>
+<li>n: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_57">Returns</h4>
+<ul>
+<li><a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] iso^</li>
+</ul>
+<hr />
+<h3 id="strip">strip</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1097">[Source]</a></span></p>
+<p>Remove all leading and trailing characters from the string that are in s.</p>
+<pre><code class="pony">fun ref strip(
+  s: String box = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_41">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box = seq</li>
+</ul>
+<h4 id="returns_58">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="rstrip">rstrip</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1103">[Source]</a></span></p>
+<p>Remove all trailing characters within the string that are in s. By default,
+trailing whitespace is removed.</p>
+<pre><code class="pony">fun ref rstrip(
+  s: String box = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_42">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box = seq</li>
+</ul>
+<h4 id="returns_59">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="lstrip">lstrip</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1133">[Source]</a></span></p>
+<p>Remove all leading characters within the string that are in s. By default,
+leading whitespace is removed.</p>
+<pre><code class="pony">fun ref lstrip(
+  s: String box = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_43">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box = seq</li>
+</ul>
+<h4 id="returns_60">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="add">add</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1174">[Source]</a></span></p>
+<p>Return a string that is a concatenation of this and that.</p>
+<pre><code class="pony">fun box add(
+  that: String box)
+: String val
+</code></pre>
+
+<h4 id="parameters_44">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_61">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> val</li>
+</ul>
+<hr />
+<h3 id="join">join</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1182">[Source]</a></span></p>
+<p>Return a string that is a concatenation of the strings in data, using this
+as a separator.</p>
+<pre><code class="pony">fun box join(
+  data: Iterator[Stringable box] ref)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_45">Parameters</h4>
+<ul>
+<li>data: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-Stringable">Stringable</a> box] ref</li>
+</ul>
+<h4 id="returns_62">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="compare">compare</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1199">[Source]</a></span></p>
+<p>Lexically compare two strings.</p>
+<pre><code class="pony">fun box compare(
+  that: String box)
+: (Less val | Equal val | Greater val)
+</code></pre>
+
+<h4 id="parameters_46">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_63">Returns</h4>
+<ul>
+<li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
+</ul>
+<hr />
+<h3 id="compare_sub">compare_sub</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1205">[Source]</a></span></p>
+<p>Lexically compare at most <code>n</code> bytes of the substring of <code>this</code> starting at
+<code>offset</code> with the substring of <code>that</code> starting at <code>that_offset</code>. The
+comparison is case sensitive unless <code>ignore_case</code> is <code>true</code>.</p>
+<p>If the substring of <code>this</code> is a proper prefix of the substring of <code>that</code>,
+then <code>this</code> is <code>Less</code> than <code>that</code>. Likewise, if <code>that</code> is a proper prefix of
+<code>this</code>, then <code>this</code> is <code>Greater</code> than <code>that</code>.</p>
+<p>Both <code>offset</code> and <code>that_offset</code> can be negative, in which case the offsets
+are computed from the end of the string.</p>
+<p>If <code>n + offset</code> is greater than the length of <code>this</code>, or <code>n + that_offset</code>
+is greater than the length of <code>that</code>, then the number of positions compared
+will be reduced to the length of the longest substring.</p>
+<p>Needs to be made UTF-8 safe.</p>
+<pre><code class="pony">fun box compare_sub(
+  that: String box,
+  n: USize val,
+  offset: ISize val = seq,
+  that_offset: ISize val = seq,
+  ignore_case: Bool val = seq)
+: (Less val | Equal val | Greater val)
+</code></pre>
+
+<h4 id="parameters_47">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+<li>n: <a href="../builtin-USize">USize</a> val</li>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>that_offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>ignore_case: <a href="../builtin-Bool">Bool</a> val = seq</li>
+</ul>
+<h4 id="returns_64">Returns</h4>
+<ul>
+<li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
+</ul>
+<hr />
+<h3 id="eq">eq</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1262">[Source]</a></span></p>
+<p>Returns true if the two strings have the same contents.</p>
+<pre><code class="pony">fun box eq(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_48">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_65">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="lt">lt</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1272">[Source]</a></span></p>
+<p>Returns true if this is lexically less than that. Needs to be made UTF-8
+safe.</p>
+<pre><code class="pony">fun box lt(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_49">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_66">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="le">le</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1290">[Source]</a></span></p>
+<p>Returns true if this is lexically less than or equal to that. Needs to be
+made UTF-8 safe.</p>
+<pre><code class="pony">fun box le(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_50">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_67">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="offset_to_index">offset_to_index</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1308">[Source]</a></span></p>
+<pre><code class="pony">fun box offset_to_index(
+  i: ISize val)
+: USize val
+</code></pre>
+
+<h4 id="parameters_51">Parameters</h4>
+<ul>
+<li>i: <a href="../builtin-ISize">ISize</a> val</li>
+</ul>
+<h4 id="returns_68">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val</li>
+</ul>
+<hr />
+<h3 id="bool">bool</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1311">[Source]</a></span></p>
+<pre><code class="pony">fun box bool()
+: Bool val ?
+</code></pre>
+
+<h4 id="returns_69">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val ?</li>
+</ul>
+<hr />
+<h3 id="i8">i8</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1319">[Source]</a></span></p>
+<pre><code class="pony">fun box i8(
+  base: U8 val = seq)
+: I8 val ?
+</code></pre>
+
+<h4 id="parameters_52">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_70">Returns</h4>
+<ul>
+<li><a href="../builtin-I8">I8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="i16">i16</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1320">[Source]</a></span></p>
+<pre><code class="pony">fun box i16(
+  base: U8 val = seq)
+: I16 val ?
+</code></pre>
+
+<h4 id="parameters_53">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_71">Returns</h4>
+<ul>
+<li><a href="../builtin-I16">I16</a> val ?</li>
+</ul>
+<hr />
+<h3 id="i32">i32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1321">[Source]</a></span></p>
+<pre><code class="pony">fun box i32(
+  base: U8 val = seq)
+: I32 val ?
+</code></pre>
+
+<h4 id="parameters_54">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_72">Returns</h4>
+<ul>
+<li><a href="../builtin-I32">I32</a> val ?</li>
+</ul>
+<hr />
+<h3 id="i64">i64</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1322">[Source]</a></span></p>
+<pre><code class="pony">fun box i64(
+  base: U8 val = seq)
+: I64 val ?
+</code></pre>
+
+<h4 id="parameters_55">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_73">Returns</h4>
+<ul>
+<li><a href="../builtin-I64">I64</a> val ?</li>
+</ul>
+<hr />
+<h3 id="i128">i128</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1323">[Source]</a></span></p>
+<pre><code class="pony">fun box i128(
+  base: U8 val = seq)
+: I128 val ?
+</code></pre>
+
+<h4 id="parameters_56">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_74">Returns</h4>
+<ul>
+<li><a href="../builtin-I128">I128</a> val ?</li>
+</ul>
+<hr />
+<h3 id="ilong">ilong</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1324">[Source]</a></span></p>
+<pre><code class="pony">fun box ilong(
+  base: U8 val = seq)
+: ILong val ?
+</code></pre>
+
+<h4 id="parameters_57">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_75">Returns</h4>
+<ul>
+<li><a href="../builtin-ILong">ILong</a> val ?</li>
+</ul>
+<hr />
+<h3 id="isize">isize</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1325">[Source]</a></span></p>
+<pre><code class="pony">fun box isize(
+  base: U8 val = seq)
+: ISize val ?
+</code></pre>
+
+<h4 id="parameters_58">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_76">Returns</h4>
+<ul>
+<li><a href="../builtin-ISize">ISize</a> val ?</li>
+</ul>
+<hr />
+<h3 id="u8">u8</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1326">[Source]</a></span></p>
+<pre><code class="pony">fun box u8(
+  base: U8 val = seq)
+: U8 val ?
+</code></pre>
+
+<h4 id="parameters_59">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_77">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val ?</li>
+</ul>
+<hr />
+<h3 id="u16">u16</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1327">[Source]</a></span></p>
+<pre><code class="pony">fun box u16(
+  base: U8 val = seq)
+: U16 val ?
+</code></pre>
+
+<h4 id="parameters_60">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_78">Returns</h4>
+<ul>
+<li><a href="../builtin-U16">U16</a> val ?</li>
+</ul>
+<hr />
+<h3 id="u32">u32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1328">[Source]</a></span></p>
+<pre><code class="pony">fun box u32(
+  base: U8 val = seq)
+: U32 val ?
+</code></pre>
+
+<h4 id="parameters_61">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_79">Returns</h4>
+<ul>
+<li><a href="../builtin-U32">U32</a> val ?</li>
+</ul>
+<hr />
+<h3 id="u64">u64</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1329">[Source]</a></span></p>
+<pre><code class="pony">fun box u64(
+  base: U8 val = seq)
+: U64 val ?
+</code></pre>
+
+<h4 id="parameters_62">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_80">Returns</h4>
+<ul>
+<li><a href="../builtin-U64">U64</a> val ?</li>
+</ul>
+<hr />
+<h3 id="u128">u128</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1330">[Source]</a></span></p>
+<pre><code class="pony">fun box u128(
+  base: U8 val = seq)
+: U128 val ?
+</code></pre>
+
+<h4 id="parameters_63">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_81">Returns</h4>
+<ul>
+<li><a href="../builtin-U128">U128</a> val ?</li>
+</ul>
+<hr />
+<h3 id="ulong">ulong</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1331">[Source]</a></span></p>
+<pre><code class="pony">fun box ulong(
+  base: U8 val = seq)
+: ULong val ?
+</code></pre>
+
+<h4 id="parameters_64">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_82">Returns</h4>
+<ul>
+<li><a href="../builtin-ULong">ULong</a> val ?</li>
+</ul>
+<hr />
+<h3 id="usize">usize</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1332">[Source]</a></span></p>
+<pre><code class="pony">fun box usize(
+  base: U8 val = seq)
+: USize val ?
+</code></pre>
+
+<h4 id="parameters_65">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_83">Returns</h4>
+<ul>
+<li><a href="../builtin-USize">USize</a> val ?</li>
+</ul>
+<hr />
+<h3 id="read_int91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93">read_int[A: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[A] val)]</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1345">[Source]</a></span></p>
+<p>Read an integer from the specified location in this string. The integer
+value read and the number of characters consumed are reported.
+The base parameter specifies the base to use, 0 indicates using the prefix,
+if any, to detect base 2, 10 or 16.
+If no integer is found at the specified location, then (0, 0) is returned,
+since no characters have been used.
+An integer out of range for the target type throws an error.
+A leading minus is allowed for signed integer types.
+Underscore characters are allowed throughout the integer and are ignored.</p>
+<pre><code class="pony">fun box read_int[A: ((I8 val | I16 val | I32 val | 
+    I64 val | I128 val | ILong val | 
+    ISize val | U8 val | U16 val | 
+    U32 val | U64 val | U128 val | 
+    ULong val | USize val) &amp; Integer[A] val)](
+  offset: ISize val = seq,
+  base: U8 val = seq)
+: (A , USize val) ?
+</code></pre>
+
+<h4 id="parameters_66">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+<li>base: <a href="../builtin-U8">U8</a> val = seq</li>
+</ul>
+<h4 id="returns_84">Returns</h4>
+<ul>
+<li>(A , <a href="../builtin-USize">USize</a> val) ?</li>
+</ul>
+<hr />
+<h3 id="f32">f32</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1465">[Source]</a></span></p>
+<pre><code class="pony">fun box f32(
+  offset: ISize val = seq)
+: F32 val
+</code></pre>
+
+<h4 id="parameters_67">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_85">Returns</h4>
+<ul>
+<li><a href="../builtin-F32">F32</a> val</li>
+</ul>
+<hr />
+<h3 id="f64">f64</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1474">[Source]</a></span></p>
+<pre><code class="pony">fun box f64(
+  offset: ISize val = seq)
+: F64 val
+</code></pre>
+
+<h4 id="parameters_68">Parameters</h4>
+<ul>
+<li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
+</ul>
+<h4 id="returns_86">Returns</h4>
+<ul>
+<li><a href="../builtin-F64">F64</a> val</li>
+</ul>
+<hr />
+<h3 id="hash">hash</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1483">[Source]</a></span></p>
+<pre><code class="pony">fun box hash()
+: U64 val
+</code></pre>
+
+<h4 id="returns_87">Returns</h4>
+<ul>
+<li><a href="../builtin-U64">U64</a> val</li>
+</ul>
+<hr />
+<h3 id="string_1">string</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1486">[Source]</a></span></p>
+<pre><code class="pony">fun box string()
+: String iso^
+</code></pre>
+
+<h4 id="returns_88">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="values">values</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1489">[Source]</a></span></p>
+<p>Return an iterator over the bytes in the string.</p>
+<pre><code class="pony">fun box values()
+: StringBytes ref^
+</code></pre>
+
+<h4 id="returns_89">Returns</h4>
+<ul>
+<li><a href="../builtin-StringBytes">StringBytes</a> ref^</li>
+</ul>
+<hr />
+<h3 id="runes">runes</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1495">[Source]</a></span></p>
+<p>Return an iterator over the codepoints in the string.</p>
+<pre><code class="pony">fun box runes()
+: StringRunes ref^
+</code></pre>
+
+<h4 id="returns_90">Returns</h4>
+<ul>
+<li><a href="../builtin-StringRunes">StringRunes</a> ref^</li>
+</ul>
+<hr />
+<h3 id="ge">ge</h3>
+<pre><code class="pony">fun box ge(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_69">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_91">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="gt">gt</h3>
+<pre><code class="pony">fun box gt(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_70">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_92">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h3 id="ne">ne</h3>
+<pre><code class="pony">fun box ne(
+  that: String box)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_71">Parameters</h4>
+<ul>
+<li>that: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_93">Returns</h4>
+<ul>
+<li><a href="../builtin-Bool">Bool</a> val</li>
+</ul>
+<hr />
+<h2 id="private-functions">Private Functions</h2>
+<h3 id="_copy_to">_copy_to</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L207">[Source]</a></span></p>
+<p>Copy copy_len characters from this to that at specified offsets.</p>
+<pre><code class="pony">fun box _copy_to(
+  ptr: Pointer[U8 val] ref,
+  copy_len: USize val,
+  from_offset: USize val = seq,
+  to_offset: USize val = seq)
+: None val
+</code></pre>
+
+<h4 id="parameters_72">Parameters</h4>
+<ul>
+<li>ptr: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] ref</li>
+<li>copy_len: <a href="../builtin-USize">USize</a> val</li>
+<li>from_offset: <a href="../builtin-USize">USize</a> val = seq</li>
+<li>to_offset: <a href="../builtin-USize">USize</a> val = seq</li>
+</ul>
+<h4 id="returns_94">Returns</h4>
+<ul>
+<li><a href="../builtin-None">None</a> val</li>
+</ul>
+<hr />
+<h3 id="_append">_append</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1163">[Source]</a></span></p>
+<pre><code class="pony">fun iso _append(
+  s: String box)
+: String iso^
+</code></pre>
+
+<h4 id="parameters_73">Parameters</h4>
+<ul>
+<li>s: <a href="../builtin-String">String</a> box</li>
+</ul>
+<h4 id="returns_95">Returns</h4>
+<ul>
+<li><a href="../builtin-String">String</a> iso^</li>
+</ul>
+<hr />
+<h3 id="_to_int91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93">_to_int[A: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[A] val)]</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1334">[Source]</a></span></p>
+<p>Convert the <em>whole</em> string to the specified type.
+If there are any other characters in the string, or the integer found is
+out of range for the target type then an error is thrown.</p>
+<pre><code class="pony">fun box _to_int[A: ((I8 val | I16 val | I32 val | 
+    I64 val | I128 val | ILong val | 
+    ISize val | U8 val | U16 val | 
+    U32 val | U64 val | U128 val | 
+    ULong val | USize val) &amp; Integer[A] val)](
+  base: U8 val)
+: A ?
+</code></pre>
+
+<h4 id="parameters_74">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_96">Returns</h4>
+<ul>
+<li>A ?</li>
+</ul>
+<hr />
+<h3 id="_read_int_base91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93">_read_int_base[A: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[A] val)]</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1428">[Source]</a></span></p>
+<p>Determine the base of an integer starting at the specified index.
+If a non-0 base is given use that. If given base is 0 read the base
+specifying prefix, if any, to detect base 2 or 16.
+If no base is specified and no prefix is found default to decimal.
+Note that a leading 0 does NOT imply octal.
+Report the base found and the number of characters in the prefix.</p>
+<pre><code class="pony">fun box _read_int_base[A: ((I8 val | I16 val | I32 val | 
+    I64 val | I128 val | ILong val | 
+    ISize val | U8 val | U16 val | 
+    U32 val | U64 val | U128 val | 
+    ULong val | USize val) &amp; Integer[A] val)](
+  base: U8 val,
+  index: USize val)
+: (A , USize val)
+</code></pre>
+
+<h4 id="parameters_75">Parameters</h4>
+<ul>
+<li>base: <a href="../builtin-U8">U8</a> val</li>
+<li>index: <a href="../builtin-USize">USize</a> val</li>
+</ul>
+<h4 id="returns_97">Returns</h4>
+<ul>
+<li>(A , <a href="../builtin-USize">USize</a> val)</li>
+</ul>
+<hr />
+<h3 id="_set">_set</h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1501">[Source]</a></span></p>
+<p>Unsafe update, used internally.</p>
+<pre><code class="pony">fun ref _set(
+  i: USize val,
+  value: U8 val)
+: U8 val
+</code></pre>
+
+<h4 id="parameters_76">Parameters</h4>
+<ul>
+<li>i: <a href="../builtin-USize">USize</a> val</li>
+<li>value: <a href="../builtin-U8">U8</a> val</li>
+</ul>
+<h4 id="returns_98">Returns</h4>
+<ul>
+<li><a href="../builtin-U8">U8</a> val</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../builtin-StringBytes/" class="btn btn-neutral float-right" title="class StringBytes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../builtin-Stringable/" class="btn btn-neutral" title="interface Stringable"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../builtin-Stringable/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../builtin-StringBytes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

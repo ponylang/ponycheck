@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../img/favicon-16x16.png">
+    <link rel="manifest" href="../../../img/manifest.json">
+    <link rel="mask-icon" href="../../../img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="application-name" content="ponycheck" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="../../../img/mstile-150x150.png" />
+  
+  <title>generator.pony - ponycheck</title>
+  <link rel="stylesheet" href="../../../css/main.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "generator.pony";
+    var mkdocs_page_input_path = "src/ponycheck/generator.md";
+    var mkdocs_page_url = "/src/ponycheck/generator/";
+  </script>
+  
+  <script type="text/javascript" src="../../../js/bundle.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> ponycheck</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">ponycheck</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponycheck</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Randomness/">class Randomness</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyRunner/">actor PropertyRunner</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-_EmptyIterator/">class _EmptyIterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-_Stringify/">primitive _Stringify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyResultNotify/">interface PropertyResultNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyHelper/">class PropertyHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyParams/">class PropertyParams</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Property1/">trait Property1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Poperator/">class Poperator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Ponycheck/">primitive Ponycheck</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ValueAndShrink/">type ValueAndShrink</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-GenerateResult/">type GenerateResult</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-CountdownIter/">class CountdownIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-GenObj/">trait GenObj</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Generator/">class Generator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-WeightedGenerator/">type WeightedGenerator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Generators/">primitive Generators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ForAll/">class ForAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIINUL/">primitive ASCIINUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIDigits/">primitive ASCIIDigits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIWhiteSpace/">primitive ASCIIWhiteSpace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIPunctuation/">primitive ASCIIPunctuation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILettersLower/">primitive ASCIILettersLower</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILettersUpper/">primitive ASCIILettersUpper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILetters/">primitive ASCIILetters</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIPrintable/">primitive ASCIIPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIINonPrintable/">primitive ASCIINonPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIAll/">primitive ASCIIAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIAllWithNUL/">primitive ASCIIAllWithNUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIRange/">type ASCIIRange</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package assert</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../assert--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../assert-Assert/">primitive Assert</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../assert-Fact/">primitive Fact</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package builtin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../builtin--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U8/">primitive U8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U16/">primitive U16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U32/">primitive U32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U64/">primitive U64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ULong/">primitive ULong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-USize/">primitive USize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U128/">primitive U128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Unsigned/">type Unsigned</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Stringable/">interface Stringable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-String/">class String</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StringBytes/">class StringBytes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StringRunes/">class StringRunes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_UTF32Encoder/">primitive _UTF32Encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StdinNotify/">interface StdinNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-DisposableActor/">interface DisposableActor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Stdin/">actor Stdin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ByteSeq/">type ByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ByteSeqIter/">interface ByteSeqIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-OutStream/">interface OutStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StdStream/">actor StdStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-SourceLoc/">interface SourceLoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I8/">primitive I8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I16/">primitive I16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I32/">primitive I32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I64/">primitive I64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ILong/">primitive ILong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ISize/">primitive ISize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I128/">primitive I128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Signed/">type Signed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Seq/">interface Seq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_ArithmeticConvertible/">trait _ArithmeticConvertible</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Real/">trait Real</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Integer/">trait Integer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_SignedInteger/">trait _SignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_UnsignedInteger/">trait _UnsignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-FloatingPoint/">trait FloatingPoint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Number/">type Number</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Int/">type Int</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ReadSeq/">interface ReadSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ReadElement/">interface ReadElement</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Pointer/">struct Pointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Platform/">primitive Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-None/">primitive None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-MaybePointer/">struct MaybePointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Iterator/">interface Iterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-F32/">primitive F32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-F64/">primitive F64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Float/">type Float</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Env/">class Env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-DoNotOptimise/">primitive DoNotOptimise</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Less/">primitive Less</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Equal/">primitive Equal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Greater/">primitive Greater</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Compare/">type Compare</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-HasEq/">interface HasEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Equatable/">interface Equatable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Comparable/">interface Comparable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Bool/">primitive Bool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEventID/">type AsioEventID</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEventNotify/">interface AsioEventNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEvent/">primitive AsioEvent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Array/">class Array</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayKeys/">class ArrayKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayValues/">class ArrayValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayPairs/">class ArrayPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Any/">interface Any</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AmbientAuth/">primitive AmbientAuth</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_ToString/">primitive _ToString</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package collections</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../collections--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Sort/">primitive Sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Set/">type Set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-SetIs/">type SetIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashSet/">class HashSet</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-SetValues/">class SetValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-RingBuffer/">class RingBuffer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Reverse/">class Reverse</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Range/">class Range</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-_MapEmpty/">primitive _MapEmpty</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-_MapDeleted/">primitive _MapDeleted</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashMap/">class HashMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapKeys/">class MapKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapValues/">class MapValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapPairs/">class MapPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListNode/">class ListNode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-List/">class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListNodes/">class ListNodes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListValues/">class ListValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Hashable/">interface Hashable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashFunction/">interface HashFunction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashEq/">primitive HashEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashIs/">primitive HashIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashByteSeq/">primitive HashByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Flag/">interface Flag</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Flags/">class Flags</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package itertools</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../itertools--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-Iter/">class Iter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-_None/">primitive _None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-_EmptyIter/">class _EmptyIter</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponytest</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../ponytest--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-UnitTest/">trait UnitTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-TestList/">trait TestList</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-ITest/">interface ITest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-TestHelper/">class TestHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-PonyTest/">actor PonyTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_Group/">trait _Group</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_ExclusiveGroup/">actor _ExclusiveGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_SimultaneousGroup/">actor _SimultaneousGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_Color/">primitive _Color</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package random</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../random--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-XorShift128Plus/">class XorShift128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-XorOshiro128Plus/">class XorOshiro128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Rand/">type Rand</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Random/">trait Random</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-MT/">class MT</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Dice/">class Dice</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package time</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../time--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Timers/">actor Timers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-TimerNotify/">interface TimerNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Timer/">class Timer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_Clock/">type _Clock</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_ClockRealtime/">primitive _ClockRealtime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_ClockMonotonic/">primitive _ClockMonotonic</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Time/">primitive Time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Nanos/">primitive Nanos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Date/">class Date</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_TimingWheel/">class _TimingWheel</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">source</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../randomness/">randomness.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../property_runner/">property_runner.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../property_helper/">property_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../property/">property.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../poperator/">poperator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ponycheck/">ponycheck.pony</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">generator.pony</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../for_all/">for_all.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ascii_range/">ascii_range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../assert/assert/">assert.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/unsigned/">unsigned.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/stringable/">stringable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/string/">string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/stdin/">stdin.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/std_stream/">std_stream.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/source_loc/">source_loc.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/signed/">signed.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/seq/">seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/real/">real.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/read_seq/">read_seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/pointer/">pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/platform/">platform.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/none/">none.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/maybe_pointer/">maybe_pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/iterator/">iterator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/float/">float.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/env/">env.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/do_not_optimise/">do_not_optimise.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/compare/">compare.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/bool/">bool.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/asio_event/">asio_event.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/array/">array.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/any/">any.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/ambient_auth/">ambient_auth.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/_to_string/">_to_string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/sort/">sort.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/set/">set.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/ring_buffer/">ring_buffer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/reverse/">reverse.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/range/">range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/map/">map.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/list_node/">list_node.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/list/">list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/hashable/">hashable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/flag/">flag.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../itertools/iter/">iter.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/unit_test/">unit_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/test_list/">test_list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/test_helper/">test_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/pony_test/">pony_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/_group/">_group.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponytest/_color/">_color.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/xorshift/">xorshift.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/xoroshiro/">xoroshiro.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/random/">random.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/mt/">mt.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/dice/">dice.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timers/">timers.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timer_notify/">timer_notify.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timer/">timer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/time/">time.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/nanos/">nanos.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/date/">date.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/_timing_wheel/">_timing_wheel.pony</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">ponycheck</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>source &raquo;</li>
+        
+      
+    
+    <li>generator.pony</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <pre><code class="pony-full-source">use &quot;collections&quot;
+use &quot;assert&quot;
+use &quot;itertools&quot;
+
+type ValueAndShrink[T1] is (T1^, Iterator[T1^])
+  &quot;&quot;&quot;
+  Possible return type for `Generator.generate`.
+  Represents a generated value and an Iterator of shrunken values.
+  &quot;&quot;&quot;
+
+type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
+  &quot;&quot;&quot;
+  Return type for `Generator.generate`.
+
+  Either a single value only or a Tuple of a value and an Iterator
+  of shrunken values based upon this value.
+  &quot;&quot;&quot;
+
+class CountdownIter[T: (Int &amp; Integer[T] val) = USize] is Iterator[T]
+  &quot;&quot;&quot;
+  workaround until 0.21.0 is released and Range supports negative steps
+
+  `from` is exclusive, `to` is inclusive
+  &quot;&quot;&quot;
+  var _cur: T
+  let _to: T
+
+  new create(from: T, to: T = T.min_value()) =&gt;
+    _cur = from
+    _to = to
+
+  fun ref has_next(): Bool =&gt;
+    _cur &gt; _to
+
+  fun ref next(): T =&gt;
+    let res = _cur - 1
+    _cur = res
+    res
+
+trait box GenObj[T]
+  fun generate(rnd: Randomness): GenerateResult[T]
+
+  fun shrink(t: T): ValueAndShrink[T] =&gt;
+    (consume t, Poperator[T].empty())
+
+  fun generate_value(rnd: Randomness): T^ =&gt;
+    &quot;&quot;&quot;
+    simply generate a value and ignore any possible
+    shrink values
+    &quot;&quot;&quot;
+    let g = this
+    match g.generate(rnd)
+    | let t: T =&gt; consume t
+    | (let t: T, _) =&gt; consume t
+    end
+
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =&gt;
+    &quot;&quot;&quot;
+    generate a value and also return a shrink result
+    even if the generator does not return any when calling `generate`.
+    &quot;&quot;&quot;
+    let g = this
+    match g.generate(rnd)
+    | let t: T =&gt; g.shrink(consume t)
+    | (let t: T, let shrinks: Iterator[T^])=&gt; (consume t, shrinks)
+    end
+
+  fun iter(rnd: Randomness): Iterator[GenerateResult[T]]^ =&gt;
+    let that: GenObj[T] = this
+
+    object is Iterator[GenerateResult[T]]
+      fun ref has_next(): Bool =&gt; true
+      fun ref next(): GenerateResult[T] =&gt; that.generate(rnd)
+    end
+
+  fun value_iter(rnd: Randomness): Iterator[T^] =&gt;
+    let that: GenObj[T] = this
+
+    object is Iterator[T^]
+      fun ref has_next(): Bool =&gt; true
+      fun ref next(): T^ =&gt;
+        match that.generate(rnd)
+        | let value_only: T =&gt; consume value_only
+        | (let v: T, _) =&gt; consume v
+        end
+    end
+
+  fun value_and_shrink_iter(rnd: Randomness): Iterator[ValueAndShrink[T]] =&gt;
+    let that: GenObj[T] = this
+
+    object is Iterator[ValueAndShrink[T]]
+      fun ref has_next(): Bool =&gt; true
+      fun ref next(): ValueAndShrink[T] =&gt;
+        match that.generate(rnd)
+        | let value_only: T =&gt; that.shrink(consume value_only)
+        | (let v: T, let shrinks: Iterator[T^]) =&gt; (consume v, consume shrinks)
+        end
+    end
+
+
+class box Generator[T] is GenObj[T]
+  &quot;&quot;&quot;
+  A Generator is capable of generating random values of a certain type `T`
+  given a source of `Randomness`
+  and knows how to shrink or simplify values of that type.
+
+  When testing a property against one or more given Generators
+  those generators' `generate` methods are being called many times
+  to generate sample values that are then used to validate the property.
+
+  When a failing sample is found, the ponycheck engine is trying to find a
+  smaller or more simple sample by `shrinking` it.
+  If the generator did not provide any shrinked samples
+  as a result of `generate`, its `shrink` method is called
+  to obtain simpler results. Ponycheck obtains more shrunken samples until
+  the property is not failing anymore.
+  The last failing sample, which is considered the most simple one,
+  is then reported to the user.
+  &quot;&quot;&quot;
+  let _gen: GenObj[T]
+
+  new create(gen: GenObj[T]) =&gt;
+    _gen = gen
+
+  fun generate(rnd: Randomness): GenerateResult[T] =&gt;
+    &quot;&quot;&quot;
+    Let this generator generate a value
+    given a source of `Randomness`.
+
+    Also allow for returning a value and pre-generated shrink results
+    as a `ValueAndShrink[T]` instance, a tuple of `(T^, Seq[T])`.
+    This helps propagating shrink results through all kinds of Generator
+    combinators like `filter`, `map` and `flatMap`.
+
+    If implementing a custom `Generator` based on another one,
+    a Generator Combinator, you should use shrunken values
+    returned by `generate` to also return shrunken values based on them
+
+    If generating an example value is costly, it might be more efficient
+    to simply return the generated value and only shrink in big steps or do no
+    shrinking at all.
+    If generating values is lightweight, shrunken values should also be returned.
+    &quot;&quot;&quot;
+    _gen.generate(rnd)
+
+  fun shrink(t: T): ValueAndShrink[T] =&gt;
+    &quot;&quot;&quot;
+    Simplify the given value.
+
+    As the returned value can also be `iso`, it needs to be consumed and returned
+
+    It is preffered to already return a `ValueAndShrink` from `generate`.
+    &quot;&quot;&quot;
+    _gen.shrink(consume t)
+
+  fun generate_value(rnd: Randomness): T^ =&gt;
+    _gen.generate_value(rnd)
+
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =&gt;
+    _gen.generate_and_shrink(rnd)
+
+  fun filter(predicate: {(T): (T^, Bool)} box): Generator[T] =&gt;
+    &quot;&quot;&quot;
+    apply `predicate` to the values generated by this Generator
+    and only values for which `predicate` returns `true`.
+
+    Example:
+
+    ```pony
+    let even_i32s =
+      Generators.i32()
+        .filter(
+          {(t) =&gt; (t, ((t % 2) == 0)) })
+    ```
+    &quot;&quot;&quot;
+    Generator[T](
+      object is GenObj[T]
+        fun generate(rnd: Randomness): GenerateResult[T] =&gt;
+          (let t: T, let shrunken: Iterator[T^]) = _gen.generate_and_shrink(rnd)
+          (let t1, let matches) = predicate(consume t)
+          if not matches then
+            generate(rnd) // recurse, this might recurse infinitely
+          else
+            // filter the shrunken examples
+            (consume t1, _filter_shrunken(shrunken))
+          end
+
+        fun shrink(t: T): ValueAndShrink[T] =&gt;
+          &quot;&quot;&quot;
+          shrink `t` using the generator this one filters upon
+          and call the filter predicate on the shrunken values
+          &quot;&quot;&quot;
+          (let s, let shrunken: Iterator[T^]) = _gen.shrink(consume t)
+          (consume s, _filter_shrunken(shrunken))
+
+        fun _filter_shrunken(shrunken: Iterator[T^]): Iterator[T^] =&gt;
+          Iter[T^](shrunken)
+            .filter_map[T^]({
+              (t: T): (T^| None) =&gt;
+                match predicate(consume t)
+                | (let matching: T^, true) =&gt; consume matching
+                end
+            })
+      end)
+
+  fun map[U](fn: {(T): U^} box)
+    : Generator[U]
+  =&gt;
+    &quot;&quot;&quot;
+    apply function `fn` to each value of this iterator
+    and yield the results.
+
+    Example:
+
+    ```pony
+    let single_code_point_string_gen =
+      Generators.u32()
+        .map[String]({(u) =&gt; String.from_utf32(u) })
+    ```
+    &quot;&quot;&quot;
+    Generator[U](
+      object is GenObj[U]
+        fun generate(rnd: Randomness): GenerateResult[U] =&gt;
+          (let generated: T, let shrunken: Iterator[T^]) =
+            _gen.generate_and_shrink(rnd)
+
+          (fn(consume generated), _map_shrunken(shrunken))
+
+        fun shrink(u: U): ValueAndShrink[U] =&gt;
+          &quot;&quot;&quot;
+          We can only shrink if T is a subtype of U.
+
+          This method should in general not be called on this generator
+          as it is always returning shrinks with the call to `generate`
+          and they should be used for executing the shrink, but in case
+          a strange hierarchy of generators is used, which does not make use of
+          the pre-generated shrink results, we keep this method here.
+          &quot;&quot;&quot;
+          match u
+          | let ut: T =&gt;
+            (let uts: T, let shrunken: Iterator[T^]) = _gen.shrink(consume ut)
+            (fn(consume uts), _map_shrunken(shrunken))
+          else
+            (consume u, Poperator[U].empty())
+          end
+
+        fun _map_shrunken(shrunken: Iterator[T^]): Iterator[U^] =&gt;
+          Iter[T^](shrunken)
+            .map[U^]({(t) =&gt; fn(consume t) })
+
+      end)
+
+  fun flat_map[U](fn: {(T): Generator[U]} box): Generator[U] =&gt;
+    &quot;&quot;&quot;
+    For each value of this generator create a generator that is then combined.
+    &quot;&quot;&quot;
+    // TODO: enable proper shrinking:
+    Generator[U](
+      object is GenObj[U]
+        fun generate(rnd: Randomness): GenerateResult[U] =&gt;
+          let value: T = _gen.generate_value(rnd)
+          fn(consume value).generate_and_shrink(rnd)
+
+      end)
+
+type WeightedGenerator[T] is (USize, Generator[T] box)
+  &quot;&quot;&quot;
+  A generator with an associated weight, used in Generators.frequency.
+  &quot;&quot;&quot;
+
+primitive Generators
+  fun unit[T](t: T, do_shrink: Bool = false): Generator[box-&gt;T] =&gt;
+    &quot;&quot;&quot;
+    Generate a reference to the same value over and over again.
+
+    This reference will be of type ``box-&gt;T`` and not just ``T``
+    as this generator will need to keep a reference to the given value.
+    &quot;&quot;&quot;
+    Generator[box-&gt;T](
+      object is GenObj[box-&gt;T]
+        let _t: T = consume t
+        fun generate(rnd: Randomness): GenerateResult[box-&gt;T] =&gt;
+          if do_shrink then
+            (_t, Iter[box-&gt;T].repeat_value(_t))
+          else
+            _t
+          end
+      end)
+
+  fun repeatedly[T](f: {(): T^} box): Generator[T] =&gt;
+    &quot;&quot;&quot;
+    Generate values by calling the lambda ``f`` repeatedly,
+    once for every invocation of ``generate``.
+
+    ``f`` needs to return an ephemeral type ``T^``, that means
+    in most cases it needs to consume its returned value.
+    Otherwise we would end up with
+    an alias for ``T`` which is ``T!``.
+    (e.g. ``String iso`` would be returned as ``String iso!``
+    which is a ``String tag``).
+
+    Example:
+
+    ```pony
+    Generators.repeatedly[Writer]({(): Writer^ =&gt;
+      let writer = Writer.&gt;write(&quot;consume me, please&quot;)
+      consume writer
+    })
+    ```
+    &quot;&quot;&quot;
+    Generator[T](
+      object is GenObj[T]
+        fun generate(rnd: Randomness): GenerateResult[T] =&gt;
+          f()
+      end)
+
+
+  fun seq_of[T, S: Seq[T] ref](
+    gen: Generator[T],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[S]
+  =&gt;
+    &quot;&quot;&quot;
+    Create a `Seq` from the values of the given Generator with an optional minimum and
+    maximum size, defaults are 0 and 100 respectively.
+    &quot;&quot;&quot;
+
+    Generator[S](
+      object is GenObj[S]
+        let _gen: GenObj[T] = gen
+        fun generate(rnd: Randomness): GenerateResult[S] =&gt;
+          let size = rnd.usize(min, max)
+          let initial: (S, Array[S]) = (S.create(size), Array[S](size))
+
+          let result: S =
+            Iter[T^](_gen.value_iter(rnd))
+              .take(size)
+              .collect[S](S.create(size))
+
+          // create shrink_iter with smaller seqs and elements generated from _gen.value_iter
+          let shrink_iter =
+            Iter[USize](CountdownIter(size, min)) //Range(size, min, -1))
+              // .skip(1)
+              .map_stateful[S^]({
+                (s: USize): S^ =&gt;
+                  Iter[T^](_gen.value_iter(rnd))
+                    .take(s)
+                    .collect[S](S.create(s))
+              })
+          (consume result, shrink_iter)
+      end)
+
+
+  fun set_of[T: (Hashable #read &amp; Equatable[T] #read)](
+    gen: Generator[T],
+    max: USize = 100)
+    : Generator[Set[T]]
+  =&gt;
+    &quot;&quot;&quot;
+    Create a generator for ``Set`` filled with values
+    of the given generator ``gen``.
+    The returned sets will have a size up to ``max``
+    but tend to have fewer than ``max``
+    depending on the source generator ``gen``.
+
+    E.g. if the given generator is for ``U8`` values and ``max`` is set to 1024
+    the set will only ever be of size 256 max.
+
+    Also for efficiency purposes and to not loop forever
+    this generator will only try to add at most ``max`` values to the set.
+    If there are duplicates, the set won't grow.
+    &quot;&quot;&quot;
+    Generator[Set[T]](
+      object is GenObj[Set[T]]
+        let _gen: GenObj[T] = gen
+        fun generate(rnd: Randomness): GenerateResult[Set[T]] =&gt;
+          let size = rnd.usize(0, max)
+          let result: Set[T] =
+            Set[T].create(size).&gt;union(
+              Iter[T^](_gen.value_iter(rnd))
+              .take(size)
+            )
+          let shrink_iter: Iterator[Set[T]^] =
+            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+              //.skip(1)
+              .map_stateful[Set[T]^]({
+                (s: USize): Set[T]^ =&gt;
+                  Set[T].create(s).&gt;union(
+                    Iter[T^](_gen.value_iter(rnd)).take(s)
+                  )
+                })
+          (consume result, shrink_iter)
+      end)
+
+  fun set_is_of[T](
+    gen: Generator[T],
+    max: USize = 100)
+    : Generator[SetIs[T]]
+  =&gt;
+    &quot;&quot;&quot;
+    Create a generator for ``SetIs`` filled with values
+    of the given generator ``gen``.
+    The returned ``SetIs`` will have a size up to ``max``
+    but tend to have fewer entries
+    depending on the source generator ``gen``.
+
+    E.g. if the given generator is for ``U8`` values and ``max`` is set to 1024
+    the set will only ever be of size 256 max.
+
+    Also for efficiency purposes and to not loop forever
+    this generator will only try to add at most ``max`` values to the set.
+    If there are duplicates, the set won't grow.
+    &quot;&quot;&quot;
+    // TODO: how to remove code duplications
+    Generator[SetIs[T]](
+      object is GenObj[SetIs[T]]
+        fun generate(rnd: Randomness): GenerateResult[SetIs[T]] =&gt;
+          let size = rnd.usize(0, max)
+
+          let result: SetIs[T] =
+            SetIs[T].create(size).&gt;union(
+              Iter[T^](gen.value_iter(rnd))
+                .take(size)
+            )
+          let shrink_iter: Iterator[SetIs[T]^] =
+            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+              //.skip(1)
+              .map_stateful[SetIs[T]^]({
+                (s: USize): SetIs[T]^ =&gt;
+                  SetIs[T].create(s).&gt;union(
+                    Iter[T^](gen.value_iter(rnd)).take(s)
+                  )
+                })
+          (consume result, shrink_iter)
+      end)
+
+  fun map_of[K: (Hashable #read &amp; Equatable[K] #read), V](
+    gen: Generator[(K, V)],
+    max: USize = 100)
+    : Generator[Map[K, V]]
+  =&gt;
+    &quot;&quot;&quot;
+    Create a generator for ``Map`` from a generator of key-value tuples.
+    The generated maps will have a size up to ``max``
+    but tend to have fewer entries depending on the source generator ``gen``.
+
+    If the generator generates key-value pairs with
+    duplicate keys (based on structural equality)
+    the pair that is generated later will overwrite earlier entries in the map.
+    &quot;&quot;&quot;
+    Generator[Map[K, V]](
+      object is GenObj[Map[K, V]]
+        fun generate(rnd: Randomness): GenerateResult[Map[K, V]] =&gt;
+          let size = rnd.usize(0, max)
+
+          let result: Map[K, V] =
+            Map[K, V].create(size).&gt;concat(
+              Iter[(K^, V^)](gen.value_iter(rnd))
+                .take(size)
+            )
+          let shrink_iter: Iterator[Map[K, V]^] =
+            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+              // .skip(1)
+              .map_stateful[Map[K, V]^]({
+                (s: USize): Map[K, V]^ =&gt;
+                  Map[K, V].create(s).&gt;concat(
+                    Iter[(K^, V^)](gen.value_iter(rnd)).take(s)
+                  )
+                })
+          (consume result, shrink_iter)
+
+      end)
+
+  fun map_is_of[K, V](
+    gen: Generator[(K, V)],
+    max: USize = 100)
+    : Generator[MapIs[K, V]]
+  =&gt;
+    &quot;&quot;&quot;
+    Create a generator for ``MapIs`` from a generator of key-value tuples.
+    The generated maps will have a size up to ``max``
+    but tend to have fewer entries depending on the source generator ``gen``.
+
+    If the generator generates key-value pairs with
+    duplicate keys (based on identity)
+    the pair that is generated later will overwrite earlier entries in the map.
+    &quot;&quot;&quot;
+    Generator[MapIs[K, V]](
+      object is GenObj[MapIs[K, V]]
+        fun generate(rnd: Randomness): GenerateResult[MapIs[K, V]] =&gt;
+          let size = rnd.usize(0, max)
+
+          let result: MapIs[K, V] =
+            MapIs[K, V].create(size).&gt;concat(
+              Iter[(K^, V^)](gen.value_iter(rnd))
+                .take(size)
+            )
+          let shrink_iter: Iterator[MapIs[K, V]^] =
+            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+              // .skip(1)
+              .map_stateful[MapIs[K, V]^]({
+                (s: USize): MapIs[K, V]^ =&gt;
+                  MapIs[K, V].create(s).&gt;concat(
+                    Iter[(K^, V^)](gen.value_iter(rnd)).take(s)
+                  )
+                })
+          (consume result, shrink_iter)
+      end)
+
+
+  fun one_of[T](xs: ReadSeq[T], do_shrink: Bool = false): Generator[box-&gt;T] ? =&gt;
+    &quot;&quot;&quot;
+    Generate a random value from the given ReadSeq. An error will be thrown
+    if the given ReadSeq is empty.
+
+    Generators created with this method do not support shrinking.
+    &quot;&quot;&quot;
+    Fact(xs.size() &gt; 0, &quot;cannot use one_of on empty ReadSeq&quot;)?
+
+    Generator[box-&gt;T](
+      let err: box-&gt;T = xs(0)?
+      object is GenObj[box-&gt;T]
+        fun generate(rnd: Randomness): GenerateResult[box-&gt;T] =&gt;
+          let idx = rnd.usize(0, xs.size() - 1)
+          try
+            let res = xs(idx)?
+            if do_shrink then
+              (res, Iter[box-&gt;T].repeat_value(res))
+            else
+              res
+            end
+          else
+            err // will never occur
+          end
+      end)
+
+  fun frequency[T](
+    weighted_generators: ReadSeq[WeightedGenerator[T]])
+    : Generator[T] ?
+  =&gt;
+    &quot;&quot;&quot;
+    chose a value of one of the given Generators,
+    while controlling the distribution with the associated weights.
+
+    The weights are of type ``USize`` and control how likely a value is chosen.
+    The likelihood of a value ``v`` to be chosen
+    is ``weight_v`` / ``weights_sum``.
+    If all ``weighted_generators`` have equal size the distribution
+    will be uniform.
+
+    Example of a generator to output odd ``U8`` values
+    twice as likely as even ones:
+
+    ```pony
+    Generators.frequency[U8]([
+      (1, Generators.u8().filter({(u) =&gt; (u, (u % 2) == 0 }))
+      (2, Generators.u8().filter({(u) =&gt; (u, (u % 2) != 0 }))
+    ])
+    ```
+    &quot;&quot;&quot;
+    Fact(weighted_generators.size() &gt; 0, &quot;cannot use frequency on empty ReadSeq[WeightedGenerator]&quot;)?
+
+    // nasty hack to avoid handling the theoretical error case where we have
+    // no generator and thus would have to change the type signature
+    let err = weighted_generators(0)?._2
+
+    Generator[T](
+      object is GenObj[T]
+        fun generate(rnd: Randomness): GenerateResult[T] =&gt;
+          let weight_sum: USize =
+            Iter[WeightedGenerator[T]](weighted_generators.values())
+              .fold[USize](
+                0,
+                // segfaults when types are removed - TODO: investigate
+                {(acc: USize, weighted_gen: WeightedGenerator[T]): USize^ =&gt;
+                  weighted_gen._1 + acc
+                })
+          let desired_sum = rnd.usize(0, weight_sum)
+          var running_sum: USize = 0
+          var chosen: (Generator[T] | None) = None
+          for weighted_gen in weighted_generators.values() do
+            let new_sum = running_sum + weighted_gen._1
+            if (running_sum &lt; desired_sum) and (desired_sum &lt;= new_sum) then
+              // we just crossed or reached the desired sum
+              chosen = weighted_gen._2
+              break
+            else
+              // update running sum
+              running_sum = new_sum
+            end
+          end
+          match chosen
+          | let x: Generator[T] box =&gt; x.generate(rnd)
+          | None =&gt; err.generate(rnd)
+          end
+      end)
+
+  fun zip2[T1, T2](
+    gen1: Generator[T1],
+    gen2: Generator[T2])
+    : Generator[(T1, T2)]
+  =&gt;
+    &quot;&quot;&quot;
+    zip two generators into a generator of a 2-tuple
+    containing the values generated by both generators.
+    &quot;&quot;&quot;
+    Generator[(T1, T2)](
+      object is GenObj[(T1, T2)]
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2)] =&gt;
+          (let v1: T1, let shrinks1: Iterator[T1^]) =
+            gen1.generate_and_shrink(rnd)
+          (let v2: T2, let shrinks2: Iterator[T2^]) =
+            gen2.generate_and_shrink(rnd)
+          ((consume v1, consume v2), Iter[T1^](shrinks1).zip[T2^](shrinks2))
+
+        fun shrink(t: (T1, T2)): ValueAndShrink[(T1, T2)] =&gt;
+          (let t1, let t2) = consume t
+          (let t11, let t1_shrunken: Iterator[T1^]) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken: Iterator[T2^]) = gen2.shrink(consume t2)
+
+          let shrunken = Iter[T1^](t1_shrunken).zip[T2^](t2_shrunken)
+          ((consume t11, consume t21), shrunken)
+      end)
+
+  fun zip3[T1, T2, T3](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3])
+    : Generator[(T1, T2, T3)]
+  =&gt;
+    &quot;&quot;&quot;
+    zip three generators into a generator of a 3-tuple
+    containing the values generated by those three generators.
+    &quot;&quot;&quot;
+    Generator[(T1, T2, T3)](
+      object is GenObj[(T1, T2, T3)]
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3)] =&gt;
+          (let v1: T1, let shrinks1: Iterator[T1^]) =
+            gen1.generate_and_shrink(rnd)
+          (let v2: T2, let shrinks2: Iterator[T2^]) =
+            gen2.generate_and_shrink(rnd)
+          (let v3: T3, let shrinks3: Iterator[T3^]) =
+            gen3.generate_and_shrink(rnd)
+          ((consume v1, consume v2, consume v3),
+              Iter[T1^](shrinks1).zip2[T2^, T3^](shrinks2, shrinks3))
+
+        fun shrink(t: (T1, T2, T3)): ValueAndShrink[(T1, T2, T3)] =&gt;
+          (let t1, let t2, let t3) = consume t
+          (let t11, let t1_shrunken: Iterator[T1^]) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken: Iterator[T2^]) = gen2.shrink(consume t2)
+          (let t31, let t3_shrunken: Iterator[T3^]) = gen3.shrink(consume t3)
+
+          let shrunken = Iter[T1^](t1_shrunken).zip2[T2^, T3^](t2_shrunken, t3_shrunken)
+          ((consume t11, consume t21, consume t31), shrunken)
+        end)
+
+  fun zip4[T1, T2, T3, T4](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    gen4: Generator[T4])
+    : Generator[(T1, T2, T3, T4)]
+  =&gt;
+    &quot;&quot;&quot;
+    zip four generators into a generator of a 4-tuple
+    containing the values generated by those four generators.
+    &quot;&quot;&quot;
+    Generator[(T1, T2, T3, T4)](
+      object is GenObj[(T1, T2, T3, T4)]
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3, T4)] =&gt;
+          (let v1: T1, let shrinks1: Iterator[T1^]) =
+            gen1.generate_and_shrink(rnd)
+          (let v2: T2, let shrinks2: Iterator[T2^]) =
+            gen2.generate_and_shrink(rnd)
+          (let v3: T3, let shrinks3: Iterator[T3^]) =
+            gen3.generate_and_shrink(rnd)
+          (let v4: T4, let shrinks4: Iterator[T4^]) =
+            gen4.generate_and_shrink(rnd)
+          ((consume v1, consume v2, consume v3, consume v4),
+              Iter[T1^](shrinks1).zip3[T2^, T3^, T4^](shrinks2, shrinks3, shrinks4))
+
+        fun shrink(t: (T1, T2, T3, T4)): ValueAndShrink[(T1, T2, T3, T4)] =&gt;
+          (let t1, let t2, let t3, let t4) = consume t
+          (let t11, let t1_shrunken) = gen1.shrink(consume t1)
+          (let t21, let t2_shrunken) = gen2.shrink(consume t2)
+          (let t31, let t3_shrunken) = gen3.shrink(consume t3)
+          (let t41, let t4_shrunken) = gen4.shrink(consume t4)
+
+          let shrunken = Iter[T1^](t1_shrunken)
+            .zip3[T2^, T3^, T4^](t2_shrunken, t3_shrunken, t4_shrunken)
+          ((consume t11, consume t21, consume t31, consume t41), shrunken)
+        end)
+
+  fun map2[T1, T2, T3](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    fn: {(T1, T2): T3^})
+    : Generator[T3]
+  =&gt;
+    &quot;&quot;&quot;
+    convenience combinator for mapping 2 generators into 1
+    &quot;&quot;&quot;
+    Generators.zip2[T1, T2](gen1, gen2)
+      .map[T3]({(arg) =&gt;
+        (let arg1, let arg2) = consume arg
+        fn(consume arg1, consume arg2)
+      })
+
+  fun map3[T1, T2, T3, T4](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    fn: {(T1, T2, T3): T4^})
+    : Generator[T4]
+  =&gt;
+    &quot;&quot;&quot;
+    convenience combinator for mapping 3 generators into 1
+    &quot;&quot;&quot;
+    Generators.zip3[T1, T2, T3](gen1, gen2, gen3)
+      .map[T4]({(arg) =&gt;
+        (let arg1, let arg2, let arg3) = consume arg
+        fn(consume arg1, consume arg2, consume arg3)
+      })
+
+  fun map4[T1, T2, T3, T4, T5](
+    gen1: Generator[T1],
+    gen2: Generator[T2],
+    gen3: Generator[T3],
+    gen4: Generator[T4],
+    fn: {(T1, T2, T3, T4): T5^})
+    : Generator[T5]
+  =&gt;
+    &quot;&quot;&quot;
+    convenience combinator for mapping 4 generators into 1
+    &quot;&quot;&quot;
+    Generators.zip4[T1, T2, T3, T4](gen1, gen2, gen3, gen4)
+      .map[T5]({(arg) =&gt;
+        (let arg1, let arg2, let arg3, let arg4) = consume arg
+        fn(consume arg1, consume arg2, consume arg3, consume arg4)
+      })
+
+  fun bool(): Generator[Bool] =&gt;
+    &quot;&quot;&quot;
+    create a generator of bool values.
+    &quot;&quot;&quot;
+    Generator[Bool](
+      object is GenObj[Bool]
+        fun generate(rnd: Randomness): Bool =&gt;
+          rnd.bool()
+        end)
+
+  fun _int_shrink[T: (Int &amp; Integer[T] val)](t: T^, min: T): ValueAndShrink[T] =&gt;
+    &quot;&quot;&quot;
+    &quot;&quot;&quot;
+    let relation = t.compare(min)
+    let t_copy: T = T.create(t)
+    //Debug(t.string() + &quot; is &quot; + relation.string() + &quot; than min &quot; + min.string())
+    let sub_iter =
+      object is Iterator[T^]
+        var _cur: T = t_copy
+        var _subtract: F64 = 1.0
+        var _overflow: Bool = false
+
+        fun ref _next_minuend(): T =&gt;
+          // f(x) = x + (2^-5 * x^2)
+          T.from[F64](_subtract = _subtract + (0.03125 * _subtract * _subtract))
+
+        fun ref has_next(): Bool =&gt;
+          match relation
+          | Less =&gt; (_cur &lt; min) and not _overflow
+          | Equal =&gt; false
+          | Greater =&gt; (_cur &gt; min) and not _overflow
+          end
+
+        fun ref next(): T^ ? =&gt;
+          match relation
+          | Less =&gt;
+            let minuend: T = _next_minuend()
+            let old = _cur
+            _cur = _cur + minuend
+            if old &gt; _cur then
+              _overflow = true
+            end
+            old
+          | Equal =&gt; error
+          | Greater =&gt;
+            let minuend: T = _next_minuend()
+            let old = _cur
+            _cur = _cur - minuend
+            if old &lt; _cur then
+              _overflow = true
+            end
+            old
+          end
+      end
+
+    let min_iter =
+      match relation
+      | let _: (Less | Greater) =&gt; Poperator[T]([min])
+      | Equal =&gt; Poperator[T].empty()
+      end
+
+    let shrunken_iter = Iter[T].chain(
+      [
+        Iter[T^](sub_iter).skip(1)
+        min_iter
+      ].values())
+    (consume t, shrunken_iter)
+
+  fun u8(
+    min: U8 = U8.min_value(),
+    max: U8 = U8.max_value())
+    : Generator[U8]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for U8 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[U8](
+      object is GenObj[U8]
+        fun generate(rnd: Randomness): U8^ =&gt;
+          rnd.u8(min, max)
+
+        fun shrink(u: U8): ValueAndShrink[U8] =&gt;
+          that._int_shrink[U8](consume u, min)
+        end)
+
+  fun u16(
+    min: U16 = U16.min_value(),
+    max: U16 = U16.max_value())
+    : Generator[U16]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for U16 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[U16](
+      object is GenObj[U16]
+        fun generate(rnd: Randomness): U16^ =&gt;
+          rnd.u16(min, max)
+
+        fun shrink(u: U16): ValueAndShrink[U16] =&gt;
+          that._int_shrink[U16](consume u, min)
+      end)
+
+  fun u32(
+    min: U32 = U32.min_value(),
+    max: U32 = U32.max_value())
+    : Generator[U32]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for U32 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[U32](
+      object is GenObj[U32]
+        fun generate(rnd: Randomness): U32^ =&gt;
+          rnd.u32(min, max)
+
+        fun shrink(u: U32): ValueAndShrink[U32] =&gt;
+          that._int_shrink[U32](consume u, min)
+      end)
+
+  fun u64(
+    min: U64 = U64.min_value(),
+    max: U64 = U64.max_value())
+    : Generator[U64]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for U64 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[U64](
+      object is GenObj[U64]
+        fun generate(rnd: Randomness): U64^ =&gt;
+          rnd.u64(min, max)
+
+        fun shrink(u: U64): ValueAndShrink[U64] =&gt;
+          that._int_shrink[U64](consume u, min)
+      end)
+
+  fun u128(
+    min: U128 = U128.min_value(),
+    max: U128 = U128.max_value())
+    : Generator[U128]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for U128 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[U128](
+      object is GenObj[U128]
+        fun generate(rnd: Randomness): U128^ =&gt;
+          rnd.u128(min, max)
+
+        fun shrink(u: U128): ValueAndShrink[U128] =&gt;
+          that._int_shrink[U128](consume u, min)
+      end)
+
+  fun usize(
+    min: USize = USize.min_value(),
+    max: USize = USize.max_value())
+    : Generator[USize]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for USize values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[USize](
+      object is GenObj[USize]
+        fun generate(rnd: Randomness): GenerateResult[USize] =&gt;
+          rnd.usize(min, max)
+
+        fun shrink(u: USize): ValueAndShrink[USize] =&gt;
+          that._int_shrink[USize](consume u, min)
+      end)
+
+  fun ulong(
+    min: ULong = ULong.min_value(),
+    max: ULong = ULong.max_value())
+    : Generator[ULong]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for ULong values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[ULong](
+      object is GenObj[ULong]
+        fun generate(rnd: Randomness): ULong^ =&gt;
+          rnd.ulong(min, max)
+
+        fun shrink(u: ULong): ValueAndShrink[ULong] =&gt;
+          that._int_shrink[ULong](consume u, min)
+      end)
+
+  fun i8(
+    min: I8 = I8.min_value(),
+    max: I8 = I8.max_value())
+    : Generator[I8]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for I8 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[I8](
+      object is GenObj[I8]
+        fun generate(rnd: Randomness): I8^ =&gt;
+          rnd.i8(min, max)
+
+        fun shrink(i: I8): ValueAndShrink[I8] =&gt;
+          that._int_shrink[I8](consume i, min)
+      end)
+
+  fun i16(
+    min: I16 = I16.min_value(),
+    max: I16 = I16.max_value())
+    : Generator[I16]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for I16 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[I16](
+      object is GenObj[I16]
+        fun generate(rnd: Randomness): I16^ =&gt;
+          rnd.i16(min, max)
+
+        fun shrink(i: I16): ValueAndShrink[I16] =&gt;
+          that._int_shrink[I16](consume i, min)
+      end)
+
+  fun i32(
+    min: I32 = I32.min_value(),
+    max: I32 = I32.max_value())
+    : Generator[I32]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for I32 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[I32](
+      object is GenObj[I32]
+        fun generate(rnd: Randomness): I32^ =&gt;
+          rnd.i32(min, max)
+
+        fun shrink(i: I32): ValueAndShrink[I32] =&gt;
+          that._int_shrink[I32](consume i, min)
+      end)
+
+  fun i64(
+    min: I64 = I64.min_value(),
+    max: I64 = I64.max_value())
+    : Generator[I64]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for I64 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[I64](
+      object is GenObj[I64]
+        fun generate(rnd: Randomness): I64^ =&gt;
+          rnd.i64(min, max)
+
+        fun shrink(i: I64): ValueAndShrink[I64] =&gt;
+          that._int_shrink[I64](consume i, min)
+      end)
+
+  fun i128(
+    min: I128 = I128.min_value(),
+    max: I128 = I128.max_value())
+    : Generator[I128]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for I128 values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[I128](
+      object is GenObj[I128]
+        fun generate(rnd: Randomness): I128^ =&gt;
+          rnd.i128(min, max)
+
+        fun shrink(i: I128): ValueAndShrink[I128] =&gt;
+          that._int_shrink[I128](consume i, min)
+      end)
+
+  fun ilong(
+    min: ILong = ILong.min_value(),
+    max: ILong = ILong.max_value())
+    : Generator[ILong]
+    =&gt;
+    &quot;&quot;&quot;
+    create a generator for ILong values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[ILong](
+      object is GenObj[ILong]
+        fun generate(rnd: Randomness): ILong^ =&gt;
+          rnd.ilong(min, max)
+
+        fun shrink(i: ILong): ValueAndShrink[ILong] =&gt;
+          that._int_shrink[ILong](consume i, min)
+      end)
+
+  fun isize(
+    min: ISize = ISize.min_value(),
+    max: ISize = ISize.max_value())
+    : Generator[ISize]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for ISize values
+    &quot;&quot;&quot;
+    let that = this
+    Generator[ISize](
+      object is GenObj[ISize]
+        fun generate(rnd: Randomness): ISize^ =&gt;
+          rnd.isize(min, max)
+
+        fun shrink(i: ISize): ValueAndShrink[ISize] =&gt;
+          that._int_shrink[ISize](consume i, min)
+      end)
+
+
+  fun byte_string(
+    gen: Generator[U8],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings
+    generated from the bytes returned by the generator ``gen``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    &quot;&quot;&quot;
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): GenerateResult[String] =&gt;
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U8^](gen.value_iter(rnd))
+            .take(size)
+          let arr: Array[U8] iso = recover Array[U8](size) end
+          for b in gen_iter do
+            arr.push(b)
+          end
+          String.from_iso_array(consume arr)
+
+        fun shrink(s: String): ValueAndShrink[String] =&gt;
+          &quot;&quot;&quot;
+          shrink string until ``min`` length.
+          &quot;&quot;&quot;
+          var str: String = s.trim(0, s.size()-1)
+          let shorten_iter: Iterator[String^] =
+            object is Iterator[String^]
+              fun ref has_next(): Bool =&gt; str.size() &gt; min
+              fun ref next(): String^ =&gt;
+                str = str.trim(0, str.size()-1)
+            end
+          let min_iter =
+            if s.size() &gt; min then
+              Poperator[String]([s.trim(0, min)])
+            else
+              Poperator[String].empty()
+            end
+          let shrink_iter =
+            Iter[String^].chain([
+              shorten_iter
+              min_iter
+            ].values())
+          (consume s, shrink_iter)
+      end)
+
+  fun ascii(
+    min: USize = 0,
+    max: USize = 100,
+    range: ASCIIRange = ASCIIAll)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings withing the given ``range``
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    &quot;&quot;&quot;
+    let range_bytes = range()
+    let fallback = U8(0)
+    let range_bytes_gen = usize(0, range_bytes.size()-1)
+      .map[U8]({(size) =&gt;
+        try
+          range_bytes(size)?
+        else
+          // should never happen
+          fallback
+        end })
+    byte_string(range_bytes_gen, min, max)
+
+  fun ascii_printable(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings of printable ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    &quot;&quot;&quot;
+    ascii(min, max, ASCIIPrintable)
+
+  fun ascii_numeric(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings of numeric ascii characters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    &quot;&quot;&quot;
+    ascii(min, max, ASCIIDigits)
+
+  fun ascii_letters(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings of ascii letters
+    with a minimum length of ``min`` (default: 0)
+    and a maximum length of ``max`` (default: 100).
+    &quot;&quot;&quot;
+    ascii(min, max, ASCIILetters)
+
+  fun utf32_codepoint_string(
+    gen: Generator[U32],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for strings
+    from a generator of unicode codepoints
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    &quot;&quot;&quot;
+    Generator[String](
+      object is GenObj[String]
+        fun generate(rnd: Randomness): GenerateResult[String] =&gt;
+          let size = rnd.usize(min, max)
+          let gen_iter = Iter[U32^](gen.value_iter(rnd))
+            .filter({(cp) =&gt;
+              // excluding surrogate pairs
+              (cp &lt;= 0xD7FF) or (cp &gt;= 0xE000) })
+            .take(size)
+          let s: String iso = recover String(size) end
+          for code_point in gen_iter do
+            s.push_utf32(code_point)
+          end
+          s
+
+        fun shrink(s: String): ValueAndShrink[String] =&gt;
+          &quot;&quot;&quot;
+          strip off codepoints from the end, not just bytes, so we
+          maintain a valid utf8 string
+
+          only shrink until given ``min`` is hit
+          &quot;&quot;&quot;
+          var shrink_base = s
+          let s_len = s.codepoints()
+          let shrink_iter: Iterator[String^] =
+            if s_len &gt; min then
+              Iter[String^].repeat_value(consume shrink_base)
+                .map_stateful[String^](
+                  object
+                    var len: USize = s_len - 1
+                    fun ref apply(str: String): String =&gt;
+                      Generators._trim_codepoints(str, len = len - 1)
+                  end
+                ).take(s_len - min)
+                // take_while is buggy in pony &lt; 0.21.0
+                //.take_while({(t) =&gt; t.codepoints() &gt; min})
+            else
+              Poperator[String].empty()
+            end
+          (consume s, shrink_iter)
+      end)
+
+  fun _trim_codepoints(s: String, trim_to: USize): String =&gt;
+    recover val
+      Iter[U32](s.runes())
+        .take(trim_to)
+        .fold[String ref](
+          String.create(trim_to),
+          {(acc, cp) =&gt; acc.&gt;push_utf32(cp) })
+    end
+
+  fun unicode(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for unicode strings
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    &quot;&quot;&quot;
+    let range_1 = u32(0x0, 0xD7FF)
+    let range_1_size: USize = 0xD7FF
+    // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
+    let range_2 = u32(0xE000, 0x10FFFF)
+    let range_2_size = U32(0x10FFFF - 0xE000).usize()
+
+    let code_point_gen =
+      try
+        frequency[U32]([
+          (range_1_size, range_1)
+          (range_2_size, range_2)
+        ])?
+      else
+        // should never happen
+        unit[U32](U32(0))
+      end
+    utf32_codepoint_string(code_point_gen, min, max)
+
+  fun unicode_bmp(
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[String]
+  =&gt;
+    &quot;&quot;&quot;
+    create a generator for unicode strings
+    from the basic multilingual plane only
+    with a minimum length of ``min`` codepoints (default: 0)
+    and a maximum length of ``max`` codepoints (default: 100).
+
+    Note that the byte length of the generated string can be up to 4 times
+    the size in code points.
+    &quot;&quot;&quot;
+    let range_1 = u32(0x0, 0xD7FF)
+    let range_1_size: USize = 0xD7FF
+    // excluding surrogate pairs
+    // this might be duplicate work but increases efficiency
+    let range_2 = u32(0xE000, 0xFFFF)
+    let range_2_size = U32(0xFFFF - 0xE000).usize()
+
+    let code_point_gen =
+      try
+        frequency[U32]([
+          (range_1_size, range_1)
+          (range_2_size, range_2)
+        ])?
+      else
+        // should never happen
+        unit[U32](U32(0))
+      end
+    utf32_codepoint_string(code_point_gen, min, max)
+
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../for_all/" class="btn btn-neutral float-right" title="for_all.pony">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ponycheck/" class="btn btn-neutral" title="ponycheck.pony"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ponycheck/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../for_all/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+      <script src="../../../search/require.js"></script>
+      <script src="../../../search/search.js"></script>
+
+</body>
+</html>

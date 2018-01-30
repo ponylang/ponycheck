@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../img/favicon-16x16.png">
+    <link rel="manifest" href="../../../img/manifest.json">
+    <link rel="mask-icon" href="../../../img/safari-pinned-tab.svg" color="#795548">
+    <meta name="theme-color" content="#795548">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="application-name" content="ponycheck" />
+    <meta name="msapplication-TileColor" content="#795548" />
+    <meta name="msapplication-square150x150logo" content="../../../img/mstile-150x150.png" />
+  
+  <title>pony_test.pony - ponycheck</title>
+  <link rel="stylesheet" href="../../../css/main.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "pony_test.pony";
+    var mkdocs_page_input_path = "src/ponytest/pony_test.md";
+    var mkdocs_page_url = "/src/ponytest/pony_test/";
+  </script>
+  
+  <script type="text/javascript" src="../../../js/bundle.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> ponycheck</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">ponycheck</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponycheck</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Randomness/">class Randomness</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyRunner/">actor PropertyRunner</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-_EmptyIterator/">class _EmptyIterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-_Stringify/">primitive _Stringify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyResultNotify/">interface PropertyResultNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyHelper/">class PropertyHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-PropertyParams/">class PropertyParams</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Property1/">trait Property1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Poperator/">class Poperator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Ponycheck/">primitive Ponycheck</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ValueAndShrink/">type ValueAndShrink</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-GenerateResult/">type GenerateResult</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-CountdownIter/">class CountdownIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-GenObj/">trait GenObj</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Generator/">class Generator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-WeightedGenerator/">type WeightedGenerator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-Generators/">primitive Generators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ForAll/">class ForAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIINUL/">primitive ASCIINUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIDigits/">primitive ASCIIDigits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIWhiteSpace/">primitive ASCIIWhiteSpace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIPunctuation/">primitive ASCIIPunctuation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILettersLower/">primitive ASCIILettersLower</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILettersUpper/">primitive ASCIILettersUpper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIILetters/">primitive ASCIILetters</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIPrintable/">primitive ASCIIPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIINonPrintable/">primitive ASCIINonPrintable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIAll/">primitive ASCIIAll</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIAllWithNUL/">primitive ASCIIAllWithNUL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponycheck-ASCIIRange/">type ASCIIRange</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package assert</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../assert--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../assert-Assert/">primitive Assert</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../assert-Fact/">primitive Fact</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package builtin</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../builtin--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U8/">primitive U8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U16/">primitive U16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U32/">primitive U32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U64/">primitive U64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ULong/">primitive ULong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-USize/">primitive USize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-U128/">primitive U128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Unsigned/">type Unsigned</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Stringable/">interface Stringable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-String/">class String</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StringBytes/">class StringBytes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StringRunes/">class StringRunes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_UTF32Encoder/">primitive _UTF32Encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StdinNotify/">interface StdinNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-DisposableActor/">interface DisposableActor</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Stdin/">actor Stdin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ByteSeq/">type ByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ByteSeqIter/">interface ByteSeqIter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-OutStream/">interface OutStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-StdStream/">actor StdStream</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-SourceLoc/">interface SourceLoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I8/">primitive I8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I16/">primitive I16</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I32/">primitive I32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I64/">primitive I64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ILong/">primitive ILong</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ISize/">primitive ISize</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-I128/">primitive I128</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Signed/">type Signed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Seq/">interface Seq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_ArithmeticConvertible/">trait _ArithmeticConvertible</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Real/">trait Real</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Integer/">trait Integer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_SignedInteger/">trait _SignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_UnsignedInteger/">trait _UnsignedInteger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-FloatingPoint/">trait FloatingPoint</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Number/">type Number</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Int/">type Int</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ReadSeq/">interface ReadSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ReadElement/">interface ReadElement</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Pointer/">struct Pointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Platform/">primitive Platform</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-None/">primitive None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-MaybePointer/">struct MaybePointer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Iterator/">interface Iterator</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-F32/">primitive F32</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-F64/">primitive F64</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Float/">type Float</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Env/">class Env</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-DoNotOptimise/">primitive DoNotOptimise</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Less/">primitive Less</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Equal/">primitive Equal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Greater/">primitive Greater</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Compare/">type Compare</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-HasEq/">interface HasEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Equatable/">interface Equatable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Comparable/">interface Comparable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Bool/">primitive Bool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEventID/">type AsioEventID</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEventNotify/">interface AsioEventNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AsioEvent/">primitive AsioEvent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Array/">class Array</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayKeys/">class ArrayKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayValues/">class ArrayValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-ArrayPairs/">class ArrayPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-Any/">interface Any</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-AmbientAuth/">primitive AmbientAuth</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../builtin-_ToString/">primitive _ToString</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package collections</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../collections--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Sort/">primitive Sort</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Set/">type Set</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-SetIs/">type SetIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashSet/">class HashSet</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-SetValues/">class SetValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-RingBuffer/">class RingBuffer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Reverse/">class Reverse</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Range/">class Range</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-_MapEmpty/">primitive _MapEmpty</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-_MapDeleted/">primitive _MapDeleted</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Map/">type Map</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapIs/">type MapIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashMap/">class HashMap</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapKeys/">class MapKeys</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapValues/">class MapValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-MapPairs/">class MapPairs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListNode/">class ListNode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-List/">class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListNodes/">class ListNodes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-ListValues/">class ListValues</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Hashable/">interface Hashable</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashFunction/">interface HashFunction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashEq/">primitive HashEq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashIs/">primitive HashIs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-HashByteSeq/">primitive HashByteSeq</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Flag/">interface Flag</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../collections-Flags/">class Flags</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package itertools</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../itertools--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-Iter/">class Iter</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-_None/">primitive _None</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../itertools-_EmptyIter/">class _EmptyIter</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package ponytest</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../ponytest--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-UnitTest/">trait UnitTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-TestList/">trait TestList</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-ITest/">interface ITest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-TestHelper/">class TestHelper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-PonyTest/">actor PonyTest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_Group/">trait _Group</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_ExclusiveGroup/">actor _ExclusiveGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_SimultaneousGroup/">actor _SimultaneousGroup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../ponytest-_Color/">primitive _Color</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package random</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../random--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-XorShift128Plus/">class XorShift128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-XorOshiro128Plus/">class XorOshiro128Plus</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Rand/">type Rand</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Random/">trait Random</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-MT/">class MT</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../random-Dice/">class Dice</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">package time</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../time--index/">Package</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Timers/">actor Timers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-TimerNotify/">interface TimerNotify</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Timer/">class Timer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_Clock/">type _Clock</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_ClockRealtime/">primitive _ClockRealtime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_ClockMonotonic/">primitive _ClockMonotonic</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Time/">primitive Time</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Nanos/">primitive Nanos</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-Date/">class Date</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../time-_TimingWheel/">class _TimingWheel</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">source</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/randomness/">randomness.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/property_runner/">property_runner.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/property_helper/">property_helper.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/property/">property.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/poperator/">poperator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/ponycheck/">ponycheck.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/generator/">generator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/for_all/">for_all.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../ponycheck/ascii_range/">ascii_range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../assert/assert/">assert.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/unsigned/">unsigned.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/stringable/">stringable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/string/">string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/stdin/">stdin.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/std_stream/">std_stream.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/source_loc/">source_loc.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/signed/">signed.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/seq/">seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/real/">real.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/read_seq/">read_seq.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/pointer/">pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/platform/">platform.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/none/">none.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/maybe_pointer/">maybe_pointer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/iterator/">iterator.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/float/">float.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/env/">env.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/do_not_optimise/">do_not_optimise.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/compare/">compare.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/bool/">bool.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/asio_event/">asio_event.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/array/">array.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/any/">any.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/ambient_auth/">ambient_auth.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../builtin/_to_string/">_to_string.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/sort/">sort.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/set/">set.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/ring_buffer/">ring_buffer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/reverse/">reverse.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/range/">range.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/map/">map.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/list_node/">list_node.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/list/">list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/hashable/">hashable.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../collections/flag/">flag.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../itertools/iter/">iter.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../unit_test/">unit_test.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../test_list/">test_list.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../test_helper/">test_helper.pony</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">pony_test.pony</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_group/">_group.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../_color/">_color.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/xorshift/">xorshift.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/xoroshiro/">xoroshiro.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/random/">random.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/mt/">mt.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../random/dice/">dice.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timers/">timers.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timer_notify/">timer_notify.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/timer/">timer.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/time/">time.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/nanos/">nanos.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/date/">date.pony</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../time/_timing_wheel/">_timing_wheel.pony</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">ponycheck</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>source &raquo;</li>
+        
+      
+    
+    <li>pony_test.pony</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <pre><code class="pony-full-source">&quot;&quot;&quot;
+# PonyTest package
+
+The PonyTest package provides a unit testing framework. It is designed to be as
+simple as possible to use, both for the unit test writer and the user running
+the tests.
+
+To help simplify test writing and distribution this package depends on as few
+other packages as possible. Currently the required packages are:
+
+* builtin
+* time
+* collections
+
+Each unit test is a class, with a single test function. By default all tests
+run concurrently.
+
+Each test run is provided with a helper object. This provides logging and
+assertion functions. By default log messages are only shown for tests that
+fail.
+
+When any assertion function fails the test is counted as a fail. However, tests
+can also indicate failure by raising an error in the test function.
+
+## Example program
+
+To use PonyTest simply write a class for each test and a TestList type that
+tells the PonyTest object about the tests. Typically the TestList will be Main
+for the package.
+
+The following is a complete program with 2 trivial tests.
+
+```pony
+use &quot;ponytest&quot;
+
+actor Main is TestList
+  new create(env: Env) =&gt;
+    PonyTest(env, this)
+
+  new make() =&gt;
+    None
+
+  fun tag tests(test: PonyTest) =&gt;
+    test(_TestAdd)
+    test(_TestSub)
+
+class iso _TestAdd is UnitTest
+  fun name():String =&gt; &quot;addition&quot;
+
+  fun apply(h: TestHelper) =&gt;
+    h.assert_eq[U32](4, 2 + 2)
+
+class iso _TestSub is UnitTest
+  fun name():String =&gt; &quot;subtraction&quot;
+
+  fun apply(h: TestHelper) =&gt;
+    h.assert_eq[U32](2, 4 - 2)
+```
+
+The make() constructor is not needed for this example. However, it allows for
+easy aggregation of tests (see below) so it is recommended that all test Mains
+provide it.
+
+Main.create() is called only for program invocations on the current package.
+Main.make() is called during aggregation. If so desired extra code can be added
+to either of these constructors to perform additional tasks.
+
+## Test names
+
+Tests are identified by names, which are used when printing test results and on
+the command line to select which tests to run. These names are independent of
+the names of the test classes in the Pony source code.
+
+Arbitrary strings can be used for these names, but for large projects it is
+strongly recommended to use a hierarchical naming scheme to make it easier to
+select groups of tests.
+
+You can skip any tests whose names start with a given string by using the
+`--exclude=[prefix]` command line option.
+
+You can run only tests whose names start with a given string by using the
+`--only=[prefix]` command line option.
+
+## Aggregation
+
+Often it is desirable to run a collection of unit tests from multiple different
+source files. For example, if several packages within a bundle each have their
+own unit tests it may be useful to run all tests for the bundle together.
+
+This can be achieved by writing an aggregate test list class, which calls the
+list function for each package. The following is an example that aggregates the
+tests from packages `foo` and `bar`.
+
+```pony
+use &quot;ponytest&quot;
+use foo = &quot;foo&quot;
+use bar = &quot;bar&quot;
+
+actor Main is TestList
+  new create(env: Env) =&gt;
+    PonyTest(env, this)
+
+  new make() =&gt;
+    None
+
+  fun tag tests(test: PonyTest) =&gt;
+    foo.Main.make().tests(test)
+    bar.Main.make().tests(test)
+```
+
+Aggregate test classes may themselves be aggregated. Every test list class may
+contain any combination of its own tests and aggregated lists.
+
+## Long tests
+
+Simple tests run within a single function. When that function exits, either
+returning or raising an error, the test is complete. This is not viable for
+tests that need to use actors.
+
+Long tests allow for delayed completion. Any test can call long_test() on its
+TestHelper to indicate that it needs to keep running. When the test is finally
+complete it calls complete() on its TestHelper.
+
+The complete() function takes a Bool parameter to specify whether the test was
+a success. If any asserts fail then the test will be considered a failure
+regardless of the value of this parameter. However, complete() must still be
+called.
+
+Since failing tests may hang, a timeout must be specified for each long test.
+When the test function exits a timer is started with the specified timeout. If
+this timer fires before complete() is called the test is marked as a failure
+and the timeout is reported.
+
+On a timeout the timed_out() function is called on the unit test object. This
+should perform whatever test specific tidy up is required to allow the program
+to exit. There is no need to call complete() if a timeout occurs, although it
+is not an error to do so.
+
+Note that the timeout is only relevant when a test hangs and would otherwise
+prevent the test program from completing. Setting a very long timeout on tests
+that should not be able to hang is perfectly acceptable and will not make the
+test take any longer if successful.
+
+Timeouts should not be used as the standard method of detecting if a test has
+failed.
+
+## Exclusion groups
+
+By default all tests are run concurrently. This may be a problem for some
+tests, eg if they manipulate an external file or use a system resource. To fix
+this issue any number of tests may be put into an exclusion group.
+
+No tests that are in the same exclusion group will be run concurrently.
+
+Exclusion groups are identified by name, arbitrary strings may be used.
+Multiple exclusion groups may be used and tests in different groups may run
+concurrently. Tests that do not specify an exclusion group may be run
+concurrently with any other tests.
+
+The command line option &quot;--sequential&quot; prevents any tests from running
+concurrently, regardless of exclusion groups. This is intended for debugging
+rather than standard use.
+
+## Labels
+
+Test can have label. Labels are used to filter which tests are run, by setting
+command line argument `--label=[some custom label]`. It can be used to separate
+unit tests from integration tests.
+
+By default label is empty. You can set it up by overriding `label(): String`
+method in unit test.
+
+```pony
+use &quot;ponytest&quot;
+
+class iso _I8AddTest is UnitTest
+  fun name(): String =&gt; &quot;_I8AddTest&quot;
+  fun label(): String =&gt; &quot;simple&quot;
+  fun apply(h: TestHelper) =&gt;
+    h.assert_eq[I8](1, 1)
+
+```
+
+## Tear down
+
+Each unit test object may define a tear_down() function. This is called after
+the test has finished to allow tearing down of any complex environment that had
+to be set up for the test.
+
+The tear_down() function is called for each test regardless of whether it
+passed or failed. If a test times out tear_down() will be called after
+timed_out() returns.
+
+When a test is in an exclusion group, the tear_down() call is considered part
+of the tests run. The next test in the exclusion group will not start until
+after tear_down() returns on the current test.
+
+The test's TestHelper is handed to tear_down() and it is permitted to log
+messages and call assert functions during tear down.
+
+&quot;&quot;&quot;
+
+use &quot;time&quot;
+
+actor PonyTest
+  &quot;&quot;&quot;
+  Main test framework actor that organises tests, collates information and
+  prints results.
+  &quot;&quot;&quot;
+
+  embed _groups: Array[(String, _Group)] = Array[(String, _Group)]
+  embed _records: Array[_TestRecord] = Array[_TestRecord]
+  let _env: Env
+  let _timers: Timers = Timers
+  var _do_nothing: Bool = false
+  var _verbose: Bool = false
+  var _sequential: Bool = false
+  var _no_prog: Bool = false
+  var _list_only: Bool = false
+  var _started: USize = 0
+  var _finished: USize = 0
+  var _any_found: Bool = false
+  var _all_started: Bool = false
+
+  // Filtering options
+  var _exclude: String = &quot;&quot;
+  var _label: String = &quot;&quot;
+  var _only: String = &quot;&quot;
+
+  new create(env: Env, list: TestList tag) =&gt;
+    &quot;&quot;&quot;
+    Create a PonyTest object and use it to run the tests from the given
+    TestList
+    &quot;&quot;&quot;
+    _env = env
+    _process_opts()
+    _groups.push((&quot;&quot;, _SimultaneousGroup))
+    list.tests(this)
+    _all_tests_applied()
+
+  be apply(test: UnitTest iso) =&gt;
+    &quot;&quot;&quot;
+    Run the given test, subject to our filters and options.
+    &quot;&quot;&quot;
+    if _do_nothing then
+      return
+    end
+
+    var name = test.name()
+
+    // Ignore any tests that satisfy our &quot;exclude&quot; filter
+    if (_exclude != &quot;&quot;) and name.at(_exclude, 0) then
+      return
+    end
+
+    // Ignore any tests that don't satisfy our &quot;only&quot; filter
+    if (_only != &quot;&quot;) and (not name.at(_only, 0)) then
+      return
+    end
+
+    // Ignore tests when label arg is set and test label doesn't match
+    if (_label != &quot;&quot;) and (_label != test.label()) then
+      return
+    end
+
+    _any_found = true
+
+    if _list_only then
+      // Don't actually run tests, just list them
+      _env.out.print(name)
+      return
+    end
+
+    var index = _records.size()
+    _records.push(_TestRecord(_env, name))
+
+    var group = _find_group(test.exclusion_group())
+    group(_TestRunner(this, index, consume test, group, _verbose, _env,
+      _timers))
+
+  fun ref _find_group(group_name: String): _Group =&gt;
+    &quot;&quot;&quot;
+    Find the group to use for the given group name, subject to the
+    --sequential flag.
+    &quot;&quot;&quot;
+    var name = group_name
+
+    if _sequential then
+      // Use the same group for all tests.
+      name = &quot;all&quot;
+    end
+
+    for g in _groups.values() do
+      if g._1 == name then
+        return g._2
+      end
+    end
+
+    // Group doesn't exist yet, make it.
+    // We only need one simultaneous group, which we've already made. All new
+    // groups are exclusive.
+    let g = _ExclusiveGroup
+    _groups.push((name, g))
+    g
+
+  be _test_started(id: USize) =&gt;
+    &quot;&quot;&quot;
+    A test has started running, update status info.
+    The id parameter is the test identifier handed out when we created the test
+    helper.
+    &quot;&quot;&quot;
+    _started = _started + 1
+
+    try
+      if not _no_prog then
+        _env.out.print(
+          _started.string() + &quot; test&quot; + _plural(_started)
+            + &quot; started, &quot; + _finished.string() + &quot; complete: &quot;
+            + _records(id)?.name + &quot; started&quot;)
+      end
+    end
+
+  be _test_complete(id: USize, pass: Bool, log: Array[String] val) =&gt;
+    &quot;&quot;&quot;
+    A test has completed, restore its result and update our status info.
+    The id parameter is the test identifier handed out when we created the test
+    helper.
+    &quot;&quot;&quot;
+    _finished = _finished + 1
+
+    try
+      _records(id)?._result(pass, log)
+
+      if not _no_prog then
+        _env.out.print(
+          _started.string() + &quot; test&quot; + _plural(_started)
+            + &quot; started, &quot; + _finished.string() + &quot; complete: &quot;
+            + _records(id)?.name + &quot; complete&quot;)
+      end
+    end
+
+    if _all_started and (_finished == _records.size()) then
+      // All tests have completed
+      _print_report()
+    end
+
+  be _all_tests_applied() =&gt;
+    &quot;&quot;&quot;
+    All our tests have been handed to apply(), setup for finishing
+    &quot;&quot;&quot;
+    if _do_nothing then
+      return
+    end
+
+    if not _any_found then
+      // No tests left after applying our filters
+      _env.out.print(&quot;No tests found&quot;)
+      return
+    end
+
+    if _list_only then
+      // No tests to run
+      return
+    end
+
+    _all_started = true
+    if _finished == _records.size() then
+      // All tests have completed
+      _print_report()
+    end
+
+  fun ref _process_opts() =&gt;
+    &quot;&quot;&quot;
+    Process our command line options.
+    All command line arguments given must be recognised and make sense.
+    State for specified options is stored in object fields.
+    We don't use the options package because we aren't already dependencies.
+    &quot;&quot;&quot;
+    var exe_name = &quot;&quot;
+
+    for arg in _env.args.values() do
+      if exe_name == &quot;&quot; then
+        exe_name = arg
+        continue
+      end
+
+      if arg == &quot;--sequential&quot; then
+        _sequential = true
+      elseif arg == &quot;--verbose&quot; then
+        _verbose = true
+      elseif arg == &quot;--noprog&quot; then
+        _no_prog = true
+      elseif arg == &quot;--list&quot; then
+        _list_only = true
+      elseif arg.compare_sub(&quot;--exclude=&quot;, 10) is Equal then
+        _exclude = arg.substring(10)
+      elseif arg.compare_sub(&quot;--label=&quot;, 8) is Equal then
+        _label = arg.substring(8)
+      elseif arg.compare_sub(&quot;--only=&quot;, 7) is Equal then
+        _only = arg.substring(7)
+      else
+        _env.out.print(&quot;Unrecognised argument \&quot;&quot; + arg + &quot;\&quot;&quot;)
+        _env.out.print(&quot;&quot;)
+        _env.out.print(&quot;Usage:&quot;)
+        _env.out.print(&quot;  &quot; + exe_name + &quot; [options]&quot;)
+        _env.out.print(&quot;&quot;)
+        _env.out.print(&quot;Options:&quot;)
+        _env.out.print(&quot;  --exclude=prefix  - Don't run tests whose names &quot;
+          + &quot;start with the given prefix.&quot;)
+        _env.out.print(&quot;  --only=prefix     - Only run tests whose names &quot;
+          + &quot;start with the given prefix.&quot;)
+        _env.out.print(&quot;  --verbose         - Show all test output.&quot;)
+        _env.out.print(&quot;  --sequential      - Run tests sequentially.&quot;)
+        _env.out.print(&quot;  --noprog          - Do not print progress messages.&quot;)
+        _env.out.print(&quot;  --list            - List but do not run tests.&quot;)
+        _env.out.print(&quot;  --label=label     - Only run tests with given label&quot;)
+        _do_nothing = true
+        return
+      end
+    end
+
+  fun _print_report() =&gt;
+    &quot;&quot;&quot;
+    The tests are all complete, print out the results.
+    &quot;&quot;&quot;
+    var pass_count: USize = 0
+    var fail_count: USize = 0
+
+    // First we print the result summary for each test, in the order that they
+    // were given to us.
+    for rec in _records.values() do
+      if rec._report(_verbose) then
+        pass_count = pass_count + 1
+      else
+        fail_count = fail_count + 1
+      end
+    end
+
+    // Next we print the pass / fail stats.
+    _env.out.print(&quot;----&quot;)
+    _env.out.print(&quot;---- &quot; + _records.size().string() + &quot; test&quot;
+      + _plural(_records.size()) + &quot; ran.&quot;)
+    _env.out.print(_Color.green() + &quot;---- Passed: &quot; + pass_count.string()
+      + _Color.reset())
+
+    if fail_count == 0 then
+      // Success, nothing failed.
+      return
+    end
+
+    // Not everything passed.
+    _env.out.print(_Color.red() + &quot;**** FAILED: &quot; + fail_count.string()
+      + &quot; test&quot; + _plural(fail_count) + &quot;, listed below:&quot; + _Color.reset())
+
+    // Finally print our list of failed tests.
+    for rec in _records.values() do
+      rec._list_failed()
+    end
+
+    _env.exitcode(-1)
+
+  fun _plural(n: USize): String =&gt;
+    &quot;&quot;&quot;
+    Return a &quot;s&quot; or an empty string depending on whether the given number is 1.
+    For use when printing possibly plural words, eg &quot;test&quot; or &quot;tests&quot;.
+    &quot;&quot;&quot;
+    if n == 1 then &quot;&quot; else &quot;s&quot; end
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../_group/" class="btn btn-neutral float-right" title="_group.pony">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../test_helper/" class="btn btn-neutral" title="test_helper.pony"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../test_helper/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../_group/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+      <script src="../../../search/require.js"></script>
+      <script src="../../../search/search.js"></script>
+
+</body>
+</html>
