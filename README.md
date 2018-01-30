@@ -4,6 +4,8 @@
 
 Property based testing for ponylang (>= 0.19.0).
 
+[API docs](https://mfelsche.github.io/ponycheck/ponycheck--index/)
+
 ## Features
 
 * Integration with ponytest
