@@ -30,18 +30,6 @@
     </url>
         
     <url>
-     <loc>/ponycheck-_EmptyIterator/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/ponycheck-_Stringify/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/ponycheck-PropertyResultNotify/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -302,12 +290,6 @@
     </url>
         
     <url>
-     <loc>/builtin-_UTF32Encoder/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/builtin-StdinNotify/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -410,12 +392,6 @@
     </url>
         
     <url>
-     <loc>/builtin-_ArithmeticConvertible/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/builtin-Real/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -423,18 +399,6 @@
         
     <url>
      <loc>/builtin-Integer/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/builtin-_SignedInteger/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/builtin-_UnsignedInteger/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -631,12 +595,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>/builtin-_ToString/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -691,18 +649,6 @@
         
     <url>
      <loc>/collections-Range/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/collections-_MapEmpty/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/collections-_MapDeleted/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -825,18 +771,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>/itertools-_None/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/itertools-_EmptyIter/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -873,30 +807,6 @@
         
     <url>
      <loc>/ponytest-PonyTest/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/ponytest-_Group/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/ponytest-_ExclusiveGroup/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/ponytest-_SimultaneousGroup/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/ponytest-_Color/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -976,24 +886,6 @@
     </url>
         
     <url>
-     <loc>/time-_Clock/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/time-_ClockRealtime/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/time-_ClockMonotonic/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/time-Time/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -1007,12 +899,6 @@
         
     <url>
      <loc>/time-Date/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/time-_TimingWheel/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -1226,12 +1112,6 @@
     </url>
         
     <url>
-     <loc>/src/builtin/_to_string/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/src/collections/sort/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -1322,18 +1202,6 @@
     </url>
         
     <url>
-     <loc>/src/ponytest/_group/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/src/ponytest/_color/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/src/random/xorshift/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
@@ -1395,12 +1263,6 @@
         
     <url>
      <loc>/src/time/date/</loc>
-     <lastmod>2018-01-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/src/time/_timing_wheel/</loc>
      <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
