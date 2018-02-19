@@ -33,7 +33,7 @@ actor PropertyRunner[T]
     end
     (var sample, _shrinker) = _gen.generate_and_shrink(_rnd)
     // create a string representation before consuming ``sample`` with property
-    (sample, let sample_repr) = _Stringify[T](consume sample)
+    (sample, let sample_repr) = _Stringify.apply[T](consume sample)
     try
       _prop1.property(consume sample, _ph)?
     else
@@ -63,7 +63,7 @@ actor PropertyRunner[T]
 
     (let shrink, let shrink_repr) =
       try
-        _Stringify[T](_shrinker.next()?)
+        _Stringify.apply[T](_shrinker.next()?)
       else
         // no more shrink samples, report previous failed example
         fail(repr, rounds)
@@ -88,7 +88,7 @@ actor PropertyRunner[T]
       //_ph.log("shrink: " + shrink_repr + " did fail")
       do_shrink(shrink_repr, rounds + 1)
     end
-  
+
   fun ref complete() =>
     """
     complete the Property execution
@@ -97,7 +97,7 @@ actor PropertyRunner[T]
 
   fun ref fail(repr: String, rounds: USize = 0, err: Bool = false) =>
     """
-    complete the Property execution 
+    complete the Property execution
     while signalling failure to the notify
     """
     if err then
@@ -112,15 +112,16 @@ class _EmptyIterator[T]
   fun ref has_next(): Bool => false
   fun ref next(): T^ ? => error
 
-primitive _Stringify[T]
-  fun apply(t: T): (T^, String) =>
+primitive _Stringify
+  fun apply[T](t: T): (T^, String) =>
     """turn anything into a string"""
     let digest = (digestof t)
     let s =
-      iftype T <: Stringable #read then
-        t.string()
-      elseif T <: ReadSeq[Stringable] #read then
-        "[" + " ".join(t.values()) + "]"
+      match t
+      | let str: Stringable =>
+        str.string()
+      | let rs: ReadSeq[Stringable] =>
+        "[" + " ".join(rs.values()) + "]"
       else
         "<identity:" + digest.string() + ">"
       end
