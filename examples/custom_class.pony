@@ -111,7 +111,7 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
 
   You basically have two options on how to implement a Generator:
   * Return only the generated value from `generate` (and optionally implement
-    the `shrink` method to return an (T^, `Iterator[T^]`) whose values need to
+    the `shrink` method to return an `(T^, Iterator[T^])` whose values need to
     meet the Generator's requirements
   * Return both the generated value and the shrink-Iterator from `generate`.
     this way you have the values from any Generators available your Generator

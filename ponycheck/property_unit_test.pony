@@ -22,5 +22,6 @@ class iso Property1UnitTest[T] is UnitTest
     PropertyRunner[T](
       consume prop,
       params,
-      h
+      h, // treat it as PropertyResultNotify
+      h  // is also a PropertyLogger for us
     ).run()
