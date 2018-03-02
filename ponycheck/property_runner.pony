@@ -39,6 +39,9 @@ actor PropertyRunner[T]
   var _sample_repr: String = ""
   var _pass: Bool = true
 
+  // keep track of which runs/shrinks we expect
+  var _expected_round: USize = 0
+
   new create(
     p1: Property1[T] iso,
     params: PropertyParams,
@@ -52,6 +55,7 @@ actor PropertyRunner[T]
     _rnd = Randomness(_params.seed)
     _gen = _prop1.gen()
 
+
 // RUNNING PROPERTIES //
 
   be complete_run(round: USize, success: Bool) =>
@@ -61,6 +65,16 @@ actor PropertyRunner[T]
     this behaviour is called from the PropertyHelper
     or from `_finished`.
     """
+
+    // verify that this is an expected call
+    if _expected_round != round then
+      _logger.log("unexpected complete msg for run " + round.string() +
+        ". expecting run " + _expected_round.string(), true)
+      return
+    else
+      _expected_round = round + 1
+    end
+
     _pass = success // in case of sync property - signal failure
 
     if not success then
@@ -69,6 +83,7 @@ actor PropertyRunner[T]
         _logger.log("no shrinks available")
         fail(_sample_repr, 0)
       else
+        _expected_round = 0 // reset rounds for shrinking
         do_shrink(_sample_repr)
       end
     else
@@ -111,6 +126,15 @@ actor PropertyRunner[T]
 // SHRINKING //
 
   be complete_shrink(shrink_repr: String, shrink_round: USize, success: Bool) =>
+
+    // verify that this is an expected call
+    if _expected_round != shrink_round then
+      _logger.log("unexpected complete msg for shrink run " + shrink_round.string() +
+        ". expecting run " + _expected_round.string(), true)
+      return
+    else
+      _expected_round = shrink_round + 1
+    end
 
     _pass = success // in case of sync property - signal failure
 
@@ -184,14 +208,18 @@ actor PropertyRunner[T]
     _finish_action(name, false, ph)
 
   fun ref _finish_action(name: String, success: Bool, ph: PropertyHelper) =>
-    _expected_actions.unset(name)
+    try
+      _expected_actions.extract(name)?
 
-    // call back into the helper to invoke the current run_notify
-    // that we don't have access to otherwise
-    if not success then
-      ph.complete(false)
-    elseif _expected_actions.size() == 0 then
-      ph.complete(true)
+      // call back into the helper to invoke the current run_notify
+      // that we don't have access to otherwise
+      if not success then
+        ph.complete(false)
+      elseif _expected_actions.size() == 0 then
+        ph.complete(true)
+      end
+    else
+      _logger.log("action '" + name + "' finished unexpectedly. ignoring.")
     end
 
   be log(msg: String, verbose: Bool = false) =>

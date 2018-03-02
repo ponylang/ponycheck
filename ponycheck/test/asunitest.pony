@@ -12,31 +12,6 @@ class SuccessfulProperty is Property1[U8]
   fun property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(10))
 
-class val UnitTestPropertyLogger is PropertyLogger
-  let _th: TestHelper
-
-  new val create(th: TestHelper) =>
-    _th = th
-
-  fun log(msg: String, verbose: Bool) =>
-    _th.log(msg, verbose)
-
-class val UnitTestPropertyNotify is PropertyResultNotify
-  let _th: TestHelper
-  let _should_succeed: Bool
-
-  new val create(th: TestHelper, should_succeed: Bool = true) =>
-    _should_succeed = should_succeed
-    _th = th
-
-  fun fail(msg: String) =>
-    _th.log("FAIL: " + msg)
-
-  fun complete(success: Bool) =>
-    _th.log("COMPLETE: " + success.string())
-    let result = (success and _should_succeed) or ((not success) and (not _should_succeed))
-    _th.complete(result)
-
 class SuccessfulPropertyTest is UnitTest
 
   fun name(): String => "as_unit_test/successful"
@@ -89,6 +64,7 @@ class ErroringProperty is Property1[U8]
     if arg1 < 2 then
       error
     end
+
 
 class ErroringPropertyTest is UnitTest
   fun name(): String => "as_unit_test/erroring"

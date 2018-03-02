@@ -345,15 +345,85 @@ class val PropertyHelper
 /****** END DUPLICATION FROM TESTHELPER *********/
 
   fun expect_action(name: String) =>
+    """
+    expect some action of the given name to complete
+    for the property to hold.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+
+    Call `complete_action(name)` or `fail_action(name)`
+    to mark some action as completed.
+
+    Example:
+
+    ```pony
+      actor AsyncActor
+
+        let _ph: PropertyHelper
+
+        new create(ph: PropertyHelper) =>
+          _ph = ph
+
+        be complete(s: String) =>
+          if (s.size() % 2) == 0 then
+            _ph.complete_action("is_even")
+          else
+            _ph.fail_action("is_even")
+
+      class EvenStringProperty is Property1[String]
+        fun name(): String => "even_string"
+
+        fun gen(): Generator[String] =>
+          Generators.ascii()
+
+      fun property(arg1: String, ph: PropertyHelper) =>
+        ph.expect_action("is_even")
+        AsyncActor(ph).check(arg1)
+    ```
+
+    """
     _runner.expect_action(name)
 
   fun val complete_action(name: String) =>
+    """
+    Complete an expected action successfully.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+
+    If the action `name` was not expected, i.e. was not registered using
+    `expect_action`, nothing happens.
+    """
     _runner.complete_action(name, this)
 
   fun val fail_action(name: String) =>
+    """
+    Mark an expected action as failed.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+    """
     _runner.fail_action(name, this)
 
   fun complete(success: Bool) =>
+    """
+    Complete an asynchronous property successfully.
+
+    Once this method is called the property
+    is considered successful or failing
+    depending on the value of the parameter `success`.
+
+    For more fine grained control over completing or failing
+    a property that consists of many steps, consider using
+    `expect_action`, `complete_action` and `fail_action`.
+    """
     _run_notify.apply(success)
 
   fun _fail(msg: String) =>
