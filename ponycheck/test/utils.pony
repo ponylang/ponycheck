@@ -22,7 +22,8 @@ primitive Async
       consume property,
       params,
       UnitTestPropertyNotify(h, should_succeed),
-      UnitTestPropertyLogger(h))
+      UnitTestPropertyLogger(h),
+      h.env)
     runner.run()
 
 class val UnitTestPropertyLogger is PropertyLogger

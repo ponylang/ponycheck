@@ -55,6 +55,7 @@ class iso RunnerInfiniteShrinkTest is UnitTest
       consume property,
       params,
       notify,
-      logger)
+      logger,
+      h.env)
     runner.run()
 

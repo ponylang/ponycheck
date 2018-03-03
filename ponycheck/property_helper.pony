@@ -40,9 +40,13 @@ class val PropertyHelper
   let _run_notify: PropertyRunNotify
   let _run_context: String
 
-  new val create(runner: _IPropertyRunner,
+  let env: Env
+
+  new val create(env': Env,
+                 runner: _IPropertyRunner,
                  run_notify: PropertyRunNotify,
                  run_context: String) =>
+    env = env'
     _runner = runner
     _run_notify = run_notify
     _run_context = run_context

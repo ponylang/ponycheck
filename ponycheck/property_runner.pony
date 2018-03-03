@@ -33,6 +33,7 @@ actor PropertyRunner[T]
   let _notify: PropertyResultNotify
   let _gen: Generator[T]
   let _logger: PropertyLogger
+  let _env: Env
 
   let _expected_actions: Set[String] = Set[String]
   let _disposables: Array[DisposableActor] = Array[DisposableActor]
@@ -47,8 +48,10 @@ actor PropertyRunner[T]
     p1: Property1[T] iso,
     params: PropertyParams,
     notify: PropertyResultNotify,
-    logger: PropertyLogger
+    logger: PropertyLogger,
+    env: Env
   ) =>
+    _env = env
     _prop1 = consume p1
     _params = params
     _logger = logger
@@ -103,7 +106,7 @@ actor PropertyRunner[T]
     // create a string representation before consuming ``sample`` with property
     (sample, _sample_repr) = _Stringify.apply[T](consume sample)
     let run_notify = recover val this~complete_run(round) end
-    let helper = PropertyHelper(this, run_notify, _params.string() + " Run(" +
+    let helper = PropertyHelper(_env, this, run_notify, _params.string() + " Run(" +
     round.string() + ")")
     _pass = true // will be set to false by fail calls
 
@@ -173,6 +176,7 @@ actor PropertyRunner[T]
         this~complete_shrink(shrink_repr, shrink_round)
       end
     let helper = PropertyHelper(
+      _env,
       this,
       run_notify,
       _params.string() + " Shrink(" + shrink_round.string() + ")")

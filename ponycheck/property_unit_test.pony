@@ -19,9 +19,13 @@ class iso Property1UnitTest[T] is UnitTest
     let prop = ((_prop1 = None) as Property1[T] iso^)
     let params = prop.params()
     h.long_test(params.timeout)
-    PropertyRunner[T](
-      consume prop,
-      params,
-      h, // treat it as PropertyResultNotify
-      h  // is also a PropertyLogger for us
-    ).run()
+    let property_runner =
+      PropertyRunner[T](
+        consume prop,
+        params,
+        h, // treat it as PropertyResultNotify
+        h,  // is also a PropertyLogger for us
+        h.env
+      )
+    h.dispose_when_done(property_runner)
+    property_runner.run()

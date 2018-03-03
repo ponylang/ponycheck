@@ -26,7 +26,8 @@ class SuccessfulPropertyTest is UnitTest
       consume property,
       params,
       property_notify,
-      property_logger)
+      property_logger,
+      h.env)
     runner.run()
 
 
@@ -51,7 +52,8 @@ class FailingPropertyTest is UnitTest
       consume property,
       params,
       property_notify,
-      property_logger)
+      property_logger,
+      h.env)
     runner.run()
 
 
@@ -79,7 +81,8 @@ class ErroringPropertyTest is UnitTest
       consume property,
       params,
       property_notify,
-      property_logger)
+      property_logger,
+      h.env)
     runner.run()
 
 
