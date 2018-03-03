@@ -14,3 +14,4 @@ actor Main is TestList
     test(Property1UnitTest[MyLittlePony](_CustomClassFlatMapProperty))
     test(Property1UnitTest[MyLittlePony](_CustomClassMapProperty))
     test(Property1UnitTest[MyLittlePony](_CustomClassCustomGeneratorProperty))
+    test(Property1UnitTest[String](_AsyncTCPSenderProperty))
