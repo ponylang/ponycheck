@@ -35,6 +35,7 @@ actor PropertyRunner[T]
   let _logger: PropertyLogger
 
   let _expected_actions: Set[String] = Set[String]
+  let _disposables: Array[DisposableActor] = Array[DisposableActor]
   var _shrinker: Iterator[T^] = _EmptyIterator[T^]
   var _sample_repr: String = ""
   var _pass: Bool = true
@@ -220,6 +221,17 @@ actor PropertyRunner[T]
       end
     else
       _logger.log("action '" + name + "' finished unexpectedly. ignoring.")
+    end
+
+  be dispose_when_done(disposable: DisposableActor) =>
+    _disposables.push(disposable)
+
+  be dispose() =>
+    _dispose()
+
+  fun ref _dispose() =>
+    for disposable in Poperator[DisposableActor](_disposables) do
+      disposable.dispose()
     end
 
   be log(msg: String, verbose: Bool = false) =>

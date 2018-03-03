@@ -19,6 +19,8 @@ interface tag _IPropertyRunner
 
   be fail_action(name: String, ph: PropertyHelper)
 
+  be dispose_when_done(disposable: DisposableActor)
+
   be log(msg: String, verbose: Bool = false)
 
 
@@ -425,6 +427,12 @@ class val PropertyHelper
     `expect_action`, `complete_action` and `fail_action`.
     """
     _run_notify.apply(success)
+
+  fun dispose_when_done(disposable: DisposableActor) =>
+    """
+    Dispose the actor after a property run / a shrink is done.
+    """
+    _runner.dispose_when_done(disposable)
 
   fun _fail(msg: String) =>
     _runner.log(msg)
