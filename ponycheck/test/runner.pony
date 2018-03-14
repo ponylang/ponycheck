@@ -11,7 +11,7 @@ class InfiniteShrinkProperty is Property1[String]
       object is GenObj[String]
         fun generate(r: Randomness): String^ =>
           "decided by fair dice roll, totally random"
-        
+
         fun shrink(t: String): ValueAndShrink[String] =>
           (t, Iter[String^].repeat_value(t))
       end)
@@ -28,24 +28,34 @@ class iso RunnerInfiniteShrinkTest is UnitTest
   fun name(): String => "property_runner/infinite_shrink"
 
   fun apply(h: TestHelper) =>
-    h.long_test(20_000_000_000)
-    let property_notify =
-      object val is PropertyResultNotify
+
+    let logger =
+      object val is PropertyLogger
         fun log(msg: String, verbose: Bool) =>
           h.log(msg, verbose)
+      end
+    let notify =
+      object val is PropertyResultNotify
+        let _logger: PropertyLogger = logger
+
         fun fail(msg: String) =>
-          h.log("FAIL: " + msg)
+          _logger.log("FAIL: " + msg)
           h.complete(true)
+
         fun complete(success: Bool) =>
-          h.log("COMPLETE: " + success.string())
+          _logger.log("COMPLETE: " + success.string())
           h.complete(not success)
       end
     let property = recover iso InfiniteShrinkProperty end
     let params = property.params()
 
+    h.long_test(params.timeout)
+
     let runner = PropertyRunner[String](
       consume property,
       params,
-      property_notify)
+      notify,
+      logger,
+      h.env)
     runner.run()
 

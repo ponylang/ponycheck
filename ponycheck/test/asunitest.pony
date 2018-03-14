@@ -12,35 +12,22 @@ class SuccessfulProperty is Property1[U8]
   fun property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(10))
 
-class val UnitTestPropertyNotify is PropertyResultNotify
-  let _th: TestHelper
-  let _should_succeed: Bool
-
-  new val create(th: TestHelper, should_succeed: Bool = true) =>
-    _should_succeed = should_succeed
-    _th = th
-
-  fun log(msg: String, verbose: Bool) =>
-    _th.log(msg, verbose)
-
-  fun fail(msg: String) =>
-    _th.log("FAIL: " + msg)
-
-  fun complete(success: Bool) =>
-    _th.log("COMPLETE: " + success.string())
-    let result = (success and _should_succeed) or ((not success) and (not _should_succeed))
-    _th.complete(result)
-
 class SuccessfulPropertyTest is UnitTest
 
   fun name(): String => "as_unit_test/successful"
 
   fun apply(h: TestHelper) =>
-    h.long_test(20_000_000_000)
     let property = recover iso SuccessfulProperty end
     let property_notify = UnitTestPropertyNotify(h, true)
+    let property_logger = UnitTestPropertyLogger(h)
     let params = property.params()
-    let runner = PropertyRunner[U8](consume property, params, property_notify)
+    h.long_test(params.timeout)
+    let runner = PropertyRunner[U8](
+      consume property,
+      params,
+      property_notify,
+      property_logger,
+      h.env)
     runner.run()
 
 
@@ -56,11 +43,17 @@ class FailingPropertyTest is UnitTest
   fun name(): String => "as_unit_test/failing"
 
   fun apply(h: TestHelper) =>
-    h.long_test(20_000_000_000)
     let property = recover iso FailingProperty end
     let property_notify = UnitTestPropertyNotify(h, false)
+    let property_logger = UnitTestPropertyLogger(h)
     let params = property.params()
-    let runner = PropertyRunner[U8](consume property, params, property_notify)
+    h.long_test(params.timeout)
+    let runner = PropertyRunner[U8](
+      consume property,
+      params,
+      property_notify,
+      property_logger,
+      h.env)
     runner.run()
 
 
@@ -74,6 +67,7 @@ class ErroringProperty is Property1[U8]
       error
     end
 
+
 class ErroringPropertyTest is UnitTest
   fun name(): String => "as_unit_test/erroring"
 
@@ -81,8 +75,14 @@ class ErroringPropertyTest is UnitTest
     h.long_test(20_000_000_000)
     let property = recover iso ErroringProperty end
     let property_notify = UnitTestPropertyNotify(h, false)
+    let property_logger = UnitTestPropertyLogger(h)
     let params = property.params()
-    let runner = PropertyRunner[U8](consume property, params, property_notify)
+    let runner = PropertyRunner[U8](
+      consume property,
+      params,
+      property_notify,
+      property_logger,
+      h.env)
     runner.run()
 
 

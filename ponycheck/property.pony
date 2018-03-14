@@ -1,29 +1,42 @@
 use "time"
 
-class val PropertyParams
+class val PropertyParams is Stringable
   """
   parameters for Property Execution
 
   * seed: the seed for the source of Randomness
   * num_samples: the number of samples to produce from the property generator
   * max_shrink_rounds: the maximum rounds of shrinking to perform
-  * timeout: the timeout for the ponytest runner, in nanseconds
+  * timeout: the timeout for the ponytest runner, in nanoseconds
+  * async: if true th property is expected to finish asynchronously by calling
+    `PropertyHelper.complete(...)`
   """
   let seed: U64
   let num_samples: USize
   let max_shrink_rounds: USize
   let timeout: U64
+  let async: Bool
 
   new val create(
     num_samples': USize = 100,
     seed': U64 = Time.millis(),
     max_shrink_rounds': USize = 10,
-    timeout': U64 = 60_000_000_000)
+    timeout': U64 = 60_000_000_000,
+    async': Bool = false)
   =>
     num_samples = num_samples'
     seed = seed'
     max_shrink_rounds = max_shrink_rounds'
     timeout = timeout'
+    async = async'
+
+  fun string(): String iso^ =>
+    recover
+      String()
+        .>append("Params(seed=")
+        .>append(seed.string())
+        .>append(")")
+    end
 
 trait Property1[T]
   """

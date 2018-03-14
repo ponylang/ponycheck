@@ -1,27 +1,30 @@
-interface val PropertyResultNotify
-  """stripped down interface for TestHelper as this is all we need"""
 
-  fun log(msg: String, verbose: Bool = false)
-    """
-    log a message to the outside world
-    """
+interface val PropertyRunNotify
+  """
+  simple callback for notifying the runner
+  that a run completed
+  """
+  fun apply(success: Bool)
 
-  fun fail(msg: String)
-    """
-    called when a Property has failed (did not hold for a sample)
-    or when execution errored.
-    
-    Does not necessarily denote completeness of the property execution,
-    see `complete(success: Bool)` for that purpose.
-    """
+interface tag _IPropertyRunner
+  """
+  interface for a PropertyRunner without the generic type parameter
 
-  fun complete(success: Bool)
-    """
-    called when the Property execution is complete
-    signalling whether it was successful or not.
-    """
+  and only with the behaviours we are interested in.
+  """
 
-class ref PropertyHelper
+  be expect_action(name: String)
+
+  be complete_action(name: String, ph: PropertyHelper)
+
+  be fail_action(name: String, ph: PropertyHelper)
+
+  be dispose_when_done(disposable: DisposableActor)
+
+  be log(msg: String, verbose: Bool = false)
+
+
+class val PropertyHelper
   """
   Helper for ponycheck properties.
 
@@ -33,15 +36,20 @@ class ref PropertyHelper
   record the fail and mark this helper as failed,
   so we can get into the shrinking and reporting phases.
   """
-  let _params: PropertyParams
-  let _params_fmt: String
-  let _th: PropertyResultNotify
-  var _did_fail: Bool = false
+  let _runner: _IPropertyRunner
+  let _run_notify: PropertyRunNotify
+  let _run_context: String
 
-  new ref create(params: PropertyParams, h: PropertyResultNotify) =>
-    _params = params
-    _params_fmt = _format_params(params)
-    _th = h
+  let env: Env
+
+  new val create(env': Env,
+                 runner: _IPropertyRunner,
+                 run_notify: PropertyRunNotify,
+                 run_context: String) =>
+    env = env'
+    _runner = runner
+    _run_notify = run_notify
+    _run_context = run_context
 
 /****** START DUPLICATION FROM TESTHELPER ********/
 
@@ -57,15 +65,15 @@ class ref PropertyHelper
     Logs are printed one test at a time to avoid interleaving log lines from
     concurrent tests.
     """
-    _th.log(msg, verbose)
+    _runner.log(msg, verbose)
 
-  fun ref fail(msg: String = "Test failed") =>
+  fun fail(msg: String = "Test failed") =>
     """
     Flag the test as having failed.
     """
     _fail(msg)
 
-  fun ref assert_false(
+  fun assert_false(
     predicate: Bool,
     msg: String val = "",
     loc: SourceLoc val = __loc)
@@ -78,10 +86,10 @@ class ref PropertyHelper
       _fail(_fmt_msg(loc, "Assert false failed. " + msg))
       return false
     end
-    _th.log(_fmt_msg(loc, "Assert false passed. " + msg))
+    _runner.log(_fmt_msg(loc, "Assert false passed. " + msg))
     true
 
-  fun ref assert_true(
+  fun assert_true(
     predicate: Bool,
     msg: String val = "",
     loc: SourceLoc val = __loc)
@@ -94,10 +102,10 @@ class ref PropertyHelper
       _fail(_fmt_msg(loc, "Assert true failed. " + msg))
       return false
     end
-    _th.log(_fmt_msg(loc, "Assert true passed. " + msg))
+    _runner.log(_fmt_msg(loc, "Assert true passed. " + msg))
     true
 
-  fun ref assert_error(
+  fun assert_error(
     test: {(): None ?} box,
     msg: String = "",
     loc: SourceLoc = __loc)
@@ -111,11 +119,11 @@ class ref PropertyHelper
       _fail(_fmt_msg(loc, "Assert error failed. " + msg))
       false
     else
-      _th.log(_fmt_msg(loc, "Assert error passed. " + msg), true)
+      _runner.log(_fmt_msg(loc, "Assert error passed. " + msg), true)
       true
     end
 
-  fun ref assert_no_error(
+  fun assert_no_error(
     test: {(): None ?} box,
     msg: String = "",
     loc: SourceLoc = __loc)
@@ -126,14 +134,14 @@ class ref PropertyHelper
     """
     try
       test()?
-      _th.log(_fmt_msg(loc, "Assert no error passed. " + msg), true)
+      _runner.log(_fmt_msg(loc, "Assert no error passed. " + msg), true)
       true
     else
       _fail(_fmt_msg(loc, "Assert no error failed. " + msg))
       false
     end
 
-  fun ref assert_is[A](
+  fun assert_is[A](
     expect: A,
     actual: A,
     msg: String = "",
@@ -150,14 +158,14 @@ class ref PropertyHelper
       return false
     end
 
-    _th.log(
+    _runner.log(
       _fmt_msg(loc, "Assert is passed. " + msg
         + " Got (" + (digestof expect).string() + ") is ("
         + (digestof actual).string() + ")"),
       true)
     true
 
-  fun ref assert_isnt[A](
+  fun assert_isnt[A](
     not_expect: A,
     actual: A,
     msg: String = "",
@@ -174,14 +182,14 @@ class ref PropertyHelper
       return false
     end
 
-    _th.log(
+    _runner.log(
       _fmt_msg(loc, "Assert isn't passed. " + msg
         + " Got (" + (digestof not_expect).string() + ") isnt ("
         + (digestof actual).string() + ")"),
       true)
     true
 
-  fun ref assert_eq[A: (Equatable[A] #read & Stringable #read)](
+  fun assert_eq[A: (Equatable[A] #read & Stringable #read)](
     expect: A,
     actual: A,
     msg: String = "",
@@ -197,12 +205,12 @@ class ref PropertyHelper
       return false
     end
 
-    _th.log(_fmt_msg(loc, "Assert eq passed. " + msg
+    _runner.log(_fmt_msg(loc, "Assert eq passed. " + msg
       + " Got (" + expect.string() + ") == (" + actual.string() + ")"),
       true)
     true
 
-  fun ref assert_ne[A: (Equatable[A] #read & Stringable #read)](
+  fun assert_ne[A: (Equatable[A] #read & Stringable #read)](
     not_expect: A,
     actual: A,
     msg: String = "",
@@ -219,13 +227,13 @@ class ref PropertyHelper
       return false
     end
 
-    _th.log(
+    _runner.log(
       _fmt_msg(loc, "Assert ne passed. " + msg
         + " Got (" + not_expect.string() + ") != (" + actual.string() + ")"),
       true)
     true
 
-  fun ref assert_array_eq[A: (Equatable[A] #read & Stringable #read)](
+  fun assert_array_eq[A: (Equatable[A] #read & Stringable #read)](
     expect: ReadSeq[A],
     actual: ReadSeq[A],
     msg: String = "",
@@ -261,13 +269,13 @@ class ref PropertyHelper
       return false
     end
 
-    _th.log(
+    _runner.log(
       _fmt_msg(loc, "Assert EQ passed. " + msg + " Got ("
         + _print_array[A](expect) + ") == (" + _print_array[A](actual) + ")"),
       true)
     true
 
-  fun ref assert_array_eq_unordered[A: (Equatable[A] #read & Stringable #read)](
+  fun assert_array_eq_unordered[A: (Equatable[A] #read & Stringable #read)](
     expect: ReadSeq[A],
     actual: ReadSeq[A],
     msg: String = "",
@@ -313,7 +321,7 @@ class ref PropertyHelper
         )
         return false
       end
-      _th.log(
+      _runner.log(
         _fmt_msg(
           loc,
           "Assert EQ_UNORDERED passed. "
@@ -342,12 +350,100 @@ class ref PropertyHelper
 
 /****** END DUPLICATION FROM TESTHELPER *********/
 
-  fun ref _fail(msg: String) =>
-    _did_fail = true
-    _th.log(msg)
+  fun expect_action(name: String) =>
+    """
+    expect some action of the given name to complete
+    for the property to hold.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+
+    Call `complete_action(name)` or `fail_action(name)`
+    to mark some action as completed.
+
+    Example:
+
+    ```pony
+      actor AsyncActor
+
+        let _ph: PropertyHelper
+
+        new create(ph: PropertyHelper) =>
+          _ph = ph
+
+        be complete(s: String) =>
+          if (s.size() % 2) == 0 then
+            _ph.complete_action("is_even")
+          else
+            _ph.fail_action("is_even")
+
+      class EvenStringProperty is Property1[String]
+        fun name(): String => "even_string"
+
+        fun gen(): Generator[String] =>
+          Generators.ascii()
+
+      fun property(arg1: String, ph: PropertyHelper) =>
+        ph.expect_action("is_even")
+        AsyncActor(ph).check(arg1)
+    ```
+
+    """
+    _runner.expect_action(name)
+
+  fun val complete_action(name: String) =>
+    """
+    Complete an expected action successfully.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+
+    If the action `name` was not expected, i.e. was not registered using
+    `expect_action`, nothing happens.
+    """
+    _runner.complete_action(name, this)
+
+  fun val fail_action(name: String) =>
+    """
+    Mark an expected action as failed.
+
+    If all expected actions are completed successfully,
+    the property is considered successful.
+
+    If 1 action fails, the property is considered failing.
+    """
+    _runner.fail_action(name, this)
+
+  fun complete(success: Bool) =>
+    """
+    Complete an asynchronous property successfully.
+
+    Once this method is called the property
+    is considered successful or failing
+    depending on the value of the parameter `success`.
+
+    For more fine grained control over completing or failing
+    a property that consists of many steps, consider using
+    `expect_action`, `complete_action` and `fail_action`.
+    """
+    _run_notify.apply(success)
+
+  fun dispose_when_done(disposable: DisposableActor) =>
+    """
+    Dispose the actor after a property run / a shrink is done.
+    """
+    _runner.dispose_when_done(disposable)
+
+  fun _fail(msg: String) =>
+    _runner.log(msg)
+    _run_notify.apply(false)
 
   fun _fmt_msg(loc: SourceLoc, msg: String): String =>
-    let msg_prefix = _params_fmt + " " + _format_loc(loc)
+    let msg_prefix = _run_context + " " + _format_loc(loc)
     if msg.size() > 0 then
       msg_prefix + ": " + msg
     else
@@ -357,53 +453,4 @@ class ref PropertyHelper
   fun _format_loc(loc: SourceLoc): String =>
     loc.file() + ":" + loc.line().string()
 
-  fun tag _format_params(params: PropertyParams): String =>
-    "Params(seed=" + params.seed.string() + ")"
 
-  fun report_error(sample_repr: String,
-    shrink_rounds: USize = 0,
-    loc: SourceLoc = __loc) =>
-    """
-    report an error that happened during property evaluation
-    and signal failure to the notify
-    """
-    _th.fail(
-      _fmt_msg(
-        loc,
-        "Property errored for sample "
-          + sample_repr
-          + " (after "
-          + shrink_rounds.string()
-          + " shrinks)"
-      )
-    )
-
-  fun report_failed(sample_repr: String,
-    shrink_rounds: USize = 0,
-    loc: SourceLoc = __loc) =>
-    """
-    report a failed property and signal failure to the notify
-    """
-    _th.fail(
-      _fmt_msg(
-        loc,
-        "Property failed for sample "
-          + sample_repr
-          + " (after "
-          + shrink_rounds.string()
-          + " shrinks)"
-      )
-    )
-
-  fun failed(): Bool =>
-    """
-    returns true if a property has failed using this instance
-    """
-    _did_fail
-
-  fun ref reset() =>
-    """
-    reset the state of this instance,
-    so that it can be reused for further property executions
-    """
-    _did_fail = false
