@@ -269,6 +269,10 @@ type WeightedGenerator[T] is (USize, Generator[T] box)
   """
 
 primitive Generators
+  """
+  Convenience combinators and factories for common types and kind of Generators.
+  """
+
   fun unit[T](t: T, do_shrink: Bool = false): Generator[box->T] =>
     """
     Generate a reference to the same value over and over again.

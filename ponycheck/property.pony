@@ -8,7 +8,7 @@ class val PropertyParams is Stringable
   * num_samples: the number of samples to produce from the property generator
   * max_shrink_rounds: the maximum rounds of shrinking to perform
   * timeout: the timeout for the ponytest runner, in nanoseconds
-  * async: if true th property is expected to finish asynchronously by calling
+  * async: if true the property is expected to finish asynchronously by calling
     `PropertyHelper.complete(...)`
   """
   let seed: U64

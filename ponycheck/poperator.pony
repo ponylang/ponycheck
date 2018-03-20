@@ -1,10 +1,10 @@
 class ref Poperator[T] is Iterator[T^]
   """
-  iterate over a `Seq` descructively by `pop`ing its elements
+  iterate over a [Seq](builtin-Seq) descructively by `pop`ing its elements
 
-  once `has_next()` returns `false`, the `Seq` is empty.
+  once `has_next()` returns `false`, the [Seq](builtin-Seq) is empty.
 
-  Nominee for the annual pony class-naming awards
+  Nominee for the annual pony class-naming awards.
   """
 
   let _seq: Seq[T]

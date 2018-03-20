@@ -1,5 +1,5 @@
 
-interface val PropertyRunNotify
+interface val _PropertyRunNotify
   """
   simple callback for notifying the runner
   that a run completed
@@ -28,23 +28,31 @@ class val PropertyHelper
   """
   Helper for ponycheck properties.
 
-  Contains assertion methods.
+  Mirrors the [TestHelper](ponytest-TestHelper) API as close as possible.
 
-  Mirrors the TestHelper assertion API.
+  Contains assertion functions and functions for completing asynchronous
+  properties, for expecting and completing or failing actions.
 
-  logic: don't just fail the runner if an assert method failed,
-  record the fail and mark this helper as failed,
-  so we can get into the shrinking and reporting phases.
+  Internally a new PropertyHelper will be created for each call to
+  a property with a new sample and also for every shrink run.
+  So don't assume anything about the identity of the PropertyHelper inside of
+  your Properties.
+
+  This class is `val` by default so it can be safely passed around to other
+  actors.
+
+  It exposes the process [Env](builtin-Env) as public `env` field in order to
+  give access to the root authority and other stuff.
   """
   let _runner: _IPropertyRunner
-  let _run_notify: PropertyRunNotify
+  let _run_notify: _PropertyRunNotify
   let _run_context: String
 
   let env: Env
 
   new val create(env': Env,
                  runner: _IPropertyRunner,
-                 run_notify: PropertyRunNotify,
+                 run_notify: _PropertyRunNotify,
                  run_context: String) =>
     env = env'
     _runner = runner

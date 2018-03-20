@@ -1,10 +1,47 @@
 use "ponytest"
 
 class iso Property1UnitTest[T] is UnitTest
+  """
+  provides plumbing for integration of ponycheck
+  [Properties](ponycheck-Property1) into [ponytest](ponytest--index).
+
+  Wrap your properties into this class and use it in a
+  [TestList](ponytest-TestList):
+
+  ```pony
+  use "ponytest"
+  use "ponycheck"
+
+  class MyProperty is Property1[String]
+    fun name(): String => "my_property"
+
+    fun gen(): Generator[String] =>
+      Generatos.ascii_printable()
+
+    fun property(arg1: String, h: PropertyHelper) =>
+      h.assert_true(arg1.size() > 0)
+
+  actor Main is TestList
+    new create(env: Env) => PonyTest(env, this)
+
+    fun tag tests(test: PonyTest) =>
+      test(Property1UnitTest[String](MyProperty))
+
+  ```
+
+
+
+  """
   var _prop1: ( Property1[T] iso | None )
   let _name: String
 
   new iso create(p1: Property1[T] iso, name': (String | None) = None) =>
+    """
+    Wrap a [Property1](ponycheck-Property1) to make it mimick the a ponytest
+    [UnitTest](ponytest-UnitTest).
+
+    If `name'` is given, use this as the test name, if not use the properties `name()`.
+    """
     _name =
       match name'
       | None => p1.name()

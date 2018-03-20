@@ -55,8 +55,9 @@ class iso RunnerAsyncCompleteActionTest is UnitTest
     Async.run_async_test(
       h,
       {(ph) =>
-        ph.expect_action("blaaaa")
-        ph.complete_action("blaaaa")
+        let action = "blaaaa"
+        ph.expect_action(action)
+        ph.complete_action(action)
       },
       true)
 
@@ -68,8 +69,9 @@ class iso RunnerAsyncCompleteFalseActionTest is UnitTest
     Async.run_async_test(
       h,
       {(ph) =>
-        ph.expect_action("blaaaa")
-        ph.fail_action("blaaaa")
+        let action = "blaaaa"
+        ph.expect_action(action)
+        ph.fail_action(action)
       }, false)
 
 class iso RunnerAsyncCompleteMultiActionTest is UnitTest
@@ -80,9 +82,10 @@ class iso RunnerAsyncCompleteMultiActionTest is UnitTest
     Async.run_async_test(
       h,
       {(ph) =>
-        ph.expect_action("only-once")
-        ph.fail_action("only-once")
-        ph.complete_action("only-once") // should be ignored
+        let action = "only-once"
+        ph.expect_action(action)
+        ph.fail_action(action)
+        ph.complete_action(action) // should be ignored
       },
       false)
 

@@ -2,7 +2,7 @@ use "random"
 
 class ref Randomness
   """
-  source of randomness, providing method for generatic uniformly distributed
+  Source of randomness, providing methods for generatic uniformly distributed
   values from a given closed interval: [min, max]
   in order for the user to be able to generate every possible value for a given
   primitive numeric type.
