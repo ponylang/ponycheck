@@ -103,13 +103,14 @@ for reporting.
 use "ponytest"
 
 primitive Ponycheck
-  fun for_all[T](gen: Generator[T] val, h: TestHelper): _ForAll[T] =>
+  fun for_all[T](gen: Generator[T] val, h: TestHelper): ForAll[T] =>
     """
     convenience method for running 1 to many properties as part of
     one ponytest UnitTest.
 
     Example:
-      ```pony
+
+    ```pony
       class MyTestWithSomeProperties is UnitTest
         fun name(): String => "mytest/withMultipleProperties"
 
@@ -119,6 +120,6 @@ primitive Ponycheck
               h.assert_eq(u, 0)
               consume u
             })
-      ```
+    ```
     """
-    _ForAll[T](gen, h)
+    ForAll[T](gen, h)

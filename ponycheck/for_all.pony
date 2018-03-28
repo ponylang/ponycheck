@@ -1,6 +1,6 @@
 use "ponytest"
 
-class _ForAll[T]
+class ForAll[T]
   let _gen: Generator[T] val
   let _helper: TestHelper
 

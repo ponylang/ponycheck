@@ -8,8 +8,6 @@ class ref Randomness
   primitive numeric type.
 
   All primitive number method create numbers in range [min, max)
-
-  TODO: fix creation of signed values
   """
   let _random: Random
 
