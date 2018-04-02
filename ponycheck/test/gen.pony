@@ -309,3 +309,43 @@ class UTF32CodePointStringTest is UnitTest
       end
     end
 
+class OneOfTest is UnitTest
+  fun name(): String => "Gen/one_of"
+  fun apply(h: TestHelper) ? =>
+    let rnd = Randomness(Time.millis())
+    let samples = [ "ABC"; "DEF" ]
+    let one_of_gen = Generators.one_of[String](samples)?
+    for i in Range[USize](0, 100) do
+      let sample = one_of_gen.generate_value(rnd)
+      h.assert_true(samples.contains(sample))
+    end
+
+type _Nu is (U64, {(U64): U64} val)
+
+class OneOfTupleTest is UnitTest
+  fun name(): String => "Gen/one_of"
+  fun apply(h: TestHelper) =>
+    let rnd = Randomness(Time.millis())
+    let samples: Array[_Nu] =
+      [
+        (1, {(u) => u + 1 } val)
+        (2, {(u) => u + 2 } val)
+      ]
+    let gen = Generators.seq_of[_Nu, Array[_Nu]](
+      Generators.u64().flat_map[_Nu](
+        {(u: U64): Generator[_Nu] =>
+          try
+            Generators.one_of[_Nu](samples)?
+          else
+            Generators.unit[_Nu]((u, {(uu) => uu + 1}))
+          end
+        }
+      )
+    )
+    for i in Range[USize](0, 100) do
+      let sample_array = gen.generate_value(rnd)
+      for sample in sample_array.values() do
+        h.assert_true(samples.contains(sample))
+      end
+    end
+

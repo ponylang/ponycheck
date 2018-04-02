@@ -29,6 +29,8 @@ actor Main is TestList
     test(MultipleForAllTest)
     test(ASCIIRangeTest)
     test(UTF32CodePointStringTest)
+    test(OneOfTest)
+    test(OneOfTupleTest)
     test(SignedShrinkTest)
     test(UnsignedShrinkTest)
     test(ASCIIStringShrinkTest)
