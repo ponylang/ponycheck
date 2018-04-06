@@ -378,6 +378,21 @@ primitive Generators
           (consume result, shrink_iter)
       end)
 
+  fun array_of[T](
+    gen: Generator[T],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[Array[T]]
+  =>
+    Generators.seq_of[T, Array[T]](gen, min, max)
+
+  fun list_of[T](
+    gen: Generator[T],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[List[T]]
+  =>
+    Generators.seq_of[T, List[T]](gen, min, max)
 
   fun set_of[T: (Hashable #read & Equatable[T] #read)](
     gen: Generator[T],
