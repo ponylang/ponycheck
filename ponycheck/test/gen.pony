@@ -43,6 +43,32 @@ class GenFilterTest is UnitTest
       h.assert_true((v%2) == 0)
     end
 
+class GenUnionTest is UnitTest
+  fun name(): String => "Gen/union"
+
+  fun apply(h: TestHelper) =>
+    """
+    assert that a unioned Generator
+    produces shrinks of the same type than the generated value.
+    """
+    let gen = Generators.ascii().union[U8](Generators.u8())
+    let rnd = Randomness(Time.millis())
+    for x in Range(0, 100) do
+      let gs = gen.generate(rnd)
+      match gs
+      | (let vs: String, let shrink_iter: Iterator[String^]) =>
+        h.assert_true(shrink_iter.has_next())
+      | (let vs: U8, let shrink_iter: Iterator[U8^]) =>
+        h.assert_true(shrink_iter.has_next())
+      | (let vs: U8, let shrink_iter: Iterator[String^]) =>
+        h.fail("u8 value, string shrink iter")
+      | (let vs: String, let shrink_iter: Iterator[U8^]) =>
+        h.fail("string value, u8 shrink iter")
+      else
+        h.fail("invalid type generated")
+      end
+    end
+
 class GenFrequencyTest is UnitTest
   fun name(): String => "Gen/frequency"
 

@@ -263,6 +263,29 @@ class box Generator[T] is GenObj[T]
 
       end)
 
+  fun union[U](other: Generator[U]): Generator[(T | U)] =>
+    """
+    Create a generator that produces the value of this generator or the other
+    with the same probability, returning a union type of this generator and the other one.
+    """
+    Generator[(T | U)](
+      object is GenObj[(T | U)]
+        fun generate(rnd: Randomness): GenerateResult[(T | U)] =>
+          if rnd.bool() then
+            _gen.generate_and_shrink(rnd)
+          else
+            other.generate_and_shrink(rnd)
+          end
+
+        fun shrink(t: (T | U)): ValueAndShrink[(T | U )] =>
+          match t
+          | let tt: T => _gen.shrink(consume tt)
+          | let tu: U => other.shrink(consume tu)
+          end
+      end
+    )
+
+
 type WeightedGenerator[T] is (USize, Generator[T] box)
   """
   A generator with an associated weight, used in Generators.frequency.
