@@ -305,6 +305,10 @@ primitive _Stringify
         str.string()
       | let rs: ReadSeq[Stringable] =>
         "[" + " ".join(rs.values()) + "]"
+      | (let s1: Stringable, let s2: Stringable) =>
+        "(" + s1.string() + ", " + s2.string() + ")"
+      | (let s1: Stringable, let s2: ReadSeq[Stringable]) =>
+        "(" + s1.string() + ", " + "[" + " ".join(s2.values()) + "]" + ")"
       else
         "<identity:" + digest.string() + ">"
       end
