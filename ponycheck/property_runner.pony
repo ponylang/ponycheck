@@ -129,7 +129,7 @@ actor PropertyRunner[T]
 
 // SHRINKING //
 
-  be complete_shrink(shrink_repr: String, shrink_round: USize, success: Bool) =>
+  be complete_shrink(failed_repr: String, last_repr: String, shrink_round: USize, success: Bool) =>
 
     // verify that this is an expected call
     if _expected_round != shrink_round then
@@ -144,36 +144,34 @@ actor PropertyRunner[T]
 
     if success then
       // we have a sample that did not fail and thus can stop shrinking
-      //_logger.log("shrink: " + shrink_repr + " did not fail")
-      fail(shrink_repr, shrink_round)
+      fail(failed_repr, shrink_round)
 
     else
       // we have a failing shrink sample, recurse
-      //_logger.log("shrink: " + shrink_repr + " did fail")
-      do_shrink(shrink_repr, shrink_round + 1)
+      do_shrink(last_repr, shrink_round + 1)
     end
 
-  be do_shrink(repr: String, shrink_round: USize = 0) =>
+  be do_shrink(failed_repr: String, shrink_round: USize = 0) =>
 
     // shrink iters can be infinite, so we need to limit
     // the examples we consider during shrinking
     if shrink_round == _params.max_shrink_rounds then
-      fail(repr, shrink_round)
+      fail(failed_repr, shrink_round)
       return
     end
 
-    (let shrink, let shrink_repr) =
+    (let shrink, let current_repr) =
       try
         _Stringify.apply[T](_shrinker.next()?)
       else
         // no more shrink samples, report previous failed example
-        fail(repr, shrink_round)
+        fail(failed_repr, shrink_round)
         return
       end
     // callback for asynchronous shrinking or aborting on error case
     let run_notify =
       recover val
-        this~complete_shrink(shrink_repr, shrink_round)
+        this~complete_shrink(failed_repr, current_repr, shrink_round)
       end
     let helper = PropertyHelper(
       _env,
@@ -185,17 +183,21 @@ actor PropertyRunner[T]
     try
       _prop1.property(consume shrink, helper)?
     else
-      fail(shrink_repr, shrink_round where err=true)
+      fail(current_repr, shrink_round where err=true)
       return
     end
     // dispatch to another behaviour
     // to ensure _complete_shrink has been called already
-    _shrink_finished(shrink_repr, shrink_round)
+    _shrink_finished(failed_repr, current_repr, shrink_round)
 
-  be _shrink_finished(shrink_repr: String, shrink_round: USize) =>
+  be _shrink_finished(
+    failed_repr: String,
+    current_repr: String,
+    shrink_round: USize)
+  =>
     if not _params.async and _pass then
       // directly complete the shrink run
-      complete_shrink(shrink_repr, shrink_round, true)
+      complete_shrink(failed_repr, current_repr, shrink_round, true)
     end
 
 // interface towards PropertyHelper

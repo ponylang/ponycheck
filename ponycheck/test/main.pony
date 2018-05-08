@@ -38,6 +38,7 @@ actor Main is TestList
     test(MinUnicodeStringShrinkTest)
     test(FilterMapShrinkTest)
     test(RunnerInfiniteShrinkTest)
+    test(RunnerReportFailedSampleTest)
     test(RunnerAsyncPropertyCompleteTest)
     test(RunnerAsyncPropertyCompleteFalseTest)
     test(RunnerAsyncFailTest)
@@ -46,3 +47,4 @@ actor Main is TestList
     test(RunnerAsyncCompleteMultiSucceedActionTest)
     test(RunnerAsyncMultiCompleteSucceedTest)
     test(RunnerAsyncMultiCompleteFailTest)
+
