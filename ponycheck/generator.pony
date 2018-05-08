@@ -1,6 +1,7 @@
 use "collections"
 use "assert"
 use "itertools"
+use "debug"
 
 type ValueAndShrink[T1] is (T1^, Iterator[T1^])
   """
@@ -38,29 +39,29 @@ class CountdownIter[T: (Int & Integer[T] val) = USize] is Iterator[T]
     res
 
 trait box GenObj[T]
-  fun generate(rnd: Randomness): GenerateResult[T]
+  fun generate(rnd: Randomness): GenerateResult[T] ?
 
   fun shrink(t: T): ValueAndShrink[T] =>
     (consume t, Poperator[T].empty())
 
-  fun generate_value(rnd: Randomness): T^ =>
+  fun generate_value(rnd: Randomness): T^ ? =>
     """
     simply generate a value and ignore any possible
     shrink values
     """
     let g = this
-    match g.generate(rnd)
+    match g.generate(rnd)?
     | let t: T => consume t
     | (let t: T, _) => consume t
     end
 
-  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =>
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] ? =>
     """
     generate a value and also return a shrink result
     even if the generator does not return any when calling `generate`.
     """
     let g = this
-    match g.generate(rnd)
+    match g.generate(rnd)?
     | let t: T => g.shrink(consume t)
     | (let t: T, let shrinks: Iterator[T^])=> (consume t, shrinks)
     end
@@ -70,7 +71,7 @@ trait box GenObj[T]
 
     object is Iterator[GenerateResult[T]]
       fun ref has_next(): Bool => true
-      fun ref next(): GenerateResult[T] => that.generate(rnd)
+      fun ref next(): GenerateResult[T] ? => that.generate(rnd)?
     end
 
   fun value_iter(rnd: Randomness): Iterator[T^] =>
@@ -78,8 +79,8 @@ trait box GenObj[T]
 
     object is Iterator[T^]
       fun ref has_next(): Bool => true
-      fun ref next(): T^ =>
-        match that.generate(rnd)
+      fun ref next(): T^ ? =>
+        match that.generate(rnd)?
         | let value_only: T => consume value_only
         | (let v: T, _) => consume v
         end
@@ -90,8 +91,8 @@ trait box GenObj[T]
 
     object is Iterator[ValueAndShrink[T]]
       fun ref has_next(): Bool => true
-      fun ref next(): ValueAndShrink[T] =>
-        match that.generate(rnd)
+      fun ref next(): ValueAndShrink[T] ? =>
+        match that.generate(rnd)?
         | let value_only: T => that.shrink(consume value_only)
         | (let v: T, let shrinks: Iterator[T^]) => (consume v, consume shrinks)
         end
@@ -122,7 +123,7 @@ class box Generator[T] is GenObj[T]
   new create(gen: GenObj[T]) =>
     _gen = gen
 
-  fun generate(rnd: Randomness): GenerateResult[T] =>
+  fun generate(rnd: Randomness): GenerateResult[T] ? =>
     """
     Let this generator generate a value
     given a source of `Randomness`.
@@ -141,7 +142,7 @@ class box Generator[T] is GenObj[T]
     shrinking at all.
     If generating values is lightweight, shrunken values should also be returned.
     """
-    _gen.generate(rnd)
+    _gen.generate(rnd)?
 
   fun shrink(t: T): ValueAndShrink[T] =>
     """
@@ -153,11 +154,11 @@ class box Generator[T] is GenObj[T]
     """
     _gen.shrink(consume t)
 
-  fun generate_value(rnd: Randomness): T^ =>
-    _gen.generate_value(rnd)
+  fun generate_value(rnd: Randomness): T^ ? =>
+    _gen.generate_value(rnd)?
 
-  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] =>
-    _gen.generate_and_shrink(rnd)
+  fun generate_and_shrink(rnd: Randomness): ValueAndShrink[T] ? =>
+    _gen.generate_and_shrink(rnd)?
 
   fun filter(predicate: {(T): (T^, Bool)} box): Generator[T] =>
     """
@@ -175,11 +176,11 @@ class box Generator[T] is GenObj[T]
     """
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): GenerateResult[T] =>
-          (let t: T, let shrunken: Iterator[T^]) = _gen.generate_and_shrink(rnd)
+        fun generate(rnd: Randomness): GenerateResult[T] ? =>
+          (let t: T, let shrunken: Iterator[T^]) = _gen.generate_and_shrink(rnd)?
           (let t1, let matches) = predicate(consume t)
           if not matches then
-            generate(rnd) // recurse, this might recurse infinitely
+            generate(rnd)? // recurse, this might recurse infinitely
           else
             // filter the shrunken examples
             (consume t1, _filter_shrunken(shrunken))
@@ -220,9 +221,9 @@ class box Generator[T] is GenObj[T]
     """
     Generator[U](
       object is GenObj[U]
-        fun generate(rnd: Randomness): GenerateResult[U] =>
+        fun generate(rnd: Randomness): GenerateResult[U] ? =>
           (let generated: T, let shrunken: Iterator[T^]) =
-            _gen.generate_and_shrink(rnd)
+            _gen.generate_and_shrink(rnd)?
 
           (fn(consume generated), _map_shrunken(shrunken))
 
@@ -257,9 +258,9 @@ class box Generator[T] is GenObj[T]
     // TODO: enable proper shrinking:
     Generator[U](
       object is GenObj[U]
-        fun generate(rnd: Randomness): GenerateResult[U] =>
-          let value: T = _gen.generate_value(rnd)
-          fn(consume value).generate_and_shrink(rnd)
+        fun generate(rnd: Randomness): GenerateResult[U] ? =>
+          let value: T = _gen.generate_value(rnd)?
+          fn(consume value).generate_and_shrink(rnd)?
 
       end)
 
@@ -270,11 +271,11 @@ class box Generator[T] is GenObj[T]
     """
     Generator[(T | U)](
       object is GenObj[(T | U)]
-        fun generate(rnd: Randomness): GenerateResult[(T | U)] =>
+        fun generate(rnd: Randomness): GenerateResult[(T | U)] ? =>
           if rnd.bool() then
-            _gen.generate_and_shrink(rnd)
+            _gen.generate_and_shrink(rnd)?
           else
-            other.generate_and_shrink(rnd)
+            other.generate_and_shrink(rnd)?
           end
 
         fun shrink(t: (T | U)): ValueAndShrink[(T | U )] =>
@@ -284,7 +285,6 @@ class box Generator[T] is GenObj[T]
           end
       end
     )
-
 
 type WeightedGenerator[T] is (USize, Generator[T] box)
   """
@@ -314,7 +314,9 @@ primitive Generators
           end
       end)
 
-  fun repeatedly[T](f: {(): T^} box): Generator[T] =>
+  fun none[T: None](): Generator[(T | None)] => Generators.unit[(T | None)](None)
+
+  fun repeatedly[T](f: {(): T^ ?} box): Generator[T] =>
     """
     Generate values by calling the lambda ``f`` repeatedly,
     once for every invocation of ``generate``.
@@ -337,8 +339,8 @@ primitive Generators
     """
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): GenerateResult[T] =>
-          f()
+        fun generate(rnd: Randomness): GenerateResult[T] ? =>
+          f()?
       end)
 
 
@@ -551,35 +553,38 @@ primitive Generators
       end)
 
 
-  fun one_of[T](xs: ReadSeq[T], do_shrink: Bool = false): Generator[box->T] ? =>
+  fun one_of[T](xs: ReadSeq[T], do_shrink: Bool = false): Generator[box->T] =>
     """
-    Generate a random value from the given ReadSeq. An error will be thrown
-    if the given ReadSeq is empty.
+    Generate a random value from the given ReadSeq.
+    This generator will generate nothing if the given xs is empty.
 
     Generators created with this method do not support shrinking.
+    If `do_shrink` is set to `true`, it will return the same value
+    for each shrink round. Otherwise it will return nothing.
     """
-    Fact(xs.size() > 0, "cannot use one_of on empty ReadSeq")?
 
     Generator[box->T](
-      let err: box->T = xs(0)?
       object is GenObj[box->T]
-        fun generate(rnd: Randomness): GenerateResult[box->T] =>
+        fun generate(rnd: Randomness): GenerateResult[box->T] ? =>
           let idx = rnd.usize(0, xs.size() - 1)
-          try
-            let res = xs(idx)?
-            if do_shrink then
-              (res, Iter[box->T].repeat_value(res))
-            else
-              res
-            end
+          let res = xs(idx)?
+          if do_shrink then
+            (res, Iter[box->T].repeat_value(res))
           else
-            err // will never occur
+            res
           end
       end)
 
+  fun one_of_safe[T](xs: ReadSeq[T], do_shrink: Bool = false): Generator[box->T] ? =>
+    """
+    Version of `one_of` that will error if `xs` is empty.
+    """
+    Fact(xs.size() > 0, "cannot use one_of_safe on empty ReadSeq")?
+    Generators.one_of[T](xs, do_shrink)
+
   fun frequency[T](
     weighted_generators: ReadSeq[WeightedGenerator[T]])
-    : Generator[T] ?
+    : Generator[T]
   =>
     """
     chose a value of one of the given Generators,
@@ -601,15 +606,12 @@ primitive Generators
     ])
     ```
     """
-    Fact(weighted_generators.size() > 0, "cannot use frequency on empty ReadSeq[WeightedGenerator]")?
 
     // nasty hack to avoid handling the theoretical error case where we have
     // no generator and thus would have to change the type signature
-    let err = weighted_generators(0)?._2
-
     Generator[T](
       object is GenObj[T]
-        fun generate(rnd: Randomness): GenerateResult[T] =>
+        fun generate(rnd: Randomness): GenerateResult[T] ? =>
           let weight_sum: USize =
             Iter[WeightedGenerator[T]](weighted_generators.values())
               .fold[USize](
@@ -623,7 +625,7 @@ primitive Generators
           var chosen: (Generator[T] | None) = None
           for weighted_gen in weighted_generators.values() do
             let new_sum = running_sum + weighted_gen._1
-            if (running_sum < desired_sum) and (desired_sum <= new_sum) then
+            if ((desired_sum == 0) or ((running_sum < desired_sum) and (desired_sum <= new_sum))) then
               // we just crossed or reached the desired sum
               chosen = weighted_gen._2
               break
@@ -633,10 +635,25 @@ primitive Generators
             end
           end
           match chosen
-          | let x: Generator[T] box => x.generate(rnd)
-          | None => err.generate(rnd)
+          | let x: Generator[T] box => x.generate(rnd)?
+          | None =>
+            Debug("chosen is None, desired_sum: " + desired_sum.string() +
+              "running_sum: " + running_sum.string())
+            error
           end
       end)
+
+  fun frequency_safe[T](
+    weighted_generators: ReadSeq[WeightedGenerator[T]])
+    : Generator[T] ?
+  =>
+    """
+    Version of `frequency` that errors if the given `weighted_generators` is
+    empty.
+    """
+    Fact(weighted_generators.size() > 0,
+     "cannot use frequency_safe on empty ReadSeq[WeightedGenerator]")?
+    Generators.frequency[T](weighted_generators)
 
   fun zip2[T1, T2](
     gen1: Generator[T1],
@@ -649,11 +666,11 @@ primitive Generators
     """
     Generator[(T1, T2)](
       object is GenObj[(T1, T2)]
-        fun generate(rnd: Randomness): GenerateResult[(T1, T2)] =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2)] ? =>
           (let v1: T1, let shrinks1: Iterator[T1^]) =
-            gen1.generate_and_shrink(rnd)
+            gen1.generate_and_shrink(rnd)?
           (let v2: T2, let shrinks2: Iterator[T2^]) =
-            gen2.generate_and_shrink(rnd)
+            gen2.generate_and_shrink(rnd)?
           ((consume v1, consume v2), Iter[T1^](shrinks1).zip[T2^](shrinks2))
 
         fun shrink(t: (T1, T2)): ValueAndShrink[(T1, T2)] =>
@@ -677,13 +694,13 @@ primitive Generators
     """
     Generator[(T1, T2, T3)](
       object is GenObj[(T1, T2, T3)]
-        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3)] =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3)] ? =>
           (let v1: T1, let shrinks1: Iterator[T1^]) =
-            gen1.generate_and_shrink(rnd)
+            gen1.generate_and_shrink(rnd)?
           (let v2: T2, let shrinks2: Iterator[T2^]) =
-            gen2.generate_and_shrink(rnd)
+            gen2.generate_and_shrink(rnd)?
           (let v3: T3, let shrinks3: Iterator[T3^]) =
-            gen3.generate_and_shrink(rnd)
+            gen3.generate_and_shrink(rnd)?
           ((consume v1, consume v2, consume v3),
               Iter[T1^](shrinks1).zip2[T2^, T3^](shrinks2, shrinks3))
 
@@ -710,15 +727,15 @@ primitive Generators
     """
     Generator[(T1, T2, T3, T4)](
       object is GenObj[(T1, T2, T3, T4)]
-        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3, T4)] =>
+        fun generate(rnd: Randomness): GenerateResult[(T1, T2, T3, T4)] ? =>
           (let v1: T1, let shrinks1: Iterator[T1^]) =
-            gen1.generate_and_shrink(rnd)
+            gen1.generate_and_shrink(rnd)?
           (let v2: T2, let shrinks2: Iterator[T2^]) =
-            gen2.generate_and_shrink(rnd)
+            gen2.generate_and_shrink(rnd)?
           (let v3: T3, let shrinks3: Iterator[T3^]) =
-            gen3.generate_and_shrink(rnd)
+            gen3.generate_and_shrink(rnd)?
           (let v4: T4, let shrinks4: Iterator[T4^]) =
-            gen4.generate_and_shrink(rnd)
+            gen4.generate_and_shrink(rnd)?
           ((consume v1, consume v2, consume v3, consume v4),
               Iter[T1^](shrinks1).zip3[T2^, T3^, T4^](shrinks2, shrinks3, shrinks4))
 
@@ -1163,7 +1180,7 @@ primitive Generators
     with a minimum length of ``min`` (default: 0)
     and a maximum length of ``max`` (default: 100).
     """
-    let range_bytes = range()
+    let range_bytes = range.apply()
     let fallback = U8(0)
     let range_bytes_gen = usize(0, range_bytes.size()-1)
       .map[U8]({(size) =>
@@ -1298,15 +1315,10 @@ primitive Generators
     let range_2_size = U32(0x10FFFF - 0xE000).usize()
 
     let code_point_gen =
-      try
-        frequency[U32]([
-          (range_1_size, range_1)
-          (range_2_size, range_2)
-        ])?
-      else
-        // should never happen
-        unit[U32](U32(0))
-      end
+      frequency[U32]([
+        (range_1_size, range_1)
+        (range_2_size, range_2)
+      ])
     utf32_codepoint_string(code_point_gen, min, max)
 
   fun unicode_bmp(
@@ -1331,14 +1343,9 @@ primitive Generators
     let range_2_size = U32(0xFFFF - 0xE000).usize()
 
     let code_point_gen =
-      try
-        frequency[U32]([
-          (range_1_size, range_1)
-          (range_2_size, range_2)
-        ])?
-      else
-        // should never happen
-        unit[U32](U32(0))
-      end
+      frequency[U32]([
+        (range_1_size, range_1)
+        (range_2_size, range_2)
+      ])
     utf32_codepoint_string(code_point_gen, min, max)
 

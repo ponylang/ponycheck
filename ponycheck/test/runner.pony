@@ -29,23 +29,6 @@ class iso RunnerInfiniteShrinkTest is UnitTest
 
   fun apply(h: TestHelper) =>
 
-    let logger =
-      object val is PropertyLogger
-        fun log(msg: String, verbose: Bool) =>
-          h.log(msg, verbose)
-      end
-    let notify =
-      object val is PropertyResultNotify
-        let _logger: PropertyLogger = logger
-
-        fun fail(msg: String) =>
-          _logger.log("FAIL: " + msg)
-          h.complete(true)
-
-        fun complete(success: Bool) =>
-          _logger.log("COMPLETE: " + success.string())
-          h.complete(not success)
-      end
     let property = recover iso InfiniteShrinkProperty end
     let params = property.params()
 
@@ -54,8 +37,79 @@ class iso RunnerInfiniteShrinkTest is UnitTest
     let runner = PropertyRunner[String](
       consume property,
       params,
-      notify,
-      logger,
+      UnitTestPropertyNotify(h, false),
+      UnitTestPropertyLogger(h),
+      h.env)
+    runner.run()
+
+class ErroringGeneratorProperty is Property1[String]
+  fun name(): String => "property_runner/erroring_generator/property"
+
+  fun gen(): Generator[String] =>
+    Generator[String](
+      object is GenObj[String]
+        fun generate(r: Randomness): String^ ? =>
+          error
+      end)
+
+  fun property(sample: String, h: PropertyHelper) =>
+    None
+
+class iso RunnerErroringGeneratorTest is UnitTest
+  fun name(): String => "property_runner/erroring_generator"
+
+  fun apply(h: TestHelper) =>
+    let property = recover iso ErroringGeneratorProperty end
+    let params = property.params()
+
+    h.long_test(params.timeout)
+
+    let runner = PropertyRunner[String](
+      consume property,
+      params,
+      UnitTestPropertyNotify(h, false),
+      UnitTestPropertyLogger(h),
+      h.env)
+    runner.run()
+
+class SometimesErroringGeneratorProperty is Property1[String]
+  fun name(): String => "property_runner/sometimes_erroring_generator"
+  fun params(): PropertyParams =>
+    PropertyParams(where
+      num_samples' = 3,
+      seed' = 6, // known seed to produce a value, an error and a value
+      max_generator_retries' = 1
+    )
+  fun gen(): Generator[String] =>
+    Generator[String](
+      object is GenObj[String]
+        fun generate(r: Randomness): String^ ? =>
+          match (r.u64() % 2)
+          | 0 => "foo"
+          else
+            error
+          end
+      end
+    )
+
+  fun property(sample: String, h: PropertyHelper) =>
+    None
+
+
+class RunnerSometimesErroringGeneratorTest is UnitTest
+  fun name(): String => "property_runner/sometimes_erroring_generator"
+
+  fun apply(h: TestHelper) =>
+    let property = recover iso SometimesErroringGeneratorProperty end
+    let params = property.params()
+
+    h.long_test(params.timeout)
+
+    let runner = PropertyRunner[String](
+      consume property,
+      params,
+      UnitTestPropertyNotify(h, true),
+      UnitTestPropertyLogger(h),
       h.env)
     runner.run()
 

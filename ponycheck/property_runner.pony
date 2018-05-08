@@ -95,6 +95,18 @@ actor PropertyRunner[T]
       run(round + 1)
     end
 
+  fun ref _generate_with_retry(max_retries: USize): ValueAndShrink[T] ? =>
+    var tries: USize = 0
+    repeat
+      try
+        return _gen.generate_and_shrink(_rnd)?
+      else
+        tries = tries + 1
+      end
+    until (tries > max_retries) end
+
+    error
+
   be run(round: USize = 0) =>
     if round >= _params.num_samples then
       complete() // all samples have been successful
@@ -102,7 +114,20 @@ actor PropertyRunner[T]
     end
 
     // prepare property run
-    (var sample, _shrinker) = _gen.generate_and_shrink(_rnd)
+    (var sample, _shrinker) =
+      try
+        _generate_with_retry(_params.max_generator_retries)?
+      else
+        // break out if we were not able to generate a sample
+        _notify.fail(
+          "Unable to generate samples from the given iterator, tried " +
+          _params.max_generator_retries.string() + " times." +
+          " (round: " + round.string() + ")")
+        _notify.complete(false)
+        return
+      end
+
+
     // create a string representation before consuming ``sample`` with property
     (sample, _sample_repr) = _Stringify.apply[T](consume sample)
     let run_notify = recover val this~complete_run(round) end

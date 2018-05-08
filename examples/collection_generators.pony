@@ -56,19 +56,12 @@ class _OperationOnCollectionProperty is Property1[(USize, Array[_OperationOnColl
           Generators.array_of[_OperationOnCollection[String]](
             Generators.usize(0, num_elements-1)
               .flat_map[_OperationOnCollection[String]]({(element) =>
-                try
-                  Generators.one_of[_OperationOnCollection[String]](
-                    [
-                      _OperationOnCollection[String](element, {(s) => recover String.>append(s).>append("foo") end })
-                      _OperationOnCollection[String](element, {(s) => recover String.>append(s).>append("bar") end })
-                    ]
-                  )?
-                else
-                  // unreachable
-                  Generators.unit[_OperationOnCollection[String]](
-                    _OperationOnCollection[String](element, {(s) => s })
-                  )
-                end
+                Generators.one_of[_OperationOnCollection[String]](
+                  [
+                    _OperationOnCollection[String](element, {(s) => recover String.>append(s).>append("foo") end })
+                    _OperationOnCollection[String](element, {(s) => recover String.>append(s).>append("bar") end })
+                  ]
+                )
               })
             )
         Generators.zip2[USize, Array[_OperationOnCollection[String]]](
