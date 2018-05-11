@@ -78,10 +78,11 @@ class GenFrequencyTest is UnitTest
     from different with given frequency
     """
     let gen = Generators.frequency[U8]([
-       as WeightedGenerator[U8]:
-        (1, Generators.unit[U8](0))
-        (0, Generators.unit[U8](42))
-        (2, Generators.unit[U8](1)) ])
+      as WeightedGenerator[U8]:
+      (1, Generators.unit[U8](0))
+      (0, Generators.unit[U8](42))
+      (2, Generators.unit[U8](1))
+    ])
     let rnd: Randomness ref = Randomness(Time.millis())
 
     let generated = Array[U8](100)

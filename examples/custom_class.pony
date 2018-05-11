@@ -125,7 +125,7 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
         fun generate(rnd: Randomness): GenerateResult[MyLittlePony] ? =>
           (let name, let name_shrinks) = name_gen.generate_and_shrink(rnd)?
           (let cuteness, let cuteness_shrinks) =
-          cuteness_gen.generate_and_shrink(rnd)?
+            cuteness_gen.generate_and_shrink(rnd)?
           (let color, let color_shrinks) = color_gen.generate_and_shrink(rnd)?
           let res = MyLittlePony(consume name, consume cuteness, consume color)
           let shrinks =
