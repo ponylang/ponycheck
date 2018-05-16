@@ -46,12 +46,7 @@ class _CustomClassMapProperty is Property1[MyLittlePony]
   fun gen(): Generator[MyLittlePony] =>
     let name_gen = Generators.ascii_letters(5, 10)
     let cuteness_gen = Generators.u64(11, 100)
-    let color_gen =
-      try
-        Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
-      else
-        Generators.unit[Color](Pink)
-      end
+    let color_gen = Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)
     Generators.map3[String, U64, Color, MyLittlePony](
       name_gen,
       cuteness_gen,
@@ -84,11 +79,7 @@ class _CustomClassFlatMapProperty is Property1[MyLittlePony]
     let name_gen = Generators.ascii_letters(5, 10)
     let cuteness_gen = Generators.u64(11, 100)
     let color_gen =
-      try
-        Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
-      else
-        Generators.unit[Color](Pink)
-      end
+      Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)
     color_gen.flat_map[MyLittlePony]({(color: Color)(cuteness_gen, name_gen) =>
       name_gen.flat_map[MyLittlePony]({(name: String)(color, cuteness_gen) =>
         cuteness_gen
@@ -129,16 +120,13 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
         let name_gen: Generator[String] = Generators.ascii_printable(5, 10)
         let cuteness_gen: Generator[U64] = Generators.u64(11, 100)
         let color_gen: Generator[Color] =
-          try
-            Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)?
-          else
-            Generators.unit[Color](Pink)
-          end
+          Generators.one_of[Color]([Blue; Green; Pink; Rose] where do_shrink=true)
 
-        fun generate(rnd: Randomness): GenerateResult[MyLittlePony] =>
-          (let name, let name_shrinks) = name_gen.generate_and_shrink(rnd)
-          (let cuteness, let cuteness_shrinks) = cuteness_gen.generate_and_shrink(rnd)
-          (let color, let color_shrinks) = color_gen.generate_and_shrink(rnd)
+        fun generate(rnd: Randomness): GenerateResult[MyLittlePony] ? =>
+          (let name, let name_shrinks) = name_gen.generate_and_shrink(rnd)?
+          (let cuteness, let cuteness_shrinks) =
+            cuteness_gen.generate_and_shrink(rnd)?
+          (let color, let color_shrinks) = color_gen.generate_and_shrink(rnd)?
           let res = MyLittlePony(consume name, consume cuteness, consume color)
           let shrinks =
             Iter[String^](name_shrinks)

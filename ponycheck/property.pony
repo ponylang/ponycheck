@@ -2,11 +2,12 @@ use "time"
 
 class val PropertyParams is Stringable
   """
-  parameters for Property Execution
+  Parameters to control Property Execution
 
   * seed: the seed for the source of Randomness
   * num_samples: the number of samples to produce from the property generator
   * max_shrink_rounds: the maximum rounds of shrinking to perform
+  * max_generator_retries: the maximum number of retries to do if a generator fails to generate a sample
   * timeout: the timeout for the ponytest runner, in nanoseconds
   * async: if true the property is expected to finish asynchronously by calling
     `PropertyHelper.complete(...)`
@@ -14,6 +15,7 @@ class val PropertyParams is Stringable
   let seed: U64
   let num_samples: USize
   let max_shrink_rounds: USize
+  let max_generator_retries: USize
   let timeout: U64
   let async: Bool
 
@@ -21,12 +23,14 @@ class val PropertyParams is Stringable
     num_samples': USize = 100,
     seed': U64 = Time.millis(),
     max_shrink_rounds': USize = 10,
+    max_generator_retries': USize = 5,
     timeout': U64 = 60_000_000_000,
     async': Bool = false)
   =>
     num_samples = num_samples'
     seed = seed'
     max_shrink_rounds = max_shrink_rounds'
+    max_generator_retries = max_generator_retries'
     timeout = timeout'
     async = async'
 
