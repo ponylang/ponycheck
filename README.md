@@ -53,7 +53,7 @@ class MyFirstProperty is Property1[String]
   fun gen(): Generator[String] => Generators.ascii()
 
   fun property(arg1: String, h: PropertyHelper) =>
-    h.assert_eq(arg1, arg1)
+    h.assert_eq[String](arg1, arg1)
 ```
 
 A Property needs a name for identification in test output.
