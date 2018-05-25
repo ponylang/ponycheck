@@ -59,13 +59,13 @@ There are two ways of integrating a [Property](ponycheck-Property1) into
 
 1. In order to pass your Property to the ponytest engine, you need to wrap it inside a [PropertyUnitTest](ponycheck-PropertyUnitTest).
 
-   ```pony
+```pony
    actor Main is TestList
      new create(env: Env) => PonyTest(env, this)
 
      fun tag tests(test: PonyTest) =>
        test(PropertyUnitTest[String](MyStringProperty))
-   ```
+```
 
 2. Run as much [Properties](ponycheck-Property1) as you wish inside one ponytest
    [UnitTest](ponytest-UnitTest) using the convenience function
@@ -74,7 +74,7 @@ There are two ways of integrating a [Property](ponycheck-Property1) into
    actual property function. (Note that the property function is supplied in a
    second application of the result to `for_all`.)
 
-   ```pony
+```pony
    class ListReversePropertyWithinAUnitTest is UnitTest
      fun name(): String => "list/reverse/forall"
 
@@ -85,7 +85,7 @@ There are two ways of integrating a [Property](ponycheck-Property1) into
            ph.array_eq[Usize](arg1, arg1.reverse().reverse())
          })
        // ... possibly more properties, using ``Ponycheck.for_all``
-   ```
+```
 
 Independent of how you integrate with [ponytest](ponytest--index),
 the ponycheck machinery will instantiate the provided Generator, and will
