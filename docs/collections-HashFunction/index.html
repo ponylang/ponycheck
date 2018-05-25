@@ -3181,27 +3181,27 @@
               
                 
                 
-                <h1 id="hashfunction91a-a93">HashFunction[A: A]</h1>
+                <h1 id="hashfunction91a-a93">HashFunction[A: A]<a class="headerlink" href="#hashfunction91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/hashable/#L13">[Source]</a></span></p>
 <p>A pluggable hash function.</p>
 <pre><code class="pony">interface val HashFunction[A: A]
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/hashable/#L17">[Source]</a></span></p>
 <p>Data structures create instances internally. Use a primitive if possible.</p>
 <pre><code class="pony">new val create()
 : HashFunction[A] val^
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashFunction">HashFunction</a>[A] val^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="hash">hash</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="hash">hash<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/hashable/#L22">[Source]</a></span></p>
 <p>Calculate the hash of some type. This is an alias of the type parameter to
 allow data structures to hash things without consuming them.</p>
@@ -3210,16 +3210,16 @@ allow data structures to hash things without consuming them.</p>
 : USize val
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>x: box-&gt;A!</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/hashable/#L28">[Source]</a></span></p>
 <p>Determine equality between two keys with the same hash. This is done with
 viewpoint adapted aliases to allow data structures to determine equality
@@ -3230,12 +3230,12 @@ in a box fun without consuming keys.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>x: box-&gt;A!</li>
 <li>y: box-&gt;A!</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

@@ -3199,14 +3199,14 @@
               
                 
                 
-                <h1 id="timers">Timers</h1>
+                <h1 id="timers">Timers<a class="headerlink" href="#timers" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/time/timers/#L13">[Source]</a></span></p>
 <p>A hierarchical set of timing wheels.</p>
 <pre><code class="pony">actor tag Timers
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timers/#L24">[Source]</a></span></p>
 <p>Create a timer handler with the specified number of slop bits. No slop bits
 means trying for nanosecond resolution. 10 slop bits is approximately
@@ -3217,17 +3217,17 @@ resolution.</p>
 : Timers tag^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>slop: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../time-Timers">Timers</a> tag^</li>
 </ul>
 <hr />
-<h2 id="public-behaviours">Public Behaviours</h2>
-<h3 id="apply">apply</h3>
+<h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timers/#L38">[Source]</a></span></p>
 <p>Sets a timer. Fire it if need be, schedule it on the right timing wheel,
 then rearm the timer.</p>
@@ -3235,26 +3235,26 @@ then rearm the timer.</p>
   timer: Timer iso)
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>timer: <a href="../time-Timer">Timer</a> iso</li>
 </ul>
 <hr />
-<h3 id="cancel">cancel</h3>
+<h3 id="cancel">cancel<a class="headerlink" href="#cancel" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timers/#L49">[Source]</a></span></p>
 <p>Cancels a timer.</p>
 <pre><code class="pony">be cancel(
   timer: Timer tag)
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>timer: <a href="../time-Timer">Timer</a> tag</li>
 </ul>
 <hr />
-<h3 id="dispose">dispose</h3>
+<h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timers/#L64">[Source]</a></span></p>
-<p>Dipose of this set of timing wheels.</p>
+<p>Dispose of this set of timing wheels.</p>
 <pre><code class="pony">be dispose()
 </code></pre>
 

@@ -3865,20 +3865,20 @@
               
                 
                 
-                <h1 id="list91a-a93">List[A: A]</h1>
+                <h1 id="list91a-a93">List[A: A]<a class="headerlink" href="#list91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/list/#L1">[Source]</a></span></p>
 <p>A doubly linked list.</p>
 <pre><code class="pony">class ref List[A: A] is
   Seq[A] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Seq">Seq</a>[A] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L9">[Source]</a></span></p>
 <p>Do nothing, but be compatible with Seq.</p>
 <pre><code class="pony">new ref create(
@@ -3886,16 +3886,16 @@
 : List[A] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="unit">unit</h3>
+<h3 id="unit">unit<a class="headerlink" href="#unit" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L15">[Source]</a></span></p>
 <p>Builds a new list from an element.</p>
 <pre><code class="pony">new ref unit(
@@ -3903,16 +3903,16 @@
 : List[A] ref^
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>a: A</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="from">from</h3>
+<h3 id="from">from<a class="headerlink" href="#from" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L21">[Source]</a></span></p>
 <p>Builds a new list from the sequence passed in.</p>
 <pre><code class="pony">new ref from(
@@ -3920,17 +3920,17 @@
 : List[A] ref^
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seq: <a href="../builtin-Array">Array</a>[A^] ref</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[A] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="reserve">reserve</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="reserve">reserve<a class="headerlink" href="#reserve" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L29">[Source]</a></span></p>
 <p>Do nothing, but be compatible with Seq.</p>
 <pre><code class="pony">fun ref reserve(
@@ -3938,28 +3938,28 @@
 : None val
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="size">size</h3>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L35">[Source]</a></span></p>
 <p>Returns the number of items in the list.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L41">[Source]</a></span></p>
 <p>Get the i-th element, raising an error if the index is out of bounds.</p>
 <pre><code class="pony">fun box apply(
@@ -3967,16 +3967,16 @@
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="update">update</h3>
+<h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L47">[Source]</a></span></p>
 <p>Change the i-th element, raising an error if the index is out of bounds.
 Returns the previous value, which may be None if the node has been popped
@@ -3987,17 +3987,17 @@ but left on the list.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>value: A</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="index">index</h3>
+<h3 id="index">index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L55">[Source]</a></span></p>
 <p>Gets the i-th node, raising an error if the index is out of bounds.</p>
 <pre><code class="pony">fun box index(
@@ -4005,16 +4005,16 @@ but left on the list.</p>
 : this-&gt;ListNode[A] ref ?
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref ?</li>
 </ul>
 <hr />
-<h3 id="remove">remove</h3>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L73">[Source]</a></span></p>
 <p>Remove the i-th node, raising an error if the index is out of bounds.
 The removed node is returned.</p>
@@ -4023,52 +4023,52 @@ The removed node is returned.</p>
 : ListNode[A] ref ?
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-ListNode">ListNode</a>[A] ref ?</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L80">[Source]</a></span></p>
 <p>Empties the list.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="head">head</h3>
+<h3 id="head">head<a class="headerlink" href="#head" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L88">[Source]</a></span></p>
 <p>Get the head of the list.</p>
 <pre><code class="pony">fun box head()
 : this-&gt;ListNode[A] ref ?
 </code></pre>
 
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref ?</li>
 </ul>
 <hr />
-<h3 id="tail">tail</h3>
+<h3 id="tail">tail<a class="headerlink" href="#tail" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L94">[Source]</a></span></p>
 <p>Get the tail of the list.</p>
 <pre><code class="pony">fun box tail()
 : this-&gt;ListNode[A] ref ?
 </code></pre>
 
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref ?</li>
 </ul>
 <hr />
-<h3 id="prepend_node">prepend_node</h3>
+<h3 id="prepend_node">prepend_node<a class="headerlink" href="#prepend_node" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L100">[Source]</a></span></p>
 <p>Adds a node to the head of the list.</p>
 <pre><code class="pony">fun ref prepend_node(
@@ -4076,16 +4076,16 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>node: <a href="../collections-ListNode">ListNode</a>[A] ref</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="append_node">append_node</h3>
+<h3 id="append_node">append_node<a class="headerlink" href="#append_node" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L111">[Source]</a></span></p>
 <p>Adds a node to the tail of the list.</p>
 <pre><code class="pony">fun ref append_node(
@@ -4093,16 +4093,16 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>node: <a href="../collections-ListNode">ListNode</a>[A] ref</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="append_list">append_list</h3>
+<h3 id="append_list">append_list<a class="headerlink" href="#append_list" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L122">[Source]</a></span></p>
 <p>Remove all nodes from that and append them to this.</p>
 <pre><code class="pony">fun ref append_list(
@@ -4110,16 +4110,16 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-List">List</a>[A] ref</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="prepend_list">prepend_list</h3>
+<h3 id="prepend_list">prepend_list<a class="headerlink" href="#prepend_list" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L132">[Source]</a></span></p>
 <p>Remove all nodes from that and prepend them to this.</p>
 <pre><code class="pony">fun ref prepend_list(
@@ -4127,16 +4127,16 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-List">List</a>[A] ref</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="push">push</h3>
+<h3 id="push">push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L142">[Source]</a></span></p>
 <p>Adds a value to the tail of the list.</p>
 <pre><code class="pony">fun ref push(
@@ -4144,28 +4144,28 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>a: A</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="pop">pop</h3>
+<h3 id="pop">pop<a class="headerlink" href="#pop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L148">[Source]</a></span></p>
 <p>Removes a value from the tail of the list.</p>
 <pre><code class="pony">fun ref pop()
 : A^ ?
 </code></pre>
 
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="unshift">unshift</h3>
+<h3 id="unshift">unshift<a class="headerlink" href="#unshift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L154">[Source]</a></span></p>
 <p>Adds a value to the head of the list.</p>
 <pre><code class="pony">fun ref unshift(
@@ -4173,28 +4173,28 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>a: A</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="shift">shift</h3>
+<h3 id="shift">shift<a class="headerlink" href="#shift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L160">[Source]</a></span></p>
 <p>Removes a value from the head of the list.</p>
 <pre><code class="pony">fun ref shift()
 : A^ ?
 </code></pre>
 
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="append">append</h3>
+<h3 id="append">append<a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L166">[Source]</a></span></p>
 <p>Append len elements from a sequence, starting from the given offset.</p>
 <pre><code class="pony">fun ref append(
@@ -4204,18 +4204,18 @@ The removed node is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seq: (<a href="../builtin-ReadSeq">ReadSeq</a>[A] box &amp; <a href="../builtin-ReadElement">ReadElement</a>[A^] box)</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="concat">concat</h3>
+<h3 id="concat">concat<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L191">[Source]</a></span></p>
 <p>Add len iterated elements to the end of the list, starting from the given
 offset.</p>
@@ -4226,18 +4226,18 @@ offset.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>iter: <a href="../builtin-Iterator">Iterator</a>[A^] ref</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="truncate">truncate</h3>
+<h3 id="truncate">truncate<a class="headerlink" href="#truncate" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L214">[Source]</a></span></p>
 <p>Truncate the list to the given length, discarding excess elements.
 If the list is already smaller than len, do nothing.</p>
@@ -4246,28 +4246,28 @@ If the list is already smaller than len, do nothing.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="clone">clone</h3>
+<h3 id="clone">clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L225">[Source]</a></span></p>
 <p>Clone the list.</p>
 <pre><code class="pony">fun box clone()
 : List[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="map91b-b93">map[B: B]</h3>
+<h3 id="map91b-b93">map[B: B]<a class="headerlink" href="#map91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L236">[Source]</a></span></p>
 <p>Builds a new list by applying a function to every member of the list.</p>
 <pre><code class="pony">fun box map[B: B](
@@ -4275,16 +4275,16 @@ If the list is already smaller than len, do nothing.</p>
 : List[B] ref^
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): B^}[A, B] box</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="flat_map91b-b93">flat_map[B: B]</h3>
+<h3 id="flat_map91b-b93">flat_map[B: B]<a class="headerlink" href="#flat_map91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L263">[Source]</a></span></p>
 <p>Builds a new list by applying a function to every member of the list and
 using the elements of the resulting lists.</p>
@@ -4293,16 +4293,16 @@ using the elements of the resulting lists.</p>
 : List[B] ref^
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): List[B]}[A, B] box</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="filter">filter</h3>
+<h3 id="filter">filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L290">[Source]</a></span></p>
 <p>Builds a new list with those elements that satisfy a provided predicate.</p>
 <pre><code class="pony">fun box filter(
@@ -4310,16 +4310,16 @@ using the elements of the resulting lists.</p>
 : List[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): Bool}[A] box</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="fold91b-b93">fold[B: B]</h3>
+<h3 id="fold91b-b93">fold[B: B]<a class="headerlink" href="#fold91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L319">[Source]</a></span></p>
 <p>Folds the elements of the list using the supplied function.</p>
 <pre><code class="pony">fun box fold[B: B](
@@ -4328,17 +4328,17 @@ using the elements of the resulting lists.</p>
 : B
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(B!, this-&gt;A!): B^}[A, B] box</li>
 <li>acc: B</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>B</li>
 </ul>
 <hr />
-<h3 id="every">every</h3>
+<h3 id="every">every<a class="headerlink" href="#every" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L349">[Source]</a></span></p>
 <p>Returns true if every element satisfies the provided predicate, false
 otherwise.</p>
@@ -4347,16 +4347,16 @@ otherwise.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): Bool}[A] box</li>
 </ul>
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="exists">exists</h3>
+<h3 id="exists">exists<a class="headerlink" href="#exists" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L374">[Source]</a></span></p>
 <p>Returns true if at least one element satisfies the provided predicate,
 false otherwise.</p>
@@ -4365,16 +4365,16 @@ false otherwise.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): Bool}[A] box</li>
 </ul>
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="partition">partition</h3>
+<h3 id="partition">partition<a class="headerlink" href="#partition" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L399">[Source]</a></span></p>
 <p>Builds a pair of lists, the first of which is made up of the elements
 satisfying the supplied predicate and the second of which is made up of
@@ -4384,16 +4384,16 @@ those that do not.</p>
 : (List[this-&gt;A!] ref^ , List[this-&gt;A!] ref^)
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): Bool}[A] box</li>
 </ul>
-<h4 id="returns_30">Returns</h4>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../collections-List">List</a>[this-&gt;A!] ref^ , <a href="../collections-List">List</a>[this-&gt;A!] ref^)</li>
 </ul>
 <hr />
-<h3 id="drop">drop</h3>
+<h3 id="drop">drop<a class="headerlink" href="#drop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L415">[Source]</a></span></p>
 <p>Builds a list by dropping the first n elements.</p>
 <pre><code class="pony">fun box drop(
@@ -4401,16 +4401,16 @@ those that do not.</p>
 : List[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_31">Returns</h4>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="take">take</h3>
+<h3 id="take">take<a class="headerlink" href="#take" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L433">[Source]</a></span></p>
 <p>Builds a list of the first n elements.</p>
 <pre><code class="pony">fun box take(
@@ -4418,16 +4418,16 @@ those that do not.</p>
 : List[this-&gt;A!] ref
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_32">Returns</h4>
+<h4 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref</li>
 </ul>
 <hr />
-<h3 id="take_while">take_while</h3>
+<h3 id="take_while">take_while<a class="headerlink" href="#take_while" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L451">[Source]</a></span></p>
 <p>Builds a list of elements satisfying the provided predicate until one does
 not.</p>
@@ -4436,28 +4436,28 @@ not.</p>
 : List[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(this-&gt;A!): Bool}[A] box</li>
 </ul>
-<h4 id="returns_33">Returns</h4>
+<h4 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="reverse">reverse</h3>
+<h3 id="reverse">reverse<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L471">[Source]</a></span></p>
 <p>Builds a new list by reversing the elements in the list.</p>
 <pre><code class="pony">fun box reverse()
 : List[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="returns_34">Returns</h4>
+<h4 id="returns_34">Returns<a class="headerlink" href="#returns_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-List">List</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="contains91optional-b-a-haseq91a93-read93">contains[optional B: (A &amp; <a href="../builtin-HasEq">HasEq</a>[A!] #read)]</h3>
+<h3 id="contains91optional-b-a-haseq91a93-read93">contains[optional B: (A &amp; <a href="../builtin-HasEq">HasEq</a>[A!] #read)]<a class="headerlink" href="#contains91optional-b-a-haseq91a93-read93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L493">[Source]</a></span></p>
 <p>Returns true if the list contains the provided element, false otherwise.</p>
 <pre><code class="pony">fun box contains[optional B: (A &amp; HasEq[A!] #read)](
@@ -4465,59 +4465,59 @@ not.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>a: box-&gt;B</li>
 </ul>
-<h4 id="returns_35">Returns</h4>
+<h4 id="returns_35">Returns<a class="headerlink" href="#returns_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="nodes">nodes</h3>
+<h3 id="nodes">nodes<a class="headerlink" href="#nodes" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L521">[Source]</a></span></p>
 <p>Return an iterator on the nodes in the list.</p>
 <pre><code class="pony">fun box nodes()
 : ListNodes[A, this-&gt;ListNode[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_36">Returns</h4>
+<h4 id="returns_36">Returns<a class="headerlink" href="#returns_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-ListNodes">ListNodes</a>[A, this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="rnodes">rnodes</h3>
+<h3 id="rnodes">rnodes<a class="headerlink" href="#rnodes" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L527">[Source]</a></span></p>
 <p>Return an iterator on the nodes in the list.</p>
 <pre><code class="pony">fun box rnodes()
 : ListNodes[A, this-&gt;ListNode[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_37">Returns</h4>
+<h4 id="returns_37">Returns<a class="headerlink" href="#returns_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-ListNodes">ListNodes</a>[A, this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="values">values</h3>
+<h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L533">[Source]</a></span></p>
 <p>Return an iterator on the values in the list.</p>
 <pre><code class="pony">fun box values()
 : ListValues[A, this-&gt;ListNode[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_38">Returns</h4>
+<h4 id="returns_38">Returns<a class="headerlink" href="#returns_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-ListValues">ListValues</a>[A, this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="rvalues">rvalues</h3>
+<h3 id="rvalues">rvalues<a class="headerlink" href="#rvalues" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/list/#L539">[Source]</a></span></p>
 <p>Return an iterator on the values in the list.</p>
 <pre><code class="pony">fun box rvalues()
 : ListValues[A, this-&gt;ListNode[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_39">Returns</h4>
+<h4 id="returns_39">Returns<a class="headerlink" href="#returns_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-ListValues">ListValues</a>[A, this-&gt;<a href="../collections-ListNode">ListNode</a>[A] ref] ref^</li>
 </ul>

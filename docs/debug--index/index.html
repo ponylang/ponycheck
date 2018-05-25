@@ -3103,19 +3103,19 @@
               
                 
                 
-                <h1 id="debug-package">Debug package</h1>
+                <h1 id="debug-package">Debug package<a class="headerlink" href="#debug-package" title="Permanent link">&para;</a></h1>
 <p>Provides facilities to create output to either <code>STDOUT</code> or <code>STDERR</code> that will
 only appear when the platform is debug configured. To create a binary with
 debug configured, pass the <code>-d</code> flag to <code>ponyc</code> when compiling e.g.:</p>
 <p><code>ponyc -d</code></p>
-<h2 id="example-code">Example code</h2>
+<h2 id="example-code">Example code<a class="headerlink" href="#example-code" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">actor Main
   new create(env: Env) =&gt;
     Debug.out(&quot;This will only bee seen when configured for debug info&quot;)
     env.out.print(&quot;This will always be seen&quot;)
 </code></pre>
 
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../debug-DebugOut/">primitive DebugOut</a></li>
 <li><a href="../debug-DebugErr/">primitive DebugErr</a></li>

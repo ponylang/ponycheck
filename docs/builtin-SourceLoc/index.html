@@ -944,8 +944,17 @@
         
           
             <li class="md-nav__item">
-  <a href="#method" title="method" class="md-nav__link">
-    method
+  <a href="#type_name" title="type_name" class="md-nav__link">
+    type_name
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+  <a href="#method_name" title="method_name" class="md-nav__link">
+    method_name
   </a>
   
 </li>
@@ -3121,8 +3130,17 @@
         
           
             <li class="md-nav__item">
-  <a href="#method" title="method" class="md-nav__link">
-    method
+  <a href="#type_name" title="type_name" class="md-nav__link">
+    type_name
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+  <a href="#method_name" title="method_name" class="md-nav__link">
+    method_name
   </a>
   
 </li>
@@ -3169,59 +3187,71 @@
               
                 
                 
-                <h1 id="sourceloc">SourceLoc</h1>
+                <h1 id="sourceloc">SourceLoc<a class="headerlink" href="#sourceloc" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/source_loc/#L1">[Source]</a></span></p>
 <p>Represents a location in a Pony source file, as reported by <code>__loc</code>.</p>
 <pre><code class="pony">interface val SourceLoc
 </code></pre>
 
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="file">file</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="file">file<a class="headerlink" href="#file" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/source_loc/#L5">[Source]</a></span></p>
 <p>Name and path of source file.</p>
 <pre><code class="pony">fun box file()
 : String val
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="method">method</h3>
+<h3 id="type_name">type_name<a class="headerlink" href="#type_name" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/source_loc/#L10">[Source]</a></span></p>
-<p>Name of containing method.</p>
-<pre><code class="pony">fun box method()
+<p>Name of nearest class, actor, primitive, struct, interface, or trait.</p>
+<pre><code class="pony">fun box type_name()
 : String val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="line">line</h3>
+<h3 id="method_name">method_name<a class="headerlink" href="#method_name" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/source_loc/#L15">[Source]</a></span></p>
+<p>Name of containing method.</p>
+<pre><code class="pony">fun box method_name()
+: String val
+</code></pre>
+
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="../builtin-String">String</a> val</li>
+</ul>
+<hr />
+<h3 id="line">line<a class="headerlink" href="#line" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/source_loc/#L20">[Source]</a></span></p>
 <p>Line number within file.
 Line numbers start at 1.</p>
 <pre><code class="pony">fun box line()
 : USize val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="pos">pos</h3>
-<p><span class="source-link"><a href="../src/builtin/source_loc/#L21">[Source]</a></span></p>
+<h3 id="pos">pos<a class="headerlink" href="#pos" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/source_loc/#L26">[Source]</a></span></p>
 <p>Character position on line.
 Character positions start at 1.</p>
 <pre><code class="pony">fun box pos()
 : USize val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>

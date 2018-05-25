@@ -3133,7 +3133,7 @@
               
                 
                 
-                <h1 id="timer">Timer</h1>
+                <h1 id="timer">Timer<a class="headerlink" href="#timer" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/time/timer/#L3">[Source]</a></span></p>
 <p>The <code>Timer</code> class represents a timer that fires after an expiration
 time, and then fires at an interval. When a <code>Timer</code> fires, it calls
@@ -3164,8 +3164,8 @@ class Notify is TimerNotify
 <pre><code class="pony">class ref Timer
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timer/#L39">[Source]</a></span></p>
 <p>Create a new timer. The expiration time should be a nanosecond count
 until the first expiration. The interval should also be in nanoseconds.</p>
@@ -3176,18 +3176,18 @@ until the first expiration. The interval should also be in nanoseconds.</p>
 : Timer iso^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>notify: <a href="../time-TimerNotify">TimerNotify</a> iso</li>
 <li>expiration: <a href="../builtin-U64">U64</a> val</li>
 <li>interval: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../time-Timer">Timer</a> iso^</li>
 </ul>
 <hr />
-<h3 id="abs">abs</h3>
+<h3 id="abs">abs<a class="headerlink" href="#abs" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timer/#L54">[Source]</a></span></p>
 <p>Creates a new timer with an absolute expiration time rather than a relative
 time. The expiration time is wall-clock adjusted system time.</p>
@@ -3198,13 +3198,13 @@ time. The expiration time is wall-clock adjusted system time.</p>
 : Timer ref^
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>notify: <a href="../time-TimerNotify">TimerNotify</a> ref</li>
 <li>expiration: (<a href="../builtin-I64">I64</a> val , <a href="../builtin-I64">I64</a> val)</li>
 <li>interval: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../time-Timer">Timer</a> ref^</li>
 </ul>

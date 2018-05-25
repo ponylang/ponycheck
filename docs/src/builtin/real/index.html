@@ -3255,6 +3255,18 @@ trait val Integer[A: Integer[A] val] is Real[A]
     &quot;&quot;&quot;
     -~this
 
+  fun addc(y: A): (A, Bool)
+    &quot;&quot;&quot;
+    Add `y` to this integer and return the result and a flag indicating overflow.
+    &quot;&quot;&quot;
+  fun subc(y: A): (A, Bool)
+    &quot;&quot;&quot;
+    Subtract `y` from this integer and return the result and a flag indicating overflow.
+    &quot;&quot;&quot;
+  fun mulc(y: A): (A, Bool)
+    &quot;&quot;&quot;
+    Multiply `y` with this integer and return the result and a flag indicating overflow.
+    &quot;&quot;&quot;
   fun op_and(y: A): A =&gt; this and y
   fun op_or(y: A): A =&gt; this or y
   fun op_xor(y: A): A =&gt; this xor y

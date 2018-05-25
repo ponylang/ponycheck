@@ -3199,13 +3199,13 @@
               
                 
                 
-                <h1 id="iterator91a-a93">Iterator[A: A]</h1>
+                <h1 id="iterator91a-a93">Iterator[A: A]<a class="headerlink" href="#iterator91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/iterator/#L1">[Source]</a></span></p>
 <p>Iterators generate a series of values, one value at a time on each call to <code>next()</code>.</p>
 <p>An Iterator is considered exhausted, once its <code>has_next()</code> method returns <code>false</code>.
 Thus every call to <code>next()</code> should be preceeded with a call to <code>has_next()</code> to
 check for exhaustiveness.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>Given the rules for using Iterators mentioned above, basic usage
 of an iterator looks like this:</p>
 <pre><code class="pony">while iterator.has_next() do
@@ -3222,7 +3222,7 @@ end
 
 <p>Iteration using <code>While</code> is more flexible as it allows to continue iterating if a call to <code>next()</code> errors.
 The <code>For</code>-loop does not allow this.</p>
-<h2 id="implementing-iterators">Implementing Iterators</h2>
+<h2 id="implementing-iterators">Implementing Iterators<a class="headerlink" href="#implementing-iterators" title="Permanent link">&para;</a></h2>
 <p>Iterator implementations need to adhere to the following rules to be considered well-behaved:</p>
 <ul>
 <li>If the Iterator is exhausted, <code>has_next()</code> needs to return <code>false</code>.</li>
@@ -3233,7 +3233,7 @@ The <code>For</code>-loop does not allow this.</p>
   need to return the same value. (Unless the Iterator supports rewinding)</li>
 <li>A call to <code>next()</code> erroring does not necessarily denote exhaustiveness.</li>
 </ul>
-<h3 id="example">Example</h3>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">// Generates values from `from` to 0
 class ref Countdown is Iterator[USize]
   var _cur: USize
@@ -3256,8 +3256,8 @@ class ref Countdown is Iterator[USize]
 <pre><code class="pony">interface ref Iterator[A: A]
 </code></pre>
 
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="has_next">has_next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/iterator/#L69">[Source]</a></span></p>
 <p>Returns <code>true</code> if this Iterator is not yet exhausted.
 That means that a value returned from a subsequent call to <code>next()</code>
@@ -3269,12 +3269,12 @@ it might throw an error or return values which are not part of this Iterator.</p
 : Bool val
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next">next</h3>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/iterator/#L81">[Source]</a></span></p>
 <p>Generate the next value.</p>
 <p>This might error, which does not necessarily mean that the Iterator is exhausted.</p>
@@ -3282,7 +3282,7 @@ it might throw an error or return values which are not part of this Iterator.</p
 : A ?
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A ?</li>
 </ul>

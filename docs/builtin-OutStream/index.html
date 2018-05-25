@@ -3169,57 +3169,57 @@
               
                 
                 
-                <h1 id="outstream">OutStream</h1>
+                <h1 id="outstream">OutStream<a class="headerlink" href="#outstream" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L9">[Source]</a></span></p>
 <p>Asnychronous access to some output stream.</p>
 <pre><code class="pony">interface tag OutStream
 </code></pre>
 
-<h2 id="public-behaviours">Public Behaviours</h2>
-<h3 id="print">print</h3>
+<h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
+<h3 id="print">print<a class="headerlink" href="#print" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L13">[Source]</a></span></p>
 <p>Print some bytes and insert a newline afterwards.</p>
 <pre><code class="pony">be print(
   data: (String val | Array[U8 val] val))
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: (<a href="../builtin-String">String</a> val | <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val)</li>
 </ul>
 <hr />
-<h3 id="write">write</h3>
+<h3 id="write">write<a class="headerlink" href="#write" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L18">[Source]</a></span></p>
 <p>Print some bytes without inserting a newline afterwards.</p>
 <pre><code class="pony">be write(
   data: (String val | Array[U8 val] val))
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: (<a href="../builtin-String">String</a> val | <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val)</li>
 </ul>
 <hr />
-<h3 id="printv">printv</h3>
+<h3 id="printv">printv<a class="headerlink" href="#printv" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L23">[Source]</a></span></p>
 <p>Print an iterable collection of ByteSeqs.</p>
 <pre><code class="pony">be printv(
   data: ByteSeqIter val)
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-ByteSeqIter">ByteSeqIter</a> val</li>
 </ul>
 <hr />
-<h3 id="writev">writev</h3>
+<h3 id="writev">writev<a class="headerlink" href="#writev" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L28">[Source]</a></span></p>
 <p>Write an iterable collection of ByteSeqs.</p>
 <pre><code class="pony">be writev(
   data: ByteSeqIter val)
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-ByteSeqIter">ByteSeqIter</a> val</li>
 </ul>

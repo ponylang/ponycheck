@@ -3199,7 +3199,7 @@
               
                 
                 
-                <h1 id="maybepointer91a-a93">MaybePointer[A: A]</h1>
+                <h1 id="maybepointer91a-a93">MaybePointer[A: A]<a class="headerlink" href="#maybepointer91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/maybe_pointer/#L1">[Source]</a></span></p>
 <p>A MaybePointer[A] is used to encode a possibly-null type. It should
 <em>only</em> be used for structs that need to be passed to and from the C FFI.</p>
@@ -3208,8 +3208,8 @@ union type, for example (A | None).</p>
 <pre><code class="pony">struct ref MaybePointer[A: A]
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/maybe_pointer/#L9">[Source]</a></span></p>
 <p>This re-encodes the type of <code>that</code> from A to MaybePointer[A], allowing
 <code>that</code> to be assigned to a field or variable of type MaybePointer[A]. It
@@ -3219,29 +3219,29 @@ doesn't allocate a wrapper object: there is no containing object for <code>that<
 : MaybePointer[A] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: A</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-MaybePointer">MaybePointer</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="none">none</h3>
+<h3 id="none">none<a class="headerlink" href="#none" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/maybe_pointer/#L17">[Source]</a></span></p>
 <p>This returns a null pointer typed as a MaybePointer[A].</p>
 <pre><code class="pony">new ref none()
 : MaybePointer[A] ref^
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-MaybePointer">MaybePointer</a>[A] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="apply">apply</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/maybe_pointer/#L23">[Source]</a></span></p>
 <p>This re-encodes the type of <code>this</code> from MaybePointer[A] to A, allowing
 <code>this</code> to be assigned to a field of variable of type A. If <code>this</code> is a null
@@ -3250,19 +3250,19 @@ pointer, an error is raised.</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="is_none">is_none</h3>
+<h3 id="is_none">is_none<a class="headerlink" href="#is_none" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/maybe_pointer/#L31">[Source]</a></span></p>
 <p>Returns true if <code>this</code> is null (ie apply would raise an error).</p>
 <pre><code class="pony">fun box is_none()
 : Bool val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

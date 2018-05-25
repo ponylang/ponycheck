@@ -3361,7 +3361,7 @@
               
                 
                 
-                <h1 id="generator91t-t93">Generator[T: T]</h1>
+                <h1 id="generator91t-t93">Generator[T: T]<a class="headerlink" href="#generator91t-t93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L102">[Source]</a></span></p>
 <p>A Generator is capable of generating random values of a certain type <code>T</code>
 given a source of <code>Randomness</code>
@@ -3381,30 +3381,30 @@ is then reported to the user.</p>
   GenObj[T] box
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-GenObj">GenObj</a>[T] box</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L123">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
   gen: GenObj[T] box)
 : Generator[T] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-GenObj">GenObj</a>[T] box</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="generate">generate</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="generate">generate<a class="headerlink" href="#generate" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L126">[Source]</a></span></p>
 <p>Let this generator generate a value
 given a source of <code>Randomness</code>.</p>
@@ -3424,16 +3424,16 @@ If generating values is lightweight, shrunken values should also be returned.</p
 : (T^ | (T^ , Iterator[T^] ref)) ?
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(T^ | (T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref)) ?</li>
 </ul>
 <hr />
-<h3 id="shrink">shrink</h3>
+<h3 id="shrink">shrink<a class="headerlink" href="#shrink" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L147">[Source]</a></span></p>
 <p>Simplify the given value.</p>
 <p>As the returned value can also be <code>iso</code>, it needs to be consumed and returned</p>
@@ -3443,48 +3443,48 @@ If generating values is lightweight, shrunken values should also be returned.</p
 : (T^ , Iterator[T^] ref)
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>t: T</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref)</li>
 </ul>
 <hr />
-<h3 id="generate_value">generate_value</h3>
+<h3 id="generate_value">generate_value<a class="headerlink" href="#generate_value" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L157">[Source]</a></span></p>
 <pre><code class="pony">fun box generate_value(
   rnd: Randomness ref)
 : T^ ?
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>T^ ?</li>
 </ul>
 <hr />
-<h3 id="generate_and_shrink">generate_and_shrink</h3>
+<h3 id="generate_and_shrink">generate_and_shrink<a class="headerlink" href="#generate_and_shrink" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L160">[Source]</a></span></p>
 <pre><code class="pony">fun box generate_and_shrink(
   rnd: Randomness ref)
 : (T^ , Iterator[T^] ref) ?
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref) ?</li>
 </ul>
 <hr />
-<h3 id="filter">filter</h3>
+<h3 id="filter">filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L163">[Source]</a></span></p>
 <p>apply <code>predicate</code> to the values generated by this Generator
 and only values for which <code>predicate</code> returns <code>true</code>.</p>
@@ -3500,16 +3500,16 @@ and only values for which <code>predicate</code> returns <code>true</code>.</p>
 : Generator[T] box
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>predicate: {(T): (T^, Bool)}[T] box</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T] box</li>
 </ul>
 <hr />
-<h3 id="map91u-u93">map[U: U]</h3>
+<h3 id="map91u-u93">map[U: U]<a class="headerlink" href="#map91u-u93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L207">[Source]</a></span></p>
 <p>apply function <code>fn</code> to each value of this iterator
 and yield the results.</p>
@@ -3524,16 +3524,16 @@ and yield the results.</p>
 : Generator[U] box
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>fn: {(T): U^}[T, U] box</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[U] box</li>
 </ul>
 <hr />
-<h3 id="flat_map91u-u93">flat_map[U: U]</h3>
+<h3 id="flat_map91u-u93">flat_map[U: U]<a class="headerlink" href="#flat_map91u-u93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L254">[Source]</a></span></p>
 <p>For each value of this generator create a generator that is then combined.</p>
 <pre><code class="pony">fun box flat_map[U: U](
@@ -3541,16 +3541,16 @@ and yield the results.</p>
 : Generator[U] box
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>fn: {(T): Generator[U]}[T, U] box</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[U] box</li>
 </ul>
 <hr />
-<h3 id="union91u-u93">union[U: U]</h3>
+<h3 id="union91u-u93">union[U: U]<a class="headerlink" href="#union91u-u93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L267">[Source]</a></span></p>
 <p>Create a generator that produces the value of this generator or the other
 with the same probability, returning a union type of this generator and the other one.</p>
@@ -3559,59 +3559,59 @@ with the same probability, returning a union type of this generator and the othe
 : Generator[(T | U)] box
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>other: <a href="../ponycheck-Generator">Generator</a>[U] box</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[(T | U)] box</li>
 </ul>
 <hr />
-<h3 id="iter">iter</h3>
+<h3 id="iter">iter<a class="headerlink" href="#iter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L69">[Source]</a></span></p>
 <pre><code class="pony">fun box iter(
   rnd: Randomness ref)
 : Iterator[(T^ | (T^ , Iterator[T^] ref))] ref^
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[(T^ | (T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref))] ref^</li>
 </ul>
 <hr />
-<h3 id="value_iter">value_iter</h3>
+<h3 id="value_iter">value_iter<a class="headerlink" href="#value_iter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L77">[Source]</a></span></p>
 <pre><code class="pony">fun box value_iter(
   rnd: Randomness ref)
 : Iterator[T^] ref
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[T^] ref</li>
 </ul>
 <hr />
-<h3 id="value_and_shrink_iter">value_and_shrink_iter</h3>
+<h3 id="value_and_shrink_iter">value_and_shrink_iter<a class="headerlink" href="#value_and_shrink_iter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L89">[Source]</a></span></p>
 <pre><code class="pony">fun box value_and_shrink_iter(
   rnd: Randomness ref)
 : Iterator[(T^ , Iterator[T^] ref)] ref
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>rnd: <a href="../ponycheck-Randomness">Randomness</a> ref</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[(T^ , <a href="../builtin-Iterator">Iterator</a>[T^] ref)] ref</li>
 </ul>

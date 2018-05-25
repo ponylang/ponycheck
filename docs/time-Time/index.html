@@ -3325,26 +3325,26 @@
               
                 
                 
-                <h1 id="time">Time</h1>
+                <h1 id="time">Time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/time/time/#L38">[Source]</a></span></p>
 <p>A collection of ways to fetch the current time.</p>
 <pre><code class="pony">primitive val Time
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L38">[Source]</a></span></p>
 <pre><code class="pony">new val create()
 : Time val^
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../time-Time">Time</a> val^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="now">now</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="now">now<a class="headerlink" href="#now" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L42">[Source]</a></span></p>
 <p>The wall-clock adjusted system time with nanoseconds.
 Return: (seconds, nanoseconds)</p>
@@ -3352,60 +3352,60 @@ Return: (seconds, nanoseconds)</p>
 : (I64 val , I64 val)
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-I64">I64</a> val , <a href="../builtin-I64">I64</a> val)</li>
 </ul>
 <hr />
-<h3 id="seconds">seconds</h3>
+<h3 id="seconds">seconds<a class="headerlink" href="#seconds" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L65">[Source]</a></span></p>
 <p>The wall-clock adjusted system time.</p>
 <pre><code class="pony">fun box seconds()
 : I64 val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I64">I64</a> val</li>
 </ul>
 <hr />
-<h3 id="millis">millis</h3>
+<h3 id="millis">millis<a class="headerlink" href="#millis" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L71">[Source]</a></span></p>
 <p>Monotonic unadjusted milliseconds.</p>
 <pre><code class="pony">fun box millis()
 : U64 val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="micros">micros</h3>
+<h3 id="micros">micros<a class="headerlink" href="#micros" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L87">[Source]</a></span></p>
 <p>Monotonic unadjusted microseconds.</p>
 <pre><code class="pony">fun box micros()
 : U64 val
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="nanos">nanos</h3>
+<h3 id="nanos">nanos<a class="headerlink" href="#nanos" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L103">[Source]</a></span></p>
 <p>Monotonic unadjusted nanoseconds.</p>
 <pre><code class="pony">fun box nanos()
 : U64 val
 </code></pre>
 
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="cycles">cycles</h3>
+<h3 id="cycles">cycles<a class="headerlink" href="#cycles" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L119">[Source]</a></span></p>
 <p>Processor cycle count. Don't use this for performance timing, as it does
 not control for out-of-order execution.</p>
@@ -3413,12 +3413,12 @@ not control for out-of-order execution.</p>
 : U64 val
 </code></pre>
 
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="perf_begin">perf_begin</h3>
+<h3 id="perf_begin">perf_begin<a class="headerlink" href="#perf_begin" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L126">[Source]</a></span></p>
 <p>Get a cycle count for beginning a performance testing block. This will
 will prevent instructions from before this call leaking into the block and
@@ -3427,12 +3427,12 @@ instructions after this call being executed earlier.</p>
 : U64 val
 </code></pre>
 
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="perf_end">perf_end</h3>
+<h3 id="perf_end">perf_end<a class="headerlink" href="#perf_end" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L139">[Source]</a></span></p>
 <p>Get a cycle count for ending a performance testing block. This will
 will prevent instructions from after this call leaking into the block and
@@ -3441,39 +3441,39 @@ instructions before this call being executed later.</p>
 : U64 val
 </code></pre>
 
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L42">[Source]</a></span></p>
 <pre><code class="pony">fun box eq(
   that: Time val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../time-Time">Time</a> val</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/time/#L42">[Source]</a></span></p>
 <pre><code class="pony">fun box ne(
   that: Time val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../time-Time">Time</a> val</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

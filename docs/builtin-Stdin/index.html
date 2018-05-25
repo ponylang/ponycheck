@@ -3133,7 +3133,7 @@
               
                 
                 
-                <h1 id="stdin">Stdin</h1>
+                <h1 id="stdin">Stdin<a class="headerlink" href="#stdin" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/stdin/#L49">[Source]</a></span></p>
 <p>Asynchronous access to stdin. The constructor is private to ensure that
 access is provided only via an environment.</p>
@@ -3156,8 +3156,8 @@ access is provided only via an environment.</p>
 <pre><code class="pony">actor tag Stdin
 </code></pre>
 
-<h2 id="public-behaviours">Public Behaviours</h2>
-<h3 id="apply">apply</h3>
+<h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/stdin/#L84">[Source]</a></span></p>
 <p>Set the notifier. Optionally, also sets the chunk size, dictating the
 maximum number of bytes of each chunk that will be passed to the notifier.</p>
@@ -3166,13 +3166,13 @@ maximum number of bytes of each chunk that will be passed to the notifier.</p>
   chunk_size: USize val = seq)
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>notify: (<a href="../builtin-InputNotify">InputNotify</a> iso | <a href="../builtin-None">None</a> val)</li>
 <li>chunk_size: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
 <hr />
-<h3 id="dispose">dispose</h3>
+<h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/stdin/#L92">[Source]</a></span></p>
 <p>Clear the notifier in order to shut down input.</p>
 <pre><code class="pony">be dispose()

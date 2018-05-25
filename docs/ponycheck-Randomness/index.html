@@ -3451,7 +3451,7 @@
               
                 
                 
-                <h1 id="randomness">Randomness</h1>
+                <h1 id="randomness">Randomness<a class="headerlink" href="#randomness" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L3">[Source]</a></span></p>
 <p>Source of randomness, providing methods for generatic uniformly distributed
 values from a given closed interval: [min, max]
@@ -3461,8 +3461,8 @@ primitive numeric type.</p>
 <pre><code class="pony">class ref Randomness
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L14">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
   seed1: U64 val = seq,
@@ -3470,18 +3470,18 @@ primitive numeric type.</p>
 : Randomness ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seed1: <a href="../builtin-U64">U64</a> val = seq</li>
 <li>seed2: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Randomness">Randomness</a> ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="u8">u8</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="u8">u8<a class="headerlink" href="#u8" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L17">[Source]</a></span></p>
 <p>generates a U8 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3492,17 +3492,17 @@ primitive numeric type.</p>
 : U8 val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U8">U8</a> val = seq</li>
 <li>max: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val</li>
 </ul>
 <hr />
-<h3 id="u16">u16</h3>
+<h3 id="u16">u16<a class="headerlink" href="#u16" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L30">[Source]</a></span></p>
 <p>generates a U16 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3513,17 +3513,17 @@ primitive numeric type.</p>
 : U16 val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U16">U16</a> val = seq</li>
 <li>max: <a href="../builtin-U16">U16</a> val = seq</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U16">U16</a> val</li>
 </ul>
 <hr />
-<h3 id="u32">u32</h3>
+<h3 id="u32">u32<a class="headerlink" href="#u32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L43">[Source]</a></span></p>
 <p>generates a U32 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3534,17 +3534,17 @@ primitive numeric type.</p>
 : U32 val
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U32">U32</a> val = seq</li>
 <li>max: <a href="../builtin-U32">U32</a> val = seq</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U32">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="u64">u64</h3>
+<h3 id="u64">u64<a class="headerlink" href="#u64" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L56">[Source]</a></span></p>
 <p>generates a U64 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3555,17 +3555,17 @@ primitive numeric type.</p>
 : U64 val
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U64">U64</a> val = seq</li>
 <li>max: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="u128">u128</h3>
+<h3 id="u128">u128<a class="headerlink" href="#u128" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L81">[Source]</a></span></p>
 <p>generates a U128 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3576,17 +3576,17 @@ primitive numeric type.</p>
 : U128 val
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U128">U128</a> val = seq</li>
 <li>max: <a href="../builtin-U128">U128</a> val = seq</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U128">U128</a> val</li>
 </ul>
 <hr />
-<h3 id="ulong">ulong</h3>
+<h3 id="ulong">ulong<a class="headerlink" href="#ulong" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L114">[Source]</a></span></p>
 <p>generates a ULong in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3597,17 +3597,17 @@ primitive numeric type.</p>
 : ULong val
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ULong">ULong</a> val = seq</li>
 <li>max: <a href="../builtin-ULong">ULong</a> val = seq</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ULong">ULong</a> val</li>
 </ul>
 <hr />
-<h3 id="usize">usize</h3>
+<h3 id="usize">usize<a class="headerlink" href="#usize" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L127">[Source]</a></span></p>
 <p>generates a USize in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3618,17 +3618,17 @@ primitive numeric type.</p>
 : USize val
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="i8">i8</h3>
+<h3 id="i8">i8<a class="headerlink" href="#i8" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L140">[Source]</a></span></p>
 <p>generates a I8 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3639,17 +3639,17 @@ primitive numeric type.</p>
 : I8 val
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I8">I8</a> val = seq</li>
 <li>max: <a href="../builtin-I8">I8</a> val = seq</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I8">I8</a> val</li>
 </ul>
 <hr />
-<h3 id="i16">i16</h3>
+<h3 id="i16">i16<a class="headerlink" href="#i16" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L149">[Source]</a></span></p>
 <p>generates a I16 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3660,17 +3660,17 @@ primitive numeric type.</p>
 : I16 val
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I16">I16</a> val = seq</li>
 <li>max: <a href="../builtin-I16">I16</a> val = seq</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I16">I16</a> val</li>
 </ul>
 <hr />
-<h3 id="i32">i32</h3>
+<h3 id="i32">i32<a class="headerlink" href="#i32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L158">[Source]</a></span></p>
 <p>generates a I32 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3681,17 +3681,17 @@ primitive numeric type.</p>
 : I32 val
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I32">I32</a> val = seq</li>
 <li>max: <a href="../builtin-I32">I32</a> val = seq</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I32">I32</a> val</li>
 </ul>
 <hr />
-<h3 id="i64">i64</h3>
+<h3 id="i64">i64<a class="headerlink" href="#i64" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L167">[Source]</a></span></p>
 <p>generates a I64 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3702,17 +3702,17 @@ primitive numeric type.</p>
 : I64 val
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I64">I64</a> val = seq</li>
 <li>max: <a href="../builtin-I64">I64</a> val = seq</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I64">I64</a> val</li>
 </ul>
 <hr />
-<h3 id="i128">i128</h3>
+<h3 id="i128">i128<a class="headerlink" href="#i128" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L177">[Source]</a></span></p>
 <p>generates a I128 in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3723,17 +3723,17 @@ primitive numeric type.</p>
 : I128 val
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I128">I128</a> val = seq</li>
 <li>max: <a href="../builtin-I128">I128</a> val = seq</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I128">I128</a> val</li>
 </ul>
 <hr />
-<h3 id="ilong">ilong</h3>
+<h3 id="ilong">ilong<a class="headerlink" href="#ilong" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L191">[Source]</a></span></p>
 <p>generates a ILong in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3744,17 +3744,17 @@ primitive numeric type.</p>
 : ILong val
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ILong">ILong</a> val = seq</li>
 <li>max: <a href="../builtin-ILong">ILong</a> val = seq</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ILong">ILong</a> val</li>
 </ul>
 <hr />
-<h3 id="isize">isize</h3>
+<h3 id="isize">isize<a class="headerlink" href="#isize" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L204">[Source]</a></span></p>
 <p>generates a ISize in closed interval [min, max]
 (default: [min_value, max_value])</p>
@@ -3765,17 +3765,17 @@ primitive numeric type.</p>
 : ISize val
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>max: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ISize">ISize</a> val</li>
 </ul>
 <hr />
-<h3 id="f32">f32</h3>
+<h3 id="f32">f32<a class="headerlink" href="#f32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L218">[Source]</a></span></p>
 <p>generates a F32 in closed interval [min, max]
 (default: [0.0, 1.0])</p>
@@ -3785,17 +3785,17 @@ primitive numeric type.</p>
 : F32 val
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-F32">F32</a> val = seq</li>
 <li>max: <a href="../builtin-F32">F32</a> val = seq</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-F32">F32</a> val</li>
 </ul>
 <hr />
-<h3 id="f64">f64</h3>
+<h3 id="f64">f64<a class="headerlink" href="#f64" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L226">[Source]</a></span></p>
 <p>generates a F64 in closed interval [min, max]
 (default: [0.0, 1.0])</p>
@@ -3805,24 +3805,24 @@ primitive numeric type.</p>
 : F64 val
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-F64">F64</a> val = seq</li>
 <li>max: <a href="../builtin-F64">F64</a> val = seq</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-F64">F64</a> val</li>
 </ul>
 <hr />
-<h3 id="bool">bool</h3>
+<h3 id="bool">bool<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L233">[Source]</a></span></p>
 <p>generates a random Bool value</p>
 <pre><code class="pony">fun ref bool()
 : Bool val
 </code></pre>
 
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

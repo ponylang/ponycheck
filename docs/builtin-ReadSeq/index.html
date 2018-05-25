@@ -3151,26 +3151,26 @@
               
                 
                 
-                <h1 id="readseq91a-a93">ReadSeq[A: A]</h1>
+                <h1 id="readseq91a-a93">ReadSeq[A: A]<a class="headerlink" href="#readseq91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/read_seq/#L1">[Source]</a></span></p>
 <p>The readable interface of a sequence.</p>
 <pre><code class="pony">interface box ReadSeq[A: A]
 </code></pre>
 
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="size">size</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/read_seq/#L5">[Source]</a></span></p>
 <p>Returns the number of elements in the sequence.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/read_seq/#L10">[Source]</a></span></p>
 <p>Returns the i-th element of the sequence. Raises an error if the index
 is out of bounds. Note that this returns this-&gt;A, not A.</p>
@@ -3179,16 +3179,16 @@ is out of bounds. Note that this returns this-&gt;A, not A.</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="values">values</h3>
+<h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/read_seq/#L16">[Source]</a></span></p>
 <p>Returns an iterator over the elements of the sequence. Note that this
 iterates over this-&gt;A, not A.</p>
@@ -3196,7 +3196,7 @@ iterates over this-&gt;A, not A.</p>
 : Iterator[this-&gt;A] ref^
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[this-&gt;A] ref^</li>
 </ul>

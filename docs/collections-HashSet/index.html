@@ -3685,7 +3685,7 @@
               
                 
                 
-                <h1 id="hashset91a-a-h-hashfunction91a93-val93">HashSet[A: A, H: <a href="../collections-HashFunction">HashFunction</a>[A!] val]</h1>
+                <h1 id="hashset91a-a-h-hashfunction91a93-val93">HashSet[A: A, H: <a href="../collections-HashFunction">HashFunction</a>[A!] val]<a class="headerlink" href="#hashset91a-a-h-hashfunction91a93-val93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/set/#L5">[Source]</a></span></p>
 <p>A set, built on top of a HashMap. This is implemented as map of an alias of
 a type to itself</p>
@@ -3693,13 +3693,13 @@ a type to itself</p>
   Comparable[HashSet[A, H] box] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Comparable">Comparable</a>[<a href="../collections-HashSet">HashSet</a>[A, H] box] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L12">[Source]</a></span></p>
 <p>Defaults to a prealloc of 8.</p>
 <pre><code class="pony">new ref create(
@@ -3707,41 +3707,41 @@ a type to itself</p>
 : HashSet[A, H] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>prealloc: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[A, H] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="size">size</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L18">[Source]</a></span></p>
 <p>The number of items in the set.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="space">space</h3>
+<h3 id="space">space<a class="headerlink" href="#space" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L24">[Source]</a></span></p>
 <p>The available space in the set.</p>
 <pre><code class="pony">fun box space()
 : USize val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L30">[Source]</a></span></p>
 <p>Return the value if its in the set, otherwise raise an error.</p>
 <pre><code class="pony">fun box apply(
@@ -3749,16 +3749,16 @@ a type to itself</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: box-&gt;A!</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="contains">contains</h3>
+<h3 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L36">[Source]</a></span></p>
 <p>Checks whether the set contains the value.</p>
 <pre><code class="pony">fun box contains(
@@ -3766,28 +3766,28 @@ a type to itself</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: box-&gt;A!</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L42">[Source]</a></span></p>
 <p>Remove all elements from the set.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="set">set</h3>
+<h3 id="set">set<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L48">[Source]</a></span></p>
 <p>Add a value to the set.</p>
 <pre><code class="pony">fun ref set(
@@ -3795,16 +3795,16 @@ a type to itself</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="unset">unset</h3>
+<h3 id="unset">unset<a class="headerlink" href="#unset" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L54">[Source]</a></span></p>
 <p>Remove a value from the set.</p>
 <pre><code class="pony">fun ref unset(
@@ -3812,16 +3812,16 @@ a type to itself</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: box-&gt;A!</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="extract">extract</h3>
+<h3 id="extract">extract<a class="headerlink" href="#extract" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L60">[Source]</a></span></p>
 <p>Remove a value from the set and return it. Raises an error if the value
 wasn't in the set.</p>
@@ -3830,16 +3830,16 @@ wasn't in the set.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: box-&gt;A!</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="union">union</h3>
+<h3 id="union">union<a class="headerlink" href="#union" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L67">[Source]</a></span></p>
 <p>Add everything in that to the set.</p>
 <pre><code class="pony">fun ref union(
@@ -3847,16 +3847,16 @@ wasn't in the set.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-Iterator">Iterator</a>[A^] ref</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="intersect91optional-k-hashfunction91box-a93-val93">intersect[optional K: <a href="../collections-HashFunction">HashFunction</a>[box-&gt;A!] val]</h3>
+<h3 id="intersect91optional-k-hashfunction91box-a93-val93">intersect[optional K: <a href="../collections-HashFunction">HashFunction</a>[box-&gt;A!] val]<a class="headerlink" href="#intersect91optional-k-hashfunction91box-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L75">[Source]</a></span></p>
 <p>Remove everything that isn't in that.</p>
 <pre><code class="pony">fun ref intersect[optional K: HashFunction[box-&gt;A!] val](
@@ -3864,16 +3864,16 @@ wasn't in the set.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[box-&gt;A!, K] ref</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="difference">difference</h3>
+<h3 id="difference">difference<a class="headerlink" href="#difference" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L95">[Source]</a></span></p>
 <p>Remove elements in this which are also in that. Add elements in that which
 are not in this.</p>
@@ -3882,16 +3882,16 @@ are not in this.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-Iterator">Iterator</a>[A^] ref</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="remove">remove</h3>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L108">[Source]</a></span></p>
 <p>Remove everything that is in that.</p>
 <pre><code class="pony">fun ref remove(
@@ -3899,16 +3899,16 @@ are not in this.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-Iterator">Iterator</a>[box-&gt;A!] ref</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="add91optional-k-hashfunction91this-a93-val93">add[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="add91optional-k-hashfunction91this-a93-val93">add[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#add91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L116">[Source]</a></span></p>
 <p>Add a value to the set.</p>
 <pre><code class="pony">fun box add[optional K: HashFunction[this-&gt;A!] val](
@@ -3916,16 +3916,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: this-&gt;A!</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="sub91optional-k-hashfunction91this-a93-val93">sub[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="sub91optional-k-hashfunction91this-a93-val93">sub[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#sub91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L125">[Source]</a></span></p>
 <p>Remove a value from the set.</p>
 <pre><code class="pony">fun box sub[optional K: HashFunction[this-&gt;A!] val](
@@ -3933,16 +3933,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: box-&gt;this-&gt;A!</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="op_or91optional-k-hashfunction91this-a93-val93">op_or[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="op_or91optional-k-hashfunction91this-a93-val93">op_or[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#op_or91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L134">[Source]</a></span></p>
 <p>Create a set with the elements of both this and that.</p>
 <pre><code class="pony">fun box op_or[optional K: HashFunction[this-&gt;A!] val](
@@ -3950,16 +3950,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: this-&gt;<a href="../collections-HashSet">HashSet</a>[A, H] ref</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="op_and91optional-k-hashfunction91this-a93-val93">op_and[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="op_and91optional-k-hashfunction91this-a93-val93">op_and[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#op_and91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L148">[Source]</a></span></p>
 <p>Create a set with the elements that are in both this and that.</p>
 <pre><code class="pony">fun box op_and[optional K: HashFunction[this-&gt;A!] val](
@@ -3967,16 +3967,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: this-&gt;<a href="../collections-HashSet">HashSet</a>[A, H] ref</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="op_xor91optional-k-hashfunction91this-a93-val93">op_xor[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="op_xor91optional-k-hashfunction91this-a93-val93">op_xor[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#op_xor91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L165">[Source]</a></span></p>
 <p>Create a set with the elements that are in either set but not both.</p>
 <pre><code class="pony">fun box op_xor[optional K: HashFunction[this-&gt;A!] val](
@@ -3984,16 +3984,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: this-&gt;<a href="../collections-HashSet">HashSet</a>[A, H] ref</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="without91optional-k-hashfunction91this-a93-val93">without[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="without91optional-k-hashfunction91this-a93-val93">without[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#without91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L191">[Source]</a></span></p>
 <p>Create a set with the elements of this that are not in that.</p>
 <pre><code class="pony">fun box without[optional K: HashFunction[this-&gt;A!] val](
@@ -4001,16 +4001,16 @@ are not in this.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: this-&gt;<a href="../collections-HashSet">HashSet</a>[A, H] ref</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="clone91optional-k-hashfunction91this-a93-val93">clone[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]</h3>
+<h3 id="clone91optional-k-hashfunction91this-a93-val93">clone[optional K: <a href="../collections-HashFunction">HashFunction</a>[this-&gt;A!] val]<a class="headerlink" href="#clone91optional-k-hashfunction91this-a93-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L209">[Source]</a></span></p>
 <p>Create a clone. The element type may be different due to aliasing and
 viewpoint adaptation.</p>
@@ -4018,12 +4018,12 @@ viewpoint adaptation.</p>
 : HashSet[this-&gt;A!, K] ref^
 </code></pre>
 
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashSet">HashSet</a>[this-&gt;A!, K] ref^</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L221">[Source]</a></span></p>
 <p>Returns true if the sets contain the same elements.</p>
 <pre><code class="pony">fun box eq(
@@ -4031,16 +4031,16 @@ viewpoint adaptation.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L227">[Source]</a></span></p>
 <p>Returns false if the sets contain the same elements.</p>
 <pre><code class="pony">fun box ne(
@@ -4048,16 +4048,16 @@ viewpoint adaptation.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="lt">lt</h3>
+<h3 id="lt">lt<a class="headerlink" href="#lt" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L233">[Source]</a></span></p>
 <p>Returns true if every element in this is also in that, and this has fewer
 elements than that.</p>
@@ -4066,16 +4066,16 @@ elements than that.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="le">le</h3>
+<h3 id="le">le<a class="headerlink" href="#le" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L240">[Source]</a></span></p>
 <p>Returns true if every element in this is also in that.</p>
 <pre><code class="pony">fun box le(
@@ -4083,16 +4083,16 @@ elements than that.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="gt">gt</h3>
+<h3 id="gt">gt<a class="headerlink" href="#gt" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L253">[Source]</a></span></p>
 <p>Returns true if every element in that is also in this, and this has more
 elements than that.</p>
@@ -4101,16 +4101,16 @@ elements than that.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ge">ge</h3>
+<h3 id="ge">ge<a class="headerlink" href="#ge" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L260">[Source]</a></span></p>
 <p>Returns true if every element in that is also in this.</p>
 <pre><code class="pony">fun box ge(
@@ -4118,16 +4118,16 @@ elements than that.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next_index">next_index</h3>
+<h3 id="next_index">next_index<a class="headerlink" href="#next_index" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L266">[Source]</a></span></p>
 <p>Given an index, return the next index that has a populated value. Raise an
 error if there is no next populated index.</p>
@@ -4136,16 +4136,16 @@ error if there is no next populated index.</p>
 : USize val ?
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>prev: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="index">index</h3>
+<h3 id="index">index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L273">[Source]</a></span></p>
 <p>Returns the value at a given index. Raise an error if the index is not
 populated.</p>
@@ -4154,39 +4154,39 @@ populated.</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="values">values</h3>
+<h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L280">[Source]</a></span></p>
 <p>Return an iterator over the values.</p>
 <pre><code class="pony">fun box values()
 : SetValues[A, H, this-&gt;HashSet[A, H] ref] ref^
 </code></pre>
 
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-SetValues">SetValues</a>[A, H, this-&gt;<a href="../collections-HashSet">HashSet</a>[A, H] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="compare">compare</h3>
+<h3 id="compare">compare<a class="headerlink" href="#compare" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/compare/#L28">[Source]</a></span></p>
 <pre><code class="pony">fun box compare(
   that: HashSet[A, H] box)
 : (Less val | Equal val | Greater val)
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-HashSet">HashSet</a>[A, H] box</li>
 </ul>
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
 </ul>

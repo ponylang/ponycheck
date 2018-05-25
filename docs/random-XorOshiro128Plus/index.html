@@ -3505,7 +3505,7 @@
               
                 
                 
-                <h1 id="xoroshiro128plus">XorOshiro128Plus</h1>
+                <h1 id="xoroshiro128plus">XorOshiro128Plus<a class="headerlink" href="#xoroshiro128plus" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/random/xoroshiro/#L1">[Source]</a></span></p>
 <p>This is an implementation of xoroshiro128+, as detailed at:</p>
 <p>http://xoroshiro.di.unimi.it</p>
@@ -3514,13 +3514,13 @@
   Random ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../random-Random">Random</a> ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/random/xoroshiro/#L12">[Source]</a></span></p>
 <p>Create with the specified seed. Returned values are deterministic for a
 given seed.</p>
@@ -3530,180 +3530,180 @@ given seed.</p>
 : XorOshiro128Plus ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>x: <a href="../builtin-U64">U64</a> val = seq</li>
 <li>y: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../random-XorOshiro128Plus">XorOshiro128Plus</a> ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="next">next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/random/xoroshiro/#L21">[Source]</a></span></p>
 <p>A random integer in [0, 2^64)</p>
 <pre><code class="pony">fun ref next()
 : U64 val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="has_next">has_next</h3>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun tag has_next()
 : Bool val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="u8">u8</h3>
+<h3 id="u8">u8<a class="headerlink" href="#u8" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref u8()
 : U8 val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val</li>
 </ul>
 <hr />
-<h3 id="u16">u16</h3>
+<h3 id="u16">u16<a class="headerlink" href="#u16" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref u16()
 : U16 val
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U16">U16</a> val</li>
 </ul>
 <hr />
-<h3 id="u32">u32</h3>
+<h3 id="u32">u32<a class="headerlink" href="#u32" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref u32()
 : U32 val
 </code></pre>
 
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U32">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="u64">u64</h3>
+<h3 id="u64">u64<a class="headerlink" href="#u64" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref u64()
 : U64 val
 </code></pre>
 
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="u128">u128</h3>
+<h3 id="u128">u128<a class="headerlink" href="#u128" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref u128()
 : U128 val
 </code></pre>
 
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U128">U128</a> val</li>
 </ul>
 <hr />
-<h3 id="ulong">ulong</h3>
+<h3 id="ulong">ulong<a class="headerlink" href="#ulong" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref ulong()
 : ULong val
 </code></pre>
 
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ULong">ULong</a> val</li>
 </ul>
 <hr />
-<h3 id="usize">usize</h3>
+<h3 id="usize">usize<a class="headerlink" href="#usize" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref usize()
 : USize val
 </code></pre>
 
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="i8">i8</h3>
+<h3 id="i8">i8<a class="headerlink" href="#i8" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref i8()
 : I8 val
 </code></pre>
 
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I8">I8</a> val</li>
 </ul>
 <hr />
-<h3 id="i16">i16</h3>
+<h3 id="i16">i16<a class="headerlink" href="#i16" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref i16()
 : I16 val
 </code></pre>
 
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I16">I16</a> val</li>
 </ul>
 <hr />
-<h3 id="i32">i32</h3>
+<h3 id="i32">i32<a class="headerlink" href="#i32" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref i32()
 : I32 val
 </code></pre>
 
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I32">I32</a> val</li>
 </ul>
 <hr />
-<h3 id="i64">i64</h3>
+<h3 id="i64">i64<a class="headerlink" href="#i64" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref i64()
 : I64 val
 </code></pre>
 
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I64">I64</a> val</li>
 </ul>
 <hr />
-<h3 id="i128">i128</h3>
+<h3 id="i128">i128<a class="headerlink" href="#i128" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref i128()
 : I128 val
 </code></pre>
 
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I128">I128</a> val</li>
 </ul>
 <hr />
-<h3 id="ilong">ilong</h3>
+<h3 id="ilong">ilong<a class="headerlink" href="#ilong" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref ilong()
 : ILong val
 </code></pre>
 
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ILong">ILong</a> val</li>
 </ul>
 <hr />
-<h3 id="isize">isize</h3>
+<h3 id="isize">isize<a class="headerlink" href="#isize" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref isize()
 : ISize val
 </code></pre>
 
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ISize">ISize</a> val</li>
 </ul>
 <hr />
-<h3 id="int91optional-n-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-real91n93-val93">int[optional N: ((<a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Real">Real</a>[N] val)]</h3>
+<h3 id="int91optional-n-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-real91n93-val93">int[optional N: ((<a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Real">Real</a>[N] val)]<a class="headerlink" href="#int91optional-n-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-real91n93-val93" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref int[optional N: ((U8 val | U16 val | U32 val | 
     U64 val | U128 val | ULong val | 
     USize val) &amp; Real[N] val)](
@@ -3711,36 +3711,36 @@ given seed.</p>
 : N
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: N</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>N</li>
 </ul>
 <hr />
-<h3 id="real">real</h3>
+<h3 id="real">real<a class="headerlink" href="#real" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref real()
 : F64 val
 </code></pre>
 
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-F64">F64</a> val</li>
 </ul>
 <hr />
-<h3 id="shuffle91a-a93">shuffle[A: A]</h3>
+<h3 id="shuffle91a-a93">shuffle[A: A]<a class="headerlink" href="#shuffle91a-a93" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun ref shuffle[A: A](
   array: Array[A] ref)
 : None val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>array: <a href="../builtin-Array">Array</a>[A] ref</li>
 </ul>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>

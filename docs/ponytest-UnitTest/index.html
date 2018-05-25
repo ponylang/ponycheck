@@ -3205,7 +3205,7 @@
               
                 
                 
-                <h1 id="unittest">UnitTest</h1>
+                <h1 id="unittest">UnitTest<a class="headerlink" href="#unittest" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L1">[Source]</a></span></p>
 <p>Each unit test class must provide this trait. Simple tests only need to
 define the name() and apply() functions. The remaining functions specify
@@ -3213,8 +3213,8 @@ additional test options.</p>
 <pre><code class="pony">trait ref UnitTest
 </code></pre>
 
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="name">name</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L8">[Source]</a></span></p>
 <p>Report the test name, which is used when printing test results and on the
 command line to select tests to run.</p>
@@ -3222,12 +3222,12 @@ command line to select tests to run.</p>
 : String val
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="exclusion_group">exclusion_group</h3>
+<h3 id="exclusion_group">exclusion_group<a class="headerlink" href="#exclusion_group" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L14">[Source]</a></span></p>
 <p>Report the test exclusion group, returning an empty string for none.
 The default body returns an empty string.</p>
@@ -3235,12 +3235,12 @@ The default body returns an empty string.</p>
 : String val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L21">[Source]</a></span></p>
 <p>Run the test.
 Raising an error is interpreted as a test failure.</p>
@@ -3249,16 +3249,16 @@ Raising an error is interpreted as a test failure.</p>
 : None val ?
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>h: <a href="../ponytest-TestHelper">TestHelper</a> val</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val ?</li>
 </ul>
 <hr />
-<h3 id="timed_out">timed_out</h3>
+<h3 id="timed_out">timed_out<a class="headerlink" href="#timed_out" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L27">[Source]</a></span></p>
 <p>Tear down a possibly hanging test.
 Called when the timeout specified by to long_test() expires.
@@ -3270,16 +3270,16 @@ The default is to do nothing.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>h: <a href="../ponytest-TestHelper">TestHelper</a> val</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="tear_down">tear_down</h3>
+<h3 id="tear_down">tear_down<a class="headerlink" href="#tear_down" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L37">[Source]</a></span></p>
 <p>Tidy up after the test has completed.
 Called for each run test, whether that test passed, succeeded or timed out.
@@ -3289,16 +3289,16 @@ The default is to do nothing.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>h: <a href="../ponytest-TestHelper">TestHelper</a> val</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="label">label</h3>
+<h3 id="label">label<a class="headerlink" href="#label" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponytest/unit_test/#L45">[Source]</a></span></p>
 <p>Report the test label, returning an empty string for none.
 It can be later use to filter tests which we want to run, by labels.</p>
@@ -3306,7 +3306,7 @@ It can be later use to filter tests which we want to run, by labels.</p>
 : String val
 </code></pre>
 
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>

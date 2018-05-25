@@ -3199,7 +3199,7 @@
               
                 
                 
-                <h1 id="countdowniter91optional-t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93">CountdownIter[optional T: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[T] val)]</h1>
+                <h1 id="countdowniter91optional-t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93">CountdownIter[optional T: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[T] val)]<a class="headerlink" href="#countdowniter91optional-t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L20">[Source]</a></span></p>
 <p>workaround until 0.21.0 is released and Range supports negative steps</p>
 <p><code>from</code> is exclusive, <code>to</code> is inclusive</p>
@@ -3211,13 +3211,13 @@
   Iterator[T] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[T] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L29">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
   from: T,
@@ -3225,35 +3225,35 @@
 : CountdownIter[T] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: T</li>
 <li>to: T = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-CountdownIter">CountdownIter</a>[T] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="has_next">has_next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L33">[Source]</a></span></p>
 <pre><code class="pony">fun ref has_next()
 : Bool val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next">next</h3>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L36">[Source]</a></span></p>
 <pre><code class="pony">fun ref next()
 : T
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>T</li>
 </ul>

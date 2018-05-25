@@ -3253,14 +3253,14 @@
               
                 
                 
-                <h1 id="ringbuffer91a-a93">RingBuffer[A: A]</h1>
+                <h1 id="ringbuffer91a-a93">RingBuffer[A: A]<a class="headerlink" href="#ringbuffer91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L1">[Source]</a></span></p>
 <p>A ring buffer.</p>
 <pre><code class="pony">class ref RingBuffer[A: A]
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L9">[Source]</a></span></p>
 <p>Create a ring buffer with a fixed size. The size will be rounded up to the
 next power of 2.</p>
@@ -3269,17 +3269,17 @@ next power of 2.</p>
 : RingBuffer[A] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-RingBuffer">RingBuffer</a>[A] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="head">head</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="head">head<a class="headerlink" href="#head" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L18">[Source]</a></span></p>
 <p>The first read that will succeed. If nothing has been written to the ring,
 this will raise an error.</p>
@@ -3287,36 +3287,36 @@ this will raise an error.</p>
 : USize val ?
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="size">size</h3>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L33">[Source]</a></span></p>
 <p>The number of elements that have been added to the ring.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="space">space</h3>
+<h3 id="space">space<a class="headerlink" href="#space" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L39">[Source]</a></span></p>
 <p>The available space in the ring.</p>
 <pre><code class="pony">fun box space()
 : USize val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L45">[Source]</a></span></p>
 <p>Get the i-th element from the ring. If the i-th element has not yet been
 added or is no longer available, this will raise an error.</p>
@@ -3325,16 +3325,16 @@ added or is no longer available, this will raise an error.</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="push">push</h3>
+<h3 id="push">push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L56">[Source]</a></span></p>
 <p>Add an element to the ring. If the ring is full, this will drop the oldest
 element in the ring. Returns true if an element was dropped.</p>
@@ -3343,23 +3343,23 @@ element in the ring. Returns true if an element was dropped.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/ring_buffer/#L73">[Source]</a></span></p>
 <p>Clear the queue.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>

@@ -3199,20 +3199,20 @@
               
                 
                 
-                <h1 id="setvalues91a-a-h-hashfunction91a93-val-s-hashset91a-h93-read93">SetValues[A: A, H: <a href="../collections-HashFunction">HashFunction</a>[A!] val, S: <a href="../collections-HashSet">HashSet</a>[A, H] #read]</h1>
+                <h1 id="setvalues91a-a-h-hashfunction91a93-val-s-hashset91a-h93-read93">SetValues[A: A, H: <a href="../collections-HashFunction">HashFunction</a>[A!] val, S: <a href="../collections-HashSet">HashSet</a>[A, H] #read]<a class="headerlink" href="#setvalues91a-a-h-hashfunction91a93-val-s-hashset91a-h93-read93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/set/#L286">[Source]</a></span></p>
 <p>An iterator over the values in a set.</p>
 <pre><code class="pony">class ref SetValues[A: A, H: HashFunction[A!] val, S: HashSet[A, H] #read] is
   Iterator[S-&gt;A] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[S-&gt;A] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L295">[Source]</a></span></p>
 <p>Creates an iterator for the given set.</p>
 <pre><code class="pony">new ref create(
@@ -3220,17 +3220,17 @@
 : SetValues[A, H, S] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>set: S</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-SetValues">SetValues</a>[A, H, S] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="has_next">has_next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L301">[Source]</a></span></p>
 <p>True if it believes there are remaining entries. May not be right if values
 were added or removed from the set.</p>
@@ -3238,12 +3238,12 @@ were added or removed from the set.</p>
 : Bool val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next">next</h3>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/set/#L308">[Source]</a></span></p>
 <p>Returns the next value, or raises an error if there isn't one. If values
 are added during iteration, this may not return all values.</p>
@@ -3251,7 +3251,7 @@ are added during iteration, this may not return all values.</p>
 : S-&gt;A ?
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>S-&gt;A ?</li>
 </ul>

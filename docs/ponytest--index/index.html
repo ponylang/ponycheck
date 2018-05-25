@@ -3211,7 +3211,7 @@
               
                 
                 
-                <h1 id="ponytest-package">PonyTest package</h1>
+                <h1 id="ponytest-package">PonyTest package<a class="headerlink" href="#ponytest-package" title="Permanent link">&para;</a></h1>
 <p>The PonyTest package provides a unit testing framework. It is designed to be as
 simple as possible to use, both for the unit test writer and the user running
 the tests.</p>
@@ -3229,7 +3229,7 @@ assertion functions. By default log messages are only shown for tests that
 fail.</p>
 <p>When any assertion function fails the test is counted as a fail. However, tests
 can also indicate failure by raising an error in the test function.</p>
-<h2 id="example-program">Example program</h2>
+<h2 id="example-program">Example program<a class="headerlink" href="#example-program" title="Permanent link">&para;</a></h2>
 <p>To use PonyTest simply write a class for each test and a TestList type that
 tells the PonyTest object about the tests. Typically the TestList will be Main
 for the package.</p>
@@ -3266,7 +3266,7 @@ provide it.</p>
 <p>Main.create() is called only for program invocations on the current package.
 Main.make() is called during aggregation. If so desired extra code can be added
 to either of these constructors to perform additional tasks.</p>
-<h2 id="test-names">Test names</h2>
+<h2 id="test-names">Test names<a class="headerlink" href="#test-names" title="Permanent link">&para;</a></h2>
 <p>Tests are identified by names, which are used when printing test results and on
 the command line to select which tests to run. These names are independent of
 the names of the test classes in the Pony source code.</p>
@@ -3277,7 +3277,7 @@ select groups of tests.</p>
 <code>--exclude=[prefix]</code> command line option.</p>
 <p>You can run only tests whose names start with a given string by using the
 <code>--only=[prefix]</code> command line option.</p>
-<h2 id="aggregation">Aggregation</h2>
+<h2 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h2>
 <p>Often it is desirable to run a collection of unit tests from multiple different
 source files. For example, if several packages within a bundle each have their
 own unit tests it may be useful to run all tests for the bundle together.</p>
@@ -3302,7 +3302,7 @@ actor Main is TestList
 
 <p>Aggregate test classes may themselves be aggregated. Every test list class may
 contain any combination of its own tests and aggregated lists.</p>
-<h2 id="long-tests">Long tests</h2>
+<h2 id="long-tests">Long tests<a class="headerlink" href="#long-tests" title="Permanent link">&para;</a></h2>
 <p>Simple tests run within a single function. When that function exits, either
 returning or raising an error, the test is complete. This is not viable for
 tests that need to use actors.</p>
@@ -3327,7 +3327,7 @@ that should not be able to hang is perfectly acceptable and will not make the
 test take any longer if successful.</p>
 <p>Timeouts should not be used as the standard method of detecting if a test has
 failed.</p>
-<h2 id="exclusion-groups">Exclusion groups</h2>
+<h2 id="exclusion-groups">Exclusion groups<a class="headerlink" href="#exclusion-groups" title="Permanent link">&para;</a></h2>
 <p>By default all tests are run concurrently. This may be a problem for some
 tests, eg if they manipulate an external file or use a system resource. To fix
 this issue any number of tests may be put into an exclusion group.</p>
@@ -3339,7 +3339,7 @@ concurrently with any other tests.</p>
 <p>The command line option "--sequential" prevents any tests from running
 concurrently, regardless of exclusion groups. This is intended for debugging
 rather than standard use.</p>
-<h2 id="labels">Labels</h2>
+<h2 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h2>
 <p>Test can have label. Labels are used to filter which tests are run, by setting
 command line argument <code>--label=[some custom label]</code>. It can be used to separate
 unit tests from integration tests.</p>
@@ -3355,7 +3355,7 @@ class iso _I8AddTest is UnitTest
 
 </code></pre>
 
-<h2 id="tear-down">Tear down</h2>
+<h2 id="tear-down">Tear down<a class="headerlink" href="#tear-down" title="Permanent link">&para;</a></h2>
 <p>Each unit test object may define a tear_down() function. This is called after
 the test has finished to allow tearing down of any complex environment that had
 to be set up for the test.</p>
@@ -3367,7 +3367,7 @@ of the tests run. The next test in the exclusion group will not start until
 after tear_down() returns on the current test.</p>
 <p>The test's TestHelper is handed to tear_down() and it is permitted to log
 messages and call assert functions during tear down.</p>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../ponytest-UnitTest/">trait UnitTest</a></li>
 <li><a href="../ponytest-TestList/">trait TestList</a></li>

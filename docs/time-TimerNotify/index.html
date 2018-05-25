@@ -3133,14 +3133,14 @@
               
                 
                 
-                <h1 id="timernotify">TimerNotify</h1>
+                <h1 id="timernotify">TimerNotify<a class="headerlink" href="#timernotify" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/time/timer_notify/#L1">[Source]</a></span></p>
 <p>Notifications for timer.</p>
 <pre><code class="pony">interface ref TimerNotify
 </code></pre>
 
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="apply">apply</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timer_notify/#L5">[Source]</a></span></p>
 <p>Called with the the number of times the timer has fired since this was last
 called. Usually, the value of <code>count</code> will be 1. If it is not 1, it means
@@ -3157,17 +3157,17 @@ false to cancel the timer (even if it has an interval).</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>timer: <a href="../time-Timer">Timer</a> ref</li>
 <li>count: <a href="../builtin-U64">U64</a> val</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="cancel">cancel</h3>
+<h3 id="cancel">cancel<a class="headerlink" href="#cancel" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/time/timer_notify/#L21">[Source]</a></span></p>
 <p>Called if the timer is cancelled. This is also called if the notifier
 returns false from its <code>apply</code> method.</p>
@@ -3176,11 +3176,11 @@ returns false from its <code>apply</code> method.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>timer: <a href="../time-Timer">Timer</a> ref</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>

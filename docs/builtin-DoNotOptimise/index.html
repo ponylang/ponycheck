@@ -3217,27 +3217,27 @@
               
                 
                 
-                <h1 id="donotoptimise">DoNotOptimise</h1>
+                <h1 id="donotoptimise">DoNotOptimise<a class="headerlink" href="#donotoptimise" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L1">[Source]</a></span></p>
 <p>Contains functions preventing some compiler optimisations, namely dead code
 removal. This is useful for benchmarking purposes.</p>
 <pre><code class="pony">primitive val DoNotOptimise
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L1">[Source]</a></span></p>
 <pre><code class="pony">new val create()
 : DoNotOptimise val^
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-DoNotOptimise">DoNotOptimise</a> val^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="apply91a-a93">apply[A: A]</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="apply91a-a93">apply[A: A]<a class="headerlink" href="#apply91a-a93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L7">[Source]</a></span></p>
 <p>Prevent the compiler from optimising out obj and any computation it is
 derived from. This doesn't prevent constant propagation.</p>
@@ -3246,16 +3246,16 @@ derived from. This doesn't prevent constant propagation.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>obj: A</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="observe">observe</h3>
+<h3 id="observe">observe<a class="headerlink" href="#observe" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L14">[Source]</a></span></p>
 <p>Prevent the compiler from optimising out writes to an object marked by
 the apply function.</p>
@@ -3263,39 +3263,39 @@ the apply function.</p>
 : None val
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L7">[Source]</a></span></p>
 <pre><code class="pony">fun box eq(
   that: DoNotOptimise val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-DoNotOptimise">DoNotOptimise</a> val</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/do_not_optimise/#L7">[Source]</a></span></p>
 <pre><code class="pony">fun box ne(
   that: DoNotOptimise val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-DoNotOptimise">DoNotOptimise</a> val</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

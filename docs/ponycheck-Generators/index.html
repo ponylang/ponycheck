@@ -3955,26 +3955,26 @@
               
                 
                 
-                <h1 id="generators">Generators</h1>
+                <h1 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L294">[Source]</a></span></p>
 <p>Convenience combinators and factories for common types and kind of Generators.</p>
 <pre><code class="pony">primitive val Generators
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L294">[Source]</a></span></p>
 <pre><code class="pony">new val create()
 : Generators val^
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generators">Generators</a> val^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="unit91t-t93">unit[T: T]</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="unit91t-t93">unit[T: T]<a class="headerlink" href="#unit91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L299">[Source]</a></span></p>
 <p>Generate a reference to the same value over and over again.</p>
 <p>This reference will be of type <code>box-&gt;T</code> and not just <code>T</code>
@@ -3985,28 +3985,28 @@ as this generator will need to keep a reference to the given value.</p>
 : Generator[box-&gt;T] box
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>t: T</li>
 <li>do_shrink: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[box-&gt;T] box</li>
 </ul>
 <hr />
-<h3 id="none91t-none-val93">none[T: <a href="../builtin-None">None</a> val]</h3>
+<h3 id="none91t-none-val93">none[T: <a href="../builtin-None">None</a> val]<a class="headerlink" href="#none91t-none-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L317">[Source]</a></span></p>
 <pre><code class="pony">fun box none[T: None val]()
 : Generator[(T | None val)] box
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[(T | <a href="../builtin-None">None</a> val)] box</li>
 </ul>
 <hr />
-<h3 id="repeatedly91t-t93">repeatedly[T: T]</h3>
+<h3 id="repeatedly91t-t93">repeatedly[T: T]<a class="headerlink" href="#repeatedly91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L319">[Source]</a></span></p>
 <p>Generate values by calling the lambda <code>f</code> repeatedly,
 once for every invocation of <code>generate</code>.</p>
@@ -4028,16 +4028,16 @@ which is a <code>String tag</code>).</p>
 : Generator[T] box
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(): T^ ?}[T] box</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T] box</li>
 </ul>
 <hr />
-<h3 id="seq_of91t-t-s-seq91t93-ref93">seq_of[T: T, S: <a href="../builtin-Seq">Seq</a>[T] ref]</h3>
+<h3 id="seq_of91t-t-s-seq91t93-ref93">seq_of[T: T, S: <a href="../builtin-Seq">Seq</a>[T] ref]<a class="headerlink" href="#seq_of91t-t-s-seq91t93-ref93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L347">[Source]</a></span></p>
 <p>Create a <code>Seq</code> from the values of the given Generator with an optional minimum and
 maximum size, defaults are 0 and 100 respectively.</p>
@@ -4048,18 +4048,18 @@ maximum size, defaults are 0 and 100 respectively.</p>
 : Generator[S] box
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[S] box</li>
 </ul>
 <hr />
-<h3 id="array_of91t-t93">array_of[T: T]</h3>
+<h3 id="array_of91t-t93">array_of[T: T]<a class="headerlink" href="#array_of91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L383">[Source]</a></span></p>
 <pre><code class="pony">fun box array_of[T: T](
   gen: Generator[T] box,
@@ -4068,18 +4068,18 @@ maximum size, defaults are 0 and 100 respectively.</p>
 : Generator[Array[T] ref] box
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-Array">Array</a>[T] ref] box</li>
 </ul>
 <hr />
-<h3 id="list_of91t-t93">list_of[T: T]</h3>
+<h3 id="list_of91t-t93">list_of[T: T]<a class="headerlink" href="#list_of91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L391">[Source]</a></span></p>
 <pre><code class="pony">fun box list_of[T: T](
   gen: Generator[T] box,
@@ -4088,18 +4088,18 @@ maximum size, defaults are 0 and 100 respectively.</p>
 : Generator[List[T] ref] box
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-List">List</a>[T] ref] box</li>
 </ul>
 <hr />
-<h3 id="set_of91t-hashable-read-equatable91t93-read93">set_of[T: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[T] #read)]</h3>
+<h3 id="set_of91t-hashable-read-equatable91t93-read93">set_of[T: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[T] #read)]<a class="headerlink" href="#set_of91t-hashable-read-equatable91t93-read93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L399">[Source]</a></span></p>
 <p>Create a generator for <code>Set</code> filled with values
 of the given generator <code>gen</code>.
@@ -4117,17 +4117,17 @@ If there are duplicates, the set won't grow.</p>
 : Generator[HashSet[T, HashEq[T] val] ref] box
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashSet">HashSet</a>[T, <a href="../collections-HashEq">HashEq</a>[T] val] ref] box</li>
 </ul>
 <hr />
-<h3 id="set_is_of91t-t93">set_is_of[T: T]</h3>
+<h3 id="set_is_of91t-t93">set_is_of[T: T]<a class="headerlink" href="#set_is_of91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L440">[Source]</a></span></p>
 <p>Create a generator for <code>SetIs</code> filled with values
 of the given generator <code>gen</code>.
@@ -4145,17 +4145,17 @@ If there are duplicates, the set won't grow.</p>
 : Generator[HashSet[T, HashIs[T!] val] ref] box
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[T] box</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashSet">HashSet</a>[T, <a href="../collections-HashIs">HashIs</a>[T!] val] ref] box</li>
 </ul>
 <hr />
-<h3 id="map_of91k-hashable-read-equatable91k93-read-v-v93">map_of[K: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[K] #read), V: V]</h3>
+<h3 id="map_of91k-hashable-read-equatable91k93-read-v-v93">map_of[K: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[K] #read), V: V]<a class="headerlink" href="#map_of91k-hashable-read-equatable91k93-read-v-v93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L482">[Source]</a></span></p>
 <p>Create a generator for <code>Map</code> from a generator of key-value tuples.
 The generated maps will have a size up to <code>max</code>
@@ -4169,17 +4169,17 @@ the pair that is generated later will overwrite earlier entries in the map.</p>
 : Generator[HashMap[K, V, HashEq[K] val] ref] box
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[(K , V)] box</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashMap">HashMap</a>[K, V, <a href="../collections-HashEq">HashEq</a>[K] val] ref] box</li>
 </ul>
 <hr />
-<h3 id="map_is_of91k-k-v-v93">map_is_of[K: K, V: V]</h3>
+<h3 id="map_is_of91k-k-v-v93">map_is_of[K: K, V: V]<a class="headerlink" href="#map_is_of91k-k-v-v93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L519">[Source]</a></span></p>
 <p>Create a generator for <code>MapIs</code> from a generator of key-value tuples.
 The generated maps will have a size up to <code>max</code>
@@ -4193,17 +4193,17 @@ the pair that is generated later will overwrite earlier entries in the map.</p>
 : Generator[HashMap[K, V, HashIs[K] val] ref] box
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[(K , V)] box</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../collections-HashMap">HashMap</a>[K, V, <a href="../collections-HashIs">HashIs</a>[K] val] ref] box</li>
 </ul>
 <hr />
-<h3 id="one_of91t-t93">one_of[T: T]</h3>
+<h3 id="one_of91t-t93">one_of[T: T]<a class="headerlink" href="#one_of91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L556">[Source]</a></span></p>
 <p>Generate a random value from the given ReadSeq.
 This generator will generate nothing if the given xs is empty.</p>
@@ -4216,17 +4216,17 @@ for each shrink round. Otherwise it will return nothing.</p>
 : Generator[box-&gt;T] box
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>xs: <a href="../builtin-ReadSeq">ReadSeq</a>[T] box</li>
 <li>do_shrink: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[box-&gt;T] box</li>
 </ul>
 <hr />
-<h3 id="one_of_safe91t-t93">one_of_safe[T: T]</h3>
+<h3 id="one_of_safe91t-t93">one_of_safe[T: T]<a class="headerlink" href="#one_of_safe91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L578">[Source]</a></span></p>
 <p>Version of <code>one_of</code> that will error if <code>xs</code> is empty.</p>
 <pre><code class="pony">fun box one_of_safe[T: T](
@@ -4235,17 +4235,17 @@ for each shrink round. Otherwise it will return nothing.</p>
 : Generator[box-&gt;T] box ?
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>xs: <a href="../builtin-ReadSeq">ReadSeq</a>[T] box</li>
 <li>do_shrink: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[box-&gt;T] box ?</li>
 </ul>
 <hr />
-<h3 id="frequency91t-t93">frequency[T: T]</h3>
+<h3 id="frequency91t-t93">frequency[T: T]<a class="headerlink" href="#frequency91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L585">[Source]</a></span></p>
 <p>chose a value of one of the given Generators,
 while controlling the distribution with the associated weights.</p>
@@ -4267,16 +4267,16 @@ twice as likely as even ones:</p>
 : Generator[T] box
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>weighted_generators: <a href="../builtin-ReadSeq">ReadSeq</a>[(<a href="../builtin-USize">USize</a> val , <a href="../ponycheck-Generator">Generator</a>[T] box)] box</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T] box</li>
 </ul>
 <hr />
-<h3 id="frequency_safe91t-t93">frequency_safe[T: T]</h3>
+<h3 id="frequency_safe91t-t93">frequency_safe[T: T]<a class="headerlink" href="#frequency_safe91t-t93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L646">[Source]</a></span></p>
 <p>Version of <code>frequency</code> that errors if the given <code>weighted_generators</code> is
 empty.</p>
@@ -4285,16 +4285,16 @@ empty.</p>
 : Generator[T] box ?
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>weighted_generators: <a href="../builtin-ReadSeq">ReadSeq</a>[(<a href="../builtin-USize">USize</a> val , <a href="../ponycheck-Generator">Generator</a>[T] box)] box</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T] box ?</li>
 </ul>
 <hr />
-<h3 id="zip291t1-t1-t2-t293">zip2[T1: T1, T2: T2]</h3>
+<h3 id="zip291t1-t1-t2-t293">zip2[T1: T1, T2: T2]<a class="headerlink" href="#zip291t1-t1-t2-t293" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L658">[Source]</a></span></p>
 <p>zip two generators into a generator of a 2-tuple
 containing the values generated by both generators.</p>
@@ -4304,17 +4304,17 @@ containing the values generated by both generators.</p>
 : Generator[(T1 , T2)] box
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2)] box</li>
 </ul>
 <hr />
-<h3 id="zip391t1-t1-t2-t2-t3-t393">zip3[T1: T1, T2: T2, T3: T3]</h3>
+<h3 id="zip391t1-t1-t2-t2-t3-t393">zip3[T1: T1, T2: T2, T3: T3]<a class="headerlink" href="#zip391t1-t1-t2-t2-t3-t393" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L685">[Source]</a></span></p>
 <p>zip three generators into a generator of a 3-tuple
 containing the values generated by those three generators.</p>
@@ -4325,18 +4325,18 @@ containing the values generated by those three generators.</p>
 : Generator[(T1 , T2 , T3)] box
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
 <li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2 , T3)] box</li>
 </ul>
 <hr />
-<h3 id="zip491t1-t1-t2-t2-t3-t3-t4-t493">zip4[T1: T1, T2: T2, T3: T3, T4: T4]</h3>
+<h3 id="zip491t1-t1-t2-t2-t3-t3-t4-t493">zip4[T1: T1, T2: T2, T3: T3, T4: T4]<a class="headerlink" href="#zip491t1-t1-t2-t2-t3-t3-t4-t493" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L717">[Source]</a></span></p>
 <p>zip four generators into a generator of a 4-tuple
 containing the values generated by those four generators.</p>
@@ -4348,19 +4348,19 @@ containing the values generated by those four generators.</p>
 : Generator[(T1 , T2 , T3 , T4)] box
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
 <li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
 <li>gen4: <a href="../ponycheck-Generator">Generator</a>[T4] box</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[(T1 , T2 , T3 , T4)] box</li>
 </ul>
 <hr />
-<h3 id="map291t1-t1-t2-t2-t3-t393">map2[T1: T1, T2: T2, T3: T3]</h3>
+<h3 id="map291t1-t1-t2-t2-t3-t393">map2[T1: T1, T2: T2, T3: T3]<a class="headerlink" href="#map291t1-t1-t2-t2-t3-t393" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L754">[Source]</a></span></p>
 <p>convenience combinator for mapping 2 generators into 1</p>
 <pre><code class="pony">fun box map2[T1: T1, T2: T2, T3: T3](
@@ -4370,18 +4370,18 @@ containing the values generated by those four generators.</p>
 : Generator[T3] box
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
 <li>fn: {(T1, T2): T3^}[T1, T2, T3] ref</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T3] box</li>
 </ul>
 <hr />
-<h3 id="map391t1-t1-t2-t2-t3-t3-t4-t493">map3[T1: T1, T2: T2, T3: T3, T4: T4]</h3>
+<h3 id="map391t1-t1-t2-t2-t3-t3-t4-t493">map3[T1: T1, T2: T2, T3: T3, T4: T4]<a class="headerlink" href="#map391t1-t1-t2-t2-t3-t3-t4-t493" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L769">[Source]</a></span></p>
 <p>convenience combinator for mapping 3 generators into 1</p>
 <pre><code class="pony">fun box map3[T1: T1, T2: T2, T3: T3, T4: T4](
@@ -4392,19 +4392,19 @@ containing the values generated by those four generators.</p>
 : Generator[T4] box
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
 <li>gen3: <a href="../ponycheck-Generator">Generator</a>[T3] box</li>
 <li>fn: {(T1, T2, T3): T4^}[T1, T2, T3, T4] ref</li>
 </ul>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T4] box</li>
 </ul>
 <hr />
-<h3 id="map491t1-t1-t2-t2-t3-t3-t4-t4-t5-t593">map4[T1: T1, T2: T2, T3: T3, T4: T4, T5: T5]</h3>
+<h3 id="map491t1-t1-t2-t2-t3-t3-t4-t4-t5-t593">map4[T1: T1, T2: T2, T3: T3, T4: T4, T5: T5]<a class="headerlink" href="#map491t1-t1-t2-t2-t3-t3-t4-t4-t5-t593" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L785">[Source]</a></span></p>
 <p>convenience combinator for mapping 4 generators into 1</p>
 <pre><code class="pony">fun box map4[T1: T1, T2: T2, T3: T3, T4: T4, T5: T5](
@@ -4416,7 +4416,7 @@ containing the values generated by those four generators.</p>
 : Generator[T5] box
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen1: <a href="../ponycheck-Generator">Generator</a>[T1] box</li>
 <li>gen2: <a href="../ponycheck-Generator">Generator</a>[T2] box</li>
@@ -4424,24 +4424,24 @@ containing the values generated by those four generators.</p>
 <li>gen4: <a href="../ponycheck-Generator">Generator</a>[T4] box</li>
 <li>fn: {(T1, T2, T3, T4): T5^}[T1, T2, T3, T4, T5] ref</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[T5] box</li>
 </ul>
 <hr />
-<h3 id="bool">bool</h3>
+<h3 id="bool">bool<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L802">[Source]</a></span></p>
 <p>create a generator of bool values.</p>
 <pre><code class="pony">fun box bool()
 : Generator[Bool val] box
 </code></pre>
 
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-Bool">Bool</a> val] box</li>
 </ul>
 <hr />
-<h3 id="u8">u8</h3>
+<h3 id="u8">u8<a class="headerlink" href="#u8" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L870">[Source]</a></span></p>
 <p>create a generator for U8 values</p>
 <pre><code class="pony">fun box u8(
@@ -4450,17 +4450,17 @@ containing the values generated by those four generators.</p>
 : Generator[U8 val] box
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U8">U8</a> val = seq</li>
 <li>max: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U8">U8</a> val] box</li>
 </ul>
 <hr />
-<h3 id="u16">u16</h3>
+<h3 id="u16">u16<a class="headerlink" href="#u16" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L888">[Source]</a></span></p>
 <p>create a generator for U16 values</p>
 <pre><code class="pony">fun box u16(
@@ -4469,17 +4469,17 @@ containing the values generated by those four generators.</p>
 : Generator[U16 val] box
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U16">U16</a> val = seq</li>
 <li>max: <a href="../builtin-U16">U16</a> val = seq</li>
 </ul>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U16">U16</a> val] box</li>
 </ul>
 <hr />
-<h3 id="u32">u32</h3>
+<h3 id="u32">u32<a class="headerlink" href="#u32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L906">[Source]</a></span></p>
 <p>create a generator for U32 values</p>
 <pre><code class="pony">fun box u32(
@@ -4488,17 +4488,17 @@ containing the values generated by those four generators.</p>
 : Generator[U32 val] box
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U32">U32</a> val = seq</li>
 <li>max: <a href="../builtin-U32">U32</a> val = seq</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U32">U32</a> val] box</li>
 </ul>
 <hr />
-<h3 id="u64">u64</h3>
+<h3 id="u64">u64<a class="headerlink" href="#u64" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L924">[Source]</a></span></p>
 <p>create a generator for U64 values</p>
 <pre><code class="pony">fun box u64(
@@ -4507,17 +4507,17 @@ containing the values generated by those four generators.</p>
 : Generator[U64 val] box
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U64">U64</a> val = seq</li>
 <li>max: <a href="../builtin-U64">U64</a> val = seq</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U64">U64</a> val] box</li>
 </ul>
 <hr />
-<h3 id="u128">u128</h3>
+<h3 id="u128">u128<a class="headerlink" href="#u128" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L942">[Source]</a></span></p>
 <p>create a generator for U128 values</p>
 <pre><code class="pony">fun box u128(
@@ -4526,17 +4526,17 @@ containing the values generated by those four generators.</p>
 : Generator[U128 val] box
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-U128">U128</a> val = seq</li>
 <li>max: <a href="../builtin-U128">U128</a> val = seq</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U128">U128</a> val] box</li>
 </ul>
 <hr />
-<h3 id="usize">usize</h3>
+<h3 id="usize">usize<a class="headerlink" href="#usize" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L960">[Source]</a></span></p>
 <p>create a generator for USize values</p>
 <pre><code class="pony">fun box usize(
@@ -4545,17 +4545,17 @@ containing the values generated by those four generators.</p>
 : Generator[USize val] box
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-USize">USize</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ulong">ulong</h3>
+<h3 id="ulong">ulong<a class="headerlink" href="#ulong" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L978">[Source]</a></span></p>
 <p>create a generator for ULong values</p>
 <pre><code class="pony">fun box ulong(
@@ -4564,17 +4564,17 @@ containing the values generated by those four generators.</p>
 : Generator[ULong val] box
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ULong">ULong</a> val = seq</li>
 <li>max: <a href="../builtin-ULong">ULong</a> val = seq</li>
 </ul>
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ULong">ULong</a> val] box</li>
 </ul>
 <hr />
-<h3 id="i8">i8</h3>
+<h3 id="i8">i8<a class="headerlink" href="#i8" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L996">[Source]</a></span></p>
 <p>create a generator for I8 values</p>
 <pre><code class="pony">fun box i8(
@@ -4583,17 +4583,17 @@ containing the values generated by those four generators.</p>
 : Generator[I8 val] box
 </code></pre>
 
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I8">I8</a> val = seq</li>
 <li>max: <a href="../builtin-I8">I8</a> val = seq</li>
 </ul>
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I8">I8</a> val] box</li>
 </ul>
 <hr />
-<h3 id="i16">i16</h3>
+<h3 id="i16">i16<a class="headerlink" href="#i16" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1014">[Source]</a></span></p>
 <p>create a generator for I16 values</p>
 <pre><code class="pony">fun box i16(
@@ -4602,17 +4602,17 @@ containing the values generated by those four generators.</p>
 : Generator[I16 val] box
 </code></pre>
 
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I16">I16</a> val = seq</li>
 <li>max: <a href="../builtin-I16">I16</a> val = seq</li>
 </ul>
-<h4 id="returns_30">Returns</h4>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I16">I16</a> val] box</li>
 </ul>
 <hr />
-<h3 id="i32">i32</h3>
+<h3 id="i32">i32<a class="headerlink" href="#i32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1032">[Source]</a></span></p>
 <p>create a generator for I32 values</p>
 <pre><code class="pony">fun box i32(
@@ -4621,17 +4621,17 @@ containing the values generated by those four generators.</p>
 : Generator[I32 val] box
 </code></pre>
 
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_28">Parameters<a class="headerlink" href="#parameters_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I32">I32</a> val = seq</li>
 <li>max: <a href="../builtin-I32">I32</a> val = seq</li>
 </ul>
-<h4 id="returns_31">Returns</h4>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I32">I32</a> val] box</li>
 </ul>
 <hr />
-<h3 id="i64">i64</h3>
+<h3 id="i64">i64<a class="headerlink" href="#i64" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1050">[Source]</a></span></p>
 <p>create a generator for I64 values</p>
 <pre><code class="pony">fun box i64(
@@ -4640,17 +4640,17 @@ containing the values generated by those four generators.</p>
 : Generator[I64 val] box
 </code></pre>
 
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_29">Parameters<a class="headerlink" href="#parameters_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I64">I64</a> val = seq</li>
 <li>max: <a href="../builtin-I64">I64</a> val = seq</li>
 </ul>
-<h4 id="returns_32">Returns</h4>
+<h4 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I64">I64</a> val] box</li>
 </ul>
 <hr />
-<h3 id="i128">i128</h3>
+<h3 id="i128">i128<a class="headerlink" href="#i128" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1068">[Source]</a></span></p>
 <p>create a generator for I128 values</p>
 <pre><code class="pony">fun box i128(
@@ -4659,17 +4659,17 @@ containing the values generated by those four generators.</p>
 : Generator[I128 val] box
 </code></pre>
 
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_30">Parameters<a class="headerlink" href="#parameters_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-I128">I128</a> val = seq</li>
 <li>max: <a href="../builtin-I128">I128</a> val = seq</li>
 </ul>
-<h4 id="returns_33">Returns</h4>
+<h4 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-I128">I128</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ilong">ilong</h3>
+<h3 id="ilong">ilong<a class="headerlink" href="#ilong" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1086">[Source]</a></span></p>
 <p>create a generator for ILong values</p>
 <pre><code class="pony">fun box ilong(
@@ -4678,17 +4678,17 @@ containing the values generated by those four generators.</p>
 : Generator[ILong val] box
 </code></pre>
 
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_31">Parameters<a class="headerlink" href="#parameters_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ILong">ILong</a> val = seq</li>
 <li>max: <a href="../builtin-ILong">ILong</a> val = seq</li>
 </ul>
-<h4 id="returns_34">Returns</h4>
+<h4 id="returns_34">Returns<a class="headerlink" href="#returns_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ILong">ILong</a> val] box</li>
 </ul>
 <hr />
-<h3 id="isize">isize</h3>
+<h3 id="isize">isize<a class="headerlink" href="#isize" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1104">[Source]</a></span></p>
 <p>create a generator for ISize values</p>
 <pre><code class="pony">fun box isize(
@@ -4697,17 +4697,17 @@ containing the values generated by those four generators.</p>
 : Generator[ISize val] box
 </code></pre>
 
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_32">Parameters<a class="headerlink" href="#parameters_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>max: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_35">Returns</h4>
+<h4 id="returns_35">Returns<a class="headerlink" href="#returns_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-ISize">ISize</a> val] box</li>
 </ul>
 <hr />
-<h3 id="byte_string">byte_string</h3>
+<h3 id="byte_string">byte_string<a class="headerlink" href="#byte_string" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1123">[Source]</a></span></p>
 <p>create a generator for strings
 generated from the bytes returned by the generator <code>gen</code>
@@ -4720,18 +4720,18 @@ and a maximum length of <code>max</code> (default: 100).</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_33">Parameters<a class="headerlink" href="#parameters_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U8">U8</a> val] box</li>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_36">Returns</h4>
+<h4 id="returns_36">Returns<a class="headerlink" href="#returns_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ascii">ascii</h3>
+<h3 id="ascii">ascii<a class="headerlink" href="#ascii" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1172">[Source]</a></span></p>
 <p>create a generator for strings withing the given <code>range</code>
 with a minimum length of <code>min</code> (default: 0)
@@ -4746,7 +4746,7 @@ and a maximum length of <code>max</code> (default: 100).</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
@@ -4755,12 +4755,12 @@ and a maximum length of <code>max</code> (default: 100).</p>
     <a href="../ponycheck-ASCIILetters">ASCIILetters</a> val | <a href="../ponycheck-ASCIIPrintable">ASCIIPrintable</a> val | <a href="../ponycheck-ASCIINonPrintable">ASCIINonPrintable</a> val | 
     <a href="../ponycheck-ASCIIAll">ASCIIAll</a> val | <a href="../ponycheck-ASCIIAllWithNUL">ASCIIAllWithNUL</a> val) = seq</li>
 </ul>
-<h4 id="returns_37">Returns</h4>
+<h4 id="returns_37">Returns<a class="headerlink" href="#returns_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ascii_printable">ascii_printable</h3>
+<h3 id="ascii_printable">ascii_printable<a class="headerlink" href="#ascii_printable" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1195">[Source]</a></span></p>
 <p>create a generator for strings of printable ascii characters
 with a minimum length of <code>min</code> (default: 0)
@@ -4771,17 +4771,17 @@ and a maximum length of <code>max</code> (default: 100).</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_35">Parameters</h4>
+<h4 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_38">Returns</h4>
+<h4 id="returns_38">Returns<a class="headerlink" href="#returns_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ascii_numeric">ascii_numeric</h3>
+<h3 id="ascii_numeric">ascii_numeric<a class="headerlink" href="#ascii_numeric" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1207">[Source]</a></span></p>
 <p>create a generator for strings of numeric ascii characters
 with a minimum length of <code>min</code> (default: 0)
@@ -4792,17 +4792,17 @@ and a maximum length of <code>max</code> (default: 100).</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_36">Parameters</h4>
+<h4 id="parameters_36">Parameters<a class="headerlink" href="#parameters_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_39">Returns</h4>
+<h4 id="returns_39">Returns<a class="headerlink" href="#returns_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="ascii_letters">ascii_letters</h3>
+<h3 id="ascii_letters">ascii_letters<a class="headerlink" href="#ascii_letters" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1219">[Source]</a></span></p>
 <p>create a generator for strings of ascii letters
 with a minimum length of <code>min</code> (default: 0)
@@ -4813,17 +4813,17 @@ and a maximum length of <code>max</code> (default: 100).</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_37">Parameters</h4>
+<h4 id="parameters_37">Parameters<a class="headerlink" href="#parameters_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_40">Returns</h4>
+<h4 id="returns_40">Returns<a class="headerlink" href="#returns_40" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="utf32_codepoint_string">utf32_codepoint_string</h3>
+<h3 id="utf32_codepoint_string">utf32_codepoint_string<a class="headerlink" href="#utf32_codepoint_string" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1231">[Source]</a></span></p>
 <p>create a generator for strings
 from a generator of unicode codepoints
@@ -4838,18 +4838,18 @@ the size in code points.</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_38">Parameters</h4>
+<h4 id="parameters_38">Parameters<a class="headerlink" href="#parameters_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li>gen: <a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-U32">U32</a> val] box</li>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_41">Returns</h4>
+<h4 id="returns_41">Returns<a class="headerlink" href="#returns_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="unicode">unicode</h3>
+<h3 id="unicode">unicode<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1297">[Source]</a></span></p>
 <p>create a generator for unicode strings
 with a minimum length of <code>min</code> codepoints (default: 0)
@@ -4862,17 +4862,17 @@ the size in code points.</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_39">Parameters</h4>
+<h4 id="parameters_39">Parameters<a class="headerlink" href="#parameters_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_42">Returns</h4>
+<h4 id="returns_42">Returns<a class="headerlink" href="#returns_42" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="unicode_bmp">unicode_bmp</h3>
+<h3 id="unicode_bmp">unicode_bmp<a class="headerlink" href="#unicode_bmp" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L1324">[Source]</a></span></p>
 <p>create a generator for unicode strings
 from the basic multilingual plane only
@@ -4886,44 +4886,44 @@ the size in code points.</p>
 : Generator[String val] box
 </code></pre>
 
-<h4 id="parameters_40">Parameters</h4>
+<h4 id="parameters_40">Parameters<a class="headerlink" href="#parameters_40" title="Permanent link">&para;</a></h4>
 <ul>
 <li>min: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>max: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_43">Returns</h4>
+<h4 id="returns_43">Returns<a class="headerlink" href="#returns_43" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-Generator">Generator</a>[<a href="../builtin-String">String</a> val] box</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L299">[Source]</a></span></p>
 <pre><code class="pony">fun box eq(
   that: Generators val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_41">Parameters</h4>
+<h4 id="parameters_41">Parameters<a class="headerlink" href="#parameters_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../ponycheck-Generators">Generators</a> val</li>
 </ul>
-<h4 id="returns_44">Returns</h4>
+<h4 id="returns_44">Returns<a class="headerlink" href="#returns_44" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/generator/#L299">[Source]</a></span></p>
 <pre><code class="pony">fun box ne(
   that: Generators val)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_42">Parameters</h4>
+<h4 id="parameters_42">Parameters<a class="headerlink" href="#parameters_42" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../ponycheck-Generators">Generators</a> val</li>
 </ul>
-<h4 id="returns_45">Returns</h4>
+<h4 id="returns_45">Returns<a class="headerlink" href="#returns_45" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

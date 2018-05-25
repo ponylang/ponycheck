@@ -4855,7 +4855,7 @@
               
                 
                 
-                <h1 id="string">String</h1>
+                <h1 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/string/#L7">[Source]</a></span></p>
 <p>A String is an ordered collection of characters.</p>
 <p>Strings don't specify an encoding.</p>
@@ -4898,15 +4898,15 @@
   Stringable box
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Seq">Seq</a>[<a href="../builtin-U8">U8</a> val] ref</li>
 <li><a href="../builtin-Comparable">Comparable</a>[<a href="../builtin-String">String</a> box] ref</li>
 <li><a href="../builtin-Stringable">Stringable</a> box</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L52">[Source]</a></span></p>
 <p>An empty string. Enough space for len bytes is reserved.</p>
 <pre><code class="pony">new ref create(
@@ -4914,16 +4914,16 @@
 : String ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h3 id="from_array">from_array</h3>
+<h3 id="from_array">from_array<a class="headerlink" href="#from_array" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L61">[Source]</a></span></p>
 <p>Create a string from an array, reusing the underlying data pointer.</p>
 <pre><code class="pony">new val from_array(
@@ -4931,16 +4931,16 @@
 : String val^
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val^</li>
 </ul>
 <hr />
-<h3 id="from_iso_array">from_iso_array</h3>
+<h3 id="from_iso_array">from_iso_array<a class="headerlink" href="#from_iso_array" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L69">[Source]</a></span></p>
 <p>Create a string from an array, reusing the underlying data pointer</p>
 <pre><code class="pony">new iso from_iso_array(
@@ -4948,16 +4948,16 @@
 : String iso^
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] iso</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="from_cpointer">from_cpointer</h3>
+<h3 id="from_cpointer">from_cpointer<a class="headerlink" href="#from_cpointer" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L80">[Source]</a></span></p>
 <p>Return a string from binary pointer data without making a
 copy. This must be done only with C-FFI functions that return
@@ -4970,18 +4970,18 @@ empty string is returned.</p>
 : String ref^
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] ref</li>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 <li>alloc: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h3 id="from_cstring">from_cstring</h3>
+<h3 id="from_cstring">from_cstring<a class="headerlink" href="#from_cstring" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L98">[Source]</a></span></p>
 <p>Return a string from a pointer to a null-terminated cstring
 without making a copy. The data is not copied. This must be done
@@ -4996,16 +4996,16 @@ is given then an empty string is returned.</p>
 : String ref^
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] ref</li>
 </ul>
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h3 id="copy_cpointer">copy_cpointer</h3>
+<h3 id="copy_cpointer">copy_cpointer<a class="headerlink" href="#copy_cpointer" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L126">[Source]</a></span></p>
 <p>Create a string by copying a fixed number of bytes from a pointer.</p>
 <pre><code class="pony">new ref copy_cpointer(
@@ -5014,17 +5014,17 @@ is given then an empty string is returned.</p>
 : String ref^
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] box</li>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h3 id="copy_cstring">copy_cstring</h3>
+<h3 id="copy_cstring">copy_cstring<a class="headerlink" href="#copy_cstring" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L142">[Source]</a></span></p>
 <p>Create a string by copying a null-terminated C string. Note that
 the scan is unbounded; the pointed to data must be null-terminated
@@ -5035,16 +5035,16 @@ pointer is given then an empty string is returned.</p>
 : String ref^
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>str: <a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] box</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h3 id="from_utf32">from_utf32</h3>
+<h3 id="from_utf32">from_utf32<a class="headerlink" href="#from_utf32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L167">[Source]</a></span></p>
 <p>Create a UTF-8 string from a single UTF-32 code point.</p>
 <pre><code class="pony">new ref from_utf32(
@@ -5052,17 +5052,17 @@ pointer is given then an empty string is returned.</p>
 : String ref^
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: <a href="../builtin-U32">U32</a> val</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="push_utf32">push_utf32</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="push_utf32">push_utf32<a class="headerlink" href="#push_utf32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L187">[Source]</a></span></p>
 <p>Push a UTF-32 code point.</p>
 <pre><code class="pony">fun ref push_utf32(
@@ -5070,16 +5070,16 @@ pointer is given then an empty string is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: <a href="../builtin-U32">U32</a> val</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="cpointer">cpointer</h3>
+<h3 id="cpointer">cpointer<a class="headerlink" href="#cpointer" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L214">[Source]</a></span></p>
 <p>Returns a C compatible pointer to the underlying string allocation.</p>
 <pre><code class="pony">fun box cpointer(
@@ -5087,16 +5087,16 @@ pointer is given then an empty string is returned.</p>
 : Pointer[U8 val] tag
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] tag</li>
 </ul>
 <hr />
-<h3 id="cstring">cstring</h3>
+<h3 id="cstring">cstring<a class="headerlink" href="#cstring" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L220">[Source]</a></span></p>
 <p>Returns a C compatible pointer to a null-terminated version of the
 string, safe to pass to an FFI function that doesn't accept a size
@@ -5107,36 +5107,36 @@ is copied into a new, null-terminated allocation.</p>
 : Pointer[U8 val] tag
 </code></pre>
 
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Pointer">Pointer</a>[<a href="../builtin-U8">U8</a> val] tag</li>
 </ul>
 <hr />
-<h3 id="array">array</h3>
+<h3 id="array">array<a class="headerlink" href="#array" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L237">[Source]</a></span></p>
 <p>Returns an Array[U8] that that reuses the underlying data pointer.</p>
 <pre><code class="pony">fun val array()
 : Array[U8 val] val
 </code></pre>
 
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val</li>
 </ul>
 <hr />
-<h3 id="size">size</h3>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L245">[Source]</a></span></p>
 <p>Returns the length of the string data in bytes.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="codepoints">codepoints</h3>
+<h3 id="codepoints">codepoints<a class="headerlink" href="#codepoints" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L251">[Source]</a></span></p>
 <p>Returns the number of unicode code points in the string between the two
 offsets. Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
@@ -5146,29 +5146,29 @@ offsets. Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
 : USize val
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="space">space</h3>
+<h3 id="space">space<a class="headerlink" href="#space" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L274">[Source]</a></span></p>
 <p>Returns the space available for data, not including the null terminator.</p>
 <pre><code class="pony">fun box space()
 : USize val
 </code></pre>
 
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="reserve">reserve</h3>
+<h3 id="reserve">reserve<a class="headerlink" href="#reserve" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L280">[Source]</a></span></p>
 <p>Reserve space for len bytes. An additional byte will be reserved for the
 null terminator.</p>
@@ -5177,16 +5177,16 @@ null terminator.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="compact">compact</h3>
+<h3 id="compact">compact<a class="headerlink" href="#compact" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L296">[Source]</a></span></p>
 <p>Try to remove unused space, making it available for garbage collection. The
 request may be ignored. The string is returned to allow call chaining.</p>
@@ -5194,12 +5194,12 @@ request may be ignored. The string is returned to allow call chaining.</p>
 : None val
 </code></pre>
 
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="recalc">recalc</h3>
+<h3 id="recalc">recalc<a class="headerlink" href="#recalc" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L315">[Source]</a></span></p>
 <p>Recalculates the string length. This is only needed if the string is
 changed via an FFI call. If a null terminator byte is not found within the
@@ -5208,12 +5208,12 @@ allocated length, the size will not be changed.</p>
 : None val
 </code></pre>
 
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="truncate">truncate</h3>
+<h3 id="truncate">truncate<a class="headerlink" href="#truncate" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L331">[Source]</a></span></p>
 <p>Truncates the string at the minimum of len and space. Ensures there is a
 null terminator. Does not check for null terminators inside the string.</p>
@@ -5223,16 +5223,16 @@ null terminator. Does not check for null terminators inside the string.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="trim_in_place">trim_in_place</h3>
+<h3 id="trim_in_place">trim_in_place<a class="headerlink" href="#trim_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L347">[Source]</a></span></p>
 <p>Trim the string to a portion of itself, covering <code>from</code> until <code>to</code>.
 Unlike slice, the operation does not allocate a new string nor copy
@@ -5243,17 +5243,17 @@ elements.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>to: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="trim">trim</h3>
+<h3 id="trim">trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L365">[Source]</a></span></p>
 <p>Return a shared portion of this string, covering <code>from</code> until <code>to</code>.
 Both the original and the new string are immutable, as they share memory.
@@ -5264,17 +5264,17 @@ The operation does not allocate a new string pointer nor copy elements.</p>
 : String val
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>to: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="chop">chop</h3>
+<h3 id="chop">chop<a class="headerlink" href="#chop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L389">[Source]</a></span></p>
 <p>Chops the string in half at the split point requested and returns both
 the left and right portions. The original string is trimmed in place and
@@ -5288,16 +5288,16 @@ The operation does not allocate a new string pointer nor copy elements.</p>
 : (String iso^ , String iso^)
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>split_point: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-String">String</a> iso^ , <a href="../builtin-String">String</a> iso^)</li>
 </ul>
 <hr />
-<h3 id="is_null_terminated">is_null_terminated</h3>
+<h3 id="is_null_terminated">is_null_terminated<a class="headerlink" href="#is_null_terminated" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L415">[Source]</a></span></p>
 <p>Return true if the string is null-terminated and safe to pass to an FFI
 function that doesn't accept a size argument, expecting a null-terminator.
@@ -5309,12 +5309,12 @@ If you need a null-terminated copy of this string, use the clone method.</p>
 : Bool val
 </code></pre>
 
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="utf32">utf32</h3>
+<h3 id="utf32">utf32<a class="headerlink" href="#utf32" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L426">[Source]</a></span></p>
 <p>Return a UTF32 representation of the character at the given offset and the
 number of bytes needed to encode that character. If the offset does not
@@ -5326,16 +5326,16 @@ out of bounds.</p>
 : (U32 val , U8 val) ?
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 </ul>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-U32">U32</a> val , <a href="../builtin-U8">U8</a> val) ?</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L512">[Source]</a></span></p>
 <p>Returns the i-th byte. Raise an error if the index is out of bounds.</p>
 <pre><code class="pony">fun box apply(
@@ -5343,16 +5343,16 @@ out of bounds.</p>
 : U8 val ?
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="update">update</h3>
+<h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L518">[Source]</a></span></p>
 <p>Change the i-th byte. Raise an error if the index is out of bounds.</p>
 <pre><code class="pony">fun ref update(
@@ -5361,17 +5361,17 @@ out of bounds.</p>
 : U8 val ?
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>value: <a href="../builtin-U8">U8</a> val</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="at_offset">at_offset</h3>
+<h3 id="at_offset">at_offset<a class="headerlink" href="#at_offset" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L528">[Source]</a></span></p>
 <p>Returns the byte at the given offset. Raise an error if the offset is out
 of bounds.</p>
@@ -5380,16 +5380,16 @@ of bounds.</p>
 : U8 val ?
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="update_offset">update_offset</h3>
+<h3 id="update_offset">update_offset<a class="headerlink" href="#update_offset" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L535">[Source]</a></span></p>
 <p>Changes a byte in the string, returning the previous byte at that offset.
 Raise an error if the offset is out of bounds.</p>
@@ -5399,17 +5399,17 @@ Raise an error if the offset is out of bounds.</p>
 : U8 val ?
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 <li>value: <a href="../builtin-U8">U8</a> val</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="clone">clone</h3>
+<h3 id="clone">clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L542">[Source]</a></span></p>
 <p>Returns a copy of the string. The resulting string is
 null-terminated even if the original is not.</p>
@@ -5417,12 +5417,12 @@ null-terminated even if the original is not.</p>
 : String iso^
 </code></pre>
 
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="find">find</h3>
+<h3 id="find">find<a class="headerlink" href="#find" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L554">[Source]</a></span></p>
 <p>Return the index of the n-th instance of s in the string starting from the
 beginning. Raise an error if there is no n-th occurrence of s or s is empty.</p>
@@ -5433,18 +5433,18 @@ beginning. Raise an error if there is no n-th occurrence of s or s is empty.</p>
 : ISize val ?
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ISize">ISize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="rfind">rfind</h3>
+<h3 id="rfind">rfind<a class="headerlink" href="#rfind" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L583">[Source]</a></span></p>
 <p>Return the index of n-th instance of <code>s</code> in the string starting from the
 end. The <code>offset</code> represents the highest index to included in the search.
@@ -5456,18 +5456,18 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 : ISize val ?
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_30">Returns</h4>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ISize">ISize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="contains">contains</h3>
+<h3 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L614">[Source]</a></span></p>
 <p>Returns true if contains s as a substring, false otherwise.</p>
 <pre><code class="pony">fun box contains(
@@ -5477,18 +5477,18 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 : Bool val
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_31">Returns</h4>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="count">count</h3>
+<h3 id="count">count<a class="headerlink" href="#count" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L642">[Source]</a></span></p>
 <p>Counts the non-overlapping occurrences of s in the string.</p>
 <pre><code class="pony">fun box count(
@@ -5497,17 +5497,17 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 : USize val
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_32">Returns</h4>
+<h4 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="at">at</h3>
+<h3 id="at">at<a class="headerlink" href="#at" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L665">[Source]</a></span></p>
 <p>Returns true if the substring s is present at the given offset.</p>
 <pre><code class="pony">fun box at(
@@ -5516,17 +5516,17 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 : Bool val
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_33">Returns</h4>
+<h4 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="delete">delete</h3>
+<h3 id="delete">delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L677">[Source]</a></span></p>
 <p>Delete len bytes at the supplied offset, compacting the string in place.</p>
 <pre><code class="pony">fun ref delete(
@@ -5535,17 +5535,17 @@ Raise an error if there is no n-th occurrence of <code>s</code> or <code>s</code
 : None val
 </code></pre>
 
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_34">Returns</h4>
+<h4 id="returns_34">Returns<a class="headerlink" href="#returns_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="substring">substring</h3>
+<h3 id="substring">substring<a class="headerlink" href="#substring" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L690">[Source]</a></span></p>
 <p>Returns a substring. Index range [<code>from</code> .. <code>to</code>) is half-open.
 Returns an empty string if nothing is in the range.</p>
@@ -5558,41 +5558,41 @@ similar operations that don't allocate a new string, see <code>trim</code> and
 : String iso^
 </code></pre>
 
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-ISize">ISize</a> val</li>
 <li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_35">Returns</h4>
+<h4 id="returns_35">Returns<a class="headerlink" href="#returns_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="lower">lower</h3>
+<h3 id="lower">lower<a class="headerlink" href="#lower" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L713">[Source]</a></span></p>
 <p>Returns a lower case version of the string.</p>
 <pre><code class="pony">fun box lower()
 : String iso^
 </code></pre>
 
-<h4 id="returns_36">Returns</h4>
+<h4 id="returns_36">Returns<a class="headerlink" href="#returns_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="lower_in_place">lower_in_place</h3>
+<h3 id="lower_in_place">lower_in_place<a class="headerlink" href="#lower_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L721">[Source]</a></span></p>
 <p>Transforms the string to lower case. Currently only knows ASCII case.</p>
 <pre><code class="pony">fun ref lower_in_place()
 : None val
 </code></pre>
 
-<h4 id="returns_37">Returns</h4>
+<h4 id="returns_37">Returns<a class="headerlink" href="#returns_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="upper">upper</h3>
+<h3 id="upper">upper<a class="headerlink" href="#upper" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L737">[Source]</a></span></p>
 <p>Returns an upper case version of the string. Currently only knows ASCII
 case.</p>
@@ -5600,36 +5600,36 @@ case.</p>
 : String iso^
 </code></pre>
 
-<h4 id="returns_38">Returns</h4>
+<h4 id="returns_38">Returns<a class="headerlink" href="#returns_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="upper_in_place">upper_in_place</h3>
+<h3 id="upper_in_place">upper_in_place<a class="headerlink" href="#upper_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L746">[Source]</a></span></p>
 <p>Transforms the string to upper case.</p>
 <pre><code class="pony">fun ref upper_in_place()
 : None val
 </code></pre>
 
-<h4 id="returns_39">Returns</h4>
+<h4 id="returns_39">Returns<a class="headerlink" href="#returns_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="reverse">reverse</h3>
+<h3 id="reverse">reverse<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L762">[Source]</a></span></p>
 <p>Returns a reversed version of the string.</p>
 <pre><code class="pony">fun box reverse()
 : String iso^
 </code></pre>
 
-<h4 id="returns_40">Returns</h4>
+<h4 id="returns_40">Returns<a class="headerlink" href="#returns_40" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="reverse_in_place">reverse_in_place</h3>
+<h3 id="reverse_in_place">reverse_in_place<a class="headerlink" href="#reverse_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L770">[Source]</a></span></p>
 <p>Reverses the byte order in the string. This needs to be changed to handle
 UTF-8 correctly.</p>
@@ -5637,12 +5637,12 @@ UTF-8 correctly.</p>
 : None val
 </code></pre>
 
-<h4 id="returns_41">Returns</h4>
+<h4 id="returns_41">Returns<a class="headerlink" href="#returns_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="push">push</h3>
+<h3 id="push">push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L788">[Source]</a></span></p>
 <p>Add a byte to the end of the string.</p>
 <pre><code class="pony">fun ref push(
@@ -5650,28 +5650,28 @@ UTF-8 correctly.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_28">Parameters<a class="headerlink" href="#parameters_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: <a href="../builtin-U8">U8</a> val</li>
 </ul>
-<h4 id="returns_42">Returns</h4>
+<h4 id="returns_42">Returns<a class="headerlink" href="#returns_42" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="pop">pop</h3>
+<h3 id="pop">pop<a class="headerlink" href="#pop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L797">[Source]</a></span></p>
 <p>Remove a byte from the end of the string.</p>
 <pre><code class="pony">fun ref pop()
 : U8 val ?
 </code></pre>
 
-<h4 id="returns_43">Returns</h4>
+<h4 id="returns_43">Returns<a class="headerlink" href="#returns_43" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="unshift">unshift</h3>
+<h3 id="unshift">unshift<a class="headerlink" href="#unshift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L808">[Source]</a></span></p>
 <p>Adds a byte to the beginning of the string.</p>
 <pre><code class="pony">fun ref unshift(
@@ -5679,28 +5679,28 @@ UTF-8 correctly.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_29">Parameters<a class="headerlink" href="#parameters_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: <a href="../builtin-U8">U8</a> val</li>
 </ul>
-<h4 id="returns_44">Returns</h4>
+<h4 id="returns_44">Returns<a class="headerlink" href="#returns_44" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="shift">shift</h3>
+<h3 id="shift">shift<a class="headerlink" href="#shift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L822">[Source]</a></span></p>
 <p>Removes a byte from the beginning of the string.</p>
 <pre><code class="pony">fun ref shift()
 : U8 val ?
 </code></pre>
 
-<h4 id="returns_45">Returns</h4>
+<h4 id="returns_45">Returns<a class="headerlink" href="#returns_45" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="append">append</h3>
+<h3 id="append">append<a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L835">[Source]</a></span></p>
 <p>Append the elements from a sequence, starting from the given offset.</p>
 <pre><code class="pony">fun ref append(
@@ -5710,18 +5710,18 @@ UTF-8 correctly.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_30">Parameters<a class="headerlink" href="#parameters_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seq: <a href="../builtin-ReadSeq">ReadSeq</a>[<a href="../builtin-U8">U8</a> val] box</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_46">Returns</h4>
+<h4 id="returns_46">Returns<a class="headerlink" href="#returns_46" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="concat">concat</h3>
+<h3 id="concat">concat<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L863">[Source]</a></span></p>
 <p>Add len iterated bytes to the end of the string, starting from the given
 offset.</p>
@@ -5732,30 +5732,30 @@ offset.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_31">Parameters<a class="headerlink" href="#parameters_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li>iter: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-U8">U8</a> val] ref</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_47">Returns</h4>
+<h4 id="returns_47">Returns<a class="headerlink" href="#returns_47" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L892">[Source]</a></span></p>
 <p>Truncate the string to zero length.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_48">Returns</h4>
+<h4 id="returns_48">Returns<a class="headerlink" href="#returns_48" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="insert">insert</h3>
+<h3 id="insert">insert<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L899">[Source]</a></span></p>
 <p>Returns a version of the string with the given string inserted at the given
 offset.</p>
@@ -5765,17 +5765,17 @@ offset.</p>
 : String iso^
 </code></pre>
 
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_32">Parameters<a class="headerlink" href="#parameters_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 <li>that: <a href="../builtin-String">String</a> val</li>
 </ul>
-<h4 id="returns_49">Returns</h4>
+<h4 id="returns_49">Returns<a class="headerlink" href="#returns_49" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="insert_in_place">insert_in_place</h3>
+<h3 id="insert_in_place">insert_in_place<a class="headerlink" href="#insert_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L908">[Source]</a></span></p>
 <p>Inserts the given string at the given offset. Appends the string if the
 offset is out of bounds.</p>
@@ -5785,17 +5785,17 @@ offset is out of bounds.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_33">Parameters<a class="headerlink" href="#parameters_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_50">Returns</h4>
+<h4 id="returns_50">Returns<a class="headerlink" href="#returns_50" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="insert_byte">insert_byte</h3>
+<h3 id="insert_byte">insert_byte<a class="headerlink" href="#insert_byte" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L921">[Source]</a></span></p>
 <p>Inserts a byte at the given offset. Appends if the offset is out of bounds.</p>
 <pre><code class="pony">fun ref insert_byte(
@@ -5804,17 +5804,17 @@ offset is out of bounds.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val</li>
 <li>value: <a href="../builtin-U8">U8</a> val</li>
 </ul>
-<h4 id="returns_51">Returns</h4>
+<h4 id="returns_51">Returns<a class="headerlink" href="#returns_51" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="cut">cut</h3>
+<h3 id="cut">cut<a class="headerlink" href="#cut" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L933">[Source]</a></span></p>
 <p>Returns a version of the string with the given range deleted.
 Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
@@ -5824,17 +5824,17 @@ Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
 : String iso^
 </code></pre>
 
-<h4 id="parameters_35">Parameters</h4>
+<h4 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-ISize">ISize</a> val</li>
 <li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_52">Returns</h4>
+<h4 id="returns_52">Returns<a class="headerlink" href="#returns_52" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="cut_in_place">cut_in_place</h3>
+<h3 id="cut_in_place">cut_in_place<a class="headerlink" href="#cut_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L942">[Source]</a></span></p>
 <p>Cuts the given range out of the string.
 Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
@@ -5844,17 +5844,17 @@ Index range [<code>from</code> .. <code>to</code>) is half-open.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_36">Parameters</h4>
+<h4 id="parameters_36">Parameters<a class="headerlink" href="#parameters_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-ISize">ISize</a> val</li>
 <li>to: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_53">Returns</h4>
+<h4 id="returns_53">Returns<a class="headerlink" href="#returns_53" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="remove">remove</h3>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L964">[Source]</a></span></p>
 <p>Remove all instances of s from the string. Returns the count of removed
 instances.</p>
@@ -5863,16 +5863,16 @@ instances.</p>
 : USize val
 </code></pre>
 
-<h4 id="parameters_37">Parameters</h4>
+<h4 id="parameters_37">Parameters<a class="headerlink" href="#parameters_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_54">Returns</h4>
+<h4 id="returns_54">Returns<a class="headerlink" href="#returns_54" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="replace">replace</h3>
+<h3 id="replace">replace<a class="headerlink" href="#replace" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L981">[Source]</a></span></p>
 <p>Replace up to n occurrences of <code>from</code> in <code>this</code> with <code>to</code>. If n is 0, all
 occurrences will be replaced. Returns the count of replaced occurrences.</p>
@@ -5883,18 +5883,18 @@ occurrences will be replaced. Returns the count of replaced occurrences.</p>
 : USize val
 </code></pre>
 
-<h4 id="parameters_38">Parameters</h4>
+<h4 id="parameters_38">Parameters<a class="headerlink" href="#parameters_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-String">String</a> box</li>
 <li>to: <a href="../builtin-String">String</a> box</li>
 <li>n: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_55">Returns</h4>
+<h4 id="returns_55">Returns<a class="headerlink" href="#returns_55" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="split_by">split_by</h3>
+<h3 id="split_by">split_by<a class="headerlink" href="#split_by" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L1006">[Source]</a></span></p>
 <p>Split the string into an array of strings that are delimited by <code>delim</code> in
 the original string. If <code>n &gt; 0</code>, then the split count is limited to n.</p>
@@ -5908,17 +5908,17 @@ to the whole string.</p>
 : Array[String val] iso^
 </code></pre>
 
-<h4 id="parameters_39">Parameters</h4>
+<h4 id="parameters_39">Parameters<a class="headerlink" href="#parameters_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li>delim: <a href="../builtin-String">String</a> val</li>
 <li>n: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_56">Returns</h4>
+<h4 id="returns_56">Returns<a class="headerlink" href="#returns_56" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] iso^</li>
 </ul>
 <hr />
-<h3 id="split">split</h3>
+<h3 id="split">split<a class="headerlink" href="#split" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L1037">[Source]</a></span></p>
 <p>Split the string into an array of strings. Any character in the delimiter
 string is accepted as a delimiter. If <code>n &gt; 0</code>, then the split count is
@@ -5931,17 +5931,17 @@ example, <code>"1,,2".split(",") =&gt; ["1", "", "2"]</code>.</p>
 : Array[String val] iso^
 </code></pre>
 
-<h4 id="parameters_40">Parameters</h4>
+<h4 id="parameters_40">Parameters<a class="headerlink" href="#parameters_40" title="Permanent link">&para;</a></h4>
 <ul>
 <li>delim: <a href="../builtin-String">String</a> val = seq</li>
 <li>n: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_57">Returns</h4>
+<h4 id="returns_57">Returns<a class="headerlink" href="#returns_57" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] iso^</li>
 </ul>
 <hr />
-<h3 id="strip">strip</h3>
+<h3 id="strip">strip<a class="headerlink" href="#strip" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L1097">[Source]</a></span></p>
 <p>Remove all leading and trailing characters from the string that are in s.</p>
 <pre><code class="pony">fun ref strip(
@@ -5949,16 +5949,16 @@ example, <code>"1,,2".split(",") =&gt; ["1", "", "2"]</code>.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_41">Parameters</h4>
+<h4 id="parameters_41">Parameters<a class="headerlink" href="#parameters_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box = seq</li>
 </ul>
-<h4 id="returns_58">Returns</h4>
+<h4 id="returns_58">Returns<a class="headerlink" href="#returns_58" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="rstrip">rstrip</h3>
+<h3 id="rstrip">rstrip<a class="headerlink" href="#rstrip" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/string/#L1103">[Source]</a></span></p>
 <p>Remove all trailing characters within the string that are in s. By default,
 trailing whitespace is removed.</p>
@@ -5967,17 +5967,17 @@ trailing whitespace is removed.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_42">Parameters</h4>
+<h4 id="parameters_42">Parameters<a class="headerlink" href="#parameters_42" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box = seq</li>
 </ul>
-<h4 id="returns_59">Returns</h4>
+<h4 id="returns_59">Returns<a class="headerlink" href="#returns_59" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="lstrip">lstrip</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1133">[Source]</a></span></p>
+<h3 id="lstrip">lstrip<a class="headerlink" href="#lstrip" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1135">[Source]</a></span></p>
 <p>Remove all leading characters within the string that are in s. By default,
 leading whitespace is removed.</p>
 <pre><code class="pony">fun ref lstrip(
@@ -5985,34 +5985,34 @@ leading whitespace is removed.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_43">Parameters</h4>
+<h4 id="parameters_43">Parameters<a class="headerlink" href="#parameters_43" title="Permanent link">&para;</a></h4>
 <ul>
 <li>s: <a href="../builtin-String">String</a> box = seq</li>
 </ul>
-<h4 id="returns_60">Returns</h4>
+<h4 id="returns_60">Returns<a class="headerlink" href="#returns_60" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="add">add</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1174">[Source]</a></span></p>
+<h3 id="add">add<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1176">[Source]</a></span></p>
 <p>Return a string that is a concatenation of this and that.</p>
 <pre><code class="pony">fun box add(
   that: String box)
 : String val
 </code></pre>
 
-<h4 id="parameters_44">Parameters</h4>
+<h4 id="parameters_44">Parameters<a class="headerlink" href="#parameters_44" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_61">Returns</h4>
+<h4 id="returns_61">Returns<a class="headerlink" href="#returns_61" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="join">join</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1182">[Source]</a></span></p>
+<h3 id="join">join<a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1184">[Source]</a></span></p>
 <p>Return a string that is a concatenation of the strings in data, using this
 as a separator.</p>
 <pre><code class="pony">fun box join(
@@ -6020,34 +6020,34 @@ as a separator.</p>
 : String iso^
 </code></pre>
 
-<h4 id="parameters_45">Parameters</h4>
+<h4 id="parameters_45">Parameters<a class="headerlink" href="#parameters_45" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-Stringable">Stringable</a> box] ref</li>
 </ul>
-<h4 id="returns_62">Returns</h4>
+<h4 id="returns_62">Returns<a class="headerlink" href="#returns_62" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="compare">compare</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1199">[Source]</a></span></p>
+<h3 id="compare">compare<a class="headerlink" href="#compare" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1201">[Source]</a></span></p>
 <p>Lexically compare two strings.</p>
 <pre><code class="pony">fun box compare(
   that: String box)
 : (Less val | Equal val | Greater val)
 </code></pre>
 
-<h4 id="parameters_46">Parameters</h4>
+<h4 id="parameters_46">Parameters<a class="headerlink" href="#parameters_46" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_63">Returns</h4>
+<h4 id="returns_63">Returns<a class="headerlink" href="#returns_63" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
 </ul>
 <hr />
-<h3 id="compare_sub">compare_sub</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1205">[Source]</a></span></p>
+<h3 id="compare_sub">compare_sub<a class="headerlink" href="#compare_sub" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1207">[Source]</a></span></p>
 <p>Lexically compare at most <code>n</code> bytes of the substring of <code>this</code> starting at
 <code>offset</code> with the substring of <code>that</code> starting at <code>that_offset</code>. The
 comparison is case sensitive unless <code>ignore_case</code> is <code>true</code>.</p>
@@ -6069,7 +6069,7 @@ will be reduced to the length of the longest substring.</p>
 : (Less val | Equal val | Greater val)
 </code></pre>
 
-<h4 id="parameters_47">Parameters</h4>
+<h4 id="parameters_47">Parameters<a class="headerlink" href="#parameters_47" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
@@ -6077,30 +6077,30 @@ will be reduced to the length of the longest substring.</p>
 <li>that_offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>ignore_case: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
-<h4 id="returns_64">Returns</h4>
+<h4 id="returns_64">Returns<a class="headerlink" href="#returns_64" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1262">[Source]</a></span></p>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1264">[Source]</a></span></p>
 <p>Returns true if the two strings have the same contents.</p>
 <pre><code class="pony">fun box eq(
   that: String box)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_48">Parameters</h4>
+<h4 id="parameters_48">Parameters<a class="headerlink" href="#parameters_48" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_65">Returns</h4>
+<h4 id="returns_65">Returns<a class="headerlink" href="#returns_65" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="lt">lt</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1272">[Source]</a></span></p>
+<h3 id="lt">lt<a class="headerlink" href="#lt" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1274">[Source]</a></span></p>
 <p>Returns true if this is lexically less than that. Needs to be made UTF-8
 safe.</p>
 <pre><code class="pony">fun box lt(
@@ -6108,17 +6108,17 @@ safe.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_49">Parameters</h4>
+<h4 id="parameters_49">Parameters<a class="headerlink" href="#parameters_49" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_66">Returns</h4>
+<h4 id="returns_66">Returns<a class="headerlink" href="#returns_66" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="le">le</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1290">[Source]</a></span></p>
+<h3 id="le">le<a class="headerlink" href="#le" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1292">[Source]</a></span></p>
 <p>Returns true if this is lexically less than or equal to that. Needs to be
 made UTF-8 safe.</p>
 <pre><code class="pony">fun box le(
@@ -6126,268 +6126,268 @@ made UTF-8 safe.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_50">Parameters</h4>
+<h4 id="parameters_50">Parameters<a class="headerlink" href="#parameters_50" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_67">Returns</h4>
+<h4 id="returns_67">Returns<a class="headerlink" href="#returns_67" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="offset_to_index">offset_to_index</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1308">[Source]</a></span></p>
+<h3 id="offset_to_index">offset_to_index<a class="headerlink" href="#offset_to_index" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1310">[Source]</a></span></p>
 <pre><code class="pony">fun box offset_to_index(
   i: ISize val)
 : USize val
 </code></pre>
 
-<h4 id="parameters_51">Parameters</h4>
+<h4 id="parameters_51">Parameters<a class="headerlink" href="#parameters_51" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-ISize">ISize</a> val</li>
 </ul>
-<h4 id="returns_68">Returns</h4>
+<h4 id="returns_68">Returns<a class="headerlink" href="#returns_68" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="bool">bool</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1311">[Source]</a></span></p>
+<h3 id="bool">bool<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1313">[Source]</a></span></p>
 <pre><code class="pony">fun box bool()
 : Bool val ?
 </code></pre>
 
-<h4 id="returns_69">Returns</h4>
+<h4 id="returns_69">Returns<a class="headerlink" href="#returns_69" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val ?</li>
 </ul>
 <hr />
-<h3 id="i8">i8</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1319">[Source]</a></span></p>
+<h3 id="i8">i8<a class="headerlink" href="#i8" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1321">[Source]</a></span></p>
 <pre><code class="pony">fun box i8(
   base: U8 val = seq)
 : I8 val ?
 </code></pre>
 
-<h4 id="parameters_52">Parameters</h4>
+<h4 id="parameters_52">Parameters<a class="headerlink" href="#parameters_52" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_70">Returns</h4>
+<h4 id="returns_70">Returns<a class="headerlink" href="#returns_70" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I8">I8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="i16">i16</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1320">[Source]</a></span></p>
+<h3 id="i16">i16<a class="headerlink" href="#i16" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1322">[Source]</a></span></p>
 <pre><code class="pony">fun box i16(
   base: U8 val = seq)
 : I16 val ?
 </code></pre>
 
-<h4 id="parameters_53">Parameters</h4>
+<h4 id="parameters_53">Parameters<a class="headerlink" href="#parameters_53" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_71">Returns</h4>
+<h4 id="returns_71">Returns<a class="headerlink" href="#returns_71" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I16">I16</a> val ?</li>
 </ul>
 <hr />
-<h3 id="i32">i32</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1321">[Source]</a></span></p>
+<h3 id="i32">i32<a class="headerlink" href="#i32" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1323">[Source]</a></span></p>
 <pre><code class="pony">fun box i32(
   base: U8 val = seq)
 : I32 val ?
 </code></pre>
 
-<h4 id="parameters_54">Parameters</h4>
+<h4 id="parameters_54">Parameters<a class="headerlink" href="#parameters_54" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_72">Returns</h4>
+<h4 id="returns_72">Returns<a class="headerlink" href="#returns_72" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I32">I32</a> val ?</li>
 </ul>
 <hr />
-<h3 id="i64">i64</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1322">[Source]</a></span></p>
+<h3 id="i64">i64<a class="headerlink" href="#i64" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1324">[Source]</a></span></p>
 <pre><code class="pony">fun box i64(
   base: U8 val = seq)
 : I64 val ?
 </code></pre>
 
-<h4 id="parameters_55">Parameters</h4>
+<h4 id="parameters_55">Parameters<a class="headerlink" href="#parameters_55" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_73">Returns</h4>
+<h4 id="returns_73">Returns<a class="headerlink" href="#returns_73" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I64">I64</a> val ?</li>
 </ul>
 <hr />
-<h3 id="i128">i128</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1323">[Source]</a></span></p>
+<h3 id="i128">i128<a class="headerlink" href="#i128" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1325">[Source]</a></span></p>
 <pre><code class="pony">fun box i128(
   base: U8 val = seq)
 : I128 val ?
 </code></pre>
 
-<h4 id="parameters_56">Parameters</h4>
+<h4 id="parameters_56">Parameters<a class="headerlink" href="#parameters_56" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_74">Returns</h4>
+<h4 id="returns_74">Returns<a class="headerlink" href="#returns_74" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-I128">I128</a> val ?</li>
 </ul>
 <hr />
-<h3 id="ilong">ilong</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1324">[Source]</a></span></p>
+<h3 id="ilong">ilong<a class="headerlink" href="#ilong" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1326">[Source]</a></span></p>
 <pre><code class="pony">fun box ilong(
   base: U8 val = seq)
 : ILong val ?
 </code></pre>
 
-<h4 id="parameters_57">Parameters</h4>
+<h4 id="parameters_57">Parameters<a class="headerlink" href="#parameters_57" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_75">Returns</h4>
+<h4 id="returns_75">Returns<a class="headerlink" href="#returns_75" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ILong">ILong</a> val ?</li>
 </ul>
 <hr />
-<h3 id="isize">isize</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1325">[Source]</a></span></p>
+<h3 id="isize">isize<a class="headerlink" href="#isize" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1327">[Source]</a></span></p>
 <pre><code class="pony">fun box isize(
   base: U8 val = seq)
 : ISize val ?
 </code></pre>
 
-<h4 id="parameters_58">Parameters</h4>
+<h4 id="parameters_58">Parameters<a class="headerlink" href="#parameters_58" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_76">Returns</h4>
+<h4 id="returns_76">Returns<a class="headerlink" href="#returns_76" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ISize">ISize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="u8">u8</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1326">[Source]</a></span></p>
+<h3 id="u8">u8<a class="headerlink" href="#u8" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1328">[Source]</a></span></p>
 <pre><code class="pony">fun box u8(
   base: U8 val = seq)
 : U8 val ?
 </code></pre>
 
-<h4 id="parameters_59">Parameters</h4>
+<h4 id="parameters_59">Parameters<a class="headerlink" href="#parameters_59" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_77">Returns</h4>
+<h4 id="returns_77">Returns<a class="headerlink" href="#returns_77" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U8">U8</a> val ?</li>
 </ul>
 <hr />
-<h3 id="u16">u16</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1327">[Source]</a></span></p>
+<h3 id="u16">u16<a class="headerlink" href="#u16" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1329">[Source]</a></span></p>
 <pre><code class="pony">fun box u16(
   base: U8 val = seq)
 : U16 val ?
 </code></pre>
 
-<h4 id="parameters_60">Parameters</h4>
+<h4 id="parameters_60">Parameters<a class="headerlink" href="#parameters_60" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_78">Returns</h4>
+<h4 id="returns_78">Returns<a class="headerlink" href="#returns_78" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U16">U16</a> val ?</li>
 </ul>
 <hr />
-<h3 id="u32">u32</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1328">[Source]</a></span></p>
+<h3 id="u32">u32<a class="headerlink" href="#u32" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1330">[Source]</a></span></p>
 <pre><code class="pony">fun box u32(
   base: U8 val = seq)
 : U32 val ?
 </code></pre>
 
-<h4 id="parameters_61">Parameters</h4>
+<h4 id="parameters_61">Parameters<a class="headerlink" href="#parameters_61" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_79">Returns</h4>
+<h4 id="returns_79">Returns<a class="headerlink" href="#returns_79" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U32">U32</a> val ?</li>
 </ul>
 <hr />
-<h3 id="u64">u64</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1329">[Source]</a></span></p>
+<h3 id="u64">u64<a class="headerlink" href="#u64" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1331">[Source]</a></span></p>
 <pre><code class="pony">fun box u64(
   base: U8 val = seq)
 : U64 val ?
 </code></pre>
 
-<h4 id="parameters_62">Parameters</h4>
+<h4 id="parameters_62">Parameters<a class="headerlink" href="#parameters_62" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_80">Returns</h4>
+<h4 id="returns_80">Returns<a class="headerlink" href="#returns_80" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val ?</li>
 </ul>
 <hr />
-<h3 id="u128">u128</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1330">[Source]</a></span></p>
+<h3 id="u128">u128<a class="headerlink" href="#u128" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1332">[Source]</a></span></p>
 <pre><code class="pony">fun box u128(
   base: U8 val = seq)
 : U128 val ?
 </code></pre>
 
-<h4 id="parameters_63">Parameters</h4>
+<h4 id="parameters_63">Parameters<a class="headerlink" href="#parameters_63" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_81">Returns</h4>
+<h4 id="returns_81">Returns<a class="headerlink" href="#returns_81" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U128">U128</a> val ?</li>
 </ul>
 <hr />
-<h3 id="ulong">ulong</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1331">[Source]</a></span></p>
+<h3 id="ulong">ulong<a class="headerlink" href="#ulong" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1333">[Source]</a></span></p>
 <pre><code class="pony">fun box ulong(
   base: U8 val = seq)
 : ULong val ?
 </code></pre>
 
-<h4 id="parameters_64">Parameters</h4>
+<h4 id="parameters_64">Parameters<a class="headerlink" href="#parameters_64" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_82">Returns</h4>
+<h4 id="returns_82">Returns<a class="headerlink" href="#returns_82" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ULong">ULong</a> val ?</li>
 </ul>
 <hr />
-<h3 id="usize">usize</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1332">[Source]</a></span></p>
+<h3 id="usize">usize<a class="headerlink" href="#usize" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1334">[Source]</a></span></p>
 <pre><code class="pony">fun box usize(
   base: U8 val = seq)
 : USize val ?
 </code></pre>
 
-<h4 id="parameters_65">Parameters</h4>
+<h4 id="parameters_65">Parameters<a class="headerlink" href="#parameters_65" title="Permanent link">&para;</a></h4>
 <ul>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_83">Returns</h4>
+<h4 id="returns_83">Returns<a class="headerlink" href="#returns_83" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="read_int91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93">read_int[A: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[A] val)]</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1345">[Source]</a></span></p>
+<h3 id="read_int91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93">read_int[A: ((<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[A] val)]<a class="headerlink" href="#read_int91a-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91a93-val93" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1347">[Source]</a></span></p>
 <p>Read an integer from the specified location in this string. The integer
 value read and the number of characters consumed are reported.
 The base parameter specifies the base to use, 0 indicates using the prefix,
@@ -6407,146 +6407,146 @@ Underscore characters are allowed throughout the integer and are ignored.</p>
 : (A , USize val) ?
 </code></pre>
 
-<h4 id="parameters_66">Parameters</h4>
+<h4 id="parameters_66">Parameters<a class="headerlink" href="#parameters_66" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 <li>base: <a href="../builtin-U8">U8</a> val = seq</li>
 </ul>
-<h4 id="returns_84">Returns</h4>
+<h4 id="returns_84">Returns<a class="headerlink" href="#returns_84" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(A , <a href="../builtin-USize">USize</a> val) ?</li>
 </ul>
 <hr />
-<h3 id="f32">f32</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1465">[Source]</a></span></p>
+<h3 id="f32">f32<a class="headerlink" href="#f32" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1467">[Source]</a></span></p>
 <pre><code class="pony">fun box f32(
   offset: ISize val = seq)
 : F32 val
 </code></pre>
 
-<h4 id="parameters_67">Parameters</h4>
+<h4 id="parameters_67">Parameters<a class="headerlink" href="#parameters_67" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_85">Returns</h4>
+<h4 id="returns_85">Returns<a class="headerlink" href="#returns_85" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-F32">F32</a> val</li>
 </ul>
 <hr />
-<h3 id="f64">f64</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1474">[Source]</a></span></p>
+<h3 id="f64">f64<a class="headerlink" href="#f64" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1476">[Source]</a></span></p>
 <pre><code class="pony">fun box f64(
   offset: ISize val = seq)
 : F64 val
 </code></pre>
 
-<h4 id="parameters_68">Parameters</h4>
+<h4 id="parameters_68">Parameters<a class="headerlink" href="#parameters_68" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-ISize">ISize</a> val = seq</li>
 </ul>
-<h4 id="returns_86">Returns</h4>
+<h4 id="returns_86">Returns<a class="headerlink" href="#returns_86" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-F64">F64</a> val</li>
 </ul>
 <hr />
-<h3 id="hash">hash</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1483">[Source]</a></span></p>
+<h3 id="hash">hash<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1485">[Source]</a></span></p>
 <pre><code class="pony">fun box hash()
 : USize val
 </code></pre>
 
-<h4 id="returns_87">Returns</h4>
+<h4 id="returns_87">Returns<a class="headerlink" href="#returns_87" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="hash64">hash64</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1486">[Source]</a></span></p>
+<h3 id="hash64">hash64<a class="headerlink" href="#hash64" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1488">[Source]</a></span></p>
 <pre><code class="pony">fun box hash64()
 : U64 val
 </code></pre>
 
-<h4 id="returns_88">Returns</h4>
+<h4 id="returns_88">Returns<a class="headerlink" href="#returns_88" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64">U64</a> val</li>
 </ul>
 <hr />
-<h3 id="string_1">string</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1489">[Source]</a></span></p>
+<h3 id="string_1">string<a class="headerlink" href="#string_1" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1491">[Source]</a></span></p>
 <pre><code class="pony">fun box string()
 : String iso^
 </code></pre>
 
-<h4 id="returns_89">Returns</h4>
+<h4 id="returns_89">Returns<a class="headerlink" href="#returns_89" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-String">String</a> iso^</li>
 </ul>
 <hr />
-<h3 id="values">values</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1492">[Source]</a></span></p>
+<h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1494">[Source]</a></span></p>
 <p>Return an iterator over the bytes in the string.</p>
 <pre><code class="pony">fun box values()
 : StringBytes ref^
 </code></pre>
 
-<h4 id="returns_90">Returns</h4>
+<h4 id="returns_90">Returns<a class="headerlink" href="#returns_90" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-StringBytes">StringBytes</a> ref^</li>
 </ul>
 <hr />
-<h3 id="runes">runes</h3>
-<p><span class="source-link"><a href="../src/builtin/string/#L1498">[Source]</a></span></p>
+<h3 id="runes">runes<a class="headerlink" href="#runes" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/string/#L1500">[Source]</a></span></p>
 <p>Return an iterator over the codepoints in the string.</p>
 <pre><code class="pony">fun box runes()
 : StringRunes ref^
 </code></pre>
 
-<h4 id="returns_91">Returns</h4>
+<h4 id="returns_91">Returns<a class="headerlink" href="#returns_91" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-StringRunes">StringRunes</a> ref^</li>
 </ul>
 <hr />
-<h3 id="ge">ge</h3>
+<h3 id="ge">ge<a class="headerlink" href="#ge" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun box ge(
   that: String box)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_69">Parameters</h4>
+<h4 id="parameters_69">Parameters<a class="headerlink" href="#parameters_69" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_92">Returns</h4>
+<h4 id="returns_92">Returns<a class="headerlink" href="#returns_92" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="gt">gt</h3>
+<h3 id="gt">gt<a class="headerlink" href="#gt" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun box gt(
   that: String box)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_70">Parameters</h4>
+<h4 id="parameters_70">Parameters<a class="headerlink" href="#parameters_70" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_93">Returns</h4>
+<h4 id="returns_93">Returns<a class="headerlink" href="#returns_93" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <pre><code class="pony">fun box ne(
   that: String box)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_71">Parameters</h4>
+<h4 id="parameters_71">Parameters<a class="headerlink" href="#parameters_71" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../builtin-String">String</a> box</li>
 </ul>
-<h4 id="returns_94">Returns</h4>
+<h4 id="returns_94">Returns<a class="headerlink" href="#returns_94" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

@@ -3169,58 +3169,58 @@
               
                 
                 
-                <h1 id="stdstream">StdStream</h1>
+                <h1 id="stdstream">StdStream<a class="headerlink" href="#stdstream" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L33">[Source]</a></span></p>
 <p>Asynchronous access to stdout and stderr. The constructors are private to
 ensure that access is provided only via an environment.</p>
 <pre><code class="pony">actor tag StdStream
 </code></pre>
 
-<h2 id="public-behaviours">Public Behaviours</h2>
-<h3 id="print">print</h3>
+<h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
+<h3 id="print">print<a class="headerlink" href="#print" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L52">[Source]</a></span></p>
 <p>Print some bytes and insert a newline afterwards.</p>
 <pre><code class="pony">be print(
   data: (String val | Array[U8 val] val))
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: (<a href="../builtin-String">String</a> val | <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val)</li>
 </ul>
 <hr />
-<h3 id="write">write</h3>
+<h3 id="write">write<a class="headerlink" href="#write" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L58">[Source]</a></span></p>
 <p>Print some bytes without inserting a newline afterwards.</p>
 <pre><code class="pony">be write(
   data: (String val | Array[U8 val] val))
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: (<a href="../builtin-String">String</a> val | <a href="../builtin-Array">Array</a>[<a href="../builtin-U8">U8</a> val] val)</li>
 </ul>
 <hr />
-<h3 id="printv">printv</h3>
+<h3 id="printv">printv<a class="headerlink" href="#printv" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L64">[Source]</a></span></p>
 <p>Print an iterable collection of ByteSeqs.</p>
 <pre><code class="pony">be printv(
   data: ByteSeqIter val)
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-ByteSeqIter">ByteSeqIter</a> val</li>
 </ul>
 <hr />
-<h3 id="writev">writev</h3>
+<h3 id="writev">writev<a class="headerlink" href="#writev" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/std_stream/#L72">[Source]</a></span></p>
 <p>Write an iterable collection of ByteSeqs.</p>
 <pre><code class="pony">be writev(
   data: ByteSeqIter val)
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>data: <a href="../builtin-ByteSeqIter">ByteSeqIter</a> val</li>
 </ul>

@@ -3391,7 +3391,7 @@
               
                 
                 
-                <h1 id="propertyrunner91t-t93">PropertyRunner[T: T]</h1>
+                <h1 id="propertyrunner91t-t93">PropertyRunner[T: T]<a class="headerlink" href="#propertyrunner91t-t93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L23">[Source]</a></span></p>
 <p>Actor executing a Property1 implementation
 in a way that allows garbage collection between single
@@ -3400,8 +3400,8 @@ for looping.</p>
 <pre><code class="pony">actor tag PropertyRunner[T: T]
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L47">[Source]</a></span></p>
 <pre><code class="pony">new tag create(
   p1: Property1[T] iso,
@@ -3412,7 +3412,7 @@ for looping.</p>
 : PropertyRunner[T] tag^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>p1: <a href="../ponycheck-Property1">Property1</a>[T] iso</li>
 <li>params: <a href="../ponycheck-PropertyParams">PropertyParams</a> val</li>
@@ -3420,13 +3420,13 @@ for looping.</p>
 <li>logger: <a href="../ponycheck-PropertyLogger">PropertyLogger</a> val</li>
 <li>env: <a href="../builtin-Env">Env</a> val</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponycheck-PropertyRunner">PropertyRunner</a>[T] tag^</li>
 </ul>
 <hr />
-<h2 id="public-behaviours">Public Behaviours</h2>
-<h3 id="complete_run">complete_run</h3>
+<h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
+<h3 id="complete_run">complete_run<a class="headerlink" href="#complete_run" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L65">[Source]</a></span></p>
 <p>complete a property run</p>
 <p>this behaviour is called from the PropertyHelper
@@ -3436,24 +3436,24 @@ or from <code>_finished</code>.</p>
   success: Bool val)
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>round: <a href="../builtin-USize">USize</a> val</li>
 <li>success: <a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="run">run</h3>
+<h3 id="run">run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L110">[Source]</a></span></p>
 <pre><code class="pony">be run(
   round: USize val = seq)
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>round: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
 <hr />
-<h3 id="complete_shrink">complete_shrink</h3>
+<h3 id="complete_shrink">complete_shrink<a class="headerlink" href="#complete_shrink" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L157">[Source]</a></span></p>
 <pre><code class="pony">be complete_shrink(
   failed_repr: String val,
@@ -3462,7 +3462,7 @@ or from <code>_finished</code>.</p>
   success: Bool val)
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>failed_repr: <a href="../builtin-String">String</a> val</li>
 <li>last_repr: <a href="../builtin-String">String</a> val</li>
@@ -3470,100 +3470,100 @@ or from <code>_finished</code>.</p>
 <li>success: <a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="do_shrink">do_shrink</h3>
+<h3 id="do_shrink">do_shrink<a class="headerlink" href="#do_shrink" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L179">[Source]</a></span></p>
 <pre><code class="pony">be do_shrink(
   failed_repr: String val,
   shrink_round: USize val = seq)
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>failed_repr: <a href="../builtin-String">String</a> val</li>
 <li>shrink_round: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
 <hr />
-<h3 id="expect_action">expect_action</h3>
+<h3 id="expect_action">expect_action<a class="headerlink" href="#expect_action" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L230">[Source]</a></span></p>
 <pre><code class="pony">be expect_action(
   name: String val)
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>name: <a href="../builtin-String">String</a> val</li>
 </ul>
 <hr />
-<h3 id="complete_action">complete_action</h3>
+<h3 id="complete_action">complete_action<a class="headerlink" href="#complete_action" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L234">[Source]</a></span></p>
 <pre><code class="pony">be complete_action(
   name: String val,
   ph: PropertyHelper val)
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>name: <a href="../builtin-String">String</a> val</li>
 <li>ph: <a href="../ponycheck-PropertyHelper">PropertyHelper</a> val</li>
 </ul>
 <hr />
-<h3 id="fail_action">fail_action</h3>
+<h3 id="fail_action">fail_action<a class="headerlink" href="#fail_action" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L238">[Source]</a></span></p>
 <pre><code class="pony">be fail_action(
   name: String val,
   ph: PropertyHelper val)
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>name: <a href="../builtin-String">String</a> val</li>
 <li>ph: <a href="../ponycheck-PropertyHelper">PropertyHelper</a> val</li>
 </ul>
 <hr />
-<h3 id="dispose_when_done">dispose_when_done</h3>
+<h3 id="dispose_when_done">dispose_when_done<a class="headerlink" href="#dispose_when_done" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L257">[Source]</a></span></p>
 <pre><code class="pony">be dispose_when_done(
   disposable: DisposableActor tag)
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>disposable: <a href="../builtin-DisposableActor">DisposableActor</a> tag</li>
 </ul>
 <hr />
-<h3 id="dispose">dispose</h3>
+<h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L260">[Source]</a></span></p>
 <pre><code class="pony">be dispose()
 </code></pre>
 
 <hr />
-<h3 id="log">log</h3>
+<h3 id="log">log<a class="headerlink" href="#log" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L268">[Source]</a></span></p>
 <pre><code class="pony">be log(
   msg: String val,
   verbose: Bool val = seq)
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>msg: <a href="../builtin-String">String</a> val</li>
 <li>verbose: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="complete">complete</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="complete">complete<a class="headerlink" href="#complete" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L273">[Source]</a></span></p>
 <p>complete the Property execution successfully</p>
 <pre><code class="pony">fun ref complete()
 : None val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="fail">fail</h3>
+<h3 id="fail">fail<a class="headerlink" href="#fail" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L279">[Source]</a></span></p>
 <p>complete the Property execution
 while signalling failure to the notify</p>
@@ -3574,13 +3574,13 @@ while signalling failure to the notify</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>repr: <a href="../builtin-String">String</a> val</li>
 <li>rounds: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>err: <a href="../builtin-Bool">Bool</a> val = seq</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>

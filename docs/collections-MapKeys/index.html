@@ -3199,20 +3199,20 @@
               
                 
                 
-                <h1 id="mapkeys91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93">MapKeys[K: K, V: V, H: <a href="../collections-HashFunction">HashFunction</a>[K] val, M: <a href="../collections-HashMap">HashMap</a>[K, V, H] #read]</h1>
+                <h1 id="mapkeys91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93">MapKeys[K: K, V: V, H: <a href="../collections-HashFunction">HashFunction</a>[K] val, M: <a href="../collections-HashMap">HashMap</a>[K, V, H] #read]<a class="headerlink" href="#mapkeys91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/map/#L385">[Source]</a></span></p>
 <p>An iterator over the keys in a map.</p>
 <pre><code class="pony">class ref MapKeys[K: K, V: V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
   Iterator[M-&gt;K] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[M-&gt;K] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/map/#L394">[Source]</a></span></p>
 <p>Creates an iterator for the given map.</p>
 <pre><code class="pony">new ref create(
@@ -3220,17 +3220,17 @@
 : MapKeys[K, V, H, M] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>map: M</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-MapKeys">MapKeys</a>[K, V, H, M] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="has_next">has_next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/map/#L400">[Source]</a></span></p>
 <p>True if it believes there are remaining entries. May not be right if values
 were added or removed from the map.</p>
@@ -3238,12 +3238,12 @@ were added or removed from the map.</p>
 : Bool val
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next">next</h3>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/map/#L407">[Source]</a></span></p>
 <p>Returns the next key, or raises an error if there isn't one. If keys are
 added during iteration, this may not return all keys.</p>
@@ -3251,7 +3251,7 @@ added during iteration, this may not return all keys.</p>
 : M-&gt;K ?
 </code></pre>
 
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>M-&gt;K ?</li>
 </ul>

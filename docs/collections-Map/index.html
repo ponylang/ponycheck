@@ -3085,14 +3085,14 @@
               
                 
                 
-                <h1 id="map91k-hashable-read-equatable91k93-read-v-v93">Map[K: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[K] #read), V: V]</h1>
+                <h1 id="map91k-hashable-read-equatable91k93-read-v-v93">Map[K: (<a href="../collections-Hashable">Hashable</a> #read &amp; <a href="../builtin-Equatable">Equatable</a>[K] #read), V: V]<a class="headerlink" href="#map91k-hashable-read-equatable91k93-read-v-v93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/map/#L4">[Source]</a></span></p>
 <p>This is a map that uses structural equality on the key.</p>
 <pre><code class="pony">type Map[K: (Hashable #read &amp; Equatable[K] #read), V: V] is
   HashMap[K, V, HashEq[K] val] ref
 </code></pre>
 
-<h4 id="type-alias-for">Type Alias For</h4>
+<h4 id="type-alias-for">Type Alias For<a class="headerlink" href="#type-alias-for" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-HashMap">HashMap</a>[K, V, <a href="../collections-HashEq">HashEq</a>[K] val] ref</li>
 </ul>

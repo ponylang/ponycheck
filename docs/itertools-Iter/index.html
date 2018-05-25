@@ -5101,40 +5101,40 @@
               
                 
                 
-                <h1 id="iter91a-a93">Iter[A: A]</h1>
+                <h1 id="iter91a-a93">Iter[A: A]<a class="headerlink" href="#iter91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/itertools/iter/#L3">[Source]</a></span></p>
 <p>Wrapper class containing methods to modify iterators.</p>
 <pre><code class="pony">class ref Iter[A: A] is
   Iterator[A] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Iterator">Iterator</a>[A] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L9">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
   iter: Iterator[A] ref)
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>iter: <a href="../builtin-Iterator">Iterator</a>[A] ref</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="chain">chain</h3>
+<h3 id="chain">chain<a class="headerlink" href="#chain" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L18">[Source]</a></span></p>
 <p>Take an iterator of iterators and return an Iter containing the
 items of the first one, then the second one, and so on.</p>
-<h2 id="example">Example</h2>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">let xs = [as I64: 1; 2].values()
 let ys = [as I64: 3; 4].values()
 
@@ -5147,19 +5147,19 @@ Iter[I64].chain([xs; ys].values())
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>outer_iterator: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-Iterator">Iterator</a>[A] ref] ref</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="repeat_value">repeat_value</h3>
+<h3 id="repeat_value">repeat_value<a class="headerlink" href="#repeat_value" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L72">[Source]</a></span></p>
 <p>Create an iterator that returns the given value forever.</p>
-<h2 id="example_1">Example</h2>
+<h2 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[U32].repeat_value(7)
 </code></pre>
 
@@ -5169,39 +5169,39 @@ Iter[I64].chain([xs; ys].values())
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="has_next">has_next</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L12">[Source]</a></span></p>
 <pre><code class="pony">fun ref has_next()
 : Bool val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="next">next</h3>
+<h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L15">[Source]</a></span></p>
 <pre><code class="pony">fun ref next()
 : A ?
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A ?</li>
 </ul>
 <hr />
-<h3 id="map_stateful91b-b93">map_stateful[B: B]</h3>
+<h3 id="map_stateful91b-b93">map_stateful[B: B]<a class="headerlink" href="#map_stateful91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L92">[Source]</a></span></p>
 <p>Allows stateful transformaion of each element from the iterator, similar
 to <code>map</code>.</p>
@@ -5210,16 +5210,16 @@ to <code>map</code>.</p>
 : Iter[B] ref^
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {ref(A!): B ?}[A, B] ref</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="filter_stateful">filter_stateful</h3>
+<h3 id="filter_stateful">filter_stateful<a class="headerlink" href="#filter_stateful" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L106">[Source]</a></span></p>
 <p>Allows filtering of elements based on a stateful adapter, similar to
 <code>filter</code>.</p>
@@ -5228,16 +5228,16 @@ to <code>map</code>.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {ref(A!): Bool ?}[A] ref</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="filter_map_stateful91b-b93">filter_map_stateful[B: B]</h3>
+<h3 id="filter_map_stateful91b-b93">filter_map_stateful[B: B]<a class="headerlink" href="#filter_map_stateful91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L156">[Source]</a></span></p>
 <p>Allows stateful modification to the stream of elements from an iterator,
 similar to <code>filter_map</code>.</p>
@@ -5246,21 +5246,21 @@ similar to <code>filter_map</code>.</p>
 : Iter[B] ref^
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {ref(A!): (B | None) ?}[A, B] ref</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="all">all</h3>
+<h3 id="all">all<a class="headerlink" href="#all" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L206">[Source]</a></span></p>
 <p>Return false if at least one value of the iterator fails to match the
 predicate <code>f</code>. This method short-circuits at the first value where the
 predicate returns false, otherwise true is returned.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([2; 4; 6].values())
   .all({(x) =&gt; (x % 2) == 0 })
 </code></pre>
@@ -5276,21 +5276,21 @@ predicate returns false, otherwise true is returned.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="any">any</h3>
+<h3 id="any">any<a class="headerlink" href="#any" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L233">[Source]</a></span></p>
 <p>Return true if at least one value of the iterator matches the predicate
 <code>f</code>. This method short-circuits at the first value where the predicate
 returns true, otherwise false is returned.</p>
-<h2 id="examples_1">Examples</h2>
+<h2 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([2; 4; 6].values())
   .any({(I64) =&gt; (x % 2) == 1 })
 </code></pre>
@@ -5306,19 +5306,19 @@ returns true, otherwise false is returned.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="collect91optional-b-seq91a93-ref93">collect[optional B: <a href="../builtin-Seq">Seq</a>[A!] ref]</h3>
+<h3 id="collect91optional-b-seq91a93-ref93">collect[optional B: <a href="../builtin-Seq">Seq</a>[A!] ref]<a class="headerlink" href="#collect91optional-b-seq91a93-ref93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L260">[Source]</a></span></p>
 <p>Push each value from the iterator into the collection <code>coll</code>.</p>
-<h2 id="example_2">Example</h2>
+<h2 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .collect(Array[I64](3))
 </code></pre>
@@ -5329,19 +5329,19 @@ returns true, otherwise false is returned.</p>
 : B^
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>coll: B</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>B^</li>
 </ul>
 <hr />
-<h3 id="count">count</h3>
+<h3 id="count">count<a class="headerlink" href="#count" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L277">[Source]</a></span></p>
 <p>Return the number of values in the iterator.</p>
-<h2 id="example_3">Example</h2>
+<h2 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .count()
 </code></pre>
@@ -5351,17 +5351,17 @@ returns true, otherwise false is returned.</p>
 : USize val
 </code></pre>
 
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="cycle">cycle</h3>
+<h3 id="cycle">cycle<a class="headerlink" href="#cycle" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L295">[Source]</a></span></p>
 <p>Repeatedly cycle through the values from the iterator.</p>
 <p>WARNING: The values returned by the original iterator are cached, so
 the input iterator should be finite.</p>
-<h2 id="example_4">Example</h2>
+<h2 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .cycle()
 </code></pre>
@@ -5371,16 +5371,16 @@ the input iterator should be finite.</p>
 : Iter[A!] ref^
 </code></pre>
 
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A!] ref^</li>
 </ul>
 <hr />
-<h3 id="enum91optional-b-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93">enum[optional B: (<a href="../builtin-Real">Real</a>[B] val &amp; (<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val | <a href="../builtin-F32">F32</a> val | <a href="../builtin-F64">F64</a> val))]</h3>
+<h3 id="enum91optional-b-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93">enum[optional B: (<a href="../builtin-Real">Real</a>[B] val &amp; (<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val | <a href="../builtin-F32">F32</a> val | <a href="../builtin-F64">F64</a> val))]<a class="headerlink" href="#enum91optional-b-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L352">[Source]</a></span></p>
 <p>An iterator which yields the current iteration count as well as the next
 value from the iterator.</p>
-<h2 id="example_5">Example</h2>
+<h2 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .enum()
 </code></pre>
@@ -5395,15 +5395,15 @@ value from the iterator.</p>
 : Iter[(B , A)] ref^
 </code></pre>
 
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[(B , A)] ref^</li>
 </ul>
 <hr />
-<h3 id="filter">filter</h3>
+<h3 id="filter">filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L375">[Source]</a></span></p>
 <p>Return an iterator that only returns items that match the predicate <code>f</code>.</p>
-<h2 id="example_6">Example</h2>
+<h2 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3; 4; 5; 6].values())
   .filter({(x) =&gt; (x % 2) == 0 })
 </code></pre>
@@ -5414,19 +5414,19 @@ value from the iterator.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="find">find</h3>
+<h3 id="find">find<a class="headerlink" href="#find" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L389">[Source]</a></span></p>
 <p>Return the nth value in the iterator that satisfies the predicate <code>f</code>.</p>
-<h2 id="examples_2">Examples</h2>
+<h2 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .find({(x) =&gt; (x % 2) == 0 })
 </code></pre>
@@ -5443,22 +5443,22 @@ value from the iterator.</p>
 : A! ?
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 <li>n: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A! ?</li>
 </ul>
 <hr />
-<h3 id="filter_map91b-b93">filter_map[B: B]</h3>
+<h3 id="filter_map91b-b93">filter_map[B: B]<a class="headerlink" href="#filter_map91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L419">[Source]</a></span></p>
 <p>Return an iterator which applies <code>f</code> to each element. If <code>None</code> is
 returned, then the iterator will try again by applying <code>f</code> to the next
 element. Otherwise, the value of type <code>B</code> is returned.</p>
-<h2 id="example_7">Example</h2>
+<h2 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([as I64: 1; -2; 4; 7; -5])
   .filter_map[USize](
     {(i: I64): (USize | None) =&gt; if i &gt;= 0 then i.usize() end })
@@ -5473,20 +5473,20 @@ fun ref filter_map[B: B](
 : Iter[B] ref^
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): (B | None) ?}[A, B] box</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="flat_map91b-b93">flat_map[B: B]</h3>
+<h3 id="flat_map91b-b93">flat_map[B: B]<a class="headerlink" href="#flat_map91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L436">[Source]</a></span></p>
 <p>Return an iterator over the values of the iterators produced from the
 application of the given function.</p>
-<h2 id="example_8">Example</h2>
+<h2 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[String]([&quot;alpha&quot;; &quot;beta&quot;; &quot;gamma&quot;])
   .flat_map[U8]({(s: String): Iterator[U8] =&gt; s.values() })
 </code></pre>
@@ -5497,19 +5497,19 @@ application of the given function.</p>
 : Iter[B] ref^
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Iterator[B] ?}[A, B] box</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="fold91b-b93">fold[B: B]</h3>
+<h3 id="fold91b-b93">fold[B: B]<a class="headerlink" href="#fold91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L478">[Source]</a></span></p>
 <p>Apply a function to every element, producing an accumulated value.</p>
-<h2 id="example_9">Example</h2>
+<h2 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .fold[I64](0, {(sum, x) =&gt; sum + x })
 </code></pre>
@@ -5521,17 +5521,17 @@ application of the given function.</p>
 : B^
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>acc: B</li>
 <li>f: {(B, A!): B^}[A, B] box</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>B^</li>
 </ul>
 <hr />
-<h3 id="fold_partial91b-b93">fold_partial[B: B]</h3>
+<h3 id="fold_partial91b-b93">fold_partial[B: B]<a class="headerlink" href="#fold_partial91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L496">[Source]</a></span></p>
 <p>A partial version of <code>fold</code>.</p>
 <pre><code class="pony">fun ref fold_partial[B: B](
@@ -5540,20 +5540,20 @@ application of the given function.</p>
 : B^ ?
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>acc: B</li>
 <li>f: {(B, A!): B^ ?}[A, B] box</li>
 </ul>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>B^ ?</li>
 </ul>
 <hr />
-<h3 id="last">last</h3>
+<h3 id="last">last<a class="headerlink" href="#last" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L549">[Source]</a></span></p>
 <p>Return the last value of the iterator.</p>
-<h2 id="example_10">Example</h2>
+<h2 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .last()
 </code></pre>
@@ -5563,16 +5563,16 @@ application of the given function.</p>
 : A ?
 </code></pre>
 
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A ?</li>
 </ul>
 <hr />
-<h3 id="map91b-b93">map[B: B]</h3>
+<h3 id="map91b-b93">map[B: B]<a class="headerlink" href="#map91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L565">[Source]</a></span></p>
 <p>Return an iterator where each item's value is the application of the given
 function to the value in the original iterator.</p>
-<h2 id="example_11">Example</h2>
+<h2 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .map[I64]({(x) =&gt; x * x })
 </code></pre>
@@ -5583,19 +5583,19 @@ function to the value in the original iterator.</p>
 : Iter[B] ref^
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): B ?}[A, B] box</li>
 </ul>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[B] ref^</li>
 </ul>
 <hr />
-<h3 id="nth">nth</h3>
+<h3 id="nth">nth<a class="headerlink" href="#nth" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L580">[Source]</a></span></p>
 <p>Return the nth value of the iterator.</p>
-<h2 id="example_12">Example</h2>
+<h2 id="example_12">Example<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .nth(2)
 </code></pre>
@@ -5606,21 +5606,21 @@ function to the value in the original iterator.</p>
 : A ?
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A ?</li>
 </ul>
 <hr />
-<h3 id="run">run</h3>
+<h3 id="run">run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L603">[Source]</a></span></p>
 <p>Iterate through the values of the iterator without a for loop. The
 function <code>on_error</code> will be called if the iterator's <code>has_next</code> method
 returns true but its <code>next</code> method throws an error.</p>
-<h2 id="example_13">Example</h2>
+<h2 id="example_13">Example<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3].values())
   .map[None]({(x) =&gt; env.out.print(x.string()) })
   .run()
@@ -5636,19 +5636,19 @@ returns true but its <code>next</code> method throws an error.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>on_error: {ref()}[A] ref = seq</li>
 </ul>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="skip">skip</h3>
+<h3 id="skip">skip<a class="headerlink" href="#skip" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L630">[Source]</a></span></p>
 <p>Skip the first n values of the iterator.</p>
-<h2 id="example_14">Example</h2>
+<h2 id="example_14">Example<a class="headerlink" href="#example_14" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3; 4; 5; 6].values())
   .skip(3)
 </code></pre>
@@ -5665,19 +5665,19 @@ returns true but its <code>next</code> method throws an error.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="skip_while">skip_while</h3>
+<h3 id="skip_while">skip_while<a class="headerlink" href="#skip_while" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L658">[Source]</a></span></p>
 <p>Skip values of the iterator while the predicate <code>f</code> returns true.</p>
-<h2 id="example_15">Example</h2>
+<h2 id="example_15">Example<a class="headerlink" href="#example_15" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3; 4; 5; 6].values())
   .skip_while({(x) =&gt; x &lt; 4 })
 </code></pre>
@@ -5688,19 +5688,19 @@ returns true but its <code>next</code> method throws an error.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="take">take</h3>
+<h3 id="take">take<a class="headerlink" href="#take" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L684">[Source]</a></span></p>
 <p>Return an iterator for the first n elements.</p>
-<h2 id="example_16">Example</h2>
+<h2 id="example_16">Example<a class="headerlink" href="#example_16" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3; 4; 5; 6].values())
   .take(3)
 </code></pre>
@@ -5711,21 +5711,21 @@ returns true but its <code>next</code> method throws an error.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="take_while">take_while</h3>
+<h3 id="take_while">take_while<a class="headerlink" href="#take_while" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L712">[Source]</a></span></p>
 <p>Return an iterator that returns values while the predicate <code>f</code> returns
 true. This iterator short-circuits the first time that <code>f</code> returns false or
 raises an error.</p>
-<h2 id="example_17">Example</h2>
+<h2 id="example_17">Example<a class="headerlink" href="#example_17" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2; 3; 4; 5; 6].values())
   .take_while({(x) =&gt; x &lt; 4 })
 </code></pre>
@@ -5736,22 +5736,22 @@ raises an error.</p>
 : Iter[A] ref^
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>f: {(A!): Bool ?}[A] box</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="zip91b-b93">zip[B: B]</h3>
+<h3 id="zip91b-b93">zip[B: B]<a class="headerlink" href="#zip91b-b93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L775">[Source]</a></span></p>
 <p>Zip two iterators together so that each call to next() results in
 a tuple with the next value of the first iterator and the next value
 of the second iterator. The number of items returned is the minimum of
 the number of items returned by the two iterators.</p>
-<h2 id="example_18">Example</h2>
+<h2 id="example_18">Example<a class="headerlink" href="#example_18" title="Permanent link">&para;</a></h2>
 <pre><code class="pony">Iter[I64]([1; 2].values())
   .zip[I64]([3; 4].values())
 </code></pre>
@@ -5762,16 +5762,16 @@ the number of items returned by the two iterators.</p>
 : Iter[(A , B)] ref^
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i2: <a href="../builtin-Iterator">Iterator</a>[B] ref</li>
 </ul>
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[(A , B)] ref^</li>
 </ul>
 <hr />
-<h3 id="zip291b-b-c-c93">zip2[B: B, C: C]</h3>
+<h3 id="zip291b-b-c-c93">zip2[B: B, C: C]<a class="headerlink" href="#zip291b-b-c-c93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L802">[Source]</a></span></p>
 <p>Zip three iterators together so that each call to next() results in
 a tuple with the next value of the first iterator, the next value
@@ -5784,17 +5784,17 @@ returned by the three iterators.</p>
 : Iter[(A , B , C)] ref^
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i2: <a href="../builtin-Iterator">Iterator</a>[B] ref</li>
 <li>i3: <a href="../builtin-Iterator">Iterator</a>[C] ref</li>
 </ul>
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[(A , B , C)] ref^</li>
 </ul>
 <hr />
-<h3 id="zip391b-b-c-c-d-d93">zip3[B: B, C: C, D: D]</h3>
+<h3 id="zip391b-b-c-c-d-d93">zip3[B: B, C: C, D: D]<a class="headerlink" href="#zip391b-b-c-c-d-d93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L823">[Source]</a></span></p>
 <p>Zip four iterators together so that each call to next() results in
 a tuple with the next value of each of the iterators. The number of
@@ -5807,18 +5807,18 @@ iterators.</p>
 : Iter[(A , B , C , D)] ref^
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i2: <a href="../builtin-Iterator">Iterator</a>[B] ref</li>
 <li>i3: <a href="../builtin-Iterator">Iterator</a>[C] ref</li>
 <li>i4: <a href="../builtin-Iterator">Iterator</a>[D] ref</li>
 </ul>
-<h4 id="returns_30">Returns</h4>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[(A , B , C , D)] ref^</li>
 </ul>
 <hr />
-<h3 id="zip491b-b-c-c-d-d-e-e93">zip4[B: B, C: C, D: D, E: E]</h3>
+<h3 id="zip491b-b-c-c-d-d-e-e93">zip4[B: B, C: C, D: D, E: E]<a class="headerlink" href="#zip491b-b-c-c-d-d-e-e93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/itertools/iter/#L849">[Source]</a></span></p>
 <p>Zip five iterators together so that each call to next() results in
 a tuple with the next value of each of the iterators. The number of
@@ -5832,14 +5832,14 @@ iterators.</p>
 : Iter[(A , B , C , D , E)] ref^
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i2: <a href="../builtin-Iterator">Iterator</a>[B] ref</li>
 <li>i3: <a href="../builtin-Iterator">Iterator</a>[C] ref</li>
 <li>i4: <a href="../builtin-Iterator">Iterator</a>[D] ref</li>
 <li>i5: <a href="../builtin-Iterator">Iterator</a>[E] ref</li>
 </ul>
-<h4 id="returns_31">Returns</h4>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../itertools-Iter">Iter</a>[(A , B , C , D , E)] ref^</li>
 </ul>

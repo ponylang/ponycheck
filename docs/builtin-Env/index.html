@@ -3271,15 +3271,15 @@
               
                 
                 
-                <h1 id="env">Env</h1>
+                <h1 id="env">Env<a class="headerlink" href="#env" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/env/#L1">[Source]</a></span></p>
 <p>An environment holds the command line and other values injected into the
 program by default by the runtime.</p>
 <pre><code class="pony">class val Env
 </code></pre>
 
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L57">[Source]</a></span></p>
 <p>Build an artificial environment. A root capability may be supplied.</p>
 <pre><code class="pony">new val create(
@@ -3293,7 +3293,7 @@ program by default by the runtime.</p>
 : Env val^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>root': (<a href="../builtin-AmbientAuth">AmbientAuth</a> val | <a href="../builtin-None">None</a> val)</li>
 <li>input': <a href="../builtin-InputStream">InputStream</a> tag</li>
@@ -3303,38 +3303,38 @@ program by default by the runtime.</p>
 <li>vars': <a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] val</li>
 <li>exitcode': {(I32)} val</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Env">Env</a> val^</li>
 </ul>
 <hr />
-<h2 id="public-fields">Public fields</h2>
-<h5 id="let-root-ambientauth-val-none-val">let root: (<a href="../builtin-AmbientAuth">AmbientAuth</a> val | <a href="../builtin-None">None</a> val)</h5>
+<h2 id="public-fields">Public fields<a class="headerlink" href="#public-fields" title="Permanent link">&para;</a></h2>
+<h3 id="let-root-ambientauth-val-none-val">let root: (<a href="../builtin-AmbientAuth">AmbientAuth</a> val | <a href="../builtin-None">None</a> val)<a class="headerlink" href="#let-root-ambientauth-val-none-val" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L6">[Source]</a></span></p>
 <p>The root capability.</p>
 <p>Can be <code>None</code> for artificially constructed <code>Env</code> instances.</p>
 <hr />
-<h5 id="let-input-inputstream-tag">let input: <a href="../builtin-InputStream">InputStream</a> tag</h5>
+<h3 id="let-input-inputstream-tag">let input: <a href="../builtin-InputStream">InputStream</a> tag<a class="headerlink" href="#let-input-inputstream-tag" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L13">[Source]</a></span></p>
 <p>Stdin represented as an actor.</p>
 <hr />
-<h5 id="let-out-outstream-tag">let out: <a href="../builtin-OutStream">OutStream</a> tag</h5>
+<h3 id="let-out-outstream-tag">let out: <a href="../builtin-OutStream">OutStream</a> tag<a class="headerlink" href="#let-out-outstream-tag" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L18">[Source]</a></span></p>
 <p>Stdout</p>
 <hr />
-<h5 id="let-err-outstream-tag">let err: <a href="../builtin-OutStream">OutStream</a> tag</h5>
+<h3 id="let-err-outstream-tag">let err: <a href="../builtin-OutStream">OutStream</a> tag<a class="headerlink" href="#let-err-outstream-tag" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L21">[Source]</a></span></p>
 <p>Stderr</p>
 <hr />
-<h5 id="let-args-array91string-val93-val">let args: <a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] val</h5>
+<h3 id="let-args-array91string-val93-val">let args: <a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] val<a class="headerlink" href="#let-args-array91string-val93-val" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L24">[Source]</a></span></p>
 <p>The command line used to start the program.</p>
 <hr />
-<h5 id="let-vars-array91string-val93-val">let vars: <a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] val</h5>
+<h3 id="let-vars-array91string-val93-val">let vars: <a href="../builtin-Array">Array</a>[<a href="../builtin-String">String</a> val] val<a class="headerlink" href="#let-vars-array91string-val93-val" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L27">[Source]</a></span></p>
 <p>The program's environment variables.</p>
 <hr />
-<h5 id="let-exitcode-i32-val">let exitcode: {(I32)} val</h5>
+<h3 id="let-exitcode-i32-val">let exitcode: {(I32)} val<a class="headerlink" href="#let-exitcode-i32-val" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/env/#L30">[Source]</a></span></p>
 <p>Sets the environment's exit code. The exit code of the root environment will
 be the exit code of the application, which defaults to 0.</p>

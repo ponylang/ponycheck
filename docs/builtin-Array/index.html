@@ -3877,10 +3877,10 @@
               
                 
                 
-                <h1 id="array91a-a93">Array[A: A]</h1>
+                <h1 id="array91a-a93">Array[A: A]<a class="headerlink" href="#array91a-a93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/builtin/array/#L1">[Source]</a></span></p>
 <p>Contiguous, resizable memory to store elements of type A.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>Creating an Array of String.</p>
 <pre><code class="pony">  let array: Array[String] = [&quot;dog&quot;; &quot;cat&quot;; &quot;wombat&quot;]
   // array.size() == 3
@@ -3924,7 +3924,7 @@ deleting) or right (when inserting) as necessary.</p>
   end
 </code></pre>
 
-<h2 id="memory-allocation">Memory allocation</h2>
+<h2 id="memory-allocation">Memory allocation<a class="headerlink" href="#memory-allocation" title="Permanent link">&para;</a></h2>
 <p>Array allocates contiguous memory. It always allocates at least enough memory
 space to hold all of its elements. Space is the number of elements the Array
 can hold without allocating more memory. The <code>space()</code> method returns the
@@ -3977,13 +3977,13 @@ no guarantees that the GC will actually reclaim any space.</p>
   Seq[A] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Seq">Seq</a>[A] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L89">[Source]</a></span></p>
 <p>Create an array with zero elements, but space for len elements.</p>
 <pre><code class="pony">new ref create(
@@ -3991,16 +3991,16 @@ no guarantees that the GC will actually reclaim any space.</p>
 : Array[A] ref^
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="init">init</h3>
+<h3 id="init">init<a class="headerlink" href="#init" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L103">[Source]</a></span></p>
 <p>Create an array of len elements, all initialised to the given value.</p>
 <pre><code class="pony">new ref init(
@@ -4009,17 +4009,17 @@ no guarantees that the GC will actually reclaim any space.</p>
 : Array[A] ref^
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: A^</li>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[A] ref^</li>
 </ul>
 <hr />
-<h3 id="from_cpointer">from_cpointer</h3>
+<h3 id="from_cpointer">from_cpointer<a class="headerlink" href="#from_cpointer" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L124">[Source]</a></span></p>
 <p>Create an array from a C-style pointer and length. The contents are not
 copied.</p>
@@ -4030,19 +4030,19 @@ copied.</p>
 : Array[A] ref^
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ptr: <a href="../builtin-Pointer">Pointer</a>[A] ref</li>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 <li>alloc: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[A] ref^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="cpointer">cpointer</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="cpointer">cpointer<a class="headerlink" href="#cpointer" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L150">[Source]</a></span></p>
 <p>Return the underlying C-style pointer.</p>
 <pre><code class="pony">fun box cpointer(
@@ -4050,40 +4050,40 @@ copied.</p>
 : Pointer[A] tag
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Pointer">Pointer</a>[A] tag</li>
 </ul>
 <hr />
-<h3 id="size">size</h3>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L156">[Source]</a></span></p>
 <p>The number of elements in the array.</p>
 <pre><code class="pony">fun box size()
 : USize val
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="space">space</h3>
+<h3 id="space">space<a class="headerlink" href="#space" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L162">[Source]</a></span></p>
 <p>The available space in the array.</p>
 <pre><code class="pony">fun box space()
 : USize val
 </code></pre>
 
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val</li>
 </ul>
 <hr />
-<h3 id="reserve">reserve</h3>
+<h3 id="reserve">reserve<a class="headerlink" href="#reserve" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L168">[Source]</a></span></p>
 <p>Reserve space for len elements, including whatever elements are already in
 the array. Array space grows geometrically.</p>
@@ -4092,16 +4092,16 @@ the array. Array space grows geometrically.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="compact">compact</h3>
+<h3 id="compact">compact<a class="headerlink" href="#compact" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L178">[Source]</a></span></p>
 <p>Try to remove unused space, making it available for garbage collection. The
 request may be ignored.</p>
@@ -4109,12 +4109,12 @@ request may be ignored.</p>
 : None val
 </code></pre>
 
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="undefined91optional-b-a-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93">undefined[optional B: (A &amp; <a href="../builtin-Real">Real</a>[B] val &amp; (<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val | <a href="../builtin-F32">F32</a> val | <a href="../builtin-F64">F64</a> val))]</h3>
+<h3 id="undefined91optional-b-a-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93">undefined[optional B: (A &amp; <a href="../builtin-Real">Real</a>[B] val &amp; (<a href="../builtin-I8">I8</a> val | <a href="../builtin-I16">I16</a> val | <a href="../builtin-I32">I32</a> val | <a href="../builtin-I64">I64</a> val | <a href="../builtin-I128">I128</a> val | <a href="../builtin-ILong">ILong</a> val | <a href="../builtin-ISize">ISize</a> val | <a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val | <a href="../builtin-F32">F32</a> val | <a href="../builtin-F64">F64</a> val))]<a class="headerlink" href="#undefined91optional-b-a-real91b93-val-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-f32-val-f64-val93" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L195">[Source]</a></span></p>
 <p>Resize to len elements, populating previously empty elements with random
 memory. This is only allowed for an array of numbers.</p>
@@ -4128,16 +4128,16 @@ memory. This is only allowed for an array of numbers.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L203">[Source]</a></span></p>
 <p>Get the i-th element, raising an error if the index is out of bounds.</p>
 <pre><code class="pony">fun box apply(
@@ -4145,16 +4145,16 @@ memory. This is only allowed for an array of numbers.</p>
 : this-&gt;A ?
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>this-&gt;A ?</li>
 </ul>
 <hr />
-<h3 id="update">update</h3>
+<h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L213">[Source]</a></span></p>
 <p>Change the i-th element, raising an error if the index is out of bounds.</p>
 <pre><code class="pony">fun ref update(
@@ -4163,17 +4163,17 @@ memory. This is only allowed for an array of numbers.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>value: A</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="insert">insert</h3>
+<h3 id="insert">insert<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L223">[Source]</a></span></p>
 <p>Insert an element into the array. Elements after this are moved up by one
 index, extending the array.
@@ -4184,17 +4184,17 @@ An out of bounds index raises an error.</p>
 : None val ?
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>value: A</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val ?</li>
 </ul>
 <hr />
-<h3 id="delete">delete</h3>
+<h3 id="delete">delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L238">[Source]</a></span></p>
 <p>Delete an element from the array. Elements after this are moved down by one
 index, compacting the array.
@@ -4205,16 +4205,16 @@ The deleted element is returned.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="truncate">truncate</h3>
+<h3 id="truncate">truncate<a class="headerlink" href="#truncate" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L252">[Source]</a></span></p>
 <p>Truncate an array to the given length, discarding excess elements. If the
 array is already smaller than len, do nothing.</p>
@@ -4223,16 +4223,16 @@ array is already smaller than len, do nothing.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="trim_in_place">trim_in_place</h3>
+<h3 id="trim_in_place">trim_in_place<a class="headerlink" href="#trim_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L259">[Source]</a></span></p>
 <p>Trim the array to a portion of itself, covering <code>from</code> until <code>to</code>.
 Unlike slice, the operation does not allocate a new array nor copy elements.</p>
@@ -4242,17 +4242,17 @@ Unlike slice, the operation does not allocate a new array nor copy elements.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>to: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="trim">trim</h3>
+<h3 id="trim">trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L276">[Source]</a></span></p>
 <p>Return a shared portion of this array, covering <code>from</code> until <code>to</code>.
 Both the original and the new array are immutable, as they share memory.
@@ -4263,17 +4263,17 @@ The operation does not allocate a new array pointer nor copy elements.</p>
 : Array[A] val
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>to: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[A] val</li>
 </ul>
 <hr />
-<h3 id="chop">chop</h3>
+<h3 id="chop">chop<a class="headerlink" href="#chop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L300">[Source]</a></span></p>
 <p>Chops the array in half at the split point requested and returns both
 the left and right portions. The original array is trimmed in place and
@@ -4287,16 +4287,16 @@ The operation does not allocate a new array pointer nor copy elements.</p>
 : (Array[A] iso^ , Array[A] iso^)
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>split_point: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-Array">Array</a>[A] iso^ , <a href="../builtin-Array">Array</a>[A] iso^)</li>
 </ul>
 <hr />
-<h3 id="copy_to">copy_to</h3>
+<h3 id="copy_to">copy_to<a class="headerlink" href="#copy_to" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L326">[Source]</a></span></p>
 <p>Copy len elements from this(src_idx) to dst(dst_idx).</p>
 <pre><code class="pony">fun box copy_to(
@@ -4307,19 +4307,19 @@ The operation does not allocate a new array pointer nor copy elements.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>dst: <a href="../builtin-Array">Array</a>[this-&gt;A!] ref</li>
 <li>src_idx: <a href="../builtin-USize">USize</a> val</li>
 <li>dst_idx: <a href="../builtin-USize">USize</a> val</li>
 <li>len: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="remove">remove</h3>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L342">[Source]</a></span></p>
 <p>Remove n elements from the array, beginning at index i.</p>
 <pre><code class="pony">fun ref remove(
@@ -4328,29 +4328,29 @@ The operation does not allocate a new array pointer nor copy elements.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>n: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L352">[Source]</a></span></p>
 <p>Remove all elements from the array.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="push">push</h3>
+<h3 id="push">push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L358">[Source]</a></span></p>
 <p>Add an element to the end of the array.</p>
 <pre><code class="pony">fun ref push(
@@ -4358,16 +4358,16 @@ The operation does not allocate a new array pointer nor copy elements.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="pop">pop</h3>
+<h3 id="pop">pop<a class="headerlink" href="#pop" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L366">[Source]</a></span></p>
 <p>Remove an element from the end of the array.
 The removed element is returned.</p>
@@ -4375,12 +4375,12 @@ The removed element is returned.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="unshift">unshift</h3>
+<h3 id="unshift">unshift<a class="headerlink" href="#unshift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L373">[Source]</a></span></p>
 <p>Add an element to the beginning of the array.</p>
 <pre><code class="pony">fun ref unshift(
@@ -4388,16 +4388,16 @@ The removed element is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="shift">shift</h3>
+<h3 id="shift">shift<a class="headerlink" href="#shift" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L381">[Source]</a></span></p>
 <p>Remove an element from the beginning of the array.
 The removed element is returned.</p>
@@ -4405,12 +4405,12 @@ The removed element is returned.</p>
 : A^ ?
 </code></pre>
 
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>A^ ?</li>
 </ul>
 <hr />
-<h3 id="append">append</h3>
+<h3 id="append">append<a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L388">[Source]</a></span></p>
 <p>Append the elements from a sequence, starting from the given offset.</p>
 <pre><code class="pony">fun ref append(
@@ -4420,18 +4420,18 @@ The removed element is returned.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seq: (<a href="../builtin-ReadSeq">ReadSeq</a>[A] box &amp; <a href="../builtin-ReadElement">ReadElement</a>[A^] box)</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="concat">concat</h3>
+<h3 id="concat">concat<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L415">[Source]</a></span></p>
 <p>Add len iterated elements to the end of the array, starting from the given
 offset.</p>
@@ -4442,18 +4442,18 @@ offset.</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>iter: <a href="../builtin-Iterator">Iterator</a>[A^] ref</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>len: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="find">find</h3>
+<h3 id="find">find<a class="headerlink" href="#find" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L471">[Source]</a></span></p>
 <p>Find the <code>nth</code> appearance of <code>value</code> from the beginning of the array,
 starting at <code>offset</code> and examining higher indices, and using the supplied
@@ -4470,19 +4470,19 @@ comparison.</p>
 : USize val ?
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
 </ul>
-<h4 id="returns_26">Returns</h4>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="contains">contains</h3>
+<h3 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L505">[Source]</a></span></p>
 <p>Returns true if the array contains <code>value</code>, false otherwise.</p>
 <pre><code class="pony">fun box contains(
@@ -4491,17 +4491,17 @@ comparison.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_21">Parameters</h4>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
 <li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
 </ul>
-<h4 id="returns_27">Returns</h4>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="rfind">rfind</h3>
+<h3 id="rfind">rfind<a class="headerlink" href="#rfind" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L525">[Source]</a></span></p>
 <p>Find the <code>nth</code> appearance of <code>value</code> from the end of the array, starting at
 <code>offset</code> and examining lower indices, and using the supplied <code>predicate</code> for
@@ -4517,19 +4517,19 @@ first instance of <code>value</code> found, and uses object identity for compari
 : USize val ?
 </code></pre>
 
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
 <li>offset: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>nth: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
 </ul>
-<h4 id="returns_28">Returns</h4>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize">USize</a> val ?</li>
 </ul>
 <hr />
-<h3 id="clone">clone</h3>
+<h3 id="clone">clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L560">[Source]</a></span></p>
 <p>Clone the array.
 The new array contains references to the same elements that the old array
@@ -4538,12 +4538,12 @@ contains, the elements themselves are not cloned.</p>
 : Array[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="returns_29">Returns</h4>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="slice">slice</h3>
+<h3 id="slice">slice<a class="headerlink" href="#slice" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L571">[Source]</a></span></p>
 <p>Create a new array that is a clone of a portion of this array. The range is
 exclusive and saturated.
@@ -4556,18 +4556,18 @@ contains, the elements themselves are not cloned.</p>
 : Array[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>from: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>to: <a href="../builtin-USize">USize</a> val = seq</li>
 <li>step: <a href="../builtin-USize">USize</a> val = seq</li>
 </ul>
-<h4 id="returns_30">Returns</h4>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="permute">permute</h3>
+<h3 id="permute">permute<a class="headerlink" href="#permute" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L606">[Source]</a></span></p>
 <p>Create a new array with the elements permuted.
 Permute to an arbitrary order that may include duplicates. An out of bounds
@@ -4579,16 +4579,16 @@ contains, the elements themselves are not copied.</p>
 : Array[this-&gt;A!] ref^ ?
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>indices: <a href="../builtin-Iterator">Iterator</a>[<a href="../builtin-USize">USize</a> val] ref</li>
 </ul>
-<h4 id="returns_31">Returns</h4>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[this-&gt;A!] ref^ ?</li>
 </ul>
 <hr />
-<h3 id="reverse">reverse</h3>
+<h3 id="reverse">reverse<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L620">[Source]</a></span></p>
 <p>Create a new array with the elements in reverse order.
 The new array contains references to the same elements that the old array
@@ -4597,24 +4597,24 @@ contains, the elements themselves are not copied.</p>
 : Array[this-&gt;A!] ref^
 </code></pre>
 
-<h4 id="returns_32">Returns</h4>
+<h4 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Array">Array</a>[this-&gt;A!] ref^</li>
 </ul>
 <hr />
-<h3 id="reverse_in_place">reverse_in_place</h3>
+<h3 id="reverse_in_place">reverse_in_place<a class="headerlink" href="#reverse_in_place" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L628">[Source]</a></span></p>
 <p>Reverse the array in place.</p>
 <pre><code class="pony">fun ref reverse_in_place()
 : None val
 </code></pre>
 
-<h4 id="returns_33">Returns</h4>
+<h4 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="swap_elements">swap_elements</h3>
+<h3 id="swap_elements">swap_elements<a class="headerlink" href="#swap_elements" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L645">[Source]</a></span></p>
 <p>Swap the element at index i with the element at index j.
 If either i or j are out of bounds, an error is raised.</p>
@@ -4624,48 +4624,48 @@ If either i or j are out of bounds, an error is raised.</p>
 : None val ?
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li>i: <a href="../builtin-USize">USize</a> val</li>
 <li>j: <a href="../builtin-USize">USize</a> val</li>
 </ul>
-<h4 id="returns_34">Returns</h4>
+<h4 id="returns_34">Returns<a class="headerlink" href="#returns_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val ?</li>
 </ul>
 <hr />
-<h3 id="keys">keys</h3>
+<h3 id="keys">keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L656">[Source]</a></span></p>
 <p>Return an iterator over the indices in the array.</p>
 <pre><code class="pony">fun box keys()
 : ArrayKeys[A, this-&gt;Array[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_35">Returns</h4>
+<h4 id="returns_35">Returns<a class="headerlink" href="#returns_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ArrayKeys">ArrayKeys</a>[A, this-&gt;<a href="../builtin-Array">Array</a>[A] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="values">values</h3>
+<h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L662">[Source]</a></span></p>
 <p>Return an iterator over the values in the array.</p>
 <pre><code class="pony">fun box values()
 : ArrayValues[A, this-&gt;Array[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_36">Returns</h4>
+<h4 id="returns_36">Returns<a class="headerlink" href="#returns_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ArrayValues">ArrayValues</a>[A, this-&gt;<a href="../builtin-Array">Array</a>[A] ref] ref^</li>
 </ul>
 <hr />
-<h3 id="pairs">pairs</h3>
+<h3 id="pairs">pairs<a class="headerlink" href="#pairs" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/array/#L668">[Source]</a></span></p>
 <p>Return an iterator over the (index, value) pairs in the array.</p>
 <pre><code class="pony">fun box pairs()
 : ArrayPairs[A, this-&gt;Array[A] ref] ref^
 </code></pre>
 
-<h4 id="returns_37">Returns</h4>
+<h4 id="returns_37">Returns<a class="headerlink" href="#returns_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-ArrayPairs">ArrayPairs</a>[A, this-&gt;<a href="../builtin-Array">Array</a>[A] ref] ref^</li>
 </ul>

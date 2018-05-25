@@ -3613,7 +3613,7 @@
               
                 
                 
-                <h1 id="flags91a-flag91b93-val-optional-b-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91b93-val93">Flags[A: <a href="../collections-Flag">Flag</a>[B] val, optional B: ((<a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[B] val)]</h1>
+                <h1 id="flags91a-flag91b93-val-optional-b-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91b93-val93">Flags[A: <a href="../collections-Flag">Flag</a>[B] val, optional B: ((<a href="../builtin-U8">U8</a> val | <a href="../builtin-U16">U16</a> val | <a href="../builtin-U32">U32</a> val | <a href="../builtin-U64">U64</a> val | <a href="../builtin-U128">U128</a> val | <a href="../builtin-ULong">ULong</a> val | <a href="../builtin-USize">USize</a> val) &amp; <a href="../builtin-Integer">Integer</a>[B] val)]<a class="headerlink" href="#flags91a-flag91b93-val-optional-b-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91b93-val93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/collections/flag/#L9">[Source]</a></span></p>
 <p>Flags is a set of flags. The flags that are recognised should be passed as
 a union type for type parameter A. For example:</p>
@@ -3631,37 +3631,37 @@ a union type for type parameter A. For example:</p>
   Comparable[Flags[A, B] box] ref
 </code></pre>
 
-<h4 id="implements">Implements</h4>
+<h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Comparable">Comparable</a>[<a href="../collections-Flags">Flags</a>[A, B] box] ref</li>
 </ul>
 <hr />
-<h2 id="constructors">Constructors</h2>
-<h3 id="create">create</h3>
+<h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
+<h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L9">[Source]</a></span></p>
 <pre><code class="pony">new iso create()
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h2 id="public-functions">Public Functions</h2>
-<h3 id="value">value</h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="value">value<a class="headerlink" href="#value" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L30">[Source]</a></span></p>
 <p>Returns the bit encoding of the set flags.</p>
 <pre><code class="pony">fun box value()
 : B
 </code></pre>
 
-<h4 id="returns_1">Returns</h4>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>B</li>
 </ul>
 <hr />
-<h3 id="apply">apply</h3>
+<h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L36">[Source]</a></span></p>
 <p>Returns true if the flag is set.</p>
 <pre><code class="pony">fun box apply(
@@ -3669,40 +3669,40 @@ a union type for type parameter A. For example:</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_2">Returns</h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="all">all</h3>
+<h3 id="all">all<a class="headerlink" href="#all" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L42">[Source]</a></span></p>
 <p>Sets all bits, including undefined flags.</p>
 <pre><code class="pony">fun ref all()
 : None val
 </code></pre>
 
-<h4 id="returns_3">Returns</h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="clear">clear</h3>
+<h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L48">[Source]</a></span></p>
 <p>Unsets all flags.</p>
 <pre><code class="pony">fun ref clear()
 : None val
 </code></pre>
 
-<h4 id="returns_4">Returns</h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="set">set</h3>
+<h3 id="set">set<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L54">[Source]</a></span></p>
 <p>Sets the flag.</p>
 <pre><code class="pony">fun ref set(
@@ -3710,16 +3710,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_5">Returns</h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="unset">unset</h3>
+<h3 id="unset">unset<a class="headerlink" href="#unset" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L60">[Source]</a></span></p>
 <p>Unsets the flag.</p>
 <pre><code class="pony">fun ref unset(
@@ -3727,16 +3727,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_6">Returns</h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="flip">flip</h3>
+<h3 id="flip">flip<a class="headerlink" href="#flip" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L66">[Source]</a></span></p>
 <p>Sets the flag if it is unset, unsets the flag if it is set.</p>
 <pre><code class="pony">fun ref flip(
@@ -3744,16 +3744,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_7">Returns</h4>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="union">union</h3>
+<h3 id="union">union<a class="headerlink" href="#union" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L72">[Source]</a></span></p>
 <p>The union of this and that.</p>
 <pre><code class="pony">fun ref union(
@@ -3761,16 +3761,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_8">Returns</h4>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="intersect">intersect</h3>
+<h3 id="intersect">intersect<a class="headerlink" href="#intersect" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L78">[Source]</a></span></p>
 <p>The intersection of this and that.</p>
 <pre><code class="pony">fun ref intersect(
@@ -3778,16 +3778,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_9">Returns</h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="difference">difference</h3>
+<h3 id="difference">difference<a class="headerlink" href="#difference" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L84">[Source]</a></span></p>
 <p>The symmetric difference of this and that.</p>
 <pre><code class="pony">fun ref difference(
@@ -3795,16 +3795,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_10">Returns</h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="remove">remove</h3>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L90">[Source]</a></span></p>
 <p>Unset flags that are set in that.</p>
 <pre><code class="pony">fun ref remove(
@@ -3812,16 +3812,16 @@ a union type for type parameter A. For example:</p>
 : None val
 </code></pre>
 
-<h4 id="parameters_7">Parameters</h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_11">Returns</h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-None">None</a> val</li>
 </ul>
 <hr />
-<h3 id="add">add</h3>
+<h3 id="add">add<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L96">[Source]</a></span></p>
 <p>This with the flag set.</p>
 <pre><code class="pony">fun box add(
@@ -3829,16 +3829,16 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_8">Parameters</h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_12">Returns</h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="sub">sub</h3>
+<h3 id="sub">sub<a class="headerlink" href="#sub" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L104">[Source]</a></span></p>
 <p>This with the flag unset.</p>
 <pre><code class="pony">fun box sub(
@@ -3846,16 +3846,16 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_9">Parameters</h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flag: A</li>
 </ul>
-<h4 id="returns_13">Returns</h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="op_or">op_or</h3>
+<h3 id="op_or">op_or<a class="headerlink" href="#op_or" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L112">[Source]</a></span></p>
 <p>The union of this and that.</p>
 <pre><code class="pony">fun box op_or(
@@ -3863,16 +3863,16 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_10">Parameters</h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_14">Returns</h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="op_and">op_and</h3>
+<h3 id="op_and">op_and<a class="headerlink" href="#op_and" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L120">[Source]</a></span></p>
 <p>The intersection of this and that.</p>
 <pre><code class="pony">fun box op_and(
@@ -3880,16 +3880,16 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_11">Parameters</h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_15">Returns</h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="op_xor">op_xor</h3>
+<h3 id="op_xor">op_xor<a class="headerlink" href="#op_xor" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L128">[Source]</a></span></p>
 <p>The symmetric difference of this and that.</p>
 <pre><code class="pony">fun box op_xor(
@@ -3897,16 +3897,16 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_12">Parameters</h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_16">Returns</h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="without">without</h3>
+<h3 id="without">without<a class="headerlink" href="#without" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L136">[Source]</a></span></p>
 <p>The flags in this that are not in that.</p>
 <pre><code class="pony">fun box without(
@@ -3914,28 +3914,28 @@ a union type for type parameter A. For example:</p>
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="parameters_13">Parameters</h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_17">Returns</h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="clone">clone</h3>
+<h3 id="clone">clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L144">[Source]</a></span></p>
 <p>Create a clone.</p>
 <pre><code class="pony">fun box clone()
 : Flags[A, B] iso^
 </code></pre>
 
-<h4 id="returns_18">Returns</h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../collections-Flags">Flags</a>[A, B] iso^</li>
 </ul>
 <hr />
-<h3 id="eq">eq</h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L152">[Source]</a></span></p>
 <p>Returns true if this has the same flags set as that.</p>
 <pre><code class="pony">fun box eq(
@@ -3943,16 +3943,16 @@ a union type for type parameter A. For example:</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_14">Parameters</h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_19">Returns</h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="lt">lt</h3>
+<h3 id="lt">lt<a class="headerlink" href="#lt" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L158">[Source]</a></span></p>
 <p>Returns true if the flags set on this are a strict subset of the flags set
 on that. Flags is only partially ordered, so lt is not the opposite of ge.</p>
@@ -3961,16 +3961,16 @@ on that. Flags is only partially ordered, so lt is not the opposite of ge.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_15">Parameters</h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_20">Returns</h4>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="le">le</h3>
+<h3 id="le">le<a class="headerlink" href="#le" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L165">[Source]</a></span></p>
 <p>Returns true if the flags set on this are a subset of the flags set on
 that or they are the same. Flags is only partially ordered, so le is not
@@ -3980,16 +3980,16 @@ the opposite of te.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_16">Parameters</h4>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_21">Returns</h4>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="gt">gt</h3>
+<h3 id="gt">gt<a class="headerlink" href="#gt" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L173">[Source]</a></span></p>
 <p>Returns true if the flags set on this are a struct superset of the flags
 set on that. Flags is only partially ordered, so gt is not the opposite of
@@ -3999,16 +3999,16 @@ le.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_17">Parameters</h4>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_22">Returns</h4>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ge">ge</h3>
+<h3 id="ge">ge<a class="headerlink" href="#ge" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/collections/flag/#L181">[Source]</a></span></p>
 <p>Returns true if the flags set on this are a superset of the flags set on
 that or they are the same. Flags is only partially ordered, so ge is not
@@ -4018,43 +4018,43 @@ the opposite of lt.</p>
 : Bool val
 </code></pre>
 
-<h4 id="parameters_18">Parameters</h4>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_23">Returns</h4>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="compare">compare</h3>
+<h3 id="compare">compare<a class="headerlink" href="#compare" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/compare/#L28">[Source]</a></span></p>
 <pre><code class="pony">fun box compare(
   that: Flags[A, B] box)
 : (Less val | Equal val | Greater val)
 </code></pre>
 
-<h4 id="parameters_19">Parameters</h4>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_24">Returns</h4>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>(<a href="../builtin-Less">Less</a> val | <a href="../builtin-Equal">Equal</a> val | <a href="../builtin-Greater">Greater</a> val)</li>
 </ul>
 <hr />
-<h3 id="ne">ne</h3>
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/compare/#L20">[Source]</a></span></p>
 <pre><code class="pony">fun box ne(
   that: Flags[A, B] box)
 : Bool val
 </code></pre>
 
-<h4 id="parameters_20">Parameters</h4>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="../collections-Flags">Flags</a>[A, B] box</li>
 </ul>
-<h4 id="returns_25">Returns</h4>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool">Bool</a> val</li>
 </ul>

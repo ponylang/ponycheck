@@ -3176,7 +3176,8 @@ primitive I64 is _SignedInteger[I64, U64]
     @&quot;llvm.ssub.with.overflow.i64&quot;[(I64, Bool)](this, y)
 
   fun mulc(y: I64): (I64, Bool) =&gt;
-    @&quot;llvm.smul.with.overflow.i64&quot;[(I64, Bool)](this, y)
+    _SignedCheckedArithmetic._mulc[U64, I64](this, y)
+
 
 primitive ILong is _SignedInteger[ILong, ULong]
   new create(value: ILong) =&gt; value
@@ -3263,7 +3264,7 @@ primitive ILong is _SignedInteger[ILong, ULong]
     ifdef ilp32 or llp64 then
       @&quot;llvm.smul.with.overflow.i32&quot;[(ILong, Bool)](this, y)
     else
-      @&quot;llvm.smul.with.overflow.i64&quot;[(ILong, Bool)](this, y)
+      _SignedCheckedArithmetic._mulc[ULong, ILong](this, y)
     end
 
 primitive ISize is _SignedInteger[ISize, USize]
@@ -3350,7 +3351,7 @@ primitive ISize is _SignedInteger[ISize, USize]
     ifdef ilp32 then
       @&quot;llvm.smul.with.overflow.i32&quot;[(ISize, Bool)](this, y)
     else
-      @&quot;llvm.smul.with.overflow.i64&quot;[(ISize, Bool)](this, y)
+      _SignedCheckedArithmetic._mulc[USize, ISize](this, y)
     end
 
 primitive I128 is _SignedInteger[I128, U128]
@@ -3506,7 +3507,81 @@ primitive I128 is _SignedInteger[I128, U128]
     &quot;&quot;&quot;
     f64()
 
+  fun addc(y: I128): (I128, Bool) =&gt;
+    ifdef native128 then
+      @&quot;llvm.sadd.with.overflow.i128&quot;[(I128, Bool)](this, y)
+    else
+      let overflow =
+        if y &gt; 0 then
+          (this &gt; (max_value() - y))
+        else
+          (this &lt; (min_value() - y))
+        end
+
+      (this + y, overflow)
+    end
+
+  fun subc(y: I128): (I128, Bool) =&gt;
+    ifdef native128 then
+      @&quot;llvm.ssub.with.overflow.i128&quot;[(I128, Bool)](this, y)
+    else
+      let overflow =
+        if y &gt; 0 then
+          (this &lt; (min_value() + y))
+        else
+          (this &gt; (max_value() + y))
+        end
+
+      (this - y, overflow)
+    end
+
+  fun mulc(y: I128): (I128, Bool) =&gt;
+    // using llvm.smul.with.overflow.i128 would require to link
+    // llvm compiler-rt where the function implementing it lives: https://github.com/llvm-mirror/compiler-rt/blob/master/lib/builtins/muloti4.c
+    // See this bug for reference:
+    // the following implementation is more or less exactly was __muloti4 is
+    // doing
+    _SignedCheckedArithmetic._mulc[U128, I128](this, y)
+
 type Signed is (I8 | I16 | I32 | I64 | I128 | ILong | ISize)
+
+
+primitive _SignedCheckedArithmetic
+  fun _mulc[U: _UnsignedInteger[U] val, T: (Signed &amp; _SignedInteger[T, U] val)](x: T, y: T): (T, Bool) =&gt;
+    &quot;&quot;&quot;
+    basically exactly what the runtime functions __muloti4, mulodi4 etc. are doing
+    and roughly as fast as these.
+
+    Additionally on (at least some) 32 bit systems, the runtime function for checked 64 bit integer addition __mulodi4 is not available.
+    So we shouldn't use: `@&quot;llvm.smul.with.overflow.i64&quot;[(I64, Bool)](this, y)`
+
+    Also see https://bugs.llvm.org/show_bug.cgi?id=14469
+
+    That's basically why we rolled our own.
+    &quot;&quot;&quot;
+    let result = x * y
+    if x == T.min_value() then
+      return (result, (y != T.from[I8](0)) and (y != T.from[I8](1)))
+    end
+    if y == T.min_value() then
+      return (result, (x != T.from[I8](0)) and (x != T.from[I8](1)))
+    end
+    let x_neg = x &gt;&gt; (x.bitwidth() - U.from[U8](1))
+    let x_abs = (x xor x_neg) - x_neg
+    let y_neg = y &gt;&gt; (x.bitwidth() - U.from[U8](1))
+    let y_abs = (y xor y_neg) - y_neg
+
+    if ((x_abs &lt; T.from[I8](2)) or (y_abs &lt; T.from[I8](2))) then
+      return (result, false)
+    end
+    if (x_neg == y_neg) then
+      (result, (x_abs &gt; (T.max_value() / y_abs)))
+    else
+      (result, (x_abs &gt; (T.min_value() / -y_abs)))
+    end
+
+
+
 
 </code></pre>
                 
