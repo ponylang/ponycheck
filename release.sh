@@ -73,10 +73,10 @@ git push origin master
 # build docs and publish on gh-pages branch
 make docs PONYC=${PONYC}
 TEMP_DIR="$(mktemp -d)"
-mv docs "${TEMP_DIR)/"
+mv docs "${TEMP_DIR}/"
 git checkout gh-pages
 rm -rf $(ls)
 mv "${TEMP_DIR}"/docs/* .
 git add .
 git commit -m"publishing docs for release $version"
-git push gh-pages
+git push origin gh-pages
