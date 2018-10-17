@@ -1,0 +1,3574 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.1">
+    
+    
+      
+        <title>map.pony - ponycheck</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.a6477f41.css">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.6586f7cd.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="" title="ponycheck" class="md-header-nav__button md-logo">
+          
+            <img src="../../../assets/images/logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                ponycheck
+              </span>
+              <span class="md-header-nav__topic">
+                map.pony
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../../assets/images/logo.png" width="48" height="48">
+      
+    </span>
+    ponycheck
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="" title="ponycheck" class="md-nav__link">
+      ponycheck
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      package ponycheck
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        package ponycheck
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Randomness/" title="class Randomness" class="md-nav__link">
+      class Randomness
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-PropertyLogger/" title="interface PropertyLogger" class="md-nav__link">
+      interface PropertyLogger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-PropertyResultNotify/" title="interface PropertyResultNotify" class="md-nav__link">
+      interface PropertyResultNotify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-PropertyRunner/" title="actor PropertyRunner" class="md-nav__link">
+      actor PropertyRunner
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-PropertyHelper/" title="class PropertyHelper" class="md-nav__link">
+      class PropertyHelper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-PropertyParams/" title="class PropertyParams" class="md-nav__link">
+      class PropertyParams
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Property1/" title="trait Property1" class="md-nav__link">
+      trait Property1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
+      class Poperator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
+      primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ValueAndShrink/" title="type ValueAndShrink" class="md-nav__link">
+      type ValueAndShrink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-GenerateResult/" title="type GenerateResult" class="md-nav__link">
+      type GenerateResult
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-CountdownIter/" title="class CountdownIter" class="md-nav__link">
+      class CountdownIter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-GenObj/" title="trait GenObj" class="md-nav__link">
+      trait GenObj
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Generator/" title="class Generator" class="md-nav__link">
+      class Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-WeightedGenerator/" title="type WeightedGenerator" class="md-nav__link">
+      type WeightedGenerator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-Generators/" title="primitive Generators" class="md-nav__link">
+      primitive Generators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
+      class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIINUL/" title="primitive ASCIINUL" class="md-nav__link">
+      primitive ASCIINUL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIDigits/" title="primitive ASCIIDigits" class="md-nav__link">
+      primitive ASCIIDigits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIWhiteSpace/" title="primitive ASCIIWhiteSpace" class="md-nav__link">
+      primitive ASCIIWhiteSpace
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIPunctuation/" title="primitive ASCIIPunctuation" class="md-nav__link">
+      primitive ASCIIPunctuation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIILettersLower/" title="primitive ASCIILettersLower" class="md-nav__link">
+      primitive ASCIILettersLower
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIILettersUpper/" title="primitive ASCIILettersUpper" class="md-nav__link">
+      primitive ASCIILettersUpper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIILetters/" title="primitive ASCIILetters" class="md-nav__link">
+      primitive ASCIILetters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIPrintable/" title="primitive ASCIIPrintable" class="md-nav__link">
+      primitive ASCIIPrintable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIINonPrintable/" title="primitive ASCIINonPrintable" class="md-nav__link">
+      primitive ASCIINonPrintable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIAll/" title="primitive ASCIIAll" class="md-nav__link">
+      primitive ASCIIAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIAllWithNUL/" title="primitive ASCIIAllWithNUL" class="md-nav__link">
+      primitive ASCIIAllWithNUL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponycheck-ASCIIRange/" title="type ASCIIRange" class="md-nav__link">
+      type ASCIIRange
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      package assert
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        package assert
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="assert--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="assert-Assert/" title="primitive Assert" class="md-nav__link">
+      primitive Assert
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="assert-Fact/" title="primitive Fact" class="md-nav__link">
+      primitive Fact
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      package builtin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        package builtin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-U8/" title="primitive U8" class="md-nav__link">
+      primitive U8
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-U16/" title="primitive U16" class="md-nav__link">
+      primitive U16
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-U32/" title="primitive U32" class="md-nav__link">
+      primitive U32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-U64/" title="primitive U64" class="md-nav__link">
+      primitive U64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ULong/" title="primitive ULong" class="md-nav__link">
+      primitive ULong
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-USize/" title="primitive USize" class="md-nav__link">
+      primitive USize
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-U128/" title="primitive U128" class="md-nav__link">
+      primitive U128
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Unsigned/" title="type Unsigned" class="md-nav__link">
+      type Unsigned
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Stringable/" title="interface Stringable" class="md-nav__link">
+      interface Stringable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-String/" title="class String" class="md-nav__link">
+      class String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-StringBytes/" title="class StringBytes" class="md-nav__link">
+      class StringBytes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-StringRunes/" title="class StringRunes" class="md-nav__link">
+      class StringRunes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-InputNotify/" title="interface InputNotify" class="md-nav__link">
+      interface InputNotify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-InputStream/" title="interface InputStream" class="md-nav__link">
+      interface InputStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Stdin/" title="actor Stdin" class="md-nav__link">
+      actor Stdin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ByteSeq/" title="type ByteSeq" class="md-nav__link">
+      type ByteSeq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ByteSeqIter/" title="interface ByteSeqIter" class="md-nav__link">
+      interface ByteSeqIter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-OutStream/" title="interface OutStream" class="md-nav__link">
+      interface OutStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-StdStream/" title="actor StdStream" class="md-nav__link">
+      actor StdStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-SourceLoc/" title="interface SourceLoc" class="md-nav__link">
+      interface SourceLoc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-I8/" title="primitive I8" class="md-nav__link">
+      primitive I8
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-I16/" title="primitive I16" class="md-nav__link">
+      primitive I16
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-I32/" title="primitive I32" class="md-nav__link">
+      primitive I32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-I64/" title="primitive I64" class="md-nav__link">
+      primitive I64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ILong/" title="primitive ILong" class="md-nav__link">
+      primitive ILong
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ISize/" title="primitive ISize" class="md-nav__link">
+      primitive ISize
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-I128/" title="primitive I128" class="md-nav__link">
+      primitive I128
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Signed/" title="type Signed" class="md-nav__link">
+      type Signed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Seq/" title="interface Seq" class="md-nav__link">
+      interface Seq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Real/" title="trait Real" class="md-nav__link">
+      trait Real
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Integer/" title="trait Integer" class="md-nav__link">
+      trait Integer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
+      trait FloatingPoint
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Number/" title="type Number" class="md-nav__link">
+      type Number
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Int/" title="type Int" class="md-nav__link">
+      type Int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ReadSeq/" title="interface ReadSeq" class="md-nav__link">
+      interface ReadSeq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ReadElement/" title="interface ReadElement" class="md-nav__link">
+      interface ReadElement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Pointer/" title="struct Pointer" class="md-nav__link">
+      struct Pointer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Platform/" title="primitive Platform" class="md-nav__link">
+      primitive Platform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
+      struct MaybePointer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Iterator/" title="interface Iterator" class="md-nav__link">
+      interface Iterator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-F32/" title="primitive F32" class="md-nav__link">
+      primitive F32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-F64/" title="primitive F64" class="md-nav__link">
+      primitive F64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Float/" title="type Float" class="md-nav__link">
+      type Float
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Env/" title="class Env" class="md-nav__link">
+      class Env
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
+      primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Less/" title="primitive Less" class="md-nav__link">
+      primitive Less
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Equal/" title="primitive Equal" class="md-nav__link">
+      primitive Equal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Greater/" title="primitive Greater" class="md-nav__link">
+      primitive Greater
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Compare/" title="type Compare" class="md-nav__link">
+      type Compare
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-HasEq/" title="interface HasEq" class="md-nav__link">
+      interface HasEq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Equatable/" title="interface Equatable" class="md-nav__link">
+      interface Equatable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Comparable/" title="interface Comparable" class="md-nav__link">
+      interface Comparable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Bool/" title="primitive Bool" class="md-nav__link">
+      primitive Bool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-AsioEventID/" title="type AsioEventID" class="md-nav__link">
+      type AsioEventID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-AsioEventNotify/" title="interface AsioEventNotify" class="md-nav__link">
+      interface AsioEventNotify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-AsioEvent/" title="primitive AsioEvent" class="md-nav__link">
+      primitive AsioEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Array/" title="class Array" class="md-nav__link">
+      class Array
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ArrayKeys/" title="class ArrayKeys" class="md-nav__link">
+      class ArrayKeys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ArrayValues/" title="class ArrayValues" class="md-nav__link">
+      class ArrayValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-ArrayPairs/" title="class ArrayPairs" class="md-nav__link">
+      class ArrayPairs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-Any/" title="interface Any" class="md-nav__link">
+      interface Any
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="builtin-AmbientAuth/" title="primitive AmbientAuth" class="md-nav__link">
+      primitive AmbientAuth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      package collections
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        package collections
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Sort/" title="primitive Sort" class="md-nav__link">
+      primitive Sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Set/" title="type Set" class="md-nav__link">
+      type Set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-SetIs/" title="type SetIs" class="md-nav__link">
+      type SetIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashSet/" title="class HashSet" class="md-nav__link">
+      class HashSet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-SetValues/" title="class SetValues" class="md-nav__link">
+      class SetValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-RingBuffer/" title="class RingBuffer" class="md-nav__link">
+      class RingBuffer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Reverse/" title="class Reverse" class="md-nav__link">
+      class Reverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Range/" title="class Range" class="md-nav__link">
+      class Range
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Map/" title="type Map" class="md-nav__link">
+      type Map
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-MapIs/" title="type MapIs" class="md-nav__link">
+      type MapIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashMap/" title="class HashMap" class="md-nav__link">
+      class HashMap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-MapKeys/" title="class MapKeys" class="md-nav__link">
+      class MapKeys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-MapValues/" title="class MapValues" class="md-nav__link">
+      class MapValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-MapPairs/" title="class MapPairs" class="md-nav__link">
+      class MapPairs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-ListNode/" title="class ListNode" class="md-nav__link">
+      class ListNode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-List/" title="class List" class="md-nav__link">
+      class List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-ListNodes/" title="class ListNodes" class="md-nav__link">
+      class ListNodes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-ListValues/" title="class ListValues" class="md-nav__link">
+      class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Hashable/" title="interface Hashable" class="md-nav__link">
+      interface Hashable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Hashable64/" title="interface Hashable64" class="md-nav__link">
+      interface Hashable64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashFunction/" title="interface HashFunction" class="md-nav__link">
+      interface HashFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashFunction64/" title="interface HashFunction64" class="md-nav__link">
+      interface HashFunction64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashEq/" title="primitive HashEq" class="md-nav__link">
+      primitive HashEq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashEq64/" title="primitive HashEq64" class="md-nav__link">
+      primitive HashEq64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashIs/" title="primitive HashIs" class="md-nav__link">
+      primitive HashIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-HashByteSeq/" title="primitive HashByteSeq" class="md-nav__link">
+      primitive HashByteSeq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Flag/" title="interface Flag" class="md-nav__link">
+      interface Flag
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="collections-Flags/" title="class Flags" class="md-nav__link">
+      class Flags
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      package debug
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        package debug
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="debug--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="debug-DebugOut/" title="primitive DebugOut" class="md-nav__link">
+      primitive DebugOut
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="debug-DebugErr/" title="primitive DebugErr" class="md-nav__link">
+      primitive DebugErr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="debug-DebugStream/" title="type DebugStream" class="md-nav__link">
+      type DebugStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="debug-Debug/" title="primitive Debug" class="md-nav__link">
+      primitive Debug
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      package itertools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        package itertools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="itertools--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="itertools-Iter/" title="class Iter" class="md-nav__link">
+      class Iter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      package ponytest
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        package ponytest
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest-UnitTest/" title="trait UnitTest" class="md-nav__link">
+      trait UnitTest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest-TestList/" title="trait TestList" class="md-nav__link">
+      trait TestList
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest-ITest/" title="interface ITest" class="md-nav__link">
+      interface ITest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest-TestHelper/" title="class TestHelper" class="md-nav__link">
+      class TestHelper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ponytest-PonyTest/" title="actor PonyTest" class="md-nav__link">
+      actor PonyTest
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      package random
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        package random
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-XorShift128Plus/" title="class XorShift128Plus" class="md-nav__link">
+      class XorShift128Plus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-XorOshiro128Plus/" title="class XorOshiro128Plus" class="md-nav__link">
+      class XorOshiro128Plus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-Rand/" title="type Rand" class="md-nav__link">
+      type Rand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-Random/" title="trait Random" class="md-nav__link">
+      trait Random
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-MT/" title="class MT" class="md-nav__link">
+      class MT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="random-Dice/" title="class Dice" class="md-nav__link">
+      class Dice
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      package time
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        package time
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time--index/" title="Package" class="md-nav__link">
+      Package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-Timers/" title="actor Timers" class="md-nav__link">
+      actor Timers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-TimerNotify/" title="interface TimerNotify" class="md-nav__link">
+      interface TimerNotify
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-Timer/" title="class Timer" class="md-nav__link">
+      class Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-Time/" title="primitive Time" class="md-nav__link">
+      primitive Time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-PosixDate/" title="class PosixDate" class="md-nav__link">
+      class PosixDate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="time-Nanos/" title="primitive Nanos" class="md-nav__link">
+      primitive Nanos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+    
+    <label class="md-nav__link" for="nav-11">
+      source
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        source
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/randomness/" title="randomness.pony" class="md-nav__link">
+      randomness.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/property_runner/" title="property_runner.pony" class="md-nav__link">
+      property_runner.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/property_helper/" title="property_helper.pony" class="md-nav__link">
+      property_helper.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/property/" title="property.pony" class="md-nav__link">
+      property.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/poperator/" title="poperator.pony" class="md-nav__link">
+      poperator.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/ponycheck/" title="ponycheck.pony" class="md-nav__link">
+      ponycheck.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/generator/" title="generator.pony" class="md-nav__link">
+      generator.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/for_all/" title="for_all.pony" class="md-nav__link">
+      for_all.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponycheck/ascii_range/" title="ascii_range.pony" class="md-nav__link">
+      ascii_range.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/assert/assert/" title="assert.pony" class="md-nav__link">
+      assert.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/unsigned/" title="unsigned.pony" class="md-nav__link">
+      unsigned.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/stringable/" title="stringable.pony" class="md-nav__link">
+      stringable.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/string/" title="string.pony" class="md-nav__link">
+      string.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/stdin/" title="stdin.pony" class="md-nav__link">
+      stdin.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/std_stream/" title="std_stream.pony" class="md-nav__link">
+      std_stream.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/source_loc/" title="source_loc.pony" class="md-nav__link">
+      source_loc.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/signed/" title="signed.pony" class="md-nav__link">
+      signed.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/seq/" title="seq.pony" class="md-nav__link">
+      seq.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/real/" title="real.pony" class="md-nav__link">
+      real.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/read_seq/" title="read_seq.pony" class="md-nav__link">
+      read_seq.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/pointer/" title="pointer.pony" class="md-nav__link">
+      pointer.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/platform/" title="platform.pony" class="md-nav__link">
+      platform.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/none/" title="none.pony" class="md-nav__link">
+      none.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
+      maybe_pointer.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/iterator/" title="iterator.pony" class="md-nav__link">
+      iterator.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/float/" title="float.pony" class="md-nav__link">
+      float.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/env/" title="env.pony" class="md-nav__link">
+      env.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/do_not_optimise/" title="do_not_optimise.pony" class="md-nav__link">
+      do_not_optimise.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/compare/" title="compare.pony" class="md-nav__link">
+      compare.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/bool/" title="bool.pony" class="md-nav__link">
+      bool.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/asio_event/" title="asio_event.pony" class="md-nav__link">
+      asio_event.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/array/" title="array.pony" class="md-nav__link">
+      array.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/any/" title="any.pony" class="md-nav__link">
+      any.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/builtin/ambient_auth/" title="ambient_auth.pony" class="md-nav__link">
+      ambient_auth.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/sort/" title="sort.pony" class="md-nav__link">
+      sort.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/set/" title="set.pony" class="md-nav__link">
+      set.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/ring_buffer/" title="ring_buffer.pony" class="md-nav__link">
+      ring_buffer.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/reverse/" title="reverse.pony" class="md-nav__link">
+      reverse.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/range/" title="range.pony" class="md-nav__link">
+      range.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="src/collections/map/" title="map.pony" class="md-nav__link md-nav__link--active">
+      map.pony
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/list_node/" title="list_node.pony" class="md-nav__link">
+      list_node.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/list/" title="list.pony" class="md-nav__link">
+      list.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/hashable/" title="hashable.pony" class="md-nav__link">
+      hashable.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/collections/flag/" title="flag.pony" class="md-nav__link">
+      flag.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/debug/debug/" title="debug.pony" class="md-nav__link">
+      debug.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/itertools/iter/" title="iter.pony" class="md-nav__link">
+      iter.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponytest/unit_test/" title="unit_test.pony" class="md-nav__link">
+      unit_test.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponytest/test_list/" title="test_list.pony" class="md-nav__link">
+      test_list.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponytest/test_helper/" title="test_helper.pony" class="md-nav__link">
+      test_helper.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/ponytest/pony_test/" title="pony_test.pony" class="md-nav__link">
+      pony_test.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/random/xorshift/" title="xorshift.pony" class="md-nav__link">
+      xorshift.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/random/xoroshiro/" title="xoroshiro.pony" class="md-nav__link">
+      xoroshiro.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/random/random/" title="random.pony" class="md-nav__link">
+      random.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/random/mt/" title="mt.pony" class="md-nav__link">
+      mt.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/random/dice/" title="dice.pony" class="md-nav__link">
+      dice.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/timers/" title="timers.pony" class="md-nav__link">
+      timers.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/timer_notify/" title="timer_notify.pony" class="md-nav__link">
+      timer_notify.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/timer/" title="timer.pony" class="md-nav__link">
+      timer.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/time/" title="time.pony" class="md-nav__link">
+      time.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/posix_date/" title="posix_date.pony" class="md-nav__link">
+      posix_date.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="src/time/nanos/" title="nanos.pony" class="md-nav__link">
+      nanos.pony
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>map.pony</h1>
+                
+                <pre><code class="pony-full-source">primitive _MapEmpty
+primitive _MapDeleted
+
+type Map[K: (Hashable #read &amp; Equatable[K] #read), V] is
+  HashMap[K, V, HashEq[K]]
+  &quot;&quot;&quot;
+  This is a map that uses structural equality on the key.
+  &quot;&quot;&quot;
+
+type MapIs[K, V] is HashMap[K, V, HashIs[K]]
+  &quot;&quot;&quot;
+  This is a map that uses identity comparison on the key.
+  &quot;&quot;&quot;
+
+class HashMap[K, V, H: HashFunction[K] val]
+  &quot;&quot;&quot;
+  A quadratic probing hash map. Resize occurs at a load factor of 0.75. A
+  resized map has 2 times the space. The hash function can be plugged in to the
+  type to create different kinds of maps.
+  &quot;&quot;&quot;
+  var _size: USize = 0
+  var _array: Array[((K, V) | _MapEmpty | _MapDeleted)]
+
+  new create(prealloc: USize = 6) =&gt;
+    &quot;&quot;&quot;
+    Create an array with space for prealloc elements without triggering a
+    resize. Defaults to 6.
+    &quot;&quot;&quot;
+    let len = (prealloc * 4) / 3
+    let n = len.max(8).next_pow2()
+    _array = _array.init(_MapEmpty, n)
+
+  fun size(): USize =&gt;
+    &quot;&quot;&quot;
+    The number of items in the map.
+    &quot;&quot;&quot;
+    _size
+
+  fun space(): USize =&gt;
+    &quot;&quot;&quot;
+    The available space in the map. Resize will happen when
+    size / space &gt;= 0.75.
+    &quot;&quot;&quot;
+    _array.space()
+
+  fun apply(key: box-&gt;K!): this-&gt;V ? =&gt;
+    &quot;&quot;&quot;
+    Gets a value from the map. Raises an error if no such item exists.
+    &quot;&quot;&quot;
+    (let i, let found) = _search(key)
+
+    if found then
+      _array(i)? as (_, this-&gt;V)
+    else
+      error
+    end
+
+  fun ref update(key: K, value: V): (V^ | None) =&gt;
+    &quot;&quot;&quot;
+    Sets a value in the map. Returns the old value if there was one, otherwise
+    returns None. If there was no previous value, this may trigger a resize.
+    &quot;&quot;&quot;
+    try
+      (let i, let found) = _search(key)
+
+      let k = if found then
+        _array(i)? as (K^, _)
+      else
+        consume key
+      end
+      match _array(i)? = (consume k, consume value)
+      | (_, let v: V) =&gt;
+        return consume v
+      else
+        _size = _size + 1
+
+        if (_size * 4) &gt; (_array.size() * 3) then
+          _resize(_array.size() * 2)
+        end
+      end
+    end
+
+  fun ref upsert(key: K, value: V, f: {(V, V): V^} box): V ? =&gt;
+    &quot;&quot;&quot;
+    Combines a provided value with the current value for the provided key
+    using the provided function. If the provided key has not been added to
+    the map yet, it sets its value to the provided value.
+
+    As a simple example, say we had a map with I64 values and we wanted to
+    add 4 to the current value for key &quot;test&quot;, which let's say is currently 2.
+    We call
+
+    m.upsert(&quot;test&quot;, 4, {(x, y) =&gt; x - y })
+
+    This changes the value associated with &quot;test&quot; to -2.
+
+    If we have not yet added the key &quot;new-key&quot; to the map and we call
+
+    m.upsert(&quot;new-key&quot;, 4, {(x, y) =&gt; x - y })
+
+    then &quot;new-key&quot; is added to the map with a value of -4.
+
+    Returns the value that we set the key to
+    &quot;&quot;&quot;
+
+    (let i, let found) = _search(key)
+
+    try
+      if found then
+        (let pkey, let pvalue) = (_array(i)? = _MapEmpty) as (K^, V^)
+        _array(i)? = (consume pkey, f(consume pvalue, consume value))
+      else
+        let key' = key
+        _array(i)? = (consume key, consume value)
+        _size = _size + 1
+
+        if (_size * 4) &gt; (_array.size() * 3) then
+          _resize(_array.size() * 2)
+          return this(key')?
+        end
+      end
+
+      return _array(i)? as (_, V)
+    else
+      error
+    end
+
+  fun ref insert(key: K, value: V): V ? =&gt;
+    &quot;&quot;&quot;
+    Set a value in the map. Returns the new value, allowing reuse.
+    &quot;&quot;&quot;
+    try
+      (let i, let found) = _search(key)
+      let key' = key
+      _array(i)? = (consume key, consume value)
+
+      if not found then
+        _size = _size + 1
+
+        if (_size * 4) &gt; (_array.size() * 3) then
+          _resize(_array.size() * 2)
+          return this(key')?
+        end
+      end
+
+      _array(i)? as (_, V)
+    else
+      // This is unreachable, since index will never be out-of-bounds.
+      error
+    end
+
+  fun ref insert_if_absent(key: K, value: V): V ? =&gt;
+    &quot;&quot;&quot;
+    Set a value in the map if the key doesn't already exist in the Map.
+    Saves an extra lookup when doing a pattern like:
+
+    ```pony
+    if not my_map.contains(my_key) then
+      my_map(my_key) = my_value
+    end
+    ```
+
+    Returns the value, the same as `insert`, allowing 'insert_if_absent'
+    to be used as a drop-in replacement for `insert`.
+    &quot;&quot;&quot;
+    try
+      (let i, let found) = _search(key)
+      let key' = key
+
+      if not found then
+        _array(i)? = (consume key, consume value)
+
+        _size = _size + 1
+
+        if (_size * 4) &gt; (_array.size() * 3) then
+          _resize(_array.size() * 2)
+          return this(key')?
+        end
+      end
+
+      _array(i)? as (_, V)
+    else
+      // This is unreachable, since index will never be out-of-bounds.
+      error
+    end
+
+  fun ref remove(key: box-&gt;K!): (K^, V^) ? =&gt;
+    &quot;&quot;&quot;
+    Delete a value from the map and return it. Raises an error if there was no
+    value for the given key.
+    &quot;&quot;&quot;
+    try
+      (let i, let found) = _search(key)
+
+      if found then
+        _size = _size - 1
+
+        match _array(i)? = _MapDeleted
+        | (let k: K, let v: V) =&gt;
+          return (consume k, consume v)
+        end
+      end
+    end
+    error
+
+  fun get_or_else(key: box-&gt;K!, alt: this-&gt;V): this-&gt;V =&gt;
+    &quot;&quot;&quot;
+    Get the value associated with provided key if present. Otherwise,
+    return the provided alternate value.
+    &quot;&quot;&quot;
+    (let i, let found) = _search(key)
+
+    if found then
+      try
+        _array(i)? as (_, this-&gt;V)
+      else
+        // This should never happen as we have already
+        // proven that _array(i) exists
+        consume alt
+      end
+    else
+      consume alt
+    end
+
+  fun contains(k: box-&gt;K!): Bool =&gt;
+    &quot;&quot;&quot;
+    Checks whether the map contains the key k
+    &quot;&quot;&quot;
+    (_, let found) = _search(k)
+    found
+
+  fun ref concat(iter: Iterator[(K^, V^)]) =&gt;
+    &quot;&quot;&quot;
+    Add K, V pairs from the iterator to the map.
+    &quot;&quot;&quot;
+    for (k, v) in iter do
+      this(consume k) = consume v
+    end
+
+  fun add[H2: HashFunction[this-&gt;K!] val = H](
+    key: this-&gt;K!,
+    value: this-&gt;V!)
+    : HashMap[this-&gt;K!, this-&gt;V!, H2]^
+  =&gt;
+    &quot;&quot;&quot;
+    This with the new (key, value) mapping.
+    &quot;&quot;&quot;
+    let r = clone[H2]()
+    r(key) = value
+    r
+
+  fun sub[H2: HashFunction[this-&gt;K!] val = H](
+    key: this-&gt;K!,
+    value: this-&gt;V!)
+    : HashMap[this-&gt;K!, this-&gt;V!, H2]^
+  =&gt;
+    &quot;&quot;&quot;
+    This without the given key.
+    &quot;&quot;&quot;
+    let r = clone[H2]()
+    try r.remove(key)? end
+    r
+
+  fun next_index(prev: USize = -1): USize ? =&gt;
+    &quot;&quot;&quot;
+    Given an index, return the next index that has a populated key and value.
+    Raise an error if there is no next populated index.
+    &quot;&quot;&quot;
+    for i in Range(prev + 1, _array.size()) do
+      match _array(i)?
+      | (_, _) =&gt; return i
+      end
+    end
+    error
+
+  fun index(i: USize): (this-&gt;K, this-&gt;V) ? =&gt;
+    &quot;&quot;&quot;
+    Returns the key and value at a given index.
+    Raise an error if the index is not populated.
+    &quot;&quot;&quot;
+    _array(i)? as (this-&gt;K, this-&gt;V)
+
+  fun ref compact() =&gt;
+    &quot;&quot;&quot;
+    Minimise the memory used for the map.
+    &quot;&quot;&quot;
+    _resize(((_size * 4) / 3).next_pow2().max(8))
+
+  fun clone[H2: HashFunction[this-&gt;K!] val = H]()
+    : HashMap[this-&gt;K!, this-&gt;V!, H2]^
+  =&gt;
+    &quot;&quot;&quot;
+    Create a clone. The key and value types may be different due to aliasing
+    and viewpoint adaptation.
+    &quot;&quot;&quot;
+    let r = HashMap[this-&gt;K!, this-&gt;V!, H2](_size)
+
+    for (k, v) in pairs() do
+      r(k) = v
+    end
+    r
+
+  fun ref clear() =&gt;
+    &quot;&quot;&quot;
+    Remove all entries.
+    &quot;&quot;&quot;
+    _size = 0
+    // Our default prealloc of 6 corresponds to an array alloc size of 8.
+    let n: USize = 8
+    _array = _array.init(_MapEmpty, n)
+
+  fun _search(key: box-&gt;K!): (USize, Bool) =&gt;
+    &quot;&quot;&quot;
+    Return a slot number and whether or not it's currently occupied.
+    &quot;&quot;&quot;
+    var idx_del = _array.size()
+    let mask = idx_del - 1
+    let h = H.hash(key).usize()
+    var idx = h and mask
+
+    try
+      for i in Range(0, _array.size()) do
+        let entry = _array(idx)?
+
+        match entry
+        | (let k: this-&gt;K!, _) =&gt;
+          if H.eq(k, key) then
+            return (idx, true)
+          end
+        | _MapEmpty =&gt;
+          if idx_del &lt;= mask then
+            return (idx_del, false)
+          else
+            return (idx, false)
+          end
+        | _MapDeleted =&gt;
+          if idx_del &gt; mask then
+            idx_del = idx
+          end
+        end
+
+        idx = (h + ((i + (i * i)) / 2)) and mask
+      end
+    end
+
+    (idx_del, false)
+
+  fun ref _resize(len: USize) =&gt;
+    &quot;&quot;&quot;
+    Change the available space.
+    &quot;&quot;&quot;
+    let old = _array
+    let old_len = old.size()
+
+    _array = _array.init(_MapEmpty, len)
+    _size = 0
+
+    try
+      for i in Range(0, old_len) do
+        match old(i)? = _MapDeleted
+        | (let k: K, let v: V) =&gt;
+          this(consume k) = consume v
+        end
+      end
+    end
+
+  fun keys(): MapKeys[K, V, H, this-&gt;HashMap[K, V, H]]^ =&gt;
+    &quot;&quot;&quot;
+    Return an iterator over the keys.
+    &quot;&quot;&quot;
+    MapKeys[K, V, H, this-&gt;HashMap[K, V, H]](this)
+
+  fun values(): MapValues[K, V, H, this-&gt;HashMap[K, V, H]]^ =&gt;
+    &quot;&quot;&quot;
+    Return an iterator over the values.
+    &quot;&quot;&quot;
+    MapValues[K, V, H, this-&gt;HashMap[K, V, H]](this)
+
+  fun pairs(): MapPairs[K, V, H, this-&gt;HashMap[K, V, H]]^ =&gt;
+    &quot;&quot;&quot;
+    Return an iterator over the keys and values.
+    &quot;&quot;&quot;
+    MapPairs[K, V, H, this-&gt;HashMap[K, V, H]](this)
+
+class MapKeys[K, V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
+  Iterator[M-&gt;K]
+  &quot;&quot;&quot;
+  An iterator over the keys in a map.
+  &quot;&quot;&quot;
+  let _map: M
+  var _i: USize = -1
+  var _count: USize = 0
+
+  new create(map: M) =&gt;
+    &quot;&quot;&quot;
+    Creates an iterator for the given map.
+    &quot;&quot;&quot;
+    _map = map
+
+  fun has_next(): Bool =&gt;
+    &quot;&quot;&quot;
+    True if it believes there are remaining entries. May not be right if values
+    were added or removed from the map.
+    &quot;&quot;&quot;
+    _count &lt; _map.size()
+
+  fun ref next(): M-&gt;K ? =&gt;
+    &quot;&quot;&quot;
+    Returns the next key, or raises an error if there isn't one. If keys are
+    added during iteration, this may not return all keys.
+    &quot;&quot;&quot;
+    _i = _map.next_index(_i)?
+    _count = _count + 1
+    _map.index(_i)?._1
+
+class MapValues[K, V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
+  Iterator[M-&gt;V]
+  &quot;&quot;&quot;
+  An iterator over the values in a map.
+  &quot;&quot;&quot;
+  let _map: M
+  var _i: USize = -1
+  var _count: USize = 0
+
+  new create(map: M) =&gt;
+    &quot;&quot;&quot;
+    Creates an iterator for the given map.
+    &quot;&quot;&quot;
+    _map = map
+
+  fun has_next(): Bool =&gt;
+    &quot;&quot;&quot;
+    True if it believes there are remaining entries. May not be right if values
+    were added or removed from the map.
+    &quot;&quot;&quot;
+    _count &lt; _map.size()
+
+  fun ref next(): M-&gt;V ? =&gt;
+    &quot;&quot;&quot;
+    Returns the next value, or raises an error if there isn't one. If values
+    are added during iteration, this may not return all values.
+    &quot;&quot;&quot;
+    _i = _map.next_index(_i)?
+    _count = _count + 1
+    _map.index(_i)?._2
+
+class MapPairs[K, V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
+  Iterator[(M-&gt;K, M-&gt;V)]
+  &quot;&quot;&quot;
+  An iterator over the keys and values in a map.
+  &quot;&quot;&quot;
+  let _map: M
+  var _i: USize = -1
+  var _count: USize = 0
+
+  new create(map: M) =&gt;
+    &quot;&quot;&quot;
+    Creates an iterator for the given map.
+    &quot;&quot;&quot;
+    _map = map
+
+  fun has_next(): Bool =&gt;
+    &quot;&quot;&quot;
+    True if it believes there are remaining entries. May not be right if values
+    were added or removed from the map.
+    &quot;&quot;&quot;
+    _count &lt; _map.size()
+
+  fun ref next(): (M-&gt;K, M-&gt;V) ? =&gt;
+    &quot;&quot;&quot;
+    Returns the next entry, or raises an error if there isn't one. If entries
+    are added during iteration, this may not return all entries.
+    &quot;&quot;&quot;
+    _i = _map.next_index(_i)?
+    _count = _count + 1
+    _map.index(_i)?
+
+</code></pre>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="src/collections/range/" title="range.pony" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                range.pony
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="src/collections/list_node/" title="list_node.pony" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                list_node.pony
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.f4eda793.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
