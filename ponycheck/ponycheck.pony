@@ -69,7 +69,7 @@ There are two ways of integrating a [Property](ponycheck-Property1.md) into
 
 2. Run as much [Properties](ponycheck-Property1.md) as you wish inside one ponytest
    [UnitTest](ponytest-UnitTest.md) using the convenience function
-   [Ponycheck.forAll](ponycheck-PonyCheck.md) providing a
+   [Ponycheck.forAll](ponycheck-Ponycheck.md) providing a
    [Generator](ponycheck-Generator), the [TestHelper](ponytest-TestHelper.md) and the
    actual property function. (Note that the property function is supplied in a
    second application of the result to `for_all`.)
