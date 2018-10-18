@@ -28,7 +28,7 @@ class val PropertyHelper
   """
   Helper for ponycheck properties.
 
-  Mirrors the [TestHelper](ponytest-TestHelper) API as close as possible.
+  Mirrors the [TestHelper](ponytest-TestHelper.md) API as close as possible.
 
   Contains assertion functions and functions for completing asynchronous
   properties, for expecting and completing or failing actions.
@@ -41,7 +41,7 @@ class val PropertyHelper
   This class is `val` by default so it can be safely passed around to other
   actors.
 
-  It exposes the process [Env](builtin-Env) as public `env` field in order to
+  It exposes the process [Env](builtin-Env.md) as public `env` field in order to
   give access to the root authority and other stuff.
   """
   let _runner: _IPropertyRunner

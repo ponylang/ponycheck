@@ -5,13 +5,13 @@ use "debug"
 
 type ValueAndShrink[T1] is (T1^, Iterator[T1^])
   """
-  Possible return type for `Generator.generate`.
+  Possible return type for [`Generator.generate`](ponycheck-Generator.md#generate).
   Represents a generated value and an Iterator of shrunken values.
   """
 
 type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
   """
-  Return type for `Generator.generate`.
+  Return type for [`Generator.generate`](ponycheck-Generator.md#generate).
 
   Either a single value only or a Tuple of a value and an Iterator
   of shrunken values based upon this value.

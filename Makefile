@@ -27,14 +27,14 @@ clean:
 test: $(DEPS) $(TEST_DEPS)
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)/test
 
-docs: FLAGS += --pass=docs --docs-public --output=docs-tmp
+docs: FLAGS += --pass=expr --docs-public --output=docs-tmp
 docs: $(DEPS) $(TEST_DEPS)
 	rm -rf docs-tmp
 	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
 	cd docs-tmp/ponycheck-docs && mkdocs build
 	rm -rf docs
 	cp -R docs-tmp/ponycheck-docs/site docs
-	rm -rf docs-tmp
+	#rm -rf docs-tmp
 
 examples: $(EXAMPLES_DEPS)
 	cd $(EXAMPLES_DIR) && \
