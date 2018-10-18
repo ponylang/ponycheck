@@ -92,7 +92,7 @@ the ponycheck machinery will instantiate the provided Generator, and will
 execute it for a configurable number of samples.
 
 If the property fails using an assertion method of
-[PropertyTestHelper](ponycheck-PropertyTestHelper.md),
+[PropertyHelper](ponycheck-PropertyHelper.md),
 the failed example will be shrunken by the generator
 to obtain a smaller and more informative, still failing, sample
 for reporting.
