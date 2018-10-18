@@ -34,7 +34,7 @@ docs: $(DEPS) $(TEST_DEPS)
 	cd docs-tmp/ponycheck-docs && mkdocs build
 	rm -rf docs
 	cp -R docs-tmp/ponycheck-docs/site docs
-	#rm -rf docs-tmp
+	rm -rf docs-tmp
 
 examples: $(EXAMPLES_DEPS)
 	cd $(EXAMPLES_DIR) && \
