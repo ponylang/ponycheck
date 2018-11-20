@@ -199,7 +199,7 @@ class box Generator[T] is GenObj[T]
             .filter_map[T^]({
               (t: T): (T^| None) =>
                 match predicate(consume t)
-                | (let matching: T^, true) => consume matching
+                | (let matching: T, true) => consume matching
                 end
             })
       end)
@@ -278,8 +278,8 @@ class box Generator[T] is GenObj[T]
             other.generate_and_shrink(rnd)?
           end
 
-        fun shrink(t: (T | U)): ValueAndShrink[(T | U )] =>
-          match t
+        fun shrink(t: (T | U)): ValueAndShrink[(T | U)] =>
+          match consume t
           | let tt: T => _gen.shrink(consume tt)
           | let tu: U => other.shrink(consume tu)
           end
