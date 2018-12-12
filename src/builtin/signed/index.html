@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
     
     
       
@@ -1034,6 +1034,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-SignedInteger/" title="trait SignedInteger" class="md-nav__link">
+      trait SignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-UnsignedInteger/" title="trait UnsignedInteger" class="md-nav__link">
+      trait UnsignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
       trait FloatingPoint
     </a>
@@ -1660,6 +1684,78 @@
   <li class="md-nav__item">
     <a href="../../../collections-ListValues/" title="class ListValues" class="md-nav__link">
       class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeap/" title="type MinHeap" class="md-nav__link">
+      type MinHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeap/" title="type MaxHeap" class="md-nav__link">
+      type MaxHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeap/" title="class BinaryHeap" class="md-nav__link">
+      class BinaryHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeapPriority/" title="type BinaryHeapPriority" class="md-nav__link">
+      type BinaryHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeapPriority/" title="primitive MinHeapPriority" class="md-nav__link">
+      primitive MinHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeapPriority/" title="primitive MaxHeapPriority" class="md-nav__link">
+      primitive MaxHeapPriority
     </a>
   </li>
 
@@ -2771,6 +2867,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../collections/heap/" title="heap.pony" class="md-nav__link">
+      heap.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../collections/hashable/" title="hashable.pony" class="md-nav__link">
       hashable.pony
     </a>
@@ -3013,7 +3121,7 @@
                 
                   <h1>signed.pony</h1>
                 
-                <pre><code class="pony-full-source">primitive I8 is _SignedInteger[I8, U8]
+                <pre><code class="pony-full-source">primitive I8 is SignedInteger[I8, U8]
   new create(value: I8) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.i8()
 
@@ -3081,7 +3189,7 @@
   fun divrem_partial(y: I8): (I8, I8) ? =&gt;
     _SignedPartialArithmetic.divrem_partial[I8, U8](this, y)?
 
-primitive I16 is _SignedInteger[I16, U16]
+primitive I16 is SignedInteger[I16, U16]
   new create(value: I16) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.i16()
 
@@ -3150,7 +3258,7 @@ primitive I16 is _SignedInteger[I16, U16]
     _SignedPartialArithmetic.divrem_partial[I16, U16](this, y)?
 
 
-primitive I32 is _SignedInteger[I32, U32]
+primitive I32 is SignedInteger[I32, U32]
   new create(value: I32) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.i32()
 
@@ -3218,7 +3326,7 @@ primitive I32 is _SignedInteger[I32, U32]
   fun divrem_partial(y: I32): (I32, I32) ? =&gt;
     _SignedPartialArithmetic.divrem_partial[I32, U32](this, y)?
 
-primitive I64 is _SignedInteger[I64, U64]
+primitive I64 is SignedInteger[I64, U64]
   new create(value: I64) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.i64()
 
@@ -3287,7 +3395,7 @@ primitive I64 is _SignedInteger[I64, U64]
   fun divrem_partial(y: I64): (I64, I64) ? =&gt;
     _SignedPartialArithmetic.divrem_partial[I64, U64](this, y)?
 
-primitive ILong is _SignedInteger[ILong, ULong]
+primitive ILong is SignedInteger[ILong, ULong]
   new create(value: ILong) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.ilong()
 
@@ -3409,7 +3517,7 @@ primitive ILong is _SignedInteger[ILong, ULong]
   fun divrem_partial(y: ILong): (ILong, ILong) ? =&gt;
     _SignedPartialArithmetic.divrem_partial[ILong, ULong](this, y)?
 
-primitive ISize is _SignedInteger[ISize, USize]
+primitive ISize is SignedInteger[ISize, USize]
   new create(value: ISize) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.isize()
 
@@ -3530,7 +3638,7 @@ primitive ISize is _SignedInteger[ISize, USize]
   fun divrem_partial(y: ISize): (ISize, ISize) ? =&gt;
     _SignedPartialArithmetic.divrem_partial[ISize, USize](this, y)?
 
-primitive I128 is _SignedInteger[I128, U128]
+primitive I128 is SignedInteger[I128, U128]
   new create(value: I128) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.i128()
 
@@ -3751,7 +3859,7 @@ type Signed is (I8 | I16 | I32 | I64 | I128 | ILong | ISize)
 
 
 primitive _SignedCheckedArithmetic
-  fun _mulc[U: _UnsignedInteger[U] val, T: (Signed &amp; _SignedInteger[T, U] val)](x: T, y: T): (T, Bool) =&gt;
+  fun _mulc[U: UnsignedInteger[U] val, T: (Signed &amp; SignedInteger[T, U] val)](x: T, y: T): (T, Bool) =&gt;
     &quot;&quot;&quot;
     basically exactly what the runtime functions __muloti4, mulodi4 etc. are doing
     and roughly as fast as these.

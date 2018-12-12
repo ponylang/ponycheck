@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
     
     
       
@@ -1034,6 +1034,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-SignedInteger/" title="trait SignedInteger" class="md-nav__link">
+      trait SignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-UnsignedInteger/" title="trait UnsignedInteger" class="md-nav__link">
+      trait UnsignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
       trait FloatingPoint
     </a>
@@ -1660,6 +1684,78 @@
   <li class="md-nav__item">
     <a href="../../../collections-ListValues/" title="class ListValues" class="md-nav__link">
       class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeap/" title="type MinHeap" class="md-nav__link">
+      type MinHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeap/" title="type MaxHeap" class="md-nav__link">
+      type MaxHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeap/" title="class BinaryHeap" class="md-nav__link">
+      class BinaryHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeapPriority/" title="type BinaryHeapPriority" class="md-nav__link">
+      type BinaryHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeapPriority/" title="primitive MinHeapPriority" class="md-nav__link">
+      primitive MinHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeapPriority/" title="primitive MaxHeapPriority" class="md-nav__link">
+      primitive MaxHeapPriority
     </a>
   </li>
 
@@ -2771,6 +2867,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../heap/" title="heap.pony" class="md-nav__link">
+      heap.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../hashable/" title="hashable.pony" class="md-nav__link">
       hashable.pony
     </a>
@@ -3078,12 +3186,7 @@ class HashMap[K, V, H: HashFunction[K] val]
     try
       (let i, let found) = _search(key)
 
-      let k = if found then
-        _array(i)? as (K^, _)
-      else
-        consume key
-      end
-      match _array(i)? = (consume k, consume value)
+      match _array(i)? = (consume key, consume value)
       | (_, let v: V) =&gt;
         return consume v
       else

@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
     
     
       
@@ -1034,6 +1034,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-SignedInteger/" title="trait SignedInteger" class="md-nav__link">
+      trait SignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-UnsignedInteger/" title="trait UnsignedInteger" class="md-nav__link">
+      trait UnsignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
       trait FloatingPoint
     </a>
@@ -1660,6 +1684,78 @@
   <li class="md-nav__item">
     <a href="../../../collections-ListValues/" title="class ListValues" class="md-nav__link">
       class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeap/" title="type MinHeap" class="md-nav__link">
+      type MinHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeap/" title="type MaxHeap" class="md-nav__link">
+      type MaxHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeap/" title="class BinaryHeap" class="md-nav__link">
+      class BinaryHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeapPriority/" title="type BinaryHeapPriority" class="md-nav__link">
+      type BinaryHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeapPriority/" title="primitive MinHeapPriority" class="md-nav__link">
+      primitive MinHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeapPriority/" title="primitive MaxHeapPriority" class="md-nav__link">
+      primitive MaxHeapPriority
     </a>
   </li>
 
@@ -2764,6 +2860,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../collections/heap/" title="heap.pony" class="md-nav__link">
+      heap.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../collections/hashable/" title="hashable.pony" class="md-nav__link">
       hashable.pony
     </a>
@@ -3104,7 +3212,7 @@ class Iter[A] is Iterator[A]
         fun ref next(): A =&gt; _v
       end
 
-  fun ref map_stateful[B](f: {ref(A!): B ?}): Iter[B]^ =&gt;
+  fun ref map_stateful[B](f: {ref(A!): B^ ?}): Iter[B]^ =&gt;
     &quot;&quot;&quot;
     Allows stateful transformaion of each element from the iterator, similar
     to `map`.
@@ -3118,12 +3226,12 @@ class Iter[A] is Iterator[A]
           f(_iter.next()?)?
       end)
 
-  fun ref filter_stateful(f: {ref(A!): Bool ?}): Iter[A]^ =&gt;
+  fun ref filter_stateful(f: {ref(A!): Bool ?}): Iter[A!]^ =&gt;
     &quot;&quot;&quot;
     Allows filtering of elements based on a stateful adapter, similar to
     `filter`.
     &quot;&quot;&quot;
-    Iter[A](
+    Iter[A!](
       object
         var _next: (A! | _None) = _None
 
@@ -3155,9 +3263,9 @@ class Iter[A] is Iterator[A]
             true
           end
 
-        fun ref next(): A ? =&gt;
+        fun ref next(): A! ? =&gt;
           match _next = _None
-          | let a: A =&gt; consume a
+          | let a: A! =&gt; a
           else
             if _iter.has_next() then
               _find_next()
@@ -3168,7 +3276,7 @@ class Iter[A] is Iterator[A]
           end
       end)
 
-  fun ref filter_map_stateful[B](f: {ref(A!): (B | None) ?}): Iter[B]^ =&gt;
+  fun ref filter_map_stateful[B](f: {ref(A!): (B^ | None) ?}): Iter[B]^ =&gt;
     &quot;&quot;&quot;
     Allows stateful modification to the stream of elements from an iterator,
     similar to `filter_map`.
@@ -3204,9 +3312,8 @@ class Iter[A] is Iterator[A]
           end
 
         fun ref next(): B ? =&gt;
-          match _next
+          match _next = _None
           | let b: B =&gt;
-            _next = _None
             consume b
           else
             if _iter.has_next() then
@@ -3387,7 +3494,7 @@ class Iter[A] is Iterator[A]
           (_i = _i + 1, _iter.next()?)
       end)
 
-  fun ref filter(f: {(A!): Bool ?} box): Iter[A]^ =&gt;
+  fun ref filter(f: {(A!): Bool ?} box): Iter[A!]^ =&gt;
     &quot;&quot;&quot;
     Return an iterator that only returns items that match the predicate `f`.
 
@@ -3431,7 +3538,7 @@ class Iter[A] is Iterator[A]
     end
     error
 
-  fun ref filter_map[B](f: {(A!): (B | None) ?} box): Iter[B]^ =&gt;
+  fun ref filter_map[B](f: {(A!): (B^ | None) ?} box): Iter[B]^ =&gt;
     &quot;&quot;&quot;
     Return an iterator which applies `f` to each element. If `None` is
     returned, then the iterator will try again by applying `f` to the next
@@ -3446,7 +3553,7 @@ class Iter[A] is Iterator[A]
     `1 4 7`
     ```
     &quot;&quot;&quot;
-    filter_map_stateful[B]({(a: A!): (B | None) ? =&gt; f(a)? })
+    filter_map_stateful[B]({(a: A!): (B^ | None) ? =&gt; f(a) ? })
 
   fun ref flat_map[B](f: {(A!): Iterator[B] ?} box): Iter[B]^ =&gt;
     &quot;&quot;&quot;
@@ -3577,7 +3684,7 @@ class Iter[A] is Iterator[A]
     else error
     end
 
-  fun ref map[B](f: {(A!): B ?} box): Iter[B]^ =&gt;
+  fun ref map[B](f: {(A!): B^ ?} box): Iter[B]^ =&gt;
     &quot;&quot;&quot;
     Return an iterator where each item's value is the application of the given
     function to the value in the original iterator.
@@ -3590,7 +3697,7 @@ class Iter[A] is Iterator[A]
     ```
     `1 4 9`
     &quot;&quot;&quot;
-    map_stateful[B]({(a: A!): B ? =&gt; f(a)? })
+    map_stateful[B]({(a: A!): B^ ? =&gt; f(a) ? })
 
   fun ref nth(n: USize): A ? =&gt;
     &quot;&quot;&quot;
@@ -3670,7 +3777,7 @@ class Iter[A] is Iterator[A]
     end
     this
 
-  fun ref skip_while(f: {(A!): Bool ?} box): Iter[A]^ =&gt;
+  fun ref skip_while(f: {(A!): Bool ?} box): Iter[A!]^ =&gt;
     &quot;&quot;&quot;
     Skip values of the iterator while the predicate `f` returns true.
 
@@ -3724,7 +3831,7 @@ class Iter[A] is Iterator[A]
           end
       end)
 
-  fun ref take_while(f: {(A!): Bool ?} box): Iter[A]^ =&gt;
+  fun ref take_while(f: {(A!): Bool ?} box): Iter[A!]^ =&gt;
     &quot;&quot;&quot;
     Return an iterator that returns values while the predicate `f` returns
     true. This iterator short-circuits the first time that `f` returns false or
@@ -3738,7 +3845,7 @@ class Iter[A] is Iterator[A]
     ```
     `1 2 3`
     &quot;&quot;&quot;
-    Iter[A](
+    Iter[A!](
       object
         var _done: Bool = false
         var _next: (A! | None) = None
@@ -3748,9 +3855,9 @@ class Iter[A] is Iterator[A]
           else _try_next()
           end
 
-        fun ref next(): A ? =&gt;
+        fun ref next(): A! ? =&gt;
           if (_next isnt None) or _try_next() then
-            (_next = None) as A
+            (_next = None) as A!
           else error
           end
 
@@ -3766,7 +3873,7 @@ class Iter[A] is Iterator[A]
                 _done = true
                 return false
               end
-            _done = try not f(_next as A)? else true end
+            _done = try not f(_next as A!)? else true end
             not _done
           end
       end)

@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
     
     
       
@@ -1038,6 +1038,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../builtin-SignedInteger/" title="trait SignedInteger" class="md-nav__link">
+      trait SignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-UnsignedInteger/" title="trait UnsignedInteger" class="md-nav__link">
+      trait UnsignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
       trait FloatingPoint
     </a>
@@ -1765,6 +1789,78 @@
   <li class="md-nav__item">
     <a href="../collections-ListValues/" title="class ListValues" class="md-nav__link">
       class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-MinHeap/" title="type MinHeap" class="md-nav__link">
+      type MinHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-MaxHeap/" title="type MaxHeap" class="md-nav__link">
+      type MaxHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-BinaryHeap/" title="class BinaryHeap" class="md-nav__link">
+      class BinaryHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-BinaryHeapPriority/" title="type BinaryHeapPriority" class="md-nav__link">
+      type BinaryHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-MinHeapPriority/" title="primitive MinHeapPriority" class="md-nav__link">
+      primitive MinHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../collections-MaxHeapPriority/" title="primitive MaxHeapPriority" class="md-nav__link">
+      primitive MaxHeapPriority
     </a>
   </li>
 
@@ -2867,6 +2963,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/collections/heap/" title="heap.pony" class="md-nav__link">
+      heap.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/collections/hashable/" title="hashable.pony" class="md-nav__link">
       hashable.pony
     </a>
@@ -3200,7 +3308,7 @@
                 
                 
                 <h1 id="mapvalues91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93">MapValues[K: K, V: V, H: <a href="../collections-HashFunction/">HashFunction</a>[K] val, M: <a href="../collections-HashMap/">HashMap</a>[K, V, H] #read]<a class="headerlink" href="#mapvalues91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/collections/map/#L416">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L411">[Source]</a></span></p>
 <p>An iterator over the values in a map.</p>
 <pre><code class="pony">class ref MapValues[K: K, V: V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
   Iterator[M-&gt;V] ref
@@ -3213,7 +3321,7 @@
 <hr />
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L425">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L420">[Source]</a></span></p>
 <p>Creates an iterator for the given map.</p>
 <pre><code class="pony">new ref create(
   map: M)
@@ -3231,7 +3339,7 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L431">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L426">[Source]</a></span></p>
 <p>True if it believes there are remaining entries. May not be right if values
 were added or removed from the map.</p>
 <pre><code class="pony">fun box has_next()
@@ -3244,7 +3352,7 @@ were added or removed from the map.</p>
 </ul>
 <hr />
 <h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L438">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L433">[Source]</a></span></p>
 <p>Returns the next value, or raises an error if there isn't one. If values
 are added during iteration, this may not return all values.</p>
 <pre><code class="pony">fun ref next()

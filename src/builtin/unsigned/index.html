@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
     
     
       
@@ -1034,6 +1034,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-SignedInteger/" title="trait SignedInteger" class="md-nav__link">
+      trait SignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-UnsignedInteger/" title="trait UnsignedInteger" class="md-nav__link">
+      trait UnsignedInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-FloatingPoint/" title="trait FloatingPoint" class="md-nav__link">
       trait FloatingPoint
     </a>
@@ -1660,6 +1684,78 @@
   <li class="md-nav__item">
     <a href="../../../collections-ListValues/" title="class ListValues" class="md-nav__link">
       class ListValues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeap/" title="type MinHeap" class="md-nav__link">
+      type MinHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeap/" title="type MaxHeap" class="md-nav__link">
+      type MaxHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeap/" title="class BinaryHeap" class="md-nav__link">
+      class BinaryHeap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-BinaryHeapPriority/" title="type BinaryHeapPriority" class="md-nav__link">
+      type BinaryHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MinHeapPriority/" title="primitive MinHeapPriority" class="md-nav__link">
+      primitive MinHeapPriority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections-MaxHeapPriority/" title="primitive MaxHeapPriority" class="md-nav__link">
+      primitive MaxHeapPriority
     </a>
   </li>
 
@@ -2771,6 +2867,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../collections/heap/" title="heap.pony" class="md-nav__link">
+      heap.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../collections/hashable/" title="hashable.pony" class="md-nav__link">
       hashable.pony
     </a>
@@ -3013,7 +3121,7 @@
                 
                   <h1>unsigned.pony</h1>
                 
-                <pre><code class="pony-full-source">primitive U8 is _UnsignedInteger[U8]
+                <pre><code class="pony-full-source">primitive U8 is UnsignedInteger[U8]
   new create(value: U8) =&gt; value
   new from[B: (Number &amp; Real[B] val)](a: B) =&gt; a.u8()
 
@@ -3085,7 +3193,7 @@
   fun divrem_partial(y: U8): (U8, U8) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[U8](this, y)?
 
-primitive U16 is _UnsignedInteger[U16]
+primitive U16 is UnsignedInteger[U16]
   new create(value: U16) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.u16()
 
@@ -3157,7 +3265,7 @@ primitive U16 is _UnsignedInteger[U16]
   fun divrem_partial(y: U16): (U16, U16) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[U16](this, y)?
 
-primitive U32 is _UnsignedInteger[U32]
+primitive U32 is UnsignedInteger[U32]
   new create(value: U32) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.u32()
 
@@ -3229,7 +3337,7 @@ primitive U32 is _UnsignedInteger[U32]
   fun divrem_partial(y: U32): (U32, U32) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[U32](this, y)?
 
-primitive U64 is _UnsignedInteger[U64]
+primitive U64 is UnsignedInteger[U64]
   new create(value: U64) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.u64()
 
@@ -3308,7 +3416,7 @@ primitive U64 is _UnsignedInteger[U64]
   fun divrem_partial(y: U64): (U64, U64) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[U64](this, y)?
 
-primitive ULong is _UnsignedInteger[ULong]
+primitive ULong is UnsignedInteger[ULong]
   new create(value: ULong) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.ulong()
 
@@ -3443,7 +3551,7 @@ primitive ULong is _UnsignedInteger[ULong]
   fun divrem_partial(y: ULong): (ULong, ULong) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[ULong](this, y)?
 
-primitive USize is _UnsignedInteger[USize]
+primitive USize is UnsignedInteger[USize]
   new create(value: USize) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.usize()
 
@@ -3571,7 +3679,7 @@ primitive USize is _UnsignedInteger[USize]
   fun divrem_partial(y: USize): (USize, USize) ? =&gt;
     _UnsignedPartialArithmetic.divrem_partial[USize](this, y)?
 
-primitive U128 is _UnsignedInteger[U128]
+primitive U128 is UnsignedInteger[U128]
   new create(value: U128) =&gt; value
   new from[A: (Number &amp; Real[A] val)](a: A) =&gt; a.u128()
 
