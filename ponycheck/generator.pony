@@ -17,27 +17,6 @@ type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
   of shrunken values based upon this value.
   """
 
-class CountdownIter[T: (Int & Integer[T] val) = USize] is Iterator[T]
-  """
-  workaround until 0.21.0 is released and Range supports negative steps
-
-  `from` is exclusive, `to` is inclusive
-  """
-  var _cur: T
-  let _to: T
-
-  new create(from: T, to: T = T.min_value()) =>
-    _cur = from
-    _to = to
-
-  fun ref has_next(): Bool =>
-    _cur > _to
-
-  fun ref next(): T =>
-    let res = _cur - 1
-    _cur = res
-    res
-
 trait box GenObj[T]
   fun generate(rnd: Randomness): GenerateResult[T] ?
 
@@ -369,7 +348,7 @@ primitive Generators
 
           // create shrink_iter with smaller seqs and elements generated from _gen.value_iter
           let shrink_iter =
-            Iter[USize](CountdownIter(size, min)) //Range(size, min, -1))
+            Iter[USize](Range(size-1, min-1, -1)) 
               // .skip(1)
               .map_stateful[S^]({
                 (s: USize): S^ =>
@@ -426,7 +405,7 @@ primitive Generators
               .take(size)
             )
           let shrink_iter: Iterator[Set[T]^] =
-            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+            Iter[USize](Range(size-1, -1, -1)) 
               //.skip(1)
               .map_stateful[Set[T]^]({
                 (s: USize): Set[T]^ =>
@@ -468,7 +447,7 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[SetIs[T]^] =
-            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+            Iter[USize](Range(size-1, -1)) 
               //.skip(1)
               .map_stateful[SetIs[T]^]({
                 (s: USize): SetIs[T]^ =>
@@ -504,7 +483,7 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[Map[K, V]^] =
-            Iter[USize](CountdownIter(size, 0)) // Range(size, 0, -1))
+            Iter[USize](Range(size-1, -1, -1))  
               // .skip(1)
               .map_stateful[Map[K, V]^]({
                 (s: USize): Map[K, V]^ =>
@@ -541,7 +520,7 @@ primitive Generators
                 .take(size)
             )
           let shrink_iter: Iterator[MapIs[K, V]^] =
-            Iter[USize](CountdownIter(size, 0)) //Range(size, 0, -1))
+            Iter[USize](Range(size-1, -1, -1))
               // .skip(1)
               .map_stateful[MapIs[K, V]^]({
                 (s: USize): MapIs[K, V]^ =>
