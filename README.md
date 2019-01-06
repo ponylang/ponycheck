@@ -1,8 +1,6 @@
 # Ponycheck
 
-[![Join the chat at https://gitter.im/ponycheck/community](https://badges.gitter.im/ponycheck/community.svg)](https://gitter.im/ponycheck/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-![travis ci build status](https://travis-ci.org/mfelsche/ponycheck.svg?branch=master) ![this is awesome](https://img.shields.io/badge/this%20is-awesome-green.svg)
+[![Join the chat at https://gitter.im/ponycheck/community](https://badges.gitter.im/ponycheck/community.svg)](https://gitter.im/ponycheck/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) ![travis ci build status](https://travis-ci.org/mfelsche/ponycheck.svg?branch=master) ![this is awesome](https://img.shields.io/badge/this%20is-awesome-green.svg)
 
 Property based testing for ponylang (>= 0.19.0).
 
