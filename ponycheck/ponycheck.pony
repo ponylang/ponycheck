@@ -64,12 +64,12 @@ There are two ways of integrating a [Property](ponycheck-Property1.md) into
      new create(env: Env) => PonyTest(env, this)
 
      fun tag tests(test: PonyTest) =>
-       test(PropertyUnitTest[String](MyStringProperty))
+       test(Property1UnitTest[String](MyStringProperty))
 ```
 
 2. Run as much [Properties](ponycheck-Property1.md) as you wish inside one ponytest
    [UnitTest](ponytest-UnitTest.md) using the convenience function
-   [Ponycheck.forAll](ponycheck-Ponycheck.md) providing a
+   [Ponycheck.for_all](ponycheck-Ponycheck.md#for_all) providing a
    [Generator](ponycheck-Generator), the [TestHelper](ponytest-TestHelper.md) and the
    actual property function. (Note that the property function is supplied in a
    second application of the result to `for_all`.)
@@ -79,8 +79,8 @@ There are two ways of integrating a [Property](ponycheck-Property1.md) into
      fun name(): String => "list/reverse/forall"
 
      fun apply(h: TestHelper) =>
-       let gen = recover val Generators.listOf[USize](Generators.usize()) end
-       Ponycheck.forAll[List[USize]](gen, h)(
+       let gen = recover val Generators.list_of[USize](Generators.usize()) end
+       Ponycheck.for_all[List[USize]](gen, h)(
          {(sample, ph) =>
            ph.array_eq[Usize](arg1, arg1.reverse().reverse())
          })
@@ -96,8 +96,6 @@ If the property fails using an assertion method of
 the failed example will be shrunken by the generator
 to obtain a smaller and more informative, still failing, sample
 for reporting.
-
-## Asynchronous Properties
 
 """
 use "ponytest"
@@ -123,3 +121,30 @@ primitive Ponycheck
     ```
     """
     ForAll[T](gen, h)
+
+  fun for_all2[T1, T2](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    h: TestHelper)
+    : ForAll2[T1, T2]
+  =>
+    ForAll2[T1, T2](gen1, gen2, h)
+
+  fun for_all3[T1, T2, T3](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    gen3: Generator[T3] val,
+    h: TestHelper)
+    : ForAll3[T1, T2, T3]
+  =>
+    ForAll3[T1, T2, T3](gen1, gen2, gen3, h)
+
+  fun for_all4[T1, T2, T3, T4](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    gen3: Generator[T3] val,
+    gen4: Generator[T4] val,
+    h: TestHelper)
+    : ForAll4[T1, T2, T3, T4]
+  =>
+    ForAll4[T1, T2, T3, T4](gen1, gen2, gen3, gen4, h)
