@@ -52,3 +52,5 @@ actor Main is TestList
     test(RunnerAsyncMultiCompleteSucceedTest)
     test(RunnerAsyncMultiCompleteFailTest)
 
+    IntPropertyTests.tests(test)
+
