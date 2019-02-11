@@ -1,7 +1,7 @@
 """
 This example shows a rather complex scenario.
 
-Here we want ot generate both a random size that we use as the length of an array that
+Here we want to generate both a random size that we use as the length of an array that
 we create in our property and a random number of operations on random elements
 of the array.
 
@@ -69,7 +69,7 @@ class _OperationOnCollectionProperty is Property1[(USize, Array[_OperationOnColl
           elements_generator)
       })
 
-  fun property(sample: (USize, Array[_OperationOnCollection[String]]), h: PropertyHelper) =>
+  fun ref property(sample: (USize, Array[_OperationOnCollection[String]]), h: PropertyHelper) =>
     (let len, let ops) = sample
 
     // create and fill the array

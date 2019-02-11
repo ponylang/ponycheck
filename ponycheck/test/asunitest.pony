@@ -23,7 +23,7 @@ class SuccessfulProperty is Property1[U8]
 
   fun gen(): Generator[U8] => Generators.u8(0, 10)
 
-  fun property(arg1: U8, h: PropertyHelper) =>
+  fun ref property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(10))
 
 class SuccessfulPropertyTest is UnitTest
@@ -50,7 +50,7 @@ class FailingProperty is Property1[U8]
 
   fun gen(): Generator[U8] => Generators.u8(0, 10)
 
-  fun property(arg1: U8, h: PropertyHelper) =>
+  fun ref property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(5))
 
 class FailingPropertyTest is UnitTest
@@ -76,7 +76,7 @@ class ErroringProperty is Property1[U8]
 
   fun gen(): Generator[U8] => Generators.u8(0, 1)
 
-  fun property(arg1: U8, h: PropertyHelper) ? =>
+  fun ref property(arg1: U8, h: PropertyHelper) ? =>
     if arg1 < 2 then
       error
     end
@@ -105,7 +105,7 @@ class SuccessfulProperty2 is Property2[U8, U8]
   fun gen1(): Generator[U8] => Generators.u8(0, 1)
   fun gen2(): Generator[U8] => Generators.u8(2, 3)
 
-  fun property2(arg1: U8, arg2: U8, h: PropertyHelper) =>
+  fun ref property2(arg1: U8, arg2: U8, h: PropertyHelper) =>
     h.assert_ne[U8](arg1, arg2)
 
 class SuccessfulProperty2Test is UnitTest
@@ -133,7 +133,7 @@ class SuccessfulProperty3 is Property3[U8, U8, U8]
   fun gen2(): Generator[U8] => Generators.u8(2, 3)
   fun gen3(): Generator[U8] => Generators.u8(4, 5)
 
-  fun property3(arg1: U8, arg2: U8, arg3: U8, h: PropertyHelper) =>
+  fun ref property3(arg1: U8, arg2: U8, arg3: U8, h: PropertyHelper) =>
     h.assert_ne[U8](arg1, arg2)
     h.assert_ne[U8](arg2, arg3)
     h.assert_ne[U8](arg1, arg3)
@@ -163,7 +163,7 @@ class SuccessfulProperty4 is Property4[U8, U8, U8, U8]
   fun gen3(): Generator[U8] => Generators.u8(4, 5)
   fun gen4(): Generator[U8] => Generators.u8(6, 7)
 
-  fun property4(arg1: U8, arg2: U8, arg3: U8, arg4: U8, h: PropertyHelper) =>
+  fun ref property4(arg1: U8, arg2: U8, arg3: U8, arg4: U8, h: PropertyHelper) =>
     h.assert_ne[U8](arg1, arg2)
     h.assert_ne[U8](arg1, arg3)
     h.assert_ne[U8](arg1, arg4)

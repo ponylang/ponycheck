@@ -20,7 +20,7 @@ trait IntProperty is Property1[(U8, U128)]
       Generators.u8(),
       Generators.u128())
 
-  fun property(sample: (U8, U128), h: PropertyHelper) ? =>
+  fun ref property(sample: (U8, U128), h: PropertyHelper) ? =>
     let t: U8 = sample._1
     let x = sample._2
     match t % 14
@@ -40,7 +40,7 @@ trait IntProperty is Property1[(U8, U128)]
     | 13 => int_property[I128](x.i128(), h)?
     end
 
-fun int_property[T: (Int & Integer[T] val)](x: T, h: PropertyHelper)?
+  fun ref int_property[T: (Int & Integer[T] val)](x: T, h: PropertyHelper)?
 
 type IntPairUnitTest is Property1UnitTest[(U8, (U128, U128))]
 
@@ -67,7 +67,7 @@ trait IntPairProperty is Property1[(U8, (U128, U128))]
         Generators.u128()
       ))
 
-  fun property(sample: (U8, (U128, U128)), h: PropertyHelper) ? =>
+  fun ref property(sample: (U8, (U128, U128)), h: PropertyHelper) ? =>
     let t: U8 = sample._1
     let x = sample._2._1
     let y = sample._2._2
@@ -88,4 +88,4 @@ trait IntPairProperty is Property1[(U8, (U128, U128))]
     | 13 => int_property[I128](x.i128(), y.i128(), h)?
     end
 
-  fun int_property[T: (Int & Integer[T] val)](x: T, y: T, h: PropertyHelper)?
+  fun ref int_property[T: (Int & Integer[T] val)](x: T, y: T, h: PropertyHelper)?

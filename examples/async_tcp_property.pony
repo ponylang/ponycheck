@@ -123,7 +123,7 @@ class _AsyncTCPSenderProperty is Property1[String]
   fun gen(): Generator[String] =>
     Generators.unicode()
 
-  fun property(sample: String, ph: PropertyHelper) ? =>
+  fun ref property(sample: String, ph: PropertyHelper) ? =>
     let sender = TCPSender(ph.env.root as AmbientAuth)
     ph.dispose_when_done(
       TCPListener(
