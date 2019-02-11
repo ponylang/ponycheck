@@ -36,7 +36,7 @@ class ForAll2Test is UnitTest
       h)(
         {(arg1, arg2, h) =>
           h.assert_false(arg2.contains(String.from_array([as U8: arg1])))
-          })?
+        })?
 
 class ForAll3Test is UnitTest
   fun name(): String => "ponycheck/for_all3"
@@ -65,5 +65,5 @@ class ForAll4Test is UnitTest
         {(b1, b2, b3, str, h) =>
           let cmp = String.from_array([b1; b2; b3])
           h.assert_false(str.contains(cmp))
-          })?
+        })?
 

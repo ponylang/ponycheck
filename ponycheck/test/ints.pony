@@ -36,7 +36,7 @@ class SuccessfulIntPairProperty is IntPairProperty
   fun name(): String => "property/intpair/property"
 
   fun int_property[T: (Int & Integer[T] val)](x: T, y: T, h: PropertyHelper) =>
-    h.assert_eq[T](x * y, y* x)
+    h.assert_eq[T](x * y, y * x)
 
 class SuccessfulIntPairPropertyTest is UnitTest
   fun name(): String => "property/intpair"
