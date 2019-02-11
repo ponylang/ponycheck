@@ -25,12 +25,11 @@ actor Main is TestList
     test(MapIsOfEmptyTest)
     test(MapIsOfMaxTest)
     test(MapIsOfIdentityTest)
-    test(SuccessfulPropertyTest)
-    test(Property1UnitTest[U8](SuccessfulProperty))
-    test(FailingPropertyTest)
-    test(ErroringPropertyTest)
-    test(ForAllTest)
-    test(MultipleForAllTest)
+
+    AsUnitTestTests.tests(test)
+
+    ForAllTests.tests(test)
+
     test(ASCIIRangeTest)
     test(UTF32CodePointStringTest)
     test(SignedShrinkTest)
@@ -52,4 +51,6 @@ actor Main is TestList
     test(RunnerAsyncCompleteMultiSucceedActionTest)
     test(RunnerAsyncMultiCompleteSucceedTest)
     test(RunnerAsyncMultiCompleteFailTest)
+
+    IntPropertyTests.tests(test)
 

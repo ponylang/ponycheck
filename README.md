@@ -99,7 +99,7 @@ and to actual detect bugs if they exist.
 
 Ponycheck is intended to be run via [ponytest](https://stdlib.ponylang.org/ponytest--index).
 To integrate [Property1](https://mfelsche.github.io/ponycheck/ponycheck-Property1) into [ponytest](https://stdlib.ponylang.org/ponytest--index),
-it needs to be wrapped inside a [PropertyUnitTest](https://mfelsche.github.io/ponycheck/ponycheck-PropertyUnitTest) and
+it needs to be wrapped inside a [Property1UnitTest](https://mfelsche.github.io/ponycheck/ponycheck-Property1UnitTest) and
 passed to the PonyTest.apply method as all regular ponytest [UnitTests](https://stdlib.ponylang.org/ponytest-UnitTest) 
 (minus the cumbersome test sample creation):
 
