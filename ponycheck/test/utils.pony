@@ -89,6 +89,6 @@ class iso AsyncProperty is Property1[String]
   fun gen(): Generator[String] =>
     Generators.ascii_printable()
 
-  fun property(arg1: String, ph: PropertyHelper) =>
+  fun ref property(arg1: String, ph: PropertyHelper) =>
     AsyncDelayingActor(ph, _action).do_it()
 

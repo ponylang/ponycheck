@@ -83,7 +83,7 @@ trait Property1[T]
     The [Generator](ponycheck-Generator.md) used to produce samples to verify.
     """
 
-  fun property(arg1: T, h: PropertyHelper) ?
+  fun ref property(arg1: T, h: PropertyHelper) ?
     """
     A method verifying that a certain property holds for all given `arg1`
     with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
@@ -106,11 +106,11 @@ trait Property2[T1, T2] is Property1[(T1, T2)]
       gen1(),
       gen2())
 
-  fun property(arg1: (T1, T2), h: PropertyHelper) ? =>
+  fun ref property(arg1: (T1, T2), h: PropertyHelper) ? =>
     (let x, let y) = consume arg1
     property2(consume x, consume y, h)?
 
-  fun property2(arg1: T1, arg2: T2, h: PropertyHelper) ?
+  fun ref property2(arg1: T1, arg2: T2, h: PropertyHelper) ?
     """
     A method verifying that a certain property holds for all given `arg1` and `arg2`
     with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
@@ -139,11 +139,11 @@ trait Property3[T1, T2, T3] is Property1[(T1, T2, T3)]
       gen2(),
       gen3())
 
-  fun property(arg1: (T1, T2, T3), h: PropertyHelper) ? =>
+  fun ref property(arg1: (T1, T2, T3), h: PropertyHelper) ? =>
     (let x, let y, let z) = consume arg1
     property3(consume x, consume y, consume z, h)?
 
-  fun property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ?
+  fun ref property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ?
     """
     A method verifying that a certain property holds for all given `arg1`, `arg2` and `arg3`
     with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
@@ -178,11 +178,11 @@ trait Property4[T1, T2, T3, T4] is Property1[(T1, T2, T3, T4)]
       gen3(),
       gen4())
 
-  fun property(arg1: (T1, T2, T3, T4), h: PropertyHelper) ? =>
+  fun ref property(arg1: (T1, T2, T3, T4), h: PropertyHelper) ? =>
     (let x1, let x2, let x3, let x4) = consume arg1
     property4(consume x1, consume x2, consume x3, consume x4, h)?
 
-  fun property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ?
+  fun ref property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ?
     """
     A method verifying that a certain property holds for all given `arg1`, `arg2`, `arg3`, `arg4`
     with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.

@@ -16,7 +16,7 @@ class InfiniteShrinkProperty is Property1[String]
           (t, Iter[String^].repeat_value(t))
       end)
 
-  fun property(arg1: String, ph: PropertyHelper) =>
+  fun ref property(arg1: String, ph: PropertyHelper) =>
     ph.assert_true(arg1.size() >  100) // assume this failing
 
 
@@ -52,7 +52,7 @@ class ErroringGeneratorProperty is Property1[String]
           error
       end)
 
-  fun property(sample: String, h: PropertyHelper) =>
+  fun ref property(sample: String, h: PropertyHelper) =>
     None
 
 class iso RunnerErroringGeneratorTest is UnitTest
@@ -92,7 +92,7 @@ class SometimesErroringGeneratorProperty is Property1[String]
       end
     )
 
-  fun property(sample: String, h: PropertyHelper) =>
+  fun ref property(sample: String, h: PropertyHelper) =>
     None
 
 
@@ -116,7 +116,7 @@ class RunnerSometimesErroringGeneratorTest is UnitTest
 class ReportFailedSampleProperty is Property1[U8]
   fun name(): String => "property_runner/sample_reporting/property"
   fun gen(): Generator[U8] => Generators.u8(0, 1)
-  fun property(sample: U8, h: PropertyHelper) =>
+  fun ref property(sample: U8, h: PropertyHelper) =>
     h.assert_eq[U8](sample, U8(0))
 
 class iso RunnerReportFailedSampleTest is UnitTest

@@ -55,7 +55,7 @@ class _CustomClassMapProperty is Property1[MyLittlePony]
         MyLittlePony(name, cuteness, color)
       })
 
-  fun property(pony: MyLittlePony, ph: PropertyHelper) =>
+  fun ref property(pony: MyLittlePony, ph: PropertyHelper) =>
     ph.assert_true(pony.is_cute())
 
 class _CustomClassFlatMapProperty is Property1[MyLittlePony]
@@ -89,7 +89,7 @@ class _CustomClassFlatMapProperty is Property1[MyLittlePony]
       })
     })
 
-  fun property(pony: MyLittlePony, ph: PropertyHelper) =>
+  fun ref property(pony: MyLittlePony, ph: PropertyHelper) =>
     ph.assert_true(pony.is_cute())
 
 class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
@@ -139,6 +139,6 @@ class _CustomClassCustomGeneratorProperty is Property1[MyLittlePony]
       end
       )
 
-  fun property(pony: MyLittlePony, ph: PropertyHelper) =>
+  fun ref property(pony: MyLittlePony, ph: PropertyHelper) =>
     ph.assert_true(pony.is_cute())
 

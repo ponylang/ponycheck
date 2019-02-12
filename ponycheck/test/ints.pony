@@ -11,7 +11,7 @@ primitive IntPropertyTests is TestList
 class SuccessfulIntProperty is IntProperty
   fun name(): String  => "property/int/property"
 
-  fun int_property[T: (Int & Integer[T] val)](x: T, h: PropertyHelper) =>
+  fun ref int_property[T: (Int & Integer[T] val)](x: T, h: PropertyHelper) =>
     h.assert_eq[T](x.min(T.max_value()), x)
     h.assert_eq[T](x.max(T.min_value()), x)
 

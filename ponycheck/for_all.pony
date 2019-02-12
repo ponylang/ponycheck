@@ -16,7 +16,7 @@ class ForAll[T]
 
         fun gen(): Generator[T] => _gen
 
-        fun property(arg1: T, h: PropertyHelper) ? =>
+        fun ref property(arg1: T, h: PropertyHelper) ? =>
           prop(consume arg1, h)?
       end
     ).apply(_helper)?
@@ -41,7 +41,7 @@ class ForAll2[T1, T2]
         fun name(): String => ""
         fun gen1(): Generator[T1] => _gen1
         fun gen2(): Generator[T2] => _gen2
-        fun property2(arg1: T1, arg2: T2, h: PropertyHelper) ? =>
+        fun ref property2(arg1: T1, arg2: T2, h: PropertyHelper) ? =>
           prop(consume arg1, consume arg2, h)?
       end
     ).apply(_helper)?
@@ -70,7 +70,7 @@ class ForAll3[T1, T2, T3]
         fun gen1(): Generator[T1] => _gen1
         fun gen2(): Generator[T2] => _gen2
         fun gen3(): Generator[T3] => _gen3
-        fun property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ? =>
+        fun ref property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ? =>
           prop(consume arg1, consume arg2, consume arg3, h)?
       end
     ).apply(_helper)?
@@ -103,7 +103,7 @@ class ForAll4[T1, T2, T3, T4]
         fun gen2(): Generator[T2] => _gen2
         fun gen3(): Generator[T3] => _gen3
         fun gen4(): Generator[T4] => _gen4
-        fun property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ? =>
+        fun ref property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ? =>
           prop(consume arg1, consume arg2, consume arg3, consume arg4, h)?
       end
     ).apply(_helper)?
