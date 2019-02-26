@@ -290,6 +290,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -304,6 +340,30 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -400,6 +460,42 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2428,6 +2524,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3139,10 +3247,98 @@ class ForAll[T]
 
         fun gen(): Generator[T] =&gt; _gen
 
-        fun property(arg1: T, h: PropertyHelper) ? =&gt;
+        fun ref property(arg1: T, h: PropertyHelper) ? =&gt;
           prop(consume arg1, h)?
       end
     ).apply(_helper)?
+
+class ForAll2[T1, T2]
+  let _gen1: Generator[T1] val
+  let _gen2: Generator[T2] val
+  let _helper: TestHelper
+
+  new create(
+    gen1': Generator[T1] val,
+    gen2': Generator[T2] val,
+    h: TestHelper)
+  =&gt;
+    _gen1 = gen1'
+    _gen2 = gen2'
+    _helper = h
+
+  fun ref apply(prop: {(T1, T2, PropertyHelper) ?} val) ? =&gt;
+    Property2UnitTest[T1, T2](
+      object iso is Property2[T1, T2]
+        fun name(): String =&gt; &quot;&quot;
+        fun gen1(): Generator[T1] =&gt; _gen1
+        fun gen2(): Generator[T2] =&gt; _gen2
+        fun ref property2(arg1: T1, arg2: T2, h: PropertyHelper) ? =&gt;
+          prop(consume arg1, consume arg2, h)?
+      end
+    ).apply(_helper)?
+
+class ForAll3[T1, T2, T3]
+  let _gen1: Generator[T1] val
+  let _gen2: Generator[T2] val
+  let _gen3: Generator[T3] val
+  let _helper: TestHelper
+
+  new create(
+    gen1': Generator[T1] val,
+    gen2': Generator[T2] val,
+    gen3': Generator[T3] val,
+    h: TestHelper)
+  =&gt;
+    _gen1 = gen1'
+    _gen2 = gen2'
+    _gen3 = gen3'
+    _helper = h
+
+  fun ref apply(prop: {(T1, T2, T3, PropertyHelper) ?} val) ? =&gt;
+    Property3UnitTest[T1, T2, T3](
+      object iso is Property3[T1, T2, T3]
+        fun name(): String =&gt; &quot;&quot;
+        fun gen1(): Generator[T1] =&gt; _gen1
+        fun gen2(): Generator[T2] =&gt; _gen2
+        fun gen3(): Generator[T3] =&gt; _gen3
+        fun ref property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ? =&gt;
+          prop(consume arg1, consume arg2, consume arg3, h)?
+      end
+    ).apply(_helper)?
+
+class ForAll4[T1, T2, T3, T4]
+  let _gen1: Generator[T1] val
+  let _gen2: Generator[T2] val
+  let _gen3: Generator[T3] val
+  let _gen4: Generator[T4] val
+  let _helper: TestHelper
+
+  new create(
+    gen1': Generator[T1] val,
+    gen2': Generator[T2] val,
+    gen3': Generator[T3] val,
+    gen4': Generator[T4] val,
+    h: TestHelper)
+  =&gt;
+    _gen1 = gen1'
+    _gen2 = gen2'
+    _gen3 = gen3'
+    _gen4 = gen4'
+    _helper = h
+
+  fun ref apply(prop: {(T1, T2, T3, T4, PropertyHelper) ?} val) ? =&gt;
+    Property4UnitTest[T1, T2, T3, T4](
+      object iso is Property4[T1, T2, T3, T4]
+        fun name(): String =&gt; &quot;&quot;
+        fun gen1(): Generator[T1] =&gt; _gen1
+        fun gen2(): Generator[T2] =&gt; _gen2
+        fun gen3(): Generator[T3] =&gt; _gen3
+        fun gen4(): Generator[T4] =&gt; _gen4
+        fun ref property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ? =&gt;
+          prop(consume arg1, consume arg2, consume arg3, consume arg4, h)?
+      end
+    ).apply(_helper)?
+
 
 </code></pre>
                 

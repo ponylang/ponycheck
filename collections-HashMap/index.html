@@ -294,6 +294,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -308,6 +344,30 @@
   <li class="md-nav__item">
     <a href="../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -404,6 +464,42 @@
   <li class="md-nav__item">
     <a href="../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2693,6 +2789,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/ponycheck/int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/ponycheck/generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3725,15 +3833,16 @@ returns None. If there was no previous value, this may trigger a resize.</p>
 <p><span class="source-link"><a href="../src/collections/map/#L78">[Source]</a></span></p>
 <p>Combines a provided value with the current value for the provided key
 using the provided function. If the provided key has not been added to
-the map yet, it sets its value to the provided value.</p>
+the map yet, it sets its value to the provided value and ignores the
+provided function.</p>
 <p>As a simple example, say we had a map with I64 values and we wanted to
 add 4 to the current value for key "test", which let's say is currently 2.
 We call</p>
-<p>m.upsert("test", 4, {(x, y) =&gt; x - y })</p>
-<p>This changes the value associated with "test" to -2.</p>
+<p>m.upsert("test", 4, {(current, provided) =&gt; current + provided })</p>
+<p>This changes the value associated with "test" to 6.</p>
 <p>If we have not yet added the key "new-key" to the map and we call</p>
-<p>m.upsert("new-key", 4, {(x, y) =&gt; x - y })</p>
-<p>then "new-key" is added to the map with a value of -4.</p>
+<p>m.upsert("new-key", 4, {(current, provided) =&gt; current + provided })</p>
+<p>then "new-key" is added to the map with a value of 4.</p>
 <p>Returns the value that we set the key to</p>
 <pre><code class="pony">fun ref upsert(
   key: K,
@@ -3754,7 +3863,7 @@ We call</p>
 </ul>
 <hr />
 <h3 id="insert">insert<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L123">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L124">[Source]</a></span></p>
 <p>Set a value in the map. Returns the new value, allowing reuse.</p>
 <pre><code class="pony">fun ref insert(
   key: K,
@@ -3773,7 +3882,7 @@ We call</p>
 </ul>
 <hr />
 <h3 id="insert_if_absent">insert_if_absent<a class="headerlink" href="#insert_if_absent" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L147">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L148">[Source]</a></span></p>
 <p>Set a value in the map if the key doesn't already exist in the Map.
 Saves an extra lookup when doing a pattern like:</p>
 <pre><code class="pony">if not my_map.contains(my_key) then
@@ -3800,7 +3909,7 @@ to be used as a drop-in replacement for <code>insert</code>.</p>
 </ul>
 <hr />
 <h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L182">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L183">[Source]</a></span></p>
 <p>Delete a value from the map and return it. Raises an error if there was no
 value for the given key.</p>
 <pre><code class="pony">fun ref remove(
@@ -3818,7 +3927,7 @@ value for the given key.</p>
 </ul>
 <hr />
 <h3 id="get_or_else">get_or_else<a class="headerlink" href="#get_or_else" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L201">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L202">[Source]</a></span></p>
 <p>Get the value associated with provided key if present. Otherwise,
 return the provided alternate value.</p>
 <pre><code class="pony">fun box get_or_else(
@@ -3838,7 +3947,7 @@ return the provided alternate value.</p>
 </ul>
 <hr />
 <h3 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L220">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L221">[Source]</a></span></p>
 <p>Checks whether the map contains the key k</p>
 <pre><code class="pony">fun box contains(
   k: box-&gt;K!)
@@ -3855,7 +3964,7 @@ return the provided alternate value.</p>
 </ul>
 <hr />
 <h3 id="concat">concat<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L227">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L228">[Source]</a></span></p>
 <p>Add K, V pairs from the iterator to the map.</p>
 <pre><code class="pony">fun ref concat(
   iter: Iterator[(K^ , V^)] ref)
@@ -3872,7 +3981,7 @@ return the provided alternate value.</p>
 </ul>
 <hr />
 <h3 id="add91optional-h2-hashfunction91this-k93-val93">add[optional H2: <a href="../collections-HashFunction/">HashFunction</a>[this-&gt;K!] val]<a class="headerlink" href="#add91optional-h2-hashfunction91this-k93-val93" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L235">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L236">[Source]</a></span></p>
 <p>This with the new (key, value) mapping.</p>
 <pre><code class="pony">fun box add[optional H2: HashFunction[this-&gt;K!] val](
   key: this-&gt;K!,
@@ -3891,7 +4000,7 @@ return the provided alternate value.</p>
 </ul>
 <hr />
 <h3 id="sub91optional-h2-hashfunction91this-k93-val93">sub[optional H2: <a href="../collections-HashFunction/">HashFunction</a>[this-&gt;K!] val]<a class="headerlink" href="#sub91optional-h2-hashfunction91this-k93-val93" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L247">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L248">[Source]</a></span></p>
 <p>This without the given key.</p>
 <pre><code class="pony">fun box sub[optional H2: HashFunction[this-&gt;K!] val](
   key: this-&gt;K!,
@@ -3910,7 +4019,7 @@ return the provided alternate value.</p>
 </ul>
 <hr />
 <h3 id="next_index">next_index<a class="headerlink" href="#next_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L259">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L260">[Source]</a></span></p>
 <p>Given an index, return the next index that has a populated key and value.
 Raise an error if there is no next populated index.</p>
 <pre><code class="pony">fun box next_index(
@@ -3928,7 +4037,7 @@ Raise an error if there is no next populated index.</p>
 </ul>
 <hr />
 <h3 id="index">index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L271">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L272">[Source]</a></span></p>
 <p>Returns the key and value at a given index.
 Raise an error if the index is not populated.</p>
 <pre><code class="pony">fun box index(
@@ -3946,7 +4055,7 @@ Raise an error if the index is not populated.</p>
 </ul>
 <hr />
 <h3 id="compact">compact<a class="headerlink" href="#compact" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L278">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L279">[Source]</a></span></p>
 <p>Minimise the memory used for the map.</p>
 <pre><code class="pony">fun ref compact()
 : None val
@@ -3958,7 +4067,7 @@ Raise an error if the index is not populated.</p>
 </ul>
 <hr />
 <h3 id="clone91optional-h2-hashfunction91this-k93-val93">clone[optional H2: <a href="../collections-HashFunction/">HashFunction</a>[this-&gt;K!] val]<a class="headerlink" href="#clone91optional-h2-hashfunction91this-k93-val93" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L284">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L285">[Source]</a></span></p>
 <p>Create a clone. The key and value types may be different due to aliasing
 and viewpoint adaptation.</p>
 <pre><code class="pony">fun box clone[optional H2: HashFunction[this-&gt;K!] val]()
@@ -3971,7 +4080,7 @@ and viewpoint adaptation.</p>
 </ul>
 <hr />
 <h3 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L298">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L299">[Source]</a></span></p>
 <p>Remove all entries.</p>
 <pre><code class="pony">fun ref clear()
 : None val
@@ -3983,7 +4092,7 @@ and viewpoint adaptation.</p>
 </ul>
 <hr />
 <h3 id="keys">keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L362">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L363">[Source]</a></span></p>
 <p>Return an iterator over the keys.</p>
 <pre><code class="pony">fun box keys()
 : MapKeys[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^
@@ -3995,7 +4104,7 @@ and viewpoint adaptation.</p>
 </ul>
 <hr />
 <h3 id="values">values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L368">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L369">[Source]</a></span></p>
 <p>Return an iterator over the values.</p>
 <pre><code class="pony">fun box values()
 : MapValues[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^
@@ -4007,7 +4116,7 @@ and viewpoint adaptation.</p>
 </ul>
 <hr />
 <h3 id="pairs">pairs<a class="headerlink" href="#pairs" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L374">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L375">[Source]</a></span></p>
 <p>Return an iterator over the keys and values.</p>
 <pre><code class="pony">fun box pairs()
 : MapPairs[K, V, H, this-&gt;HashMap[K, V, H] ref] ref^

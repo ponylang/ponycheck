@@ -290,6 +290,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -304,6 +340,30 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -400,6 +460,42 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2435,6 +2531,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3187,12 +3295,12 @@ There are two ways of integrating a [Property](ponycheck-Property1.md) into
      new create(env: Env) =&gt; PonyTest(env, this)
 
      fun tag tests(test: PonyTest) =&gt;
-       test(PropertyUnitTest[String](MyStringProperty))
+       test(Property1UnitTest[String](MyStringProperty))
 ```
 
 2. Run as much [Properties](ponycheck-Property1.md) as you wish inside one ponytest
    [UnitTest](ponytest-UnitTest.md) using the convenience function
-   [Ponycheck.forAll](ponycheck-Ponycheck.md) providing a
+   [Ponycheck.for_all](ponycheck-Ponycheck.md#for_all) providing a
    [Generator](ponycheck-Generator), the [TestHelper](ponytest-TestHelper.md) and the
    actual property function. (Note that the property function is supplied in a
    second application of the result to `for_all`.)
@@ -3202,8 +3310,8 @@ There are two ways of integrating a [Property](ponycheck-Property1.md) into
      fun name(): String =&gt; &quot;list/reverse/forall&quot;
 
      fun apply(h: TestHelper) =&gt;
-       let gen = recover val Generators.listOf[USize](Generators.usize()) end
-       Ponycheck.forAll[List[USize]](gen, h)(
+       let gen = recover val Generators.list_of[USize](Generators.usize()) end
+       Ponycheck.for_all[List[USize]](gen, h)(
          {(sample, ph) =&gt;
            ph.array_eq[Usize](arg1, arg1.reverse().reverse())
          })
@@ -3219,8 +3327,6 @@ If the property fails using an assertion method of
 the failed example will be shrunken by the generator
 to obtain a smaller and more informative, still failing, sample
 for reporting.
-
-## Asynchronous Properties
 
 &quot;&quot;&quot;
 use &quot;ponytest&quot;
@@ -3246,6 +3352,33 @@ primitive Ponycheck
     ```
     &quot;&quot;&quot;
     ForAll[T](gen, h)
+
+  fun for_all2[T1, T2](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    h: TestHelper)
+    : ForAll2[T1, T2]
+  =&gt;
+    ForAll2[T1, T2](gen1, gen2, h)
+
+  fun for_all3[T1, T2, T3](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    gen3: Generator[T3] val,
+    h: TestHelper)
+    : ForAll3[T1, T2, T3]
+  =&gt;
+    ForAll3[T1, T2, T3](gen1, gen2, gen3, h)
+
+  fun for_all4[T1, T2, T3, T4](
+    gen1: Generator[T1] val,
+    gen2: Generator[T2] val,
+    gen3: Generator[T3] val,
+    gen4: Generator[T4] val,
+    h: TestHelper)
+    : ForAll4[T1, T2, T3, T4]
+  =&gt;
+    ForAll4[T1, T2, T3, T4](gen1, gen2, gen3, gen4, h)
 
 </code></pre>
                 
@@ -3283,13 +3416,13 @@ primitive Ponycheck
           </a>
         
         
-          <a href="../generator/" title="generator.pony" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../int_properties/" title="int_properties.pony" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                generator.pony
+                int_properties.pony
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

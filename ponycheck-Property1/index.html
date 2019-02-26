@@ -380,6 +380,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -394,6 +430,30 @@
   <li class="md-nav__item">
     <a href="../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -490,6 +550,42 @@
   <li class="md-nav__item">
     <a href="../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2516,6 +2612,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/ponycheck/int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/ponycheck/generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3280,29 +3388,28 @@
                 <h1 id="property191t-t93">Property1[T: T]<a class="headerlink" href="#property191t-t93" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponycheck/property/#L45">[Source]</a></span></p>
 <p>A property that consumes 1 argument of type <code>T</code>.</p>
-<p>A property can be used with <code>ponytest</code> like a normal UnitTest
-and be included into an aggregated TestList
-or simply fed to <code>PonyTest.apply(UnitTest iso)</code> with the <code>unit_test</code>
-method.</p>
-<p>A property is defined by a <code>Generator</code>, returned by the <code>gen()</code> method
-and a <code>property</code> method that consumes the generators output and
-verifies a custom property with the help of a <code>PropertyHelper</code>.</p>
-<p>A property is verified if no failed assertion on <code>PropertyHelper</code> has been
+<p>A property is defined by a <a href="../ponycheck-Generator/">Generator</a>, returned by the <a href="./#gen"><code>gen()</code></a> method
+and a <a href="ponycheck-Property1#property"><code>property</code></a> method that consumes the generators output and
+verifies a custom property with the help of a <a href="../ponycheck-PropertyHelper/">PropertyHelper</a>.</p>
+<p>A property is verified if no failed assertion on <a href="../ponycheck-PropertyHelper/">PropertyHelper</a> has been
 reported for all the samples it consumed.</p>
 <p>The property execution can be customized by returning a custom
-<code>PropertyParams</code> from the <code>params()</code> method.</p>
-<p>The <code>gen()</code> method is called exactly once to instantiate the generator.
-The generator produces <code>PropertyParams.num_samples</code> samples and each is
-passed to the <code>property</code> method for verification.</p>
+<a href="../ponycheck-PropertyParams/">PropertyParams</a> from the [<code>params()</code>]*ponycheck-Property1.md#params) method.</p>
+<p>The <a href="./#gen"><code>gen()</code></a> method is called exactly once to instantiate the generator.
+The generator produces <a href="../ponycheck-PropertyParams/#num_samples">PropertyParams.num_samples</a> samples and each is
+passed to the <a href="./#property">property</a> method for verification.</p>
 <p>If the property did not verify, the given sample is shrunken, if the
-generator supports shrinking (i.e. implements <code>Shrinkable</code>).
+generator supports shrinking.
 The smallest shrunken sample will then be reported to the user.</p>
+<p>A <a href="./">Property1</a> can be run with <a href="../ponytest--index/">Ponytest</a>.
+To that end it needs to be wrapped into a <a href="ponycheck-Property1UnitTest.md">Property1UnitTest</a>.</p>
 <pre><code class="pony">trait ref Property1[T: T]
 </code></pre>
 
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/property/#L73">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/property/#L70">[Source]</a></span></p>
+<p>The name of the property used for reporting during execution.</p>
 <pre><code class="pony">fun box name()
 : String val
 </code></pre>
@@ -3314,6 +3421,7 @@ The smallest shrunken sample will then be reported to the user.</p>
 <hr />
 <h3 id="params">params<a class="headerlink" href="#params" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property/#L75">[Source]</a></span></p>
+<p>Returns parameters to customize execution of this Property.</p>
 <pre><code class="pony">fun box params()
 : PropertyParams val
 </code></pre>
@@ -3324,7 +3432,8 @@ The smallest shrunken sample will then be reported to the user.</p>
 </ul>
 <hr />
 <h3 id="gen">gen<a class="headerlink" href="#gen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/property/#L77">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/property/#L81">[Source]</a></span></p>
+<p>The <a href="../ponycheck-Generator/">Generator</a> used to produce samples to verify.</p>
 <pre><code class="pony">fun box gen()
 : Generator[T] box
 </code></pre>
@@ -3335,10 +3444,10 @@ The smallest shrunken sample will then be reported to the user.</p>
 </ul>
 <hr />
 <h3 id="property">property<a class="headerlink" href="#property" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/property/#L79">[Source]</a></span></p>
-<p>a method verifying that a certain property holds for all given <code>arg1</code>
-with the help of <code>PropertyHelper</code> <code>h</code>.</p>
-<pre><code class="pony">fun box property(
+<p><span class="source-link"><a href="../src/ponycheck/property/#L86">[Source]</a></span></p>
+<p>A method verifying that a certain property holds for all given <code>arg1</code>
+with the help of <a href="../ponycheck-PropertyHelper/">PropertyHelper</a> <code>h</code>.</p>
+<pre><code class="pony">fun ref property(
   arg1: T,
   h: PropertyHelper val)
 : None val ?
@@ -3389,13 +3498,13 @@ with the help of <code>PropertyHelper</code> <code>h</code>.</p>
           </a>
         
         
-          <a href="../ponycheck-Poperator/" title="class Poperator" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ponycheck-Property2/" title="trait Property2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                class Poperator
+                trait Property2
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -290,6 +290,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -304,6 +340,30 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -400,6 +460,42 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2428,6 +2524,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../ponycheck/int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../ponycheck/generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3202,21 +3310,22 @@ class HashMap[K, V, H: HashFunction[K] val]
     &quot;&quot;&quot;
     Combines a provided value with the current value for the provided key
     using the provided function. If the provided key has not been added to
-    the map yet, it sets its value to the provided value.
+    the map yet, it sets its value to the provided value and ignores the
+    provided function.
 
     As a simple example, say we had a map with I64 values and we wanted to
     add 4 to the current value for key &quot;test&quot;, which let's say is currently 2.
     We call
 
-    m.upsert(&quot;test&quot;, 4, {(x, y) =&gt; x - y })
+    m.upsert(&quot;test&quot;, 4, {(current, provided) =&gt; current + provided })
 
-    This changes the value associated with &quot;test&quot; to -2.
+    This changes the value associated with &quot;test&quot; to 6.
 
     If we have not yet added the key &quot;new-key&quot; to the map and we call
 
-    m.upsert(&quot;new-key&quot;, 4, {(x, y) =&gt; x - y })
+    m.upsert(&quot;new-key&quot;, 4, {(current, provided) =&gt; current + provided })
 
-    then &quot;new-key&quot; is added to the map with a value of -4.
+    then &quot;new-key&quot; is added to the map with a value of 4.
 
     Returns the value that we set the key to
     &quot;&quot;&quot;

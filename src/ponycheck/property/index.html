@@ -290,6 +290,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -304,6 +340,30 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -400,6 +460,42 @@
   <li class="md-nav__item">
     <a href="../../../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2435,6 +2531,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3167,43 +3275,150 @@ class val PropertyParams is Stringable
 
 trait Property1[T]
   &quot;&quot;&quot;
-  A property that consumes 1 argument of type ``T``.
+  A property that consumes 1 argument of type `T`.
 
-  A property can be used with ``ponytest`` like a normal UnitTest
-  and be included into an aggregated TestList
-  or simply fed to ``PonyTest.apply(UnitTest iso)`` with the ``unit_test``
-  method.
+  A property is defined by a [Generator](ponycheck-Generator.md), returned by the [`gen()`](ponycheck-Property1.md#gen) method
+  and a [`property`](ponycheck-Property1#property) method that consumes the generators output and
+  verifies a custom property with the help of a [PropertyHelper](ponycheck-PropertyHelper.md).
 
-
-  A property is defined by a ``Generator``, returned by the ``gen()`` method
-  and a ``property`` method that consumes the generators output and
-  verifies a custom property with the help of a ``PropertyHelper``.
-
-  A property is verified if no failed assertion on ``PropertyHelper`` has been
+  A property is verified if no failed assertion on [PropertyHelper](ponycheck-PropertyHelper.md) has been
   reported for all the samples it consumed.
 
   The property execution can be customized by returning a custom
-  ``PropertyParams`` from the ``params()`` method.
+  [PropertyParams](ponycheck-PropertyParams.md) from the [`params()`]*ponycheck-Property1.md#params) method.
 
-  The ``gen()`` method is called exactly once to instantiate the generator.
-  The generator produces ``PropertyParams.num_samples`` samples and each is
-  passed to the ``property`` method for verification.
+  The [`gen()`](ponycheck-Property1.md#gen) method is called exactly once to instantiate the generator.
+  The generator produces [PropertyParams.num_samples](ponycheck-PropertyParams.md#num_samples) samples and each is
+  passed to the [property](ponycheck-Property1.md#property) method for verification.
 
   If the property did not verify, the given sample is shrunken, if the
-  generator supports shrinking (i.e. implements ``Shrinkable``).
+  generator supports shrinking.
   The smallest shrunken sample will then be reported to the user.
+
+  A [Property1](ponycheck-Property1.md) can be run with [Ponytest](ponytest--index.md).
+  To that end it needs to be wrapped into a [Property1UnitTest](ponycheck-Property1UnitTest.md).
   &quot;&quot;&quot;
   fun name(): String
+    &quot;&quot;&quot;
+    The name of the property used for reporting during execution.
+    &quot;&quot;&quot;
 
-  fun params(): PropertyParams =&gt; PropertyParams
+  fun params(): PropertyParams =&gt;
+    &quot;&quot;&quot;
+    Returns parameters to customize execution of this Property.
+    &quot;&quot;&quot;
+    PropertyParams
 
   fun gen(): Generator[T]
+    &quot;&quot;&quot;
+    The [Generator](ponycheck-Generator.md) used to produce samples to verify.
+    &quot;&quot;&quot;
 
-  fun property(arg1: T, h: PropertyHelper) ?
+  fun ref property(arg1: T, h: PropertyHelper) ?
     &quot;&quot;&quot;
-    a method verifying that a certain property holds for all given ``arg1``
-    with the help of ``PropertyHelper`` ``h``.
+    A method verifying that a certain property holds for all given `arg1`
+    with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
     &quot;&quot;&quot;
+
+trait Property2[T1, T2] is Property1[(T1, T2)]
+
+  fun gen1(): Generator[T1]
+    &quot;&quot;&quot;
+    The Generator for the first argument to your `property2`.
+    &quot;&quot;&quot;
+
+  fun gen2(): Generator[T2]
+    &quot;&quot;&quot;
+    The Generator for the second argument to your `property2`.
+    &quot;&quot;&quot;
+
+  fun gen(): Generator[(T1, T2)] =&gt;
+    Generators.zip2[T1, T2](
+      gen1(),
+      gen2())
+
+  fun ref property(arg1: (T1, T2), h: PropertyHelper) ? =&gt;
+    (let x, let y) = consume arg1
+    property2(consume x, consume y, h)?
+
+  fun ref property2(arg1: T1, arg2: T2, h: PropertyHelper) ?
+    &quot;&quot;&quot;
+    A method verifying that a certain property holds for all given `arg1` and `arg2`
+    with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
+    &quot;&quot;&quot;
+
+trait Property3[T1, T2, T3] is Property1[(T1, T2, T3)]
+
+  fun gen1(): Generator[T1]
+    &quot;&quot;&quot;
+    The Generator for the first argument to your `property3` method.
+    &quot;&quot;&quot;
+
+  fun gen2(): Generator[T2]
+    &quot;&quot;&quot;
+    The Generator for the second argument to your `property3` method.
+    &quot;&quot;&quot;
+
+  fun gen3(): Generator[T3]
+    &quot;&quot;&quot;
+    The Generator for the third argument to your `property3` method.
+    &quot;&quot;&quot;
+
+  fun gen(): Generator[(T1, T2, T3)] =&gt;
+    Generators.zip3[T1, T2, T3](
+      gen1(),
+      gen2(),
+      gen3())
+
+  fun ref property(arg1: (T1, T2, T3), h: PropertyHelper) ? =&gt;
+    (let x, let y, let z) = consume arg1
+    property3(consume x, consume y, consume z, h)?
+
+  fun ref property3(arg1: T1, arg2: T2, arg3: T3, h: PropertyHelper) ?
+    &quot;&quot;&quot;
+    A method verifying that a certain property holds for all given `arg1`, `arg2` and `arg3`
+    with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
+    &quot;&quot;&quot;
+
+trait Property4[T1, T2, T3, T4] is Property1[(T1, T2, T3, T4)]
+
+  fun gen1(): Generator[T1]
+    &quot;&quot;&quot;
+    The Generator for the first argument to your `property4` method.
+    &quot;&quot;&quot;
+
+  fun gen2(): Generator[T2]
+    &quot;&quot;&quot;
+    The Generator for the second argument to your `property4` method.
+    &quot;&quot;&quot;
+
+  fun gen3(): Generator[T3]
+    &quot;&quot;&quot;
+    The Generator for the third argument to your `property4` method.
+    &quot;&quot;&quot;
+
+  fun gen4(): Generator[T4]
+    &quot;&quot;&quot;
+    The Generator for the fourth argument to your `property4` method.
+    &quot;&quot;&quot;
+
+  fun gen(): Generator[(T1, T2, T3, T4)] =&gt;
+    Generators.zip4[T1, T2, T3, T4](
+      gen1(),
+      gen2(),
+      gen3(),
+      gen4())
+
+  fun ref property(arg1: (T1, T2, T3, T4), h: PropertyHelper) ? =&gt;
+    (let x1, let x2, let x3, let x4) = consume arg1
+    property4(consume x1, consume x2, consume x3, consume x4, h)?
+
+  fun ref property4(arg1: T1, arg2: T2, arg3: T3, arg4: T4, h: PropertyHelper) ?
+    &quot;&quot;&quot;
+    A method verifying that a certain property holds for all given `arg1`, `arg2`, `arg3`, `arg4`
+    with the help of [PropertyHelper](ponycheck-PropertyHelper.md) `h`.
+    &quot;&quot;&quot;
+
 
 </code></pre>
                 

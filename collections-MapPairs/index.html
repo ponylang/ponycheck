@@ -294,6 +294,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-Property2/" title="trait Property2" class="md-nav__link">
+      trait Property2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property3/" title="trait Property3" class="md-nav__link">
+      trait Property3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-Property4/" title="trait Property4" class="md-nav__link">
+      trait Property4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-Poperator/" title="class Poperator" class="md-nav__link">
       class Poperator
     </a>
@@ -308,6 +344,30 @@
   <li class="md-nav__item">
     <a href="../ponycheck-Ponycheck/" title="primitive Ponycheck" class="md-nav__link">
       primitive Ponycheck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
+      trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairProperty/" title="trait IntPairProperty" class="md-nav__link">
+      trait IntPairProperty
     </a>
   </li>
 
@@ -404,6 +464,42 @@
   <li class="md-nav__item">
     <a href="../ponycheck-ForAll/" title="class ForAll" class="md-nav__link">
       class ForAll
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll2/" title="class ForAll2" class="md-nav__link">
+      class ForAll2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll3/" title="class ForAll3" class="md-nav__link">
+      class ForAll3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-ForAll4/" title="class ForAll4" class="md-nav__link">
+      class ForAll4
     </a>
   </li>
 
@@ -2531,6 +2627,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/ponycheck/int_properties/" title="int_properties.pony" class="md-nav__link">
+      int_properties.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/ponycheck/generator/" title="generator.pony" class="md-nav__link">
       generator.pony
     </a>
@@ -3308,7 +3416,7 @@
                 
                 
                 <h1 id="mappairs91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93">MapPairs[K: K, V: V, H: <a href="../collections-HashFunction/">HashFunction</a>[K] val, M: <a href="../collections-HashMap/">HashMap</a>[K, V, H] #read]<a class="headerlink" href="#mappairs91k-k-v-v-h-hashfunction91k93-val-m-hashmap91k-v-h93-read93" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/collections/map/#L442">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L443">[Source]</a></span></p>
 <p>An iterator over the keys and values in a map.</p>
 <pre><code class="pony">class ref MapPairs[K: K, V: V, H: HashFunction[K] val, M: HashMap[K, V, H] #read] is
   Iterator[(M-&gt;K , M-&gt;V)] ref
@@ -3321,7 +3429,7 @@
 <hr />
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L451">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L452">[Source]</a></span></p>
 <p>Creates an iterator for the given map.</p>
 <pre><code class="pony">new ref create(
   map: M)
@@ -3339,7 +3447,7 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L457">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L458">[Source]</a></span></p>
 <p>True if it believes there are remaining entries. May not be right if values
 were added or removed from the map.</p>
 <pre><code class="pony">fun box has_next()
@@ -3352,7 +3460,7 @@ were added or removed from the map.</p>
 </ul>
 <hr />
 <h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/collections/map/#L464">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/collections/map/#L465">[Source]</a></span></p>
 <p>Returns the next entry, or raises an error if there isn't one. If entries
 are added during iteration, this may not return all entries.</p>
 <pre><code class="pony">fun ref next()
