@@ -1,3 +1,26 @@
+primitive _StringifyIntArg
+  fun apply(choice: U8, int: U128): String iso ^ =>
+   let num =
+     match choice % 14
+     | 0 => "U8(" + int.u8().string() + ")"
+     | 1 => "U16(" + int.u16().string() + ")"
+     | 2 => "U32(" + int.u32().string() + ")"
+     | 3 => "U64(" + int.u64().string() + ")"
+     | 4 => "ULong(" + int.ulong().string() + ")"
+     | 5 => "USize(" + int.usize().string() + ")"
+     | 6 => "U128(" + int.string() + ")"
+     | 7 => "I8(" + int.i8().string() + ")"
+     | 8 => "I16(" + int.i16().string() + ")"
+     | 9 => "I32(" + int.i32().string() + ")"
+     | 10 => "I64(" + int.i64().string() + ")"
+     | 11 => "ILong(" + int.ilong().string() + ")"
+     | 12 => "ISize(" + int.isize().string() + ")"
+     | 13 => "I128(" + int.i128().string() + ")"
+     else
+       ""
+     end
+   num.clone()
+
 class IntPropertySample is Stringable
   let choice: U8
   let int: U128
@@ -7,32 +30,7 @@ class IntPropertySample is Stringable
     int = int'
 
   fun string(): String iso^ =>
-    let prefix =
-      match choice % 14
-      | 0 => "U8"
-      | 1 => "U16"
-      | 2 => "U32"
-      | 3 => "U64"
-      | 4 => "ULong"
-      | 5 => "USize"
-      | 6 => "U128"
-      | 7 => "I8"
-      | 8 => "I16"
-      | 9 => "I32"
-      | 10 => "I64"
-      | 11 => "ILong"
-      | 12 => "ISize"
-      | 13 => "I128"
-      else
-        ""
-      end
-      recover iso
-        String()
-          .>append(prefix)
-          .>append("(")
-          .>append(int.string())
-          .>append(")")
-      end
+    _StringifyIntArg(choice, int)
 
 type IntUnitTest is Property1UnitTest[IntPropertySample]
 
@@ -92,36 +90,15 @@ class IntPairPropertySample is Stringable
     int2 = int2'
 
   fun string(): String iso^ =>
-    let prefix =
-      match choice % 14
-      | 0 => "U8"
-      | 1 => "U16"
-      | 2 => "U32"
-      | 3 => "U64"
-      | 4 => "ULong"
-      | 5 => "USize"
-      | 6 => "U128"
-      | 7 => "I8"
-      | 8 => "I16"
-      | 9 => "I32"
-      | 10 => "I64"
-      | 11 => "ILong"
-      | 12 => "ISize"
-      | 13 => "I128"
-      else
-        ""
-      end
+    let num1: String val = _StringifyIntArg(choice, int1)
+    let num2: String val = _StringifyIntArg(choice, int2)
       recover iso
         String()
           .>append("(")
-          .>append(prefix)
-          .>append("(")
-          .>append(int1.string())
-          .>append("), ")
-          .>append(prefix)
-          .>append("(")
-          .>append(int2.string())
-          .>append("))")
+          .>append(num1)
+          .>append(", ")
+          .>append(num2)
+          .>append(")")
       end
 
 
