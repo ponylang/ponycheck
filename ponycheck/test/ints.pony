@@ -24,7 +24,7 @@ class SuccessfulIntPropertyTest is UnitTest
     let property_logger = UnitTestPropertyLogger(h)
     let params = property.params()
     h.long_test(params.timeout)
-    let runner = PropertyRunner[(U8, U128)](
+    let runner = PropertyRunner[IntPropertySample](
       consume property,
       params,
       property_notify,
@@ -47,7 +47,7 @@ class SuccessfulIntPairPropertyTest is UnitTest
     let property_logger = UnitTestPropertyLogger(h)
     let params = property.params()
     h.long_test(params.timeout)
-    let runner = PropertyRunner[(U8, (U128, U128))](
+    let runner = PropertyRunner[IntPairPropertySample](
       consume property,
       params,
       property_notify,

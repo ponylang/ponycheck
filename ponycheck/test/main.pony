@@ -26,6 +26,8 @@ actor Main is TestList
     test(MapIsOfMaxTest)
     test(MapIsOfIdentityTest)
 
+    PrivateTests.tests(test)
+
     AsUnitTestTests.tests(test)
 
     ForAllTests.tests(test)

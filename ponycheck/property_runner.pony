@@ -335,7 +335,17 @@ primitive _Stringify
       | (let s1: Stringable, let s2: Stringable) =>
         "(" + s1.string() + ", " + s2.string() + ")"
       | (let s1: Stringable, let s2: ReadSeq[Stringable]) =>
-        "(" + s1.string() + ", " + "[" + " ".join(s2.values()) + "]" + ")"
+        "(" + s1.string() + ", [" + " ".join(s2.values()) + "])"
+      | (let s1: ReadSeq[Stringable], let s2: Stringable) =>
+        "([" + " ".join(s1.values()) + "], " + s2.string() + ")"
+      | (let s1: ReadSeq[Stringable], let s2: ReadSeq[Stringable]) =>
+        "([" + " ".join(s1.values()) + "], [" + " ".join(s2.values()) + "])"
+      | (let s1: Stringable, let s2: Stringable, let s3: Stringable) =>
+        "(" + s1.string() + ", " + s2.string() + ", " + s3.string() + ")"
+      | ((let s1: Stringable, let s2: Stringable), let s3: Stringable) =>
+        "((" + s1.string() + ", " + s2.string() + "), " + s3.string() + ")"
+      | (let s1: Stringable, (let s2: Stringable, let s3: Stringable)) =>
+        "(" + s1.string() + ", (" + s2.string() + ", " + s3.string() + "))"
       else
         "<identity:" + digest.string() + ">"
       end
