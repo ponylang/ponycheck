@@ -21,7 +21,7 @@ update_version() {
 }
 
 if [ $# -le 2 ]; then
-  echo "version and commit arguments required"
+  echo "Usage: ./release.sh <VERSION> <COMMIT>"
 fi
 
 set -eu
@@ -71,7 +71,7 @@ git merge "release-$version"
 git push origin master
 
 # build docs and publish on gh-pages branch
-make docs PONYC=${PONYC}
+make docs PONYC=${PONYC:-ponyc}
 TEMP_DIR="$(mktemp -d)"
 mv docs "${TEMP_DIR}/"
 git checkout gh-pages
