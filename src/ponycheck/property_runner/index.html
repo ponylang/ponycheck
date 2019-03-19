@@ -350,8 +350,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -902,18 +926,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1324,6 +1336,18 @@
   <li class="md-nav__item">
     <a href="../../../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2807,6 +2831,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3566,7 +3602,17 @@ primitive _Stringify
       | (let s1: Stringable, let s2: Stringable) =&gt;
         &quot;(&quot; + s1.string() + &quot;, &quot; + s2.string() + &quot;)&quot;
       | (let s1: Stringable, let s2: ReadSeq[Stringable]) =&gt;
-        &quot;(&quot; + s1.string() + &quot;, &quot; + &quot;[&quot; + &quot; &quot;.join(s2.values()) + &quot;]&quot; + &quot;)&quot;
+        &quot;(&quot; + s1.string() + &quot;, [&quot; + &quot; &quot;.join(s2.values()) + &quot;])&quot;
+      | (let s1: ReadSeq[Stringable], let s2: Stringable) =&gt;
+        &quot;([&quot; + &quot; &quot;.join(s1.values()) + &quot;], &quot; + s2.string() + &quot;)&quot;
+      | (let s1: ReadSeq[Stringable], let s2: ReadSeq[Stringable]) =&gt;
+        &quot;([&quot; + &quot; &quot;.join(s1.values()) + &quot;], [&quot; + &quot; &quot;.join(s2.values()) + &quot;])&quot;
+      | (let s1: Stringable, let s2: Stringable, let s3: Stringable) =&gt;
+        &quot;(&quot; + s1.string() + &quot;, &quot; + s2.string() + &quot;, &quot; + s3.string() + &quot;)&quot;
+      | ((let s1: Stringable, let s2: Stringable), let s3: Stringable) =&gt;
+        &quot;((&quot; + s1.string() + &quot;, &quot; + s2.string() + &quot;), &quot; + s3.string() + &quot;)&quot;
+      | (let s1: Stringable, (let s2: Stringable, let s3: Stringable)) =&gt;
+        &quot;(&quot; + s1.string() + &quot;, (&quot; + s2.string() + &quot;, &quot; + s3.string() + &quot;))&quot;
       else
         &quot;&lt;identity:&quot; + digest.string() + &quot;&gt;&quot;
       end

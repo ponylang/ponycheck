@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -906,18 +930,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -1396,6 +1408,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2870,6 +2894,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3350,29 +3386,29 @@
                 
                 
                 <h1 id="inputstream">InputStream<a class="headerlink" href="#inputstream" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L33">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L27">[Source]</a></span></p>
 <p>Asynchronous access to some input stream.</p>
 <pre><code class="pony">interface tag InputStream
 </code></pre>
 
 <h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
 <h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L37">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L31">[Source]</a></span></p>
 <p>Set the notifier. Optionally, also sets the chunk size, dictating the
 maximum number of bytes of each chunk that will be passed to the notifier.</p>
 <pre><code class="pony">be apply(
   notify: (InputNotify iso | None val),
-  chunk_size: USize val = seq)
+  chunk_size: USize val = 32)
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>notify: (<a href="../builtin-InputNotify/">InputNotify</a> iso | <a href="../builtin-None/">None</a> val)</li>
-<li>chunk_size: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>chunk_size: <a href="../builtin-USize/">USize</a> val = 32</li>
 </ul>
 <hr />
 <h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L43">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L37">[Source]</a></span></p>
 <p>Clear the notifier in order to shut down input.</p>
 <pre><code class="pony">be dispose()
 </code></pre>
@@ -3398,7 +3434,7 @@ maximum number of bytes of each chunk that will be passed to the notifier.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../builtin-InputNotify/" title="interface InputNotify" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3407,7 +3443,7 @@ maximum number of bytes of each chunk that will be passed to the notifier.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                interface DisposableActor
+                interface InputNotify
               </span>
             </div>
           </a>

@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -908,18 +932,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1396,6 +1408,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2870,6 +2894,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3350,7 +3386,7 @@
                 
                 
                 <h1 id="stdin">Stdin<a class="headerlink" href="#stdin" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L49">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L43">[Source]</a></span></p>
 <p>Asynchronous access to stdin. The constructor is private to ensure that
 access is provided only via an environment.</p>
 <p>Reading from stdin is done by registering an <code>InputNotify</code>:</p>
@@ -3374,22 +3410,22 @@ access is provided only via an environment.</p>
 
 <h2 id="public-behaviours">Public Behaviours<a class="headerlink" href="#public-behaviours" title="Permanent link">&para;</a></h2>
 <h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L84">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L78">[Source]</a></span></p>
 <p>Set the notifier. Optionally, also sets the chunk size, dictating the
 maximum number of bytes of each chunk that will be passed to the notifier.</p>
 <pre><code class="pony">be apply(
   notify: (InputNotify iso | None val),
-  chunk_size: USize val = seq)
+  chunk_size: USize val = 32)
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>notify: (<a href="../builtin-InputNotify/">InputNotify</a> iso | <a href="../builtin-None/">None</a> val)</li>
-<li>chunk_size: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>chunk_size: <a href="../builtin-USize/">USize</a> val = 32</li>
 </ul>
 <hr />
 <h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/stdin/#L92">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/stdin/#L86">[Source]</a></span></p>
 <p>Clear the notifier in order to shut down input.</p>
 <pre><code class="pony">be dispose()
 </code></pre>

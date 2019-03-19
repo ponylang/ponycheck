@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -906,18 +930,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1328,6 +1340,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -3146,6 +3170,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3919,13 +3955,13 @@ a type to itself</p>
 <p><span class="source-link"><a href="../src/collections/set/#L12">[Source]</a></span></p>
 <p>Defaults to a prealloc of 8.</p>
 <pre><code class="pony">new ref create(
-  prealloc: USize val = seq)
+  prealloc: USize val = 8)
 : HashSet[A, H] ref^
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>prealloc: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>prealloc: <a href="../builtin-USize/">USize</a> val = 8</li>
 </ul>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4348,13 +4384,13 @@ elements than that.</p>
 <p>Given an index, return the next index that has a populated value. Raise an
 error if there is no next populated index.</p>
 <pre><code class="pony">fun box next_index(
-  prev: USize val = seq)
+  prev: USize val = call)
 : USize val ?
 </code></pre>
 
 <h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
-<li>prev: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>prev: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
 <ul>

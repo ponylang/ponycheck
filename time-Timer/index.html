@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -906,18 +930,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1328,6 +1340,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2870,6 +2894,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3388,7 +3424,7 @@ until the first expiration. The interval should also be in nanoseconds.</p>
 <pre><code class="pony">new iso create(
   notify: TimerNotify iso,
   expiration: U64 val,
-  interval: U64 val = seq)
+  interval: U64 val = 0)
 : Timer iso^
 </code></pre>
 
@@ -3396,7 +3432,7 @@ until the first expiration. The interval should also be in nanoseconds.</p>
 <ul>
 <li>notify: <a href="../time-TimerNotify/">TimerNotify</a> iso</li>
 <li>expiration: <a href="../builtin-U64/">U64</a> val</li>
-<li>interval: <a href="../builtin-U64/">U64</a> val = seq</li>
+<li>interval: <a href="../builtin-U64/">U64</a> val = 0</li>
 </ul>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3410,7 +3446,7 @@ time. The expiration time is wall-clock adjusted system time.</p>
 <pre><code class="pony">new ref abs(
   notify: TimerNotify ref,
   expiration: (I64 val , I64 val),
-  interval: U64 val = seq)
+  interval: U64 val = 0)
 : Timer ref^
 </code></pre>
 
@@ -3418,7 +3454,7 @@ time. The expiration time is wall-clock adjusted system time.</p>
 <ul>
 <li>notify: <a href="../time-TimerNotify/">TimerNotify</a> ref</li>
 <li>expiration: (<a href="../builtin-I64/">I64</a> val , <a href="../builtin-I64/">I64</a> val)</li>
-<li>interval: <a href="../builtin-U64/">U64</a> val = seq</li>
+<li>interval: <a href="../builtin-U64/">U64</a> val = 0</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>

@@ -581,8 +581,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -1133,18 +1157,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1555,6 +1567,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -3029,6 +3053,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3681,15 +3717,15 @@ primitive numeric type.</p>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/randomness/#L14">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
-  seed1: U64 val = seq,
-  seed2: U64 val = seq)
+  seed1: U64 val = 42,
+  seed2: U64 val = 0)
 : Randomness ref^
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>seed1: <a href="../builtin-U64/">U64</a> val = seq</li>
-<li>seed2: <a href="../builtin-U64/">U64</a> val = seq</li>
+<li>seed1: <a href="../builtin-U64/">U64</a> val = 42</li>
+<li>seed2: <a href="../builtin-U64/">U64</a> val = 0</li>
 </ul>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3703,15 +3739,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref u8(
-  min: U8 val = seq,
-  max: U8 val = seq)
+  min: U8 val = call,
+  max: U8 val = call)
 : U8 val
 </code></pre>
 
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-U8/">U8</a> val = seq</li>
-<li>max: <a href="../builtin-U8/">U8</a> val = seq</li>
+<li>min: <a href="../builtin-U8/">U8</a> val = call</li>
+<li>max: <a href="../builtin-U8/">U8</a> val = call</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3724,15 +3760,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref u16(
-  min: U16 val = seq,
-  max: U16 val = seq)
+  min: U16 val = call,
+  max: U16 val = call)
 : U16 val
 </code></pre>
 
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-U16/">U16</a> val = seq</li>
-<li>max: <a href="../builtin-U16/">U16</a> val = seq</li>
+<li>min: <a href="../builtin-U16/">U16</a> val = call</li>
+<li>max: <a href="../builtin-U16/">U16</a> val = call</li>
 </ul>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3745,15 +3781,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref u32(
-  min: U32 val = seq,
-  max: U32 val = seq)
+  min: U32 val = call,
+  max: U32 val = call)
 : U32 val
 </code></pre>
 
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-U32/">U32</a> val = seq</li>
-<li>max: <a href="../builtin-U32/">U32</a> val = seq</li>
+<li>min: <a href="../builtin-U32/">U32</a> val = call</li>
+<li>max: <a href="../builtin-U32/">U32</a> val = call</li>
 </ul>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3766,15 +3802,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref u64(
-  min: U64 val = seq,
-  max: U64 val = seq)
+  min: U64 val = call,
+  max: U64 val = call)
 : U64 val
 </code></pre>
 
 <h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-U64/">U64</a> val = seq</li>
-<li>max: <a href="../builtin-U64/">U64</a> val = seq</li>
+<li>min: <a href="../builtin-U64/">U64</a> val = call</li>
+<li>max: <a href="../builtin-U64/">U64</a> val = call</li>
 </ul>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3787,15 +3823,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref u128(
-  min: U128 val = seq,
-  max: U128 val = seq)
+  min: U128 val = call,
+  max: U128 val = call)
 : U128 val
 </code></pre>
 
 <h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-U128/">U128</a> val = seq</li>
-<li>max: <a href="../builtin-U128/">U128</a> val = seq</li>
+<li>min: <a href="../builtin-U128/">U128</a> val = call</li>
+<li>max: <a href="../builtin-U128/">U128</a> val = call</li>
 </ul>
 <h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3808,15 +3844,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref ulong(
-  min: ULong val = seq,
-  max: ULong val = seq)
+  min: ULong val = call,
+  max: ULong val = call)
 : ULong val
 </code></pre>
 
 <h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-ULong/">ULong</a> val = seq</li>
-<li>max: <a href="../builtin-ULong/">ULong</a> val = seq</li>
+<li>min: <a href="../builtin-ULong/">ULong</a> val = call</li>
+<li>max: <a href="../builtin-ULong/">ULong</a> val = call</li>
 </ul>
 <h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3829,15 +3865,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref usize(
-  min: USize val = seq,
-  max: USize val = seq)
+  min: USize val = call,
+  max: USize val = call)
 : USize val
 </code></pre>
 
 <h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>max: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>min: <a href="../builtin-USize/">USize</a> val = call</li>
+<li>max: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3850,15 +3886,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref i8(
-  min: I8 val = seq,
-  max: I8 val = seq)
+  min: I8 val = call,
+  max: I8 val = call)
 : I8 val
 </code></pre>
 
 <h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-I8/">I8</a> val = seq</li>
-<li>max: <a href="../builtin-I8/">I8</a> val = seq</li>
+<li>min: <a href="../builtin-I8/">I8</a> val = call</li>
+<li>max: <a href="../builtin-I8/">I8</a> val = call</li>
 </ul>
 <h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3871,15 +3907,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref i16(
-  min: I16 val = seq,
-  max: I16 val = seq)
+  min: I16 val = call,
+  max: I16 val = call)
 : I16 val
 </code></pre>
 
 <h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-I16/">I16</a> val = seq</li>
-<li>max: <a href="../builtin-I16/">I16</a> val = seq</li>
+<li>min: <a href="../builtin-I16/">I16</a> val = call</li>
+<li>max: <a href="../builtin-I16/">I16</a> val = call</li>
 </ul>
 <h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3892,15 +3928,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref i32(
-  min: I32 val = seq,
-  max: I32 val = seq)
+  min: I32 val = call,
+  max: I32 val = call)
 : I32 val
 </code></pre>
 
 <h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-I32/">I32</a> val = seq</li>
-<li>max: <a href="../builtin-I32/">I32</a> val = seq</li>
+<li>min: <a href="../builtin-I32/">I32</a> val = call</li>
+<li>max: <a href="../builtin-I32/">I32</a> val = call</li>
 </ul>
 <h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3913,15 +3949,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref i64(
-  min: I64 val = seq,
-  max: I64 val = seq)
+  min: I64 val = call,
+  max: I64 val = call)
 : I64 val
 </code></pre>
 
 <h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-I64/">I64</a> val = seq</li>
-<li>max: <a href="../builtin-I64/">I64</a> val = seq</li>
+<li>min: <a href="../builtin-I64/">I64</a> val = call</li>
+<li>max: <a href="../builtin-I64/">I64</a> val = call</li>
 </ul>
 <h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3934,15 +3970,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref i128(
-  min: I128 val = seq,
-  max: I128 val = seq)
+  min: I128 val = call,
+  max: I128 val = call)
 : I128 val
 </code></pre>
 
 <h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-I128/">I128</a> val = seq</li>
-<li>max: <a href="../builtin-I128/">I128</a> val = seq</li>
+<li>min: <a href="../builtin-I128/">I128</a> val = call</li>
+<li>max: <a href="../builtin-I128/">I128</a> val = call</li>
 </ul>
 <h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3955,15 +3991,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref ilong(
-  min: ILong val = seq,
-  max: ILong val = seq)
+  min: ILong val = call,
+  max: ILong val = call)
 : ILong val
 </code></pre>
 
 <h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-ILong/">ILong</a> val = seq</li>
-<li>max: <a href="../builtin-ILong/">ILong</a> val = seq</li>
+<li>min: <a href="../builtin-ILong/">ILong</a> val = call</li>
+<li>max: <a href="../builtin-ILong/">ILong</a> val = call</li>
 </ul>
 <h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3976,15 +4012,15 @@ primitive numeric type.</p>
 (default: [min_value, max_value])</p>
 <p>behavior is undefined if min &gt; max.</p>
 <pre><code class="pony">fun ref isize(
-  min: ISize val = seq,
-  max: ISize val = seq)
+  min: ISize val = call,
+  max: ISize val = call)
 : ISize val
 </code></pre>
 
 <h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-ISize/">ISize</a> val = seq</li>
-<li>max: <a href="../builtin-ISize/">ISize</a> val = seq</li>
+<li>min: <a href="../builtin-ISize/">ISize</a> val = call</li>
+<li>max: <a href="../builtin-ISize/">ISize</a> val = call</li>
 </ul>
 <h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3996,15 +4032,15 @@ primitive numeric type.</p>
 <p>generates a F32 in closed interval [min, max]
 (default: [0.0, 1.0])</p>
 <pre><code class="pony">fun ref f32(
-  min: F32 val = seq,
-  max: F32 val = seq)
+  min: F32 val = 0.0,
+  max: F32 val = 1.0)
 : F32 val
 </code></pre>
 
 <h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-F32/">F32</a> val = seq</li>
-<li>max: <a href="../builtin-F32/">F32</a> val = seq</li>
+<li>min: <a href="../builtin-F32/">F32</a> val = 0.0</li>
+<li>max: <a href="../builtin-F32/">F32</a> val = 1.0</li>
 </ul>
 <h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4016,15 +4052,15 @@ primitive numeric type.</p>
 <p>generates a F64 in closed interval [min, max]
 (default: [0.0, 1.0])</p>
 <pre><code class="pony">fun ref f64(
-  min: F64 val = seq,
-  max: F64 val = seq)
+  min: F64 val = 0.0,
+  max: F64 val = 1.0)
 : F64 val
 </code></pre>
 
 <h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
 <ul>
-<li>min: <a href="../builtin-F64/">F64</a> val = seq</li>
-<li>max: <a href="../builtin-F64/">F64</a> val = seq</li>
+<li>min: <a href="../builtin-F64/">F64</a> val = 0.0</li>
+<li>max: <a href="../builtin-F64/">F64</a> val = 1.0</li>
 </ul>
 <h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
 <ul>

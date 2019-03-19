@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -908,18 +932,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1330,6 +1342,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -3386,6 +3410,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -4491,13 +4527,13 @@ no guarantees that the GC will actually reclaim any space.</p>
 <p><span class="source-link"><a href="../src/builtin/array/#L89">[Source]</a></span></p>
 <p>Create an array with zero elements, but space for len elements.</p>
 <pre><code class="pony">new ref create(
-  len: USize val = seq)
+  len: USize val = 0)
 : Array[A] ref^
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>len: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>len: <a href="../builtin-USize/">USize</a> val = 0</li>
 </ul>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4530,7 +4566,7 @@ copied.</p>
 <pre><code class="pony">new ref from_cpointer(
   ptr: Pointer[A] ref,
   len: USize val,
-  alloc: USize val = seq)
+  alloc: USize val = 0)
 : Array[A] ref^
 </code></pre>
 
@@ -4538,7 +4574,7 @@ copied.</p>
 <ul>
 <li>ptr: <a href="../builtin-Pointer/">Pointer</a>[A] ref</li>
 <li>len: <a href="../builtin-USize/">USize</a> val</li>
-<li>alloc: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>alloc: <a href="../builtin-USize/">USize</a> val = 0</li>
 </ul>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4550,13 +4586,13 @@ copied.</p>
 <p><span class="source-link"><a href="../src/builtin/array/#L150">[Source]</a></span></p>
 <p>Return the underlying C-style pointer.</p>
 <pre><code class="pony">fun box cpointer(
-  offset: USize val = seq)
+  offset: USize val = 0)
 : Pointer[A] tag
 </code></pre>
 
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
-<li>offset: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>offset: <a href="../builtin-USize/">USize</a> val = 0</li>
 </ul>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4921,15 +4957,15 @@ array is already smaller than len, do nothing.</p>
 <p>Trim the array to a portion of itself, covering <code>from</code> until <code>to</code>.
 Unlike slice, the operation does not allocate a new array nor copy elements.</p>
 <pre><code class="pony">fun ref trim_in_place(
-  from: USize val = seq,
-  to: USize val = seq)
+  from: USize val = 0,
+  to: USize val = call)
 : None val
 </code></pre>
 
 <h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
 <ul>
-<li>from: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>to: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>from: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>to: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4942,15 +4978,15 @@ Unlike slice, the operation does not allocate a new array nor copy elements.</p>
 Both the original and the new array are immutable, as they share memory.
 The operation does not allocate a new array pointer nor copy elements.</p>
 <pre><code class="pony">fun val trim(
-  from: USize val = seq,
-  to: USize val = seq)
+  from: USize val = 0,
+  to: USize val = call)
 : Array[A] val
 </code></pre>
 
 <h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
 <ul>
-<li>from: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>to: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>from: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>to: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5208,16 +5244,16 @@ The removed element is returned.</p>
 <p>Append the elements from a sequence, starting from the given offset.</p>
 <pre><code class="pony">fun ref append(
   seq: (ReadSeq[A] box &amp; ReadElement[A^] box),
-  offset: USize val = seq,
-  len: USize val = seq)
+  offset: USize val = 0,
+  len: USize val = call)
 : None val
 </code></pre>
 
 <h4 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li>seq: (<a href="../builtin-ReadSeq/">ReadSeq</a>[A] box &amp; <a href="../builtin-ReadElement/">ReadElement</a>[A^] box)</li>
-<li>offset: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>len: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>offset: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>len: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_40">Returns<a class="headerlink" href="#returns_40" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5230,16 +5266,16 @@ The removed element is returned.</p>
 offset.</p>
 <pre><code class="pony">fun ref concat(
   iter: Iterator[A^] ref,
-  offset: USize val = seq,
-  len: USize val = seq)
+  offset: USize val = 0,
+  len: USize val = call)
 : None val
 </code></pre>
 
 <h4 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li>iter: <a href="../builtin-Iterator/">Iterator</a>[A^] ref</li>
-<li>offset: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>len: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>offset: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>len: <a href="../builtin-USize/">USize</a> val = call</li>
 </ul>
 <h4 id="returns_41">Returns<a class="headerlink" href="#returns_41" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5257,18 +5293,18 @@ the first instance of <code>value</code> found, and uses object identity for
 comparison.</p>
 <pre><code class="pony">fun box find(
   value: A!,
-  offset: USize val = seq,
-  nth: USize val = seq,
-  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq)
+  offset: USize val = 0,
+  nth: USize val = 0,
+  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda)
 : USize val ?
 </code></pre>
 
 <h4 id="parameters_36">Parameters<a class="headerlink" href="#parameters_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
-<li>offset: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>nth: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
+<li>offset: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>nth: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda</li>
 </ul>
 <h4 id="returns_42">Returns<a class="headerlink" href="#returns_42" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5282,14 +5318,14 @@ comparison.</p>
 by structural equality, pass an object literal such as <code>{(l, r) =&gt; l == r}</code>.</p>
 <pre><code class="pony">fun box contains(
   value: A!,
-  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq)
+  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda)
 : Bool val
 </code></pre>
 
 <h4 id="parameters_37">Parameters<a class="headerlink" href="#parameters_37" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
-<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
+<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda</li>
 </ul>
 <h4 id="returns_43">Returns<a class="headerlink" href="#returns_43" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5306,18 +5342,18 @@ isn't present.</p>
 first instance of <code>value</code> found, and uses object identity for comparison.</p>
 <pre><code class="pony">fun box rfind(
   value: A!,
-  offset: USize val = seq,
-  nth: USize val = seq,
-  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq)
+  offset: USize val = call,
+  nth: USize val = 0,
+  predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda)
 : USize val ?
 </code></pre>
 
 <h4 id="parameters_38">Parameters<a class="headerlink" href="#parameters_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li>value: A!</li>
-<li>offset: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>nth: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = seq</li>
+<li>offset: <a href="../builtin-USize/">USize</a> val = call</li>
+<li>nth: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>predicate: {(box-&gt;A!, box-&gt;A!): Bool}[A] val = lambda</li>
 </ul>
 <h4 id="returns_44">Returns<a class="headerlink" href="#returns_44" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5345,17 +5381,17 @@ exclusive and saturated.
 The new array contains references to the same elements that the old array
 contains, the elements themselves are not cloned.</p>
 <pre><code class="pony">fun box slice(
-  from: USize val = seq,
-  to: USize val = seq,
-  step: USize val = seq)
+  from: USize val = 0,
+  to: USize val = call,
+  step: USize val = 1)
 : Array[this-&gt;A!] ref^
 </code></pre>
 
 <h4 id="parameters_39">Parameters<a class="headerlink" href="#parameters_39" title="Permanent link">&para;</a></h4>
 <ul>
-<li>from: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>to: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>step: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>from: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>to: <a href="../builtin-USize/">USize</a> val = call</li>
+<li>step: <a href="../builtin-USize/">USize</a> val = 1</li>
 </ul>
 <h4 id="returns_46">Returns<a class="headerlink" href="#returns_46" title="Permanent link">&para;</a></h4>
 <ul>

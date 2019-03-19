@@ -350,8 +350,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -902,18 +926,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1324,6 +1336,18 @@
   <li class="md-nav__item">
     <a href="../../../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2807,6 +2831,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3319,6 +3355,32 @@
   fun min(y: F32): F32 =&gt; if this &lt; y then this else y end
   fun max(y: F32): F32 =&gt; if this &gt; y then this else y end
 
+  fun fld(y: F32): F32 =&gt;
+    (this / y).floor()
+
+  fun fld_unsafe(y: F32): F32 =&gt;
+    (this /~ y).floor()
+
+  fun mod(y: F32): F32 =&gt;
+    let r = this % y
+    if r == F32(0.0) then
+      r.copysign(y)
+    elseif (r &gt; 0) xor (y &gt; 0) then
+      r + y
+    else
+      r
+    end
+
+  fun mod_unsafe(y: F32): F32 =&gt;
+    let r = this %~ y
+    if r == F32(0.0) then
+      r.copysign(y)
+    elseif (r &gt; 0) xor (y &gt; 0) then
+      r + y
+    else
+      r
+    end
+
   fun finite(): Bool =&gt;
     &quot;&quot;&quot;
     Check whether this number is finite, ie not +/-infinity and not NaN.
@@ -3509,6 +3571,32 @@ primitive F64 is FloatingPoint[F64]
 
   fun min(y: F64): F64 =&gt; if this &lt; y then this else y end
   fun max(y: F64): F64 =&gt; if this &gt; y then this else y end
+
+  fun fld(y: F64): F64 =&gt;
+    (this / y).floor()
+
+  fun fld_unsafe(y: F64): F64 =&gt;
+    (this /~ y).floor()
+
+  fun mod(y: F64): F64 =&gt;
+    let r = this.rem(y)
+    if r == F64(0.0) then
+      r.copysign(y)
+    elseif (r &gt; 0) xor (y &gt; 0) then
+      r + y
+    else
+      r
+    end
+
+  fun mod_unsafe(y: F64): F64 =&gt;
+    let r = this %~ y
+    if r == F64(0.0) then
+      r.copysign(y)
+    elseif (r &gt; 0) xor (y &gt; 0) then
+      r + y
+    else
+      r
+    end
 
   fun finite(): Bool =&gt;
     &quot;&quot;&quot;

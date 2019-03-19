@@ -551,8 +551,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -1103,18 +1127,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1525,6 +1537,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2999,6 +3023,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3661,12 +3697,12 @@ or from <code>_finished</code>.</p>
 <h3 id="run">run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L110">[Source]</a></span></p>
 <pre><code class="pony">be run(
-  round: USize val = seq)
+  round: USize val = 0)
 </code></pre>
 
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
-<li>round: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>round: <a href="../builtin-USize/">USize</a> val = 0</li>
 </ul>
 <hr />
 <h3 id="complete_shrink">complete_shrink<a class="headerlink" href="#complete_shrink" title="Permanent link">&para;</a></h3>
@@ -3690,13 +3726,13 @@ or from <code>_finished</code>.</p>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L179">[Source]</a></span></p>
 <pre><code class="pony">be do_shrink(
   failed_repr: String val,
-  shrink_round: USize val = seq)
+  shrink_round: USize val = 0)
 </code></pre>
 
 <h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>failed_repr: <a href="../builtin-String/">String</a> val</li>
-<li>shrink_round: <a href="../builtin-USize/">USize</a> val = seq</li>
+<li>shrink_round: <a href="../builtin-USize/">USize</a> val = 0</li>
 </ul>
 <hr />
 <h3 id="expect_action">expect_action<a class="headerlink" href="#expect_action" title="Permanent link">&para;</a></h3>
@@ -3757,13 +3793,13 @@ or from <code>_finished</code>.</p>
 <p><span class="source-link"><a href="../src/ponycheck/property_runner/#L268">[Source]</a></span></p>
 <pre><code class="pony">be log(
   msg: String val,
-  verbose: Bool val = seq)
+  verbose: Bool val = false)
 </code></pre>
 
 <h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>msg: <a href="../builtin-String/">String</a> val</li>
-<li>verbose: <a href="../builtin-Bool/">Bool</a> val = seq</li>
+<li>verbose: <a href="../builtin-Bool/">Bool</a> val = false</li>
 </ul>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
@@ -3785,16 +3821,16 @@ or from <code>_finished</code>.</p>
 while signalling failure to the notify</p>
 <pre><code class="pony">fun ref fail(
   repr: String val,
-  rounds: USize val = seq,
-  err: Bool val = seq)
+  rounds: USize val = 0,
+  err: Bool val = false)
 : None val
 </code></pre>
 
 <h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>repr: <a href="../builtin-String/">String</a> val</li>
-<li>rounds: <a href="../builtin-USize/">USize</a> val = seq</li>
-<li>err: <a href="../builtin-Bool/">Bool</a> val = seq</li>
+<li>rounds: <a href="../builtin-USize/">USize</a> val = 0</li>
+<li>err: <a href="../builtin-Bool/">Bool</a> val = false</li>
 </ul>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>

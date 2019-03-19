@@ -350,8 +350,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -902,18 +926,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1324,6 +1336,18 @@
   <li class="md-nav__item">
     <a href="../../../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2807,6 +2831,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3229,9 +3265,43 @@
                 
                   <h1>int_properties.pony</h1>
                 
-                <pre><code class="pony-full-source">type IntUnitTest is Property1UnitTest[(U8, U128)]
+                <pre><code class="pony-full-source">primitive _StringifyIntArg
+  fun apply(choice: U8, int: U128): String iso ^ =&gt;
+   let num =
+     match choice % 14
+     | 0 =&gt; &quot;U8(&quot; + int.u8().string() + &quot;)&quot;
+     | 1 =&gt; &quot;U16(&quot; + int.u16().string() + &quot;)&quot;
+     | 2 =&gt; &quot;U32(&quot; + int.u32().string() + &quot;)&quot;
+     | 3 =&gt; &quot;U64(&quot; + int.u64().string() + &quot;)&quot;
+     | 4 =&gt; &quot;ULong(&quot; + int.ulong().string() + &quot;)&quot;
+     | 5 =&gt; &quot;USize(&quot; + int.usize().string() + &quot;)&quot;
+     | 6 =&gt; &quot;U128(&quot; + int.string() + &quot;)&quot;
+     | 7 =&gt; &quot;I8(&quot; + int.i8().string() + &quot;)&quot;
+     | 8 =&gt; &quot;I16(&quot; + int.i16().string() + &quot;)&quot;
+     | 9 =&gt; &quot;I32(&quot; + int.i32().string() + &quot;)&quot;
+     | 10 =&gt; &quot;I64(&quot; + int.i64().string() + &quot;)&quot;
+     | 11 =&gt; &quot;ILong(&quot; + int.ilong().string() + &quot;)&quot;
+     | 12 =&gt; &quot;ISize(&quot; + int.isize().string() + &quot;)&quot;
+     | 13 =&gt; &quot;I128(&quot; + int.i128().string() + &quot;)&quot;
+     else
+       &quot;&quot;
+     end
+   num.clone()
 
-trait IntProperty is Property1[(U8, U128)]
+class IntPropertySample is Stringable
+  let choice: U8
+  let int: U128
+
+  new create(choice': U8, int': U128) =&gt;
+    choice = choice'
+    int = int'
+
+  fun string(): String iso^ =&gt;
+    _StringifyIntArg(choice, int)
+
+type IntUnitTest is Property1UnitTest[IntPropertySample]
+
+trait IntProperty is Property1[IntPropertySample]
   &quot;&quot;&quot;
   A property implementation for conveniently evaluating properties
   for all Pony Integer types at once.
@@ -3246,15 +3316,15 @@ trait IntProperty is Property1[(U8, U128)]
       h.assert_eq[T](T.from[U8](0), x / T.from[U8](0))
   ```
   &quot;&quot;&quot;
-  fun gen(): Generator[(U8, U128)] =&gt;
-    Generators.zip2[U8, U128](
+  fun gen(): Generator[IntPropertySample] =&gt;
+    Generators.map2[U8, U128, IntPropertySample](
       Generators.u8(),
-      Generators.u128())
+      Generators.u128(),
+      {(choice, int) =&gt; IntPropertySample(choice, int) })
 
-  fun ref property(sample: (U8, U128), h: PropertyHelper) ? =&gt;
-    let t: U8 = sample._1
-    let x = sample._2
-    match t % 14
+  fun ref property(sample: IntPropertySample, h: PropertyHelper) ? =&gt;
+    let x = sample.int
+    match sample.choice % 14
     | 0 =&gt; int_property[U8](x.u8(), h)?
     | 1 =&gt; int_property[U16](x.u16(), h)?
     | 2 =&gt; int_property[U32](x.u32(), h)?
@@ -3269,13 +3339,32 @@ trait IntProperty is Property1[(U8, U128)]
     | 11 =&gt; int_property[ILong](x.ilong(), h)?
     | 12 =&gt; int_property[ISize](x.isize(), h)?
     | 13 =&gt; int_property[I128](x.i128(), h)?
+    else
+      h.log(&quot;rem is broken&quot;)
+      error
     end
 
   fun ref int_property[T: (Int &amp; Integer[T] val)](x: T, h: PropertyHelper)?
 
-type IntPairUnitTest is Property1UnitTest[(U8, (U128, U128))]
+class IntPairPropertySample is Stringable
+  let choice: U8
+  let int1: U128
+  let int2: U128
 
-trait IntPairProperty is Property1[(U8, (U128, U128))]
+  new create(choice': U8, int1': U128, int2': U128) =&gt;
+    choice = choice'
+    int1 = int1'
+    int2 = int2'
+
+  fun string(): String iso^ =&gt;
+    let num1: String val = _StringifyIntArg(choice, int1)
+    let num2: String val = _StringifyIntArg(choice, int2)
+    &quot;&quot;.join([&quot;(&quot;; num1; &quot;, &quot;; num2; &quot;)&quot;].values())
+
+
+type IntPairUnitTest is Property1UnitTest[IntPairPropertySample]
+
+trait IntPairProperty is Property1[IntPairPropertySample]
   &quot;&quot;&quot;
   A property implementation for conveniently evaluating properties
   for pairs of integers of all Pony integer types at once.
@@ -3290,19 +3379,17 @@ trait IntPairProperty is Property1[(U8, (U128, U128))]
       h.assert_eq[T](x * y, y * x)
   ```
   &quot;&quot;&quot;
-  fun gen(): Generator[(U8, (U128, U128))] =&gt;
-    Generators.zip2[U8, (U128, U128)](
+  fun gen(): Generator[IntPairPropertySample] =&gt;
+    Generators.map3[U8, U128, U128, IntPairPropertySample](
       Generators.u8(),
-      Generators.zip2[U128, U128](
-        Generators.u128(),
-        Generators.u128()
-      ))
+      Generators.u128(),
+      Generators.u128(),
+      {(choice, int1, int2) =&gt; IntPairPropertySample(choice, int1, int2) })
 
-  fun ref property(sample: (U8, (U128, U128)), h: PropertyHelper) ? =&gt;
-    let t: U8 = sample._1
-    let x = sample._2._1
-    let y = sample._2._2
-    match t % 14
+  fun ref property(sample: IntPairPropertySample, h: PropertyHelper) ? =&gt;
+    let x = sample.int1
+    let y = sample.int2
+    match sample.choice % 14
     | 0 =&gt; int_property[U8](x.u8(), y.u8(), h)?
     | 1 =&gt; int_property[U16](x.u16(), y.u16(), h)?
     | 2 =&gt; int_property[U32](x.u32(), y.u32(), h)?
@@ -3317,6 +3404,9 @@ trait IntPairProperty is Property1[(U8, (U128, U128))]
     | 11 =&gt; int_property[ILong](x.ilong(), y.ilong(), h)?
     | 12 =&gt; int_property[ISize](x.isize(), y.isize(), h)?
     | 13 =&gt; int_property[I128](x.i128(), y.i128(), h)?
+    else
+      h.log(&quot;rem is broken&quot;)
+      error
     end
 
   fun ref int_property[T: (Int &amp; Integer[T] val)](x: T, y: T, h: PropertyHelper)?

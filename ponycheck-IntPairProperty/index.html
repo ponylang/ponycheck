@@ -356,8 +356,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -1010,18 +1034,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1432,6 +1444,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2906,6 +2930,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3422,7 +3458,7 @@
                 
                 
                 <h1 id="intpairproperty">IntPairProperty<a class="headerlink" href="#intpairproperty" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L47">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L100">[Source]</a></span></p>
 <p>A property implementation for conveniently evaluating properties
 for pairs of integers of all Pony integer types at once.</p>
 <p>The property needs to be formulated inside the method <code>int_property</code>:</p>
@@ -3434,37 +3470,37 @@ for pairs of integers of all Pony integer types at once.</p>
 </code></pre>
 
 <pre><code class="pony">trait ref IntPairProperty is
-  Property1[(U8 val , (U128 val , U128 val))] ref
+  Property1[IntPairPropertySample ref] ref
 </code></pre>
 
 <h4 id="implements">Implements<a class="headerlink" href="#implements" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../ponycheck-Property1/">Property1</a>[(<a href="../builtin-U8/">U8</a> val , (<a href="../builtin-U128/">U128</a> val , <a href="../builtin-U128/">U128</a> val))] ref</li>
+<li><a href="../ponycheck-Property1/">Property1</a>[<a href="../ponycheck-IntPairPropertySample/">IntPairPropertySample</a> ref] ref</li>
 </ul>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="gen">gen<a class="headerlink" href="#gen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L62">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L115">[Source]</a></span></p>
 <pre><code class="pony">fun box gen()
-: Generator[(U8 val , (U128 val , U128 val))] box
+: Generator[IntPairPropertySample ref] box
 </code></pre>
 
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../ponycheck-Generator/">Generator</a>[(<a href="../builtin-U8/">U8</a> val , (<a href="../builtin-U128/">U128</a> val , <a href="../builtin-U128/">U128</a> val))] box</li>
+<li><a href="../ponycheck-Generator/">Generator</a>[<a href="../ponycheck-IntPairPropertySample/">IntPairPropertySample</a> ref] box</li>
 </ul>
 <hr />
 <h3 id="property">property<a class="headerlink" href="#property" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L70">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L122">[Source]</a></span></p>
 <pre><code class="pony">fun ref property(
-  sample: (U8 val , (U128 val , U128 val)),
+  sample: IntPairPropertySample ref,
   h: PropertyHelper val)
 : None val ?
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>sample: (<a href="../builtin-U8/">U8</a> val , (<a href="../builtin-U128/">U128</a> val , <a href="../builtin-U128/">U128</a> val))</li>
+<li>sample: <a href="../ponycheck-IntPairPropertySample/">IntPairPropertySample</a> ref</li>
 <li>h: <a href="../ponycheck-PropertyHelper/">PropertyHelper</a> val</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
@@ -3473,7 +3509,7 @@ for pairs of integers of all Pony integer types at once.</p>
 </ul>
 <hr />
 <h3 id="int_property91t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93">int_property[T: ((<a href="../builtin-I8/">I8</a> val | <a href="../builtin-I16/">I16</a> val | <a href="../builtin-I32/">I32</a> val | <a href="../builtin-I64/">I64</a> val | <a href="../builtin-I128/">I128</a> val | <a href="../builtin-ILong/">ILong</a> val | <a href="../builtin-ISize/">ISize</a> val | <a href="../builtin-U8/">U8</a> val | <a href="../builtin-U16/">U16</a> val | <a href="../builtin-U32/">U32</a> val | <a href="../builtin-U64/">U64</a> val | <a href="../builtin-U128/">U128</a> val | <a href="../builtin-ULong/">ULong</a> val | <a href="../builtin-USize/">USize</a> val) &amp; <a href="../builtin-Integer/">Integer</a>[T] val)]<a class="headerlink" href="#int_property91t-i8-val-i16-val-i32-val-i64-val-i128-val-ilong-val-isize-val-u8-val-u16-val-u32-val-u64-val-u128-val-ulong-val-usize-val-integer91t93-val93" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L91">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponycheck/int_properties/#L145">[Source]</a></span></p>
 <pre><code class="pony">fun ref int_property[T: ((I8 val | I16 val | I32 val | 
     I64 val | I128 val | ILong val | 
     ISize val | U8 val | U16 val | 
@@ -3538,7 +3574,7 @@ for pairs of integers of all Pony integer types at once.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3547,7 +3583,7 @@ for pairs of integers of all Pony integer types at once.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                trait IntProperty
+                class IntPairPropertySample
               </span>
             </div>
           </a>

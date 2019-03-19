@@ -350,8 +350,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -902,18 +926,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1324,6 +1336,18 @@
   <li class="md-nav__item">
     <a href="../../../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2807,6 +2831,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3278,10 +3314,10 @@
     @&quot;llvm.umul.with.overflow.i8&quot;[(U8, Bool)](this, y)
 
   fun divc(y: U8): (U8, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[U8](this, y)
+    _UnsignedCheckedArithmetic.div_checked[U8](this, y)
 
   fun remc(y: U8): (U8, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[U8](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[U8](this, y)
 
   fun add_partial(y: U8): U8 ? =&gt;
     _UnsignedPartialArithmetic.add_partial[U8](this, y)?
@@ -3350,10 +3386,10 @@ primitive U16 is UnsignedInteger[U16]
     @&quot;llvm.umul.with.overflow.i16&quot;[(U16, Bool)](this, y)
 
   fun divc(y: U16): (U16, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[U16](this, y)
+    _UnsignedCheckedArithmetic.div_checked[U16](this, y)
 
   fun remc(y: U16): (U16, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[U16](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[U16](this, y)
 
   fun add_partial(y: U16): U16 ? =&gt;
     _UnsignedPartialArithmetic.add_partial[U16](this, y)?
@@ -3422,10 +3458,10 @@ primitive U32 is UnsignedInteger[U32]
     @&quot;llvm.umul.with.overflow.i32&quot;[(U32, Bool)](this, y)
 
   fun divc(y: U32): (U32, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[U32](this, y)
+    _UnsignedCheckedArithmetic.div_checked[U32](this, y)
 
   fun remc(y: U32): (U32, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[U32](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[U32](this, y)
 
   fun add_partial(y: U32): U32 ? =&gt;
     _UnsignedPartialArithmetic.add_partial[U32](this, y)?
@@ -3501,10 +3537,10 @@ primitive U64 is UnsignedInteger[U64]
     @&quot;llvm.umul.with.overflow.i64&quot;[(U64, Bool)](this, y)
 
   fun divc(y: U64): (U64, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[U64](this, y)
+    _UnsignedCheckedArithmetic.div_checked[U64](this, y)
 
   fun remc(y: U64): (U64, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[U64](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[U64](this, y)
 
   fun add_partial(y: U64): U64 ? =&gt;
     _UnsignedPartialArithmetic.add_partial[U64](this, y)?
@@ -3636,10 +3672,10 @@ primitive ULong is UnsignedInteger[ULong]
     end
 
   fun divc(y: ULong): (ULong, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[ULong](this, y)
+    _UnsignedCheckedArithmetic.div_checked[ULong](this, y)
 
   fun remc(y: ULong): (ULong, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[ULong](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[ULong](this, y)
 
   fun add_partial(y: ULong): ULong ? =&gt;
     _UnsignedPartialArithmetic.add_partial[ULong](this, y)?
@@ -3764,10 +3800,10 @@ primitive USize is UnsignedInteger[USize]
     end
 
   fun divc(y: USize): (USize, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[USize](this, y)
+    _UnsignedCheckedArithmetic.div_checked[USize](this, y)
 
   fun remc(y: USize): (USize, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[USize](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[USize](this, y)
 
   fun add_partial(y: USize): USize ? =&gt;
     _UnsignedPartialArithmetic.add_partial[USize](this, y)?
@@ -4046,10 +4082,10 @@ primitive U128 is UnsignedInteger[U128]
     end
 
   fun divc(y: U128): (U128, Bool) =&gt;
-    _UnsignedPartialArithmetic.div_checked[U128](this, y)
+    _UnsignedCheckedArithmetic.div_checked[U128](this, y)
 
   fun remc(y: U128): (U128, Bool) =&gt;
-    _UnsignedPartialArithmetic.rem_checked[U128](this, y)
+    _UnsignedCheckedArithmetic.rem_checked[U128](this, y)
 
   fun add_partial(y: U128): U128 ? =&gt;
     _UnsignedPartialArithmetic.add_partial[U128](this, y)?

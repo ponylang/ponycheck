@@ -605,8 +605,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -1157,18 +1181,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1579,6 +1591,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -3053,6 +3077,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3771,14 +3807,14 @@ reported.</p>
 concurrent tests.</p>
 <pre><code class="pony">fun box log(
   msg: String val,
-  verbose: Bool val = seq)
+  verbose: Bool val = false)
 : None val
 </code></pre>
 
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>msg: <a href="../builtin-String/">String</a> val</li>
-<li>verbose: <a href="../builtin-Bool/">Bool</a> val = seq</li>
+<li>verbose: <a href="../builtin-Bool/">Bool</a> val = false</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3789,13 +3825,13 @@ concurrent tests.</p>
 <p><span class="source-link"><a href="../src/ponycheck/property_helper/#L78">[Source]</a></span></p>
 <p>Flag the test as having failed.</p>
 <pre><code class="pony">fun box fail(
-  msg: String val = seq)
+  msg: String val = &quot;Test failed&quot;)
 : None val
 </code></pre>
 
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = "Test failed"</li>
 </ul>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3807,16 +3843,16 @@ concurrent tests.</p>
 <p>Assert that the given expression is false.</p>
 <pre><code class="pony">fun box assert_false(
   predicate: Bool val,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>predicate: <a href="../builtin-Bool/">Bool</a> val</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3828,16 +3864,16 @@ concurrent tests.</p>
 <p>Assert that the given expression is true.</p>
 <pre><code class="pony">fun box assert_true(
   predicate: Bool val,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
 <h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>predicate: <a href="../builtin-Bool/">Bool</a> val</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3849,16 +3885,16 @@ concurrent tests.</p>
 <p>Assert that the given test function throws an error when run.</p>
 <pre><code class="pony">fun box assert_error(
   test: {(): None ?} box,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
 <h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>test: {(): None ?} box</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3870,16 +3906,16 @@ concurrent tests.</p>
 <p>Assert that the given test function does not throw an error when run.</p>
 <pre><code class="pony">fun box assert_no_error(
   test: {(): None ?} box,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
 <h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>test: {(): None ?} box</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3892,8 +3928,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_is[A: A](
   expect: A,
   actual: A,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -3901,8 +3937,8 @@ concurrent tests.</p>
 <ul>
 <li>expect: A</li>
 <li>actual: A</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3915,8 +3951,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_isnt[A: A](
   not_expect: A,
   actual: A,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -3924,8 +3960,8 @@ concurrent tests.</p>
 <ul>
 <li>not_expect: A</li>
 <li>actual: A</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3938,8 +3974,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_eq[A: (Equatable[A] #read &amp; Stringable #read)](
   expect: A,
   actual: A,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -3947,8 +3983,8 @@ concurrent tests.</p>
 <ul>
 <li>expect: A</li>
 <li>actual: A</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3961,8 +3997,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_ne[A: (Equatable[A] #read &amp; Stringable #read)](
   not_expect: A,
   actual: A,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -3970,8 +4006,8 @@ concurrent tests.</p>
 <ul>
 <li>not_expect: A</li>
 <li>actual: A</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3984,8 +4020,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_array_eq[A: (Equatable[A] #read &amp; Stringable #read)](
   expect: ReadSeq[A] box,
   actual: ReadSeq[A] box,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -3993,8 +4029,8 @@ concurrent tests.</p>
 <ul>
 <li>expect: <a href="../builtin-ReadSeq/">ReadSeq</a>[A] box</li>
 <li>actual: <a href="../builtin-ReadSeq/">ReadSeq</a>[A] box</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4007,8 +4043,8 @@ concurrent tests.</p>
 <pre><code class="pony">fun box assert_array_eq_unordered[A: (Equatable[A] #read &amp; Stringable #read)](
   expect: ReadSeq[A] box,
   actual: ReadSeq[A] box,
-  msg: String val = seq,
-  loc: SourceLoc val = seq)
+  msg: String val = &quot;&quot;,
+  loc: SourceLoc val = __loc)
 : Bool val
 </code></pre>
 
@@ -4016,8 +4052,8 @@ concurrent tests.</p>
 <ul>
 <li>expect: <a href="../builtin-ReadSeq/">ReadSeq</a>[A] box</li>
 <li>actual: <a href="../builtin-ReadSeq/">ReadSeq</a>[A] box</li>
-<li>msg: <a href="../builtin-String/">String</a> val = seq</li>
-<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = seq</li>
+<li>msg: <a href="../builtin-String/">String</a> val = ""</li>
+<li>loc: <a href="../builtin-SourceLoc/">SourceLoc</a> val = __loc</li>
 </ul>
 <h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
 <ul>

@@ -350,8 +350,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -902,18 +926,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1324,6 +1336,18 @@
   <li class="md-nav__item">
     <a href="../../../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2800,6 +2824,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3481,6 +3517,17 @@ class val TestHelper
   =&gt;
     &quot;&quot;&quot;
     Assert that the contents of the 2 given ReadSeqs are equal.
+
+    The type parameter of this function is the type parameter of the
+    elements in both ReadSeqs. For instance, when comparing two `Array[U8]`,
+    you should call this method as follows:
+
+    ```pony
+    fun apply(h: TestHelper) =&gt;
+      let a: Array[U8] = [1; 2; 3]
+      let b: Array[U8] = [1; 2; 3]
+      h.assert_array_eq[U8](a, b)
+    ```
     &quot;&quot;&quot;
     var ok = true
 
@@ -3523,6 +3570,17 @@ class val TestHelper
   =&gt;
     &quot;&quot;&quot;
     Assert that the contents of the 2 given ReadSeqs are equal ignoring order.
+
+    The type parameter of this function is the type parameter of the
+    elements in both ReadSeqs. For instance, when comparing two `Array[U8]`,
+    you should call this method as follows:
+
+    ```pony
+    fun apply(h: TestHelper) =&gt;
+      let a: Array[U8] = [1; 2; 3]
+      let b: Array[U8] = [1; 3; 2]
+      h.assert_array_eq_unordered[U8](a, b)
+    ```
     &quot;&quot;&quot;
     try
       let missing = Array[box-&gt;A]
@@ -3575,6 +3633,9 @@ class val TestHelper
     &quot;&quot;&quot;
     Generate a printable string of the contents of the given readseq to use in
     error messages.
+
+    The type parameter of this function is the type parameter of the
+    elements in the ReadSeq.
     &quot;&quot;&quot;
     &quot;[len=&quot; + array.size().string() + &quot;: &quot; + &quot;, &quot;.join(array.values()) + &quot;]&quot;
 

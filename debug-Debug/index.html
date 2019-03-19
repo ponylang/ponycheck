@@ -354,8 +354,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponycheck-IntPropertySample/" title="class IntPropertySample" class="md-nav__link">
+      class IntPropertySample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponycheck-IntProperty/" title="trait IntProperty" class="md-nav__link">
       trait IntProperty
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponycheck-IntPairPropertySample/" title="class IntPairPropertySample" class="md-nav__link">
+      class IntPairPropertySample
     </a>
   </li>
 
@@ -906,18 +930,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
-      interface DisposableActor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../builtin-InputStream/" title="interface InputStream" class="md-nav__link">
       interface InputStream
     </a>
@@ -1328,6 +1340,18 @@
   <li class="md-nav__item">
     <a href="../builtin-DoNotOptimise/" title="primitive DoNotOptimise" class="md-nav__link">
       primitive DoNotOptimise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../builtin-DisposableActor/" title="interface DisposableActor" class="md-nav__link">
+      interface DisposableActor
     </a>
   </li>
 
@@ -2921,6 +2945,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/disposable_actor/" title="disposable_actor.pony" class="md-nav__link">
+      disposable_actor.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/compare/" title="compare.pony" class="md-nav__link">
       compare.pony
     </a>
@@ -3460,7 +3496,6 @@
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/debug/debug/#L24">[Source]</a></span></p>
-<p>Default constructor.</p>
 <pre><code class="pony">new val create()
 : Debug val^
 </code></pre>
@@ -3478,16 +3513,16 @@ sequence of stringables. The default separator is ", ", and the default
 output stream is stdout.</p>
 <pre><code class="pony">fun box apply(
   msg: (Stringable box | ReadSeq[Stringable box] box),
-  sep: String val = seq,
-  stream: (DebugOut val | DebugErr val) = seq)
+  sep: String val = &quot;, &quot;,
+  stream: (DebugOut val | DebugErr val) = reference)
 : None val
 </code></pre>
 
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>msg: (<a href="../builtin-Stringable/">Stringable</a> box | <a href="../builtin-ReadSeq/">ReadSeq</a>[<a href="../builtin-Stringable/">Stringable</a> box] box)</li>
-<li>sep: <a href="../builtin-String/">String</a> val = seq</li>
-<li>stream: (<a href="../debug-DebugOut/">DebugOut</a> val | <a href="../debug-DebugErr/">DebugErr</a> val) = seq</li>
+<li>sep: <a href="../builtin-String/">String</a> val = ", "</li>
+<li>stream: (<a href="../debug-DebugOut/">DebugOut</a> val | <a href="../debug-DebugErr/">DebugErr</a> val) = reference</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3498,13 +3533,13 @@ output stream is stdout.</p>
 <p><span class="source-link"><a href="../src/debug/debug/#L47">[Source]</a></span></p>
 <p>If platform is debug configured, print message to standard output</p>
 <pre><code class="pony">fun box out(
-  msg: Stringable box = seq)
+  msg: Stringable box = &quot;&quot;)
 : None val
 </code></pre>
 
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>msg: <a href="../builtin-Stringable/">Stringable</a> box = seq</li>
+<li>msg: <a href="../builtin-Stringable/">Stringable</a> box = ""</li>
 </ul>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3515,13 +3550,13 @@ output stream is stdout.</p>
 <p><span class="source-link"><a href="../src/debug/debug/#L53">[Source]</a></span></p>
 <p>If platform is debug configured, print message to standard error</p>
 <pre><code class="pony">fun box err(
-  msg: Stringable box = seq)
+  msg: Stringable box = &quot;&quot;)
 : None val
 </code></pre>
 
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
-<li>msg: <a href="../builtin-Stringable/">Stringable</a> box = seq</li>
+<li>msg: <a href="../builtin-Stringable/">Stringable</a> box = ""</li>
 </ul>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
