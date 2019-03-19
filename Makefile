@@ -1,44 +1,47 @@
-CC ?= gcc
-SRCDIR=ponycheck
-
-EXAMPLES_DIR = examples
 PONYC ?= ponyc
-DEPS = $(shell ls $(SRCDIR)/*.pony)
-
-FLAGS ?=
-TESTFLAGS ?=
-ifneq (${DEBUG},)
-    FLAGS += --debug
-    #    TESTFLAGS += --verbose
+config ?= debug
+ifdef config
+  ifeq (,$(filter $(config),debug release))
+    $(error Unknown configuration "$(config)")
+  endif
 endif
 
-TEST_PROGRAM = test
-TEST_DEPS = $(shell ls $(SRCDIR)/test/*.pony)
+ifeq ($(config),debug)
+	PONYC_FLAGS += --debug
+endif
 
-EXAMPLES_DEPS = $(shell ls $(EXAMPLES_DIR)/*.pony)
+PONYC_FLAGS += -o build/$(config)
+ALL: test
 
-run_test: test
-	./test $(TESTFLAGS)
+build/$(config)/test: ponycheck/*.pony ponycheck/test/*.pony .deps build/$(config)
+	stable env ${PONYC} ${PONYC_FLAGS} ponycheck/test
+
+build/$(config)/examples: PONYC_FLAGS += --bin-name=examples
+build/$(config)/examples: ponycheck/*.pony examples/*.pony .deps build/$(config)
+	stable env ${PONYC} ${PONYC_FLAGS} examples
+
+build/$(config):
+	mkdir -p build/$(config)
+
+.deps:
+	stable fetch
+
+test: build/$(config)/test
+	build/$(config)/test
+
+examples: build/$(config)/examples
+	build/$(config)/examples
 
 clean:
-	rm -f test $(EXAMPLES_DIR)/examples
+	rm -rf build/$(config)
 
-
-test: $(DEPS) $(TEST_DEPS)
-	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)/test
-
-docs: FLAGS += --pass=expr --docs-public --output=docs-tmp
-docs: $(DEPS) $(TEST_DEPS)
+docs: PONYC_FLAGS += --pass=expr --docs-public --output=docs-tmp
+docs:
 	rm -rf docs-tmp
-	CC=$(CC) $(PONYC) $(FLAGS) $(SRCDIR)
+	${PONYC} ${PONYC_FLAGS} ponycheck
 	cd docs-tmp/ponycheck-docs && mkdocs build
 	rm -rf docs
 	cp -R docs-tmp/ponycheck-docs/site docs
 	rm -rf docs-tmp
 
-examples: $(EXAMPLES_DEPS)
-	cd $(EXAMPLES_DIR) && \
-	    CC=$(CC) $(PONYC) $(FLAGS) . && \
-	    ./examples
-
-.PHONY: examples fetch clean docs
+.PHONY: examples clean test docs
