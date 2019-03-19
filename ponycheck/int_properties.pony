@@ -92,14 +92,7 @@ class IntPairPropertySample is Stringable
   fun string(): String iso^ =>
     let num1: String val = _StringifyIntArg(choice, int1)
     let num2: String val = _StringifyIntArg(choice, int2)
-      recover iso
-        String()
-          .>append("(")
-          .>append(num1)
-          .>append(", ")
-          .>append(num2)
-          .>append(")")
-      end
+    "".join(["("; num1; ", "; num2; ")"].values())
 
 
 type IntPairUnitTest is Property1UnitTest[IntPairPropertySample]
