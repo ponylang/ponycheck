@@ -75,7 +75,7 @@ class ListReverseProperty is Property1[Array[USize]]
     fun name(): String => "list/reverse"
 
     fun gen(): Generator[Array[USize]] =>
-      Generators.seq_of[USize, Array[USize]](Generators.uSize())
+      Generators.seq_of[USize, Array[USize]](Generators.usize())
     
     fun property(arg1: Array[USize], ph: PropertyHelper) =>
       ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
@@ -85,7 +85,7 @@ class ListReverseOneProperty is Property1[Array[USize]]
     fun name(): String => "list/reverse/one"
 
     fun gen(): Generator[Array[USize]] =>
-      Generators.seq_of[USize, Array[USize]](1, Generators.uSize() where min=1, max=1)
+      Generators.seq_of[USize, Array[USize]](1, Generators.usize() where min=1, max=1)
 
     fun property(arg1: Array[USize], ph: PropertyHelper) =>
       ph.assert_array_eq[USize](arg1, arg1.reverse())
@@ -124,12 +124,12 @@ class ListReverseProperties is UnitTest
     fun name(): String => "list/properties"
 
     fun apply(h: TestHelper) ? =>
-      let gen1 = Generators.seq_of[USize, Array[USize]](Generators.uSize())
+      let gen1 = Generators.seq_of[USize, Array[USize]](Generators.usize())
       Ponycheck.forAll[Array[USize]](gen1, h)({
         (arg1: Array[USize], ph: PropertyHelper) =>
           ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
       })
-      let gen2 = Generators.seq_of[USize, Array[USize]](1, Generators.uSize())
+      let gen2 = Generators.seq_of[USize, Array[USize]](1, Generators.usize())
       Ponycheck.forAll[Array[USize]](gen2, h)({
         (arg1: Array[USize], ph: PropertyHelper) =>
           ph.assert_array_eq[USize](arg1, arg1.reverse())
