@@ -360,7 +360,6 @@ primitive Generators
         let _gen: GenObj[T] = gen
         fun generate(rnd: Randomness): GenerateResult[S] =>
           let size = rnd.usize(min, max)
-          let initial: (S, Array[S]) = (S.create(size), Array[S](size))
 
           let result: S =
             Iter[T^](_gen.value_iter(rnd))
@@ -379,6 +378,55 @@ primitive Generators
               })
           (consume result, shrink_iter)
       end)
+
+  fun iso_seq_of[T: Any #send, S: Seq[T] iso](
+    gen: Generator[T],
+    min: USize = 0,
+    max: USize = 100)
+    : Generator[S]
+  =>
+    """
+    Generate a `Seq[T]` where `T` must be sendable (have a reference capability of `tag`, `val` or `iso`).
+
+    The constraint of the elements being sendable stems from the fact that there is no other way to populate
+    the iso seq if the elements might be non-sendable (i.e. ref), as then the seq would leak references via its elements.
+    """
+    Generator[S](
+      object is GenObj[S]
+        let _gen: GenObj[T] = gen
+        fun generate(rnd: Randomness): GenerateResult[S] =>
+          let size = rnd.usize(min, max)
+
+          let result: S = recover iso S.create(size) end
+          let iter = _gen.value_iter(rnd)
+          var i = USize(0)
+
+          for elem in iter do
+            if i >= size then break end
+
+            result.push(consume elem)
+            i = i + 1
+          end
+          // create shrink_iter with smaller seqs and elements generated from _gen.value_iter
+          let shrink_iter =
+            Iter[USize](CountdownIter(size, min)) //Range(size, min, -1))
+              // .skip(1)
+              .map_stateful[S^]({
+                (s: USize): S^ =>
+                  let res = recover iso S.create(s) end
+                  let s_iter = _gen.value_iter(rnd)
+                  var j = USize(0)
+
+                  for s_elem in s_iter do
+                    if j >= s then break end
+                    res.push(consume s_elem)
+                    j = j + 1
+                  end
+                  consume res
+              })
+          (consume result, shrink_iter)
+      end
+    )
 
   fun array_of[T](
     gen: Generator[T],

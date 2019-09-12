@@ -15,6 +15,7 @@ actor Main is TestList
     test(GenOneOfTest)
     test(GenOneOfSafeTest)
     test(SeqOfTest)
+    test(IsoSeqOfTest)
     test(SetOfTest)
     test(SetOfMaxTest)
     test(SetOfEmptyTest)

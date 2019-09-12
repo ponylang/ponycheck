@@ -169,6 +169,44 @@ class SeqOfTest is UnitTest
       h.fail("Generators.seq_of did not produce any shrinks")
     end
 
+class IsoSeqOfTest is UnitTest
+  let min: USize = 0
+  let max: USize = 200
+  fun name(): String => "Gen/iso_seq_of"
+
+  fun apply(h: TestHelper) ? =>
+    let seq_gen = Generators.iso_seq_of[String, Array[String] iso](
+      Generators.ascii(),
+      min,
+      max
+    )
+    let rnd = Randomness(Time.millis())
+    h.assert_true(
+      Iter[Array[String] iso^](seq_gen.value_iter(rnd))
+        .take(100)
+        .all({
+          (a: Array[String] iso): Bool =>
+            (a.size() >= min) and (a.size() <= max) }),
+      "Seqs generated with Generators.iso_seq_of are out of bounds")
+
+    match seq_gen.generate(rnd)?
+    | (let gen_sample: Array[String] iso, let shrinks: Iter[Array[String] iso^]) =>
+      let max_size = gen_sample.size()
+      h.assert_true(
+        Iter[Array[String] iso^](shrinks)
+          .all({(a: Array[String] iso): Bool =>
+            if not (a.size() < max_size) then
+              h.log(a.size().string() + " >= " + max_size.string())
+              false
+            else
+              true
+            end
+          }),
+        "shrinking of Generators.iso_seq_of produces too big Seqs")
+    else
+      h.fail("Generators.iso_seq_of did not produce any shrinks")
+    end
+
 class SetOfTest is UnitTest
   fun name(): String => "Gen/set_of"
 
