@@ -3763,6 +3763,37 @@ primitive Generators
   =&gt;
     Generators.seq_of[T, Array[T]](gen, min, max)
 
+  fun shuffled_array_gen[T](
+    gen: Generator[Array[T]])
+    : Generator[Array[T]]
+  =&gt;
+    Generator[Array[T]](
+      object is GenObj[Array[T]]
+        let _gen: GenObj[Array[T]] = gen
+        fun generate(rnd: Randomness): GenerateResult[Array[T]] ? =&gt;
+          (let arr, let source_shrink_iter) = _gen.generate_and_shrink(rnd)?
+            rnd.shuffle[T](arr)
+            let shrink_iter =
+              Iter[Array[T]](source_shrink_iter)
+                .map_stateful[Array[T]^]({
+                  (shrink_arr: Array[T]): Array[T]^ =&gt;
+                     rnd.shuffle[T](shrink_arr)
+                     consume shrink_arr
+                })
+            (consume arr, shrink_iter)
+      end
+    )
+
+  fun shuffled_iter[T](array: Array[T]): Generator[Iterator[this-&gt;T!]] =&gt;
+    Generator[Iterator[this-&gt;T!]](
+      object is GenObj[Iterator[this-&gt;T!]]
+        fun generate(rnd: Randomness): GenerateResult[Iterator[this-&gt;T!]] =&gt;
+          let cloned = array.clone()
+          rnd.shuffle[this-&gt;T!](cloned)
+          cloned.values()
+      end
+    )
+
   fun list_of[T](
     gen: Generator[T],
     min: USize = 0,
