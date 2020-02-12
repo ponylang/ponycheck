@@ -236,4 +236,7 @@ class ref Randomness
     """
     (_random.next() % 2) == 0
 
+  fun ref shuffle[T](array: Array[T] ref) =>
+    _random.shuffle[T](array)
+
 
