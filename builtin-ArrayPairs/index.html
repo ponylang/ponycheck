@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.6">
     
     
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.dfc6cb0c.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.b80b25f7.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.6586f7cd.js"></script>
+      <script src="../assets/javascripts/modernizr.0b5df86e.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -66,9 +66,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="../#arraypairs91a-a-b-array91a93-read93" tabindex="1" class="md-skip">
         Skip to content
@@ -1124,6 +1124,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../builtin-RuntimeOptions/" title="struct RuntimeOptions" class="md-nav__link">
+      struct RuntimeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../builtin-Real/" title="trait Real" class="md-nav__link">
       trait Real
     </a>
@@ -1256,8 +1268,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
-      primitive None
+    <a href="../builtin-NullablePointer/" title="struct NullablePointer" class="md-nav__link">
+      struct NullablePointer
     </a>
   </li>
 
@@ -1268,8 +1280,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
-      struct MaybePointer
+    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
     </a>
   </li>
 
@@ -2399,6 +2411,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../random-XorOshiro128StarStar/" title="class XorOshiro128StarStar" class="md-nav__link">
+      class XorOshiro128StarStar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../random-SplitMix64/" title="class SplitMix64" class="md-nav__link">
+      class SplitMix64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../random-Rand/" title="type Rand" class="md-nav__link">
       type Rand
     </a>
@@ -2807,6 +2843,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/runtime_options/" title="runtime_options.pony" class="md-nav__link">
+      runtime_options.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/real/" title="real.pony" class="md-nav__link">
       real.pony
     </a>
@@ -2855,8 +2903,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
-      none.pony
+    <a href="../src/builtin/nullable_pointer/" title="nullable_pointer.pony" class="md-nav__link">
+      nullable_pointer.pony
     </a>
   </li>
 
@@ -2867,8 +2915,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
-      maybe_pointer.pony
+    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
+      none.pony
     </a>
   </li>
 
@@ -3239,6 +3287,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/random/splitmix64/" title="splitmix64.pony" class="md-nav__link">
+      splitmix64.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/random/random/" title="random.pony" class="md-nav__link">
       random.pony
     </a>
@@ -3452,7 +3512,7 @@
                 
                 
                 <h1 id="arraypairs91a-a-b-array91a93-read93">ArrayPairs[A: A, B: <a href="../builtin-Array/">Array</a>[A] #read]<a class="headerlink" href="#arraypairs91a-a-b-array91a93-read93" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/builtin/array/#L899">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/array/#L944">[Source]</a></span></p>
 <pre><code class="pony">class ref ArrayPairs[A: A, B: Array[A] #read] is
   Iterator[(USize val , B-&gt;A)] ref
 </code></pre>
@@ -3464,7 +3524,7 @@
 <hr />
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/array/#L903">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/array/#L948">[Source]</a></span></p>
 <pre><code class="pony">new ref create(
   array: B)
 : ArrayPairs[A, B] ref^
@@ -3481,7 +3541,7 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="has_next">has_next<a class="headerlink" href="#has_next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/array/#L907">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/array/#L952">[Source]</a></span></p>
 <pre><code class="pony">fun box has_next()
 : Bool val
 </code></pre>
@@ -3492,7 +3552,7 @@
 </ul>
 <hr />
 <h3 id="next">next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/array/#L910">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/array/#L955">[Source]</a></span></p>
 <pre><code class="pony">fun ref next()
 : (USize val , B-&gt;A) ?
 </code></pre>

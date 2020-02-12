@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.6">
     
     
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.dfc6cb0c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.b80b25f7.css">
       
     
     
-      <script src="../../../assets/javascripts/modernizr.6586f7cd.js"></script>
+      <script src="../../../assets/javascripts/modernizr.0b5df86e.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -66,9 +66,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
     
       <header class="md-header" data-md-component="header">
@@ -1118,6 +1118,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-RuntimeOptions/" title="struct RuntimeOptions" class="md-nav__link">
+      struct RuntimeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-Real/" title="trait Real" class="md-nav__link">
       trait Real
     </a>
@@ -1250,8 +1262,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-None/" title="primitive None" class="md-nav__link">
-      primitive None
+    <a href="../../../builtin-NullablePointer/" title="struct NullablePointer" class="md-nav__link">
+      struct NullablePointer
     </a>
   </li>
 
@@ -1262,8 +1274,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
-      struct MaybePointer
+    <a href="../../../builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
     </a>
   </li>
 
@@ -2294,6 +2306,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../random-XorOshiro128StarStar/" title="class XorOshiro128StarStar" class="md-nav__link">
+      class XorOshiro128StarStar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../random-SplitMix64/" title="class SplitMix64" class="md-nav__link">
+      class SplitMix64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../random-Rand/" title="type Rand" class="md-nav__link">
       type Rand
     </a>
@@ -2711,6 +2747,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../runtime_options/" title="runtime_options.pony" class="md-nav__link">
+      runtime_options.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../real/" title="real.pony" class="md-nav__link">
       real.pony
     </a>
@@ -2759,8 +2807,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../none/" title="none.pony" class="md-nav__link">
-      none.pony
+    <a href="../nullable_pointer/" title="nullable_pointer.pony" class="md-nav__link">
+      nullable_pointer.pony
     </a>
   </li>
 
@@ -2771,8 +2819,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
-      maybe_pointer.pony
+    <a href="../none/" title="none.pony" class="md-nav__link">
+      none.pony
     </a>
   </li>
 
@@ -3133,6 +3181,18 @@
   <li class="md-nav__item">
     <a href="../../random/xoroshiro/" title="xoroshiro.pony" class="md-nav__link">
       xoroshiro.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../random/splitmix64/" title="splitmix64.pony" class="md-nav__link">
+      splitmix64.pony
     </a>
   </li>
 
@@ -3677,19 +3737,19 @@ actor Main
     &quot;&quot;&quot;
     Chops the string in half at the split point requested and returns both
     the left and right portions. The original string is trimmed in place and
-    returned as the right portion. If the split point is larger than the
+    returned as the left portion. If the split point is larger than the
     string, the left portion is the original string and the right portion
     is a new empty string.
     Both strings are isolated and mutable, as they do not share memory.
     The operation does not allocate a new string pointer nor copy elements.
     &quot;&quot;&quot;
-    let start_ptr = _ptr
-    let size' = _size.min(split_point)
-    let alloc = if size' == _size then _alloc else split_point end
+    let start_ptr = cpointer(split_point)
+    let size' = _size - _size.min(split_point)
+    let alloc = _alloc - _size.min(split_point)
 
-    trim_in_place(split_point)
+    trim_in_place(0, split_point)
 
-    let left = recover
+    let right = recover
       if size' &gt; 0 then
         from_cpointer(start_ptr._unsafe(), size', alloc)
       else
@@ -3697,7 +3757,49 @@ actor Main
       end
     end
 
-    (consume left, consume this)
+    (consume this, consume right)
+
+  fun iso unchop(b: String iso): ((String iso^, String iso^) | String iso^) =&gt;
+    &quot;&quot;&quot;
+    Unchops two iso strings to return the original string they were chopped
+    from. Both input strings are isolated and mutable and were originally
+    chopped from a single string. This function checks that they are indeed two
+    strings chopped from the same original string and can be unchopped before
+    doing the unchopping and returning the unchopped string. If the two strings
+    cannot be unchopped it returns both strings without modifying them.
+    The operation does not allocate a new string pointer nor copy elements.
+    &quot;&quot;&quot;
+    if _size == 0 then
+      return consume b
+    end
+
+    if b.size() == 0 then
+      return consume this
+    end
+
+    (let unchoppable, let a_left) =
+      if (_size == _alloc) and (cpointer(_size) == b.cpointer()) then
+        (true, true)
+      elseif (b.size() == b.space()) and (b.cpointer(b.size()) == cpointer())
+        then
+        (true, false)
+      else
+        (false, false)
+      end
+
+    if not unchoppable then
+      return (consume this, consume b)
+    end
+
+    if a_left then
+      _alloc = _alloc + b._alloc
+      _size = _size + b._size
+      consume this
+    else
+      b._alloc = b._alloc + _alloc
+      b._size = b._size + _size
+      consume b
+    end
 
   fun is_null_terminated(): Bool =&gt;
     &quot;&quot;&quot;
@@ -3837,6 +3939,30 @@ actor Main
     str._size = len
     str._set(len, 0)
     str
+
+  fun repeat_str(num: USize = 1, sep: String = &quot;&quot;): String iso^ =&gt;
+    &quot;&quot;&quot;
+    Returns a copy of the string repeated `num` times with an optional
+    separator added inbetween repeats.
+    &quot;&quot;&quot;
+    var c = num
+    var str = recover String((_size + sep.size()) * c) end
+
+    while c &gt; 0 do
+      c = c - 1
+      str = (consume str)._append(this)
+      if (sep.size() &gt; 0) and (c != 0) then
+        str = (consume str)._append(sep)
+      end
+    end
+
+    consume str
+
+  fun mul(num: USize): String iso^ =&gt;
+    &quot;&quot;&quot;
+    Returns a copy of the string repeated `num` times.
+    &quot;&quot;&quot;
+    repeat_str(num)
 
   fun find(s: String box, offset: ISize = 0, nth: USize = 0): ISize ? =&gt;
     &quot;&quot;&quot;
@@ -4301,11 +4427,31 @@ actor Main
     Split the string into an array of strings that are delimited by `delim` in
     the original string. If `n &gt; 0`, then the split count is limited to n.
 
+    Example:
+
+    ```pony
+    let original: String = &quot;&lt;b&gt;&lt;span&gt;Hello!&lt;/span&gt;&lt;/b&gt;&quot;
+    let delimiter: String = &quot;&gt;&lt;&quot;
+    let split_array: Array[String] = original.split_by(delimiter)
+    env.out.print(&quot;OUTPUT:&quot;)
+    for value in split_array.values() do
+      env.out.print(value)
+    end
+
+    // OUTPUT:
+    // &lt;b
+    // span&gt;Hello!&lt;/span
+    // b&gt;
+    ```
+
     Adjacent delimiters result in a zero length entry in the array. For
-    example, `&quot;1,,2&quot;.split(&quot;,&quot;) =&gt; [&quot;1&quot;, &quot;&quot;, &quot;2&quot;]`.
+    example, `&quot;1CutCut2&quot;.split_by(&quot;Cut&quot;) =&gt; [&quot;1&quot;, &quot;&quot;, &quot;2&quot;]`.
 
     An empty delimiter results in an array that contains a single element equal
     to the whole string.
+
+    If you want to split the string with each individual character of `delim`,
+    use [`split`](#split).
     &quot;&quot;&quot;
     let delim_size = ISize.from[USize](delim.size())
     let total_size = ISize.from[USize](size())
@@ -4325,12 +4471,32 @@ actor Main
 
   fun split(delim: String = &quot; \t\v\f\r\n&quot;, n: USize = 0): Array[String] iso^ =&gt;
     &quot;&quot;&quot;
-    Split the string into an array of strings. Any character in the delimiter
-    string is accepted as a delimiter. If `n &gt; 0`, then the split count is
-    limited to n.
+    Split the string into an array of strings with any character in the
+    delimiter string. By default, the string is split with whitespace
+    characters. If `n &gt; 0`, then the split count is limited to n.
+
+    Example:
+
+    ```pony
+    let original: String = &quot;name,job;department&quot;
+    let delimiter: String = &quot;.,;&quot;
+    let split_array: Array[String] = original.split(delimiter)
+    env.out.print(&quot;OUTPUT:&quot;)
+    for value in split_array.values() do
+      env.out.print(value)
+    end
+
+    // OUTPUT:
+    // name
+    // job
+    // department
+    ```
 
     Adjacent delimiters result in a zero length entry in the array. For
     example, `&quot;1,,2&quot;.split(&quot;,&quot;) =&gt; [&quot;1&quot;, &quot;&quot;, &quot;2&quot;]`.
+
+    If you want to split the string with the entire delimiter string `delim`,
+    use [`split_by`](#split_by).
     &quot;&quot;&quot;
     let result = recover Array[String] end
 

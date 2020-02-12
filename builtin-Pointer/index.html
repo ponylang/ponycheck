@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.6">
     
     
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.dfc6cb0c.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.b80b25f7.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.6586f7cd.js"></script>
+      <script src="../assets/javascripts/modernizr.0b5df86e.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -66,9 +66,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="../#pointer91a-a93" tabindex="1" class="md-skip">
         Skip to content
@@ -1124,6 +1124,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../builtin-RuntimeOptions/" title="struct RuntimeOptions" class="md-nav__link">
+      struct RuntimeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../builtin-Real/" title="trait Real" class="md-nav__link">
       trait Real
     </a>
@@ -1295,6 +1307,15 @@
         
           
             <li class="md-nav__item">
+    <a href="#offset" title="offset" class="md-nav__link">
+    offset
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
     <a href="#usize" title="usize" class="md-nav__link">
     usize
   </a>
@@ -1418,8 +1439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
-      primitive None
+    <a href="../builtin-NullablePointer/" title="struct NullablePointer" class="md-nav__link">
+      struct NullablePointer
     </a>
   </li>
 
@@ -1430,8 +1451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
-      struct MaybePointer
+    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
     </a>
   </li>
 
@@ -2462,6 +2483,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../random-XorOshiro128StarStar/" title="class XorOshiro128StarStar" class="md-nav__link">
+      class XorOshiro128StarStar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../random-SplitMix64/" title="class SplitMix64" class="md-nav__link">
+      class SplitMix64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../random-Rand/" title="type Rand" class="md-nav__link">
       type Rand
     </a>
@@ -2870,6 +2915,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/runtime_options/" title="runtime_options.pony" class="md-nav__link">
+      runtime_options.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/real/" title="real.pony" class="md-nav__link">
       real.pony
     </a>
@@ -2918,8 +2975,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
-      none.pony
+    <a href="../src/builtin/nullable_pointer/" title="nullable_pointer.pony" class="md-nav__link">
+      nullable_pointer.pony
     </a>
   </li>
 
@@ -2930,8 +2987,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
-      maybe_pointer.pony
+    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
+      none.pony
     </a>
   </li>
 
@@ -3302,6 +3359,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/random/splitmix64/" title="splitmix64.pony" class="md-nav__link">
+      splitmix64.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/random/random/" title="random.pony" class="md-nav__link">
       random.pony
     </a>
@@ -3466,6 +3535,15 @@
         
           
             <li class="md-nav__item">
+    <a href="#offset" title="offset" class="md-nav__link">
+    offset
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
     <a href="#usize" title="usize" class="md-nav__link">
     usize
   </a>
@@ -3599,51 +3677,51 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 </ul>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
+<h3 id="offset">offset<a class="headerlink" href="#offset" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L55">[Source]</a></span></p>
+<p>Return a tag pointer to the n-th element.</p>
+<pre><code class="pony">fun tag offset(
+  n: USize val)
+: Pointer[A] tag
+</code></pre>
+
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<ul>
+<li>n: <a href="../builtin-USize/">USize</a> val</li>
+</ul>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="./">Pointer</a>[A] tag</li>
+</ul>
+<hr />
 <h3 id="usize">usize<a class="headerlink" href="#usize" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L83">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L89">[Source]</a></span></p>
 <p>Convert the pointer into an integer.</p>
 <pre><code class="pony">fun tag usize()
 : USize val
 </code></pre>
 
-<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize/">USize</a> val</li>
 </ul>
 <hr />
 <h3 id="is_null">is_null<a class="headerlink" href="#is_null" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L89">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L95">[Source]</a></span></p>
 <p>Return true for a null pointer, false for anything else.</p>
 <pre><code class="pony">fun tag is_null()
 : Bool val
 </code></pre>
 
-<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
-<ul>
-<li><a href="../builtin-Bool/">Bool</a> val</li>
-</ul>
-<hr />
-<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L95">[Source]</a></span></p>
-<p>Return true if this address is that address.</p>
-<pre><code class="pony">fun tag eq(
-  that: Pointer[A] tag)
-: Bool val
-</code></pre>
-
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
-<ul>
-<li>that: <a href="./">Pointer</a>[A] tag</li>
-</ul>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="lt">lt<a class="headerlink" href="#lt" title="Permanent link">&para;</a></h3>
+<h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/pointer/#L101">[Source]</a></span></p>
-<p>Return true if this address is less than that address.</p>
-<pre><code class="pony">fun tag lt(
+<p>Return true if this address is that address.</p>
+<pre><code class="pony">fun tag eq(
   that: Pointer[A] tag)
 : Bool val
 </code></pre>
@@ -3657,9 +3735,10 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
+<h3 id="lt">lt<a class="headerlink" href="#lt" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/pointer/#L107">[Source]</a></span></p>
-<pre><code class="pony">fun tag ne(
+<p>Return true if this address is less than that address.</p>
+<pre><code class="pony">fun tag lt(
   that: Pointer[A] tag)
 : Bool val
 </code></pre>
@@ -3673,9 +3752,9 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="le">le<a class="headerlink" href="#le" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L108">[Source]</a></span></p>
-<pre><code class="pony">fun tag le(
+<h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L113">[Source]</a></span></p>
+<pre><code class="pony">fun tag ne(
   that: Pointer[A] tag)
 : Bool val
 </code></pre>
@@ -3689,9 +3768,9 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="ge">ge<a class="headerlink" href="#ge" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L109">[Source]</a></span></p>
-<pre><code class="pony">fun tag ge(
+<h3 id="le">le<a class="headerlink" href="#le" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L114">[Source]</a></span></p>
+<pre><code class="pony">fun tag le(
   that: Pointer[A] tag)
 : Bool val
 </code></pre>
@@ -3705,9 +3784,9 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="gt">gt<a class="headerlink" href="#gt" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L110">[Source]</a></span></p>
-<pre><code class="pony">fun tag gt(
+<h3 id="ge">ge<a class="headerlink" href="#ge" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L115">[Source]</a></span></p>
+<pre><code class="pony">fun tag ge(
   that: Pointer[A] tag)
 : Bool val
 </code></pre>
@@ -3721,26 +3800,42 @@ functions on a Pointer[A] are private to maintain memory safety.</p>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
+<h3 id="gt">gt<a class="headerlink" href="#gt" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L116">[Source]</a></span></p>
+<pre><code class="pony">fun tag gt(
+  that: Pointer[A] tag)
+: Bool val
+</code></pre>
+
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>that: <a href="./">Pointer</a>[A] tag</li>
+</ul>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="../builtin-Bool/">Bool</a> val</li>
+</ul>
+<hr />
 <h3 id="hash">hash<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L112">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L118">[Source]</a></span></p>
 <p>Returns a hash of the address.</p>
 <pre><code class="pony">fun tag hash()
 : USize val
 </code></pre>
 
-<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-USize/">USize</a> val</li>
 </ul>
 <hr />
 <h3 id="hash64">hash64<a class="headerlink" href="#hash64" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/pointer/#L118">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/builtin/pointer/#L124">[Source]</a></span></p>
 <p>Returns a 64-bit hash of the address.</p>
 <pre><code class="pony">fun tag hash64()
 : U64 val
 </code></pre>
 
-<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U64/">U64</a> val</li>
 </ul>

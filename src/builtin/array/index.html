@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.6">
     
     
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.dfc6cb0c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.b80b25f7.css">
       
     
     
-      <script src="../../../assets/javascripts/modernizr.6586f7cd.js"></script>
+      <script src="../../../assets/javascripts/modernizr.0b5df86e.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -66,9 +66,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
     
       <header class="md-header" data-md-component="header">
@@ -1118,6 +1118,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../builtin-RuntimeOptions/" title="struct RuntimeOptions" class="md-nav__link">
+      struct RuntimeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../builtin-Real/" title="trait Real" class="md-nav__link">
       trait Real
     </a>
@@ -1250,8 +1262,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-None/" title="primitive None" class="md-nav__link">
-      primitive None
+    <a href="../../../builtin-NullablePointer/" title="struct NullablePointer" class="md-nav__link">
+      struct NullablePointer
     </a>
   </li>
 
@@ -1262,8 +1274,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
-      struct MaybePointer
+    <a href="../../../builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
     </a>
   </li>
 
@@ -2294,6 +2306,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../random-XorOshiro128StarStar/" title="class XorOshiro128StarStar" class="md-nav__link">
+      class XorOshiro128StarStar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../random-SplitMix64/" title="class SplitMix64" class="md-nav__link">
+      class SplitMix64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../random-Rand/" title="type Rand" class="md-nav__link">
       type Rand
     </a>
@@ -2704,6 +2740,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../runtime_options/" title="runtime_options.pony" class="md-nav__link">
+      runtime_options.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../real/" title="real.pony" class="md-nav__link">
       real.pony
     </a>
@@ -2752,8 +2800,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../none/" title="none.pony" class="md-nav__link">
-      none.pony
+    <a href="../nullable_pointer/" title="nullable_pointer.pony" class="md-nav__link">
+      nullable_pointer.pony
     </a>
   </li>
 
@@ -2764,8 +2812,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
-      maybe_pointer.pony
+    <a href="../none/" title="none.pony" class="md-nav__link">
+      none.pony
     </a>
   </li>
 
@@ -3143,6 +3191,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../random/splitmix64/" title="splitmix64.pony" class="md-nav__link">
+      splitmix64.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../random/random/" title="random.pony" class="md-nav__link">
       random.pony
     </a>
@@ -3271,7 +3331,7 @@
 
   ## Usage
 
-  Creating an Array of String.
+  Creating an Array of String:
   ```pony
     let array: Array[String] = [&quot;dog&quot;; &quot;cat&quot;; &quot;wombat&quot;]
     // array.size() == 3
@@ -3279,16 +3339,16 @@
   ```
 
   Creating an empty Array of String, which may hold at least 10 elements before
-  requesting more space.
+  requesting more space:
   ```pony
-    let array = Array(10)
+    let array = Array[String](10)
     // array.size() == 0
     // array.space() &gt;= 10
   ```
 
   Accessing elements can be done via the `apply(i: USize): this-&gt;A ?` method.
   The provided index might be out of bounds so `apply` is partial and has to be
-  called within a try-catch block or inside another partial method.
+  called within a try-catch block or inside another partial method:
   ```pony
     let array: Array[String] = [&quot;dog&quot;; &quot;cat&quot;; &quot;wombat&quot;]
     let is_second_element_wobat = try
@@ -3300,8 +3360,8 @@
   ```
 
   Adding and removing elements to and from the end of the Array can be done via
-  `push` and `pop` methods. You could treat the array as a FIFO queue using
-  those methods.
+  `push` and `pop` methods. You could treat the array as a LIFO stack using
+  those methods:
   ```pony
     while (array.size() &gt; 0) do
       let elem = array.pop()?
@@ -3313,7 +3373,7 @@
   which alter the Array at an arbitrary index, moving elements left (when
   deleting) or right (when inserting) as necessary.
 
-  Iterating over the elements of an Array can be done using the `values` method.
+  Iterating over the elements of an Array can be done using the `values` method:
   ```pony
     for element in array.values() do
         // do something with element
@@ -3692,19 +3752,19 @@
     &quot;&quot;&quot;
     Chops the array in half at the split point requested and returns both
     the left and right portions. The original array is trimmed in place and
-    returned as the right portion. If the split point is larger than the
+    returned as the left portion. If the split point is larger than the
     array, the left portion is the original array and the right portion
     is a new empty array.
     Both arrays are isolated and mutable, as they do not share memory.
     The operation does not allocate a new array pointer nor copy elements.
     &quot;&quot;&quot;
-    let start_ptr = _ptr
-    let size' = _size.min(split_point)
-    let alloc = if size' == _size then _alloc else split_point end
+    let start_ptr = cpointer(split_point)
+    let size' = _size - _size.min(split_point)
+    let alloc = _alloc - _size.min(split_point)
 
-    trim_in_place(split_point)
+    trim_in_place(0, split_point)
 
-    let left = recover
+    let right = recover
       if size' &gt; 0 then
         from_cpointer(start_ptr._unsafe(), size', alloc)
       else
@@ -3712,7 +3772,52 @@
       end
     end
 
-    (consume left, consume this)
+    (consume this, consume right)
+
+
+  fun iso unchop(b: Array[A] iso):
+    ((Array[A] iso^, Array[A] iso^) | Array[A] iso^)
+  =&gt;
+    &quot;&quot;&quot;
+    Unchops two iso arrays to return the original array they were chopped from.
+    Both input arrays are isolated and mutable and were originally chopped from
+    a single array. This function checks that they are indeed two arrays chopped
+    from the same original array and can be unchopped before doing the
+    unchopping and returning the unchopped array. If the two arrays cannot be
+    unchopped it returns both arrays without modifying them.
+    The operation does not allocate a new array pointer nor copy elements.
+    &quot;&quot;&quot;
+    if _size == 0 then
+      return consume b
+    end
+
+    if b.size() == 0 then
+      return consume this
+    end
+
+    (let unchoppable, let a_left) =
+      if (_size == _alloc) and (cpointer(_size) == b.cpointer()) then
+        (true, true)
+      elseif (b.size() == b.space()) and (b.cpointer(b.size()) == cpointer())
+        then
+        (true, false)
+      else
+        (false, false)
+      end
+
+    if not unchoppable then
+      return (consume this, consume b)
+    end
+
+    if a_left then
+      _alloc = _alloc + b._alloc
+      _size = _size + b._size
+      consume this
+    else
+      b._alloc = b._alloc + _alloc
+      b._size = b._size + _size
+      consume b
+    end
 
   fun ref copy_from[B: (A &amp; Real[B] val &amp; U8) = A](
     src: Array[U8] box,

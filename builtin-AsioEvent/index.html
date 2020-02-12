@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-ponylang-0.2.6">
     
     
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.dfc6cb0c.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.b80b25f7.css">
       
     
     
-      <script src="../assets/javascripts/modernizr.6586f7cd.js"></script>
+      <script src="../assets/javascripts/modernizr.0b5df86e.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -66,9 +66,9 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="../#asioevent" tabindex="1" class="md-skip">
         Skip to content
@@ -1124,6 +1124,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../builtin-RuntimeOptions/" title="struct RuntimeOptions" class="md-nav__link">
+      struct RuntimeOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../builtin-Real/" title="trait Real" class="md-nav__link">
       trait Real
     </a>
@@ -1256,8 +1268,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
-      primitive None
+    <a href="../builtin-NullablePointer/" title="struct NullablePointer" class="md-nav__link">
+      struct NullablePointer
     </a>
   </li>
 
@@ -1268,8 +1280,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../builtin-MaybePointer/" title="struct MaybePointer" class="md-nav__link">
-      struct MaybePointer
+    <a href="../builtin-None/" title="primitive None" class="md-nav__link">
+      primitive None
     </a>
   </li>
 
@@ -1576,6 +1588,15 @@
             <li class="md-nav__item">
     <a href="#disposable" title="disposable" class="md-nav__link">
     disposable
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+    <a href="#oneshotable" title="oneshotable" class="md-nav__link">
+    oneshotable
   </a>
   
 </li>
@@ -2498,6 +2519,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../random-XorOshiro128StarStar/" title="class XorOshiro128StarStar" class="md-nav__link">
+      class XorOshiro128StarStar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../random-SplitMix64/" title="class SplitMix64" class="md-nav__link">
+      class SplitMix64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../random-Rand/" title="type Rand" class="md-nav__link">
       type Rand
     </a>
@@ -2906,6 +2951,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/builtin/runtime_options/" title="runtime_options.pony" class="md-nav__link">
+      runtime_options.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/builtin/real/" title="real.pony" class="md-nav__link">
       real.pony
     </a>
@@ -2954,8 +3011,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
-      none.pony
+    <a href="../src/builtin/nullable_pointer/" title="nullable_pointer.pony" class="md-nav__link">
+      nullable_pointer.pony
     </a>
   </li>
 
@@ -2966,8 +3023,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../src/builtin/maybe_pointer/" title="maybe_pointer.pony" class="md-nav__link">
-      maybe_pointer.pony
+    <a href="../src/builtin/none/" title="none.pony" class="md-nav__link">
+      none.pony
     </a>
   </li>
 
@@ -3338,6 +3395,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../src/random/splitmix64/" title="splitmix64.pony" class="md-nav__link">
+      splitmix64.pony
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../src/random/random/" title="random.pony" class="md-nav__link">
       random.pony
     </a>
@@ -3538,6 +3607,15 @@
         
           
             <li class="md-nav__item">
+    <a href="#oneshotable" title="oneshotable" class="md-nav__link">
+    oneshotable
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
     <a href="#dispose" title="dispose" class="md-nav__link">
     dispose
   </a>
@@ -3731,20 +3809,26 @@
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
+<h3 id="oneshotable">oneshotable<a class="headerlink" href="#oneshotable" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/builtin/asio_event/#L34">[Source]</a></span></p>
-<pre><code class="pony">fun box dispose()
-: U32 val
+<p>Returns true if the flags contain the oneshot flag.</p>
+<pre><code class="pony">fun box oneshotable(
+  flags: U32 val)
+: Bool val
 </code></pre>
 
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>flags: <a href="../builtin-U32/">U32</a> val</li>
+</ul>
 <h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../builtin-U32/">U32</a> val</li>
+<li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-<h3 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L36">[Source]</a></span></p>
-<pre><code class="pony">fun box read()
+<h3 id="dispose">dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L40">[Source]</a></span></p>
+<pre><code class="pony">fun box dispose()
 : U32 val
 </code></pre>
 
@@ -3753,9 +3837,9 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="write">write<a class="headerlink" href="#write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L38">[Source]</a></span></p>
-<pre><code class="pony">fun box write()
+<h3 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L42">[Source]</a></span></p>
+<pre><code class="pony">fun box read()
 : U32 val
 </code></pre>
 
@@ -3764,9 +3848,9 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="timer">timer<a class="headerlink" href="#timer" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L40">[Source]</a></span></p>
-<pre><code class="pony">fun box timer()
+<h3 id="write">write<a class="headerlink" href="#write" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L44">[Source]</a></span></p>
+<pre><code class="pony">fun box write()
 : U32 val
 </code></pre>
 
@@ -3775,9 +3859,9 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="signal">signal<a class="headerlink" href="#signal" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L42">[Source]</a></span></p>
-<pre><code class="pony">fun box signal()
+<h3 id="timer">timer<a class="headerlink" href="#timer" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L46">[Source]</a></span></p>
+<pre><code class="pony">fun box timer()
 : U32 val
 </code></pre>
 
@@ -3786,9 +3870,9 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="read_write">read_write<a class="headerlink" href="#read_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L44">[Source]</a></span></p>
-<pre><code class="pony">fun box read_write()
+<h3 id="signal">signal<a class="headerlink" href="#signal" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L48">[Source]</a></span></p>
+<pre><code class="pony">fun box signal()
 : U32 val
 </code></pre>
 
@@ -3797,9 +3881,9 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="oneshot">oneshot<a class="headerlink" href="#oneshot" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L46">[Source]</a></span></p>
-<pre><code class="pony">fun box oneshot()
+<h3 id="read_write">read_write<a class="headerlink" href="#read_write" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L50">[Source]</a></span></p>
+<pre><code class="pony">fun box read_write()
 : U32 val
 </code></pre>
 
@@ -3808,13 +3892,24 @@
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
 <hr />
-<h3 id="read_write_oneshot">read_write_oneshot<a class="headerlink" href="#read_write_oneshot" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/builtin/asio_event/#L48">[Source]</a></span></p>
-<pre><code class="pony">fun box read_write_oneshot()
+<h3 id="oneshot">oneshot<a class="headerlink" href="#oneshot" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L52">[Source]</a></span></p>
+<pre><code class="pony">fun box oneshot()
 : U32 val
 </code></pre>
 
 <h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="../builtin-U32/">U32</a> val</li>
+</ul>
+<hr />
+<h3 id="read_write_oneshot">read_write_oneshot<a class="headerlink" href="#read_write_oneshot" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/builtin/asio_event/#L54">[Source]</a></span></p>
+<pre><code class="pony">fun box read_write_oneshot()
+: U32 val
+</code></pre>
+
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-U32/">U32</a> val</li>
 </ul>
@@ -3826,11 +3921,11 @@
 : Bool val
 </code></pre>
 
-<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="./">AsioEvent</a> val</li>
 </ul>
-<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
@@ -3842,11 +3937,11 @@
 : Bool val
 </code></pre>
 
-<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="./">AsioEvent</a> val</li>
 </ul>
-<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../builtin-Bool/">Bool</a> val</li>
 </ul>
