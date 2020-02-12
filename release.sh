@@ -32,7 +32,7 @@ verify_args
 
 # create version release branch
 git checkout master
-git pull
+git pull origin master
 if ! git diff --exit-code master origin/master
 then
   echo "ERROR! There are local-only changes on branch 'master'!"
@@ -51,6 +51,7 @@ git commit -m "Prep for $version release
 
 # merge into release
 git checkout release
+git pull origin release
 if ! git diff --exit-code release origin/release
 then
   echo "ERROR! There are local-only changes on branch 'release'!"
@@ -71,7 +72,7 @@ git merge "release-$version"
 git push origin master
 
 # build docs and publish on gh-pages branch
-make docs PONYC=${PONYC:-ponyc}
+make docs PONYC="${PONYC:-ponyc}"
 TEMP_DIR="$(mktemp -d)"
 mv docs "${TEMP_DIR}/"
 git checkout gh-pages
