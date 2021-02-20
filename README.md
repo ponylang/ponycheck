@@ -1,10 +1,8 @@
 # Ponycheck
 
-[![Join the chat at https://gitter.im/ponycheck/community](https://badges.gitter.im/ponycheck/community.svg)](https://gitter.im/ponycheck/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![CircleCI](https://circleci.com/gh/mfelsche/ponycheck/tree/master.svg?style=svg)](https://circleci.com/gh/mfelsche/ponycheck/tree/master)
-
 Property based testing for ponylang (>= 0.19.0).
 
-[API docs](https://mfelsche.github.io/ponycheck/ponycheck--index/)
+[API docs](https://ponylang.github.io/ponycheck/)
 
 ## Features
 
@@ -38,9 +36,9 @@ Ponycheck is heavily inspired by QuickCheck and other great Property Based testi
 ## Usage
 
 Writing property based tests in ponycheck is done by implementing the trait
-[`Property1`](https://mfelsche.github.io/ponycheck/ponycheck-Property1).
-A [`Property1`](https://mfelsche.github.io/ponycheck/ponycheck-Property1) needs
-to define a type parameter for the type of the input sample, a [Generator](https://mfelsche.github.io/ponycheck/ponycheck-Generator)
+[`Property1`](https://ponylang.github.io/ponycheck/ponycheck-Property1).
+A [`Property1`](https://ponylang.github.io/ponycheck/ponycheck-Property1) needs
+to define a type parameter for the type of the input sample, a [Generator](https://ponylang.github.io/ponycheck/ponycheck-Generator)
 and a property function. Here is a stupid barebones example just to get a first feeling:
 
 ```pony
@@ -58,8 +56,8 @@ class MyFirstProperty is Property1[String]
 
 A Property needs a name for identification in test output.
 We created a Generator by using one of the many convenience factory methods and
-combinators defined in the [Generators](https://mfelsche.github.io/ponycheck/ponycheck-Generators) primitive
-and we used [PropertyHelper](https://mfelsche.github.io/ponycheck/ponycheck-PropertyHelper) 
+combinators defined in the [Generators](https://ponylang.github.io/ponycheck/ponycheck-Generators) primitive
+and we used [PropertyHelper](https://ponylang.github.io/ponycheck/ponycheck-PropertyHelper) 
 to assert on a (in this case trivial) condition that should hold for all samples 
 
 Here is the classical List reverse properties from the QuickCheck paper adapted to
@@ -98,8 +96,8 @@ A Property defined in Ponycheck needs to be executed to show its full potential
 and to actual detect bugs if they exist.
 
 Ponycheck is intended to be run via [ponytest](https://stdlib.ponylang.org/ponytest--index).
-To integrate [Property1](https://mfelsche.github.io/ponycheck/ponycheck-Property1) into [ponytest](https://stdlib.ponylang.org/ponytest--index),
-it needs to be wrapped inside a [Property1UnitTest](https://mfelsche.github.io/ponycheck/ponycheck-Property1UnitTest) and
+To integrate [Property1](https://ponylang.github.io/ponycheck/ponycheck-Property1) into [ponytest](https://stdlib.ponylang.org/ponytest--index),
+it needs to be wrapped inside a [Property1UnitTest](https://ponylang.github.io/ponycheck/ponycheck-Property1UnitTest) and
 passed to the PonyTest.apply method as all regular ponytest [UnitTests](https://stdlib.ponylang.org/ponytest-UnitTest) 
 (minus the cumbersome test sample creation):
 
@@ -115,7 +113,7 @@ actor Main is TestList
 ```
 
 It is also possible to integrate any number of properties directly into one
-[UnitTest](https://stdlib.ponylang.org/ponytest-UnitTest) using the [Ponycheck.forAll](https://mfelsche.github.io/ponycheck/ponycheck-Ponycheck)
+[UnitTest](https://stdlib.ponylang.org/ponytest-UnitTest) using the [Ponycheck.forAll](https://ponylang.github.io/ponycheck/ponycheck-Ponycheck)
 convenience function:
 
 ```pony
@@ -138,6 +136,6 @@ class ListReverseProperties is UnitTest
 
 For more examples on how to use ponycheck take a look at the `examples` directory.
 
-For all the details, take a look at the [API docs](https://mfelsche.github.io/ponycheck/ponycheck--index/).
+For all the details, take a look at the [API docs](https://ponylang.github.io/ponycheck/ponycheck--index/).
 
 

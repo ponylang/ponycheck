@@ -1,47 +1,75 @@
+config ?= release
+
 PONYC ?= ponyc
-config ?= debug
+PACKAGE := ponycheck
+GET_DEPENDENCIES_WITH := corral fetch
+CLEAN_DEPENDENCIES_WITH := corral clean
+COMPILE_WITH := corral run -- $(PONYC)
+
+BUILD_DIR ?= build/$(config)
+SRC_DIR ?= $(PACKAGE)
+EXAMPLES_DIR := examples
+TEST_DIR := $(SRC_DIR)/test
+tests_binary := $(BUILD_DIR)/test
+docs_dir := build/$(PACKAGE)-docs
+
 ifdef config
-  ifeq (,$(filter $(config),debug release))
-    $(error Unknown configuration "$(config)")
-  endif
+	ifeq (,$(filter $(config),debug release))
+		$(error Unknown configuration "$(config)")
+	endif
 endif
 
-ifeq ($(config),debug)
-	PONYC_FLAGS += --debug
+ifeq ($(config),release)
+	PONYC = $(COMPILE_WITH)
+else
+	PONYC = $(COMPILE_WITH) --debug
 endif
 
-PONYC_FLAGS += -o build/$(config)
-ALL: test
+SOURCE_FILES := $(shell find $(SRC_DIR) -name *.pony)
+EXAMPLES_SOURCE_FILES := $(shell find $(EXAMPLES_DIR) -name *.pony)
+EXAMPLES_BINARY := $(BUILD_DIR)/examples
 
-build/$(config)/test: ponycheck/*.pony ponycheck/test/*.pony .deps build/$(config)
-	stable env ${PONYC} ${PONYC_FLAGS} ponycheck/test
+test: unit-tests build-examples run-examples
 
-build/$(config)/examples: PONYC_FLAGS += --bin-name=examples
-build/$(config)/examples: ponycheck/*.pony examples/*.pony .deps build/$(config)
-	stable env ${PONYC} ${PONYC_FLAGS} examples
+unit-tests: $(tests_binary)
+	$^ --exclude=integration --sequential
 
-build/$(config):
-	mkdir -p build/$(config)
+$(tests_binary): $(SOURCE_FILES) | $(BUILD_DIR)
+	$(GET_DEPENDENCIES_WITH)
+	$(PONYC) -o $(BUILD_DIR) $(TEST_DIR)
 
-.deps:
-	stable fetch
+build-examples: $(EXAMPLES_BINARY)
 
-test: build/$(config)/test
-	build/$(config)/test
+run-examples: $(EXAMPLES_BINARY)
+	$^
 
-examples: build/$(config)/examples
-	build/$(config)/examples
+$(EXAMPLES_BINARY): $(BUILD_DIR)/%: $(SOURCE_FILES) $(EXAMPLES_SOURCE_FILES) | $(BUILD_DIR)
+	$(GET_DEPENDENCIES_WITH)
+	$(PONYC) -o $(BUILD_DIR) -b examples $(EXAMPLES_DIR)
 
 clean:
-	rm -rf build/$(config)
+	$(CLEAN_DEPENDENCIES_WITH)
+	rm -rf $(BUILD_DIR)
 
-docs: PONYC_FLAGS += --pass=expr --docs-public --output=docs-tmp
-docs:
-	rm -rf docs-tmp
-	${PONYC} ${PONYC_FLAGS} ponycheck
-	cd docs-tmp/ponycheck-docs && mkdocs build
-	rm -rf docs
-	cp -R docs-tmp/ponycheck-docs/site docs
-	rm -rf docs-tmp
+$(docs_dir): $(SOURCE_FILES)
+	rm -rf $(docs_dir)
+	$(GET_DEPENDENCIES_WITH)
+	$(PONYC) --docs-public --pass=docs --output build $(SRC_DIR)
 
-.PHONY: examples clean test docs
+docs: $(docs_dir)
+
+.coverage:
+	mkdir -p .coverage
+
+coverage: .coverage $(tests_binary)
+	kcov --include-pattern="$(SRC_DIR)" --exclude-pattern="*/test/*.pony,*/_test.pony" .coverage $(tests_binary)
+
+TAGS:
+	ctags --recurse=yes $(SRC_DIR)
+
+all: test
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+.PHONY: all build-examples clean TAGS test

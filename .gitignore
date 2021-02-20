@@ -1,6 +1,7 @@
-/test
-/examples/.deps
-/examples/examples
-/ponycheck-docs/
-/tags
-/build
+/build/*
+TAGS
+tags
+/.deps/*
+/.coverage/
+/_corral/
+/_repos/

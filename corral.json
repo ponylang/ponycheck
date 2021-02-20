@@ -1,0 +1,14 @@
+{
+  "packages": [
+    "ponycheck"
+  ],
+  "deps": [],
+  "info": {
+    "description": "Property based testing library",
+    "homepage": "https://github.com/ponylang/ponycheck",
+    "license": "BSD-2-Clause",
+    "documentation_url": "https://ponylang.github.io/ponycheck/",
+    "version": "0.5.4",
+    "name": "ponycheck"
+  }
+}
