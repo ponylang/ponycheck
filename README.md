@@ -2,6 +2,20 @@
 
 Property based testing for ponylang (>= 0.19.0).
 
+## Status
+
+Ponycheck is an beta-level package.
+
+## Installation
+
+* Install [corral](https://github.com/ponylang/corral)
+* `corral add github.com/ponylang/ponycheck.git --version 0.5.4`
+* `corral fetch` to fetch your dependencies
+* `use "ponycheck"` to include this package
+* `corral run -- ponyc` to compile your application
+
+## API Documentation
+
 [API docs](https://ponylang.github.io/ponycheck/)
 
 ## Features
@@ -19,8 +33,8 @@ unit under test (be it a class, a function or whatever) and check if
 some output conditions hold. This is a tedious and error-prone activity.
 
 Property based testing leaves generation of test input samples to the testing
-engine which generates random examples taken from a description how to do so, so called *Generators*. 
-The developer just needs to define a *Generator* and describe the condition 
+engine which generates random examples taken from a description how to do so, so called *Generators*.
+The developer just needs to define a *Generator* and describe the condition
 that should hold for each and every input sample.
 
 Property based Testing first came up as [QuickCheck](http://www.cse.chalmers.se/~rjmh/QuickCheck/)
@@ -57,8 +71,8 @@ class MyFirstProperty is Property1[String]
 A Property needs a name for identification in test output.
 We created a Generator by using one of the many convenience factory methods and
 combinators defined in the [Generators](https://ponylang.github.io/ponycheck/ponycheck-Generators) primitive
-and we used [PropertyHelper](https://ponylang.github.io/ponycheck/ponycheck-PropertyHelper) 
-to assert on a (in this case trivial) condition that should hold for all samples 
+and we used [PropertyHelper](https://ponylang.github.io/ponycheck/ponycheck-PropertyHelper)
+to assert on a (in this case trivial) condition that should hold for all samples
 
 Here is the classical List reverse properties from the QuickCheck paper adapted to
 Pony Arrays:
@@ -69,12 +83,12 @@ use "ponycheck"
 use "collections"
 
 class ListReverseProperty is Property1[Array[USize]]
-    
+
     fun name(): String => "list/reverse"
 
     fun gen(): Generator[Array[USize]] =>
       Generators.seq_of[USize, Array[USize]](Generators.usize())
-    
+
     fun property(arg1: Array[USize], ph: PropertyHelper) =>
       ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
 
@@ -98,7 +112,7 @@ and to actual detect bugs if they exist.
 Ponycheck is intended to be run via [ponytest](https://stdlib.ponylang.org/ponytest--index).
 To integrate [Property1](https://ponylang.github.io/ponycheck/ponycheck-Property1) into [ponytest](https://stdlib.ponylang.org/ponytest--index),
 it needs to be wrapped inside a [Property1UnitTest](https://ponylang.github.io/ponycheck/ponycheck-Property1UnitTest) and
-passed to the PonyTest.apply method as all regular ponytest [UnitTests](https://stdlib.ponylang.org/ponytest-UnitTest) 
+passed to the PonyTest.apply method as all regular ponytest [UnitTests](https://stdlib.ponylang.org/ponytest-UnitTest)
 (minus the cumbersome test sample creation):
 
 ```pony
@@ -137,5 +151,3 @@ class ListReverseProperties is UnitTest
 For more examples on how to use ponycheck take a look at the `examples` directory.
 
 For all the details, take a look at the [API docs](https://ponylang.github.io/ponycheck/ponycheck--index/).
-
-
