@@ -12,4 +12,5 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Don't export test classes as part of public interface ([PR #50](https://github.com/ponylang/ponycheck/pull/50))
 
