@@ -58,8 +58,7 @@ and a property function. Here is a stupid barebones example just to get a first 
 ```pony
 use "ponytest"
 
-class MyFirstProperty is Property1[String]
-
+class _MyFirstProperty is Property1[String]
   fun name(): String => "my_first_property"
 
   fun gen(): Generator[String] => Generators.ascii()
@@ -82,8 +81,7 @@ Pony Arrays:
 use "ponycheck"
 use "collections"
 
-class ListReverseProperty is Property1[Array[USize]]
-
+class _ListReverseProperty is Property1[Array[USize]]
     fun name(): String => "list/reverse"
 
     fun gen(): Generator[Array[USize]] =>
@@ -92,8 +90,7 @@ class ListReverseProperty is Property1[Array[USize]]
     fun property(arg1: Array[USize], ph: PropertyHelper) =>
       ph.assert_array_eq[USize](arg1, arg1.reverse().reverse())
 
-class ListReverseOneProperty is Property1[Array[USize]]
-
+class _ListReverseOneProperty is Property1[Array[USize]]
     fun name(): String => "list/reverse/one"
 
     fun gen(): Generator[Array[USize]] =>
@@ -123,7 +120,7 @@ actor Main is TestList
   new create(env: Env) => PonyTest(env, this)
 
   fun tag tests(test: PonyTest) =>
-    test(Property1UnitTest[String](MyFirstProperty))
+    test(Property1UnitTest[String](_MyFirstProperty))
 ```
 
 It is also possible to integrate any number of properties directly into one
@@ -131,8 +128,7 @@ It is also possible to integrate any number of properties directly into one
 convenience function:
 
 ```pony
-class ListReverseProperties is UnitTest
-
+class _ListReverseProperties is UnitTest
     fun name(): String => "list/properties"
 
     fun apply(h: TestHelper) ? =>
