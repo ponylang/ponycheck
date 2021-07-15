@@ -93,10 +93,3 @@ jobs:
         env:
           GIT_USER_NAME: "Ponylang Main Bot"
           GIT_USER_EMAIL: "ponylang.main@gmail.com"
-      - name: Switch to building action for each run
-        uses: ponylang/release-bot-action@0.6.1
-        with:
-          entrypoint: update-action-to-use-dockerfile-to-run-action
-        env:
-          GIT_USER_NAME: "Ponylang Main Bot"
-          GIT_USER_EMAIL: "ponylang.main@gmail.com"
