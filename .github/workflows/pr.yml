@@ -24,7 +24,7 @@ jobs:
     container:
       image: ponylang/changelog-tool:release
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Verify CHANGELOG
         run: changelog-tool verify
 
@@ -34,6 +34,6 @@ jobs:
     container:
       image: ponylang/shared-docker-ci-x86-64-unknown-linux-builder:release
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Test
         run: make test config=debug
