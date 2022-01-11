@@ -77,6 +77,19 @@ actor Main is TestList
     test(_SuccessfulIntPairPropertyTest)
     test(IntPairUnitTest(_SuccessfulIntPairProperty))
 
+    test(Property1UnitTest[(U8, U8)](_RandomnessProperty[U8, _RandomCaseU8]("U8")))
+    test(Property1UnitTest[(I8, I8)](_RandomnessProperty[I8, _RandomCaseI8]("I8")))
+    test(Property1UnitTest[(U16, U16)](_RandomnessProperty[U16, _RandomCaseU16]("U16")))
+    test(Property1UnitTest[(I16, I16)](_RandomnessProperty[I16, _RandomCaseI16]("I16")))
+    test(Property1UnitTest[(U32, U32)](_RandomnessProperty[U32, _RandomCaseU32]("U32")))
+    test(Property1UnitTest[(I32, I32)](_RandomnessProperty[I32, _RandomCaseI32]("I32")))
+    test(Property1UnitTest[(U64, U64)](_RandomnessProperty[U64, _RandomCaseU64]("U64")))
+    test(Property1UnitTest[(I64, I64)](_RandomnessProperty[I64, _RandomCaseI64]("I64")))
+    test(Property1UnitTest[(U128, U128)](_RandomnessProperty[U128, _RandomCaseU128]("U128")))
+    test(Property1UnitTest[(I128, I128)](_RandomnessProperty[I128, _RandomCaseI128]("I128")))
+    test(Property1UnitTest[(ISize, ISize)](_RandomnessProperty[ISize, _RandomCaseISize]("ISize")))
+    test(Property1UnitTest[(ILong, ILong)](_RandomnessProperty[ILong, _RandomCaseILong]("ILong")))
+
 
 class iso _StringifyTest is UnitTest
   fun name(): String => "stringify"
@@ -1277,3 +1290,132 @@ class iso _AsyncProperty is Property1[String]
 
   fun ref property(arg1: String, ph: PropertyHelper) =>
     _AsyncDelayingActor(ph, _action).do_it()
+
+interface val _RandomCase[A: Comparable[A] #read]
+  new val create()
+
+  fun test(min: A, max: A): A
+
+  fun generator(): Generator[A]
+
+primitive _RandomCaseU8 is _RandomCase[U8]
+  fun test(min: U8, max: U8): U8 =>
+    let rnd = Randomness(Time.millis())
+    rnd.u8(min, max)
+
+  fun generator(): Generator[U8] =>
+    Generators.u8()
+
+primitive _RandomCaseU16 is _RandomCase[U16]
+  fun test(min: U16, max: U16): U16 =>
+    let rnd = Randomness(Time.millis())
+    rnd.u16(min, max)
+
+  fun generator(): Generator[U16] =>
+    Generators.u16()
+
+primitive _RandomCaseU32 is _RandomCase[U32]
+  fun test(min: U32, max: U32): U32 =>
+    let rnd = Randomness(Time.millis())
+    rnd.u32(min, max)
+
+  fun generator(): Generator[U32] =>
+    Generators.u32()
+
+primitive _RandomCaseU64 is _RandomCase[U64]
+  fun test(min: U64, max: U64): U64 =>
+    let rnd = Randomness(Time.millis())
+    rnd.u64(min, max)
+
+  fun generator(): Generator[U64] =>
+    Generators.u64()
+
+primitive _RandomCaseU128 is _RandomCase[U128]
+  fun test(min: U128, max: U128): U128 =>
+    let rnd = Randomness(Time.millis())
+    rnd.u128(min, max)
+
+  fun generator(): Generator[U128] =>
+    Generators.u128()
+
+primitive _RandomCaseI8 is _RandomCase[I8]
+  fun test(min: I8, max: I8): I8 =>
+    let rnd = Randomness(Time.millis())
+    rnd.i8(min, max)
+
+  fun generator(): Generator[I8] =>
+    Generators.i8()
+
+primitive _RandomCaseI16 is _RandomCase[I16]
+  fun test(min: I16, max: I16): I16 =>
+    let rnd = Randomness(Time.millis())
+    rnd.i16(min, max)
+
+  fun generator(): Generator[I16] =>
+    Generators.i16()
+
+primitive _RandomCaseI32 is _RandomCase[I32]
+  fun test(min: I32, max: I32): I32 =>
+    let rnd = Randomness(Time.millis())
+    rnd.i32(min, max)
+
+  fun generator(): Generator[I32] =>
+    Generators.i32()
+
+primitive _RandomCaseI64 is _RandomCase[I64]
+  fun test(min: I64, max: I64): I64 =>
+    let rnd = Randomness(Time.millis())
+    rnd.i64(min, max)
+
+  fun generator(): Generator[I64] =>
+    Generators.i64()
+
+primitive _RandomCaseI128 is _RandomCase[I128]
+  fun test(min: I128, max: I128): I128 =>
+    let rnd = Randomness(Time.millis())
+    rnd.i128(min, max)
+
+  fun generator(): Generator[I128] =>
+    Generators.i128()
+
+primitive _RandomCaseISize is _RandomCase[ISize]
+  fun test(min: ISize, max: ISize): ISize =>
+    let rnd = Randomness(Time.millis())
+    rnd.isize(min, max)
+
+  fun generator(): Generator[ISize] =>
+    Generators.isize()
+
+primitive _RandomCaseILong is _RandomCase[ILong]
+  fun test(min: ILong, max: ILong): ILong =>
+    let rnd = Randomness(Time.millis())
+    rnd.ilong(min, max)
+
+  fun generator(): Generator[ILong] =>
+    Generators.ilong()
+
+class iso _RandomnessProperty[A: Comparable[A] #read, R: _RandomCase[A] val] is Property1[(A, A)]
+  """
+  Ensure Randomness generates a random number within the given range.
+  """
+  let _type_name: String
+
+  new iso create(type_name: String) =>
+    _type_name = type_name
+
+  fun name(): String => "randomness/" + _type_name
+
+  fun gen(): Generator[(A, A)] =>
+    let min = R.generator()
+    let max = R.generator()
+    Generators.zip2[A, A](min, max)
+      .filter(
+        { (pair) => (pair, (pair._1 <= pair._2)) }
+      )
+
+  fun property(arg1: (A, A), ph: PropertyHelper) =>
+    (let min, let max) = arg1
+
+    let value = R.test(min, max)
+    ph.assert_true(value >= min)
+    ph.assert_true(value <= max)
