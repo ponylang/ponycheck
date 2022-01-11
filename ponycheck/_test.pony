@@ -1396,7 +1396,7 @@ primitive RndCaseILong is RndCase[ILong]
 
 class iso _RandomnessProperty[A: Comparable[A] #read, R: RndCase[A] val] is Property1[(A, A)]
   """
-  ensure Randomnes generates random numer within the given range 
+  Ensure Randomness generates a random number within the given range.
   """
   let _type_name: String
 
