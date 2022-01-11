@@ -1410,7 +1410,7 @@ class iso _RandomnessProperty[A: Comparable[A] #read, R: _RandomCase[A] val] is 
     let max = R.generator()
     Generators.zip2[A, A](min, max)
       .filter(
-        { (pair) => (pair, (pair._1 < pair._2)) }
+        { (pair) => (pair, (pair._1 <= pair._2)) }
       )
 
   fun property(arg1: (A, A), ph: PropertyHelper) =>
