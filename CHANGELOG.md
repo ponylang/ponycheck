@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix Randomness.u64() returning numbers out of the given range ([PR #57](https://github.com/ponylang/ponycheck/pull/57))
 
 ### Added
 
