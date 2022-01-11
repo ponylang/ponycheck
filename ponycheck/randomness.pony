@@ -63,12 +63,12 @@ class ref Randomness
     if (min == U64.min_value()) and (max == U64.max_value()) then
       _random.u64()
     elseif min > U32.max_value().u64() then
-      (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32) or _random.next()
+      (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32) or _random.u32().u64()
     elseif max > U32.max_value().u64() then
       let high = (u32((min >> 32).u32(), (max >> 32).u32()).u64() << 32).u64()
       let low =
         if high > 0 then
-          _random.next()
+          _random.u32().u64()
         else
           u32(min.u32(), U32.max_value()).u64()
         end
