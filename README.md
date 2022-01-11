@@ -9,7 +9,7 @@ Ponycheck is an beta-level package.
 ## Installation
 
 * Install [corral](https://github.com/ponylang/corral)
-* `corral add github.com/ponylang/ponycheck.git --version 0.6.0`
+* `corral add github.com/ponylang/ponycheck.git --version 0.6.1`
 * `corral fetch` to fetch your dependencies
 * `use "ponycheck"` to include this package
 * `corral run -- ponyc` to compile your application
