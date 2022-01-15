@@ -123,11 +123,11 @@ class _AsyncTCPSenderProperty is Property1[String]
   fun gen(): Generator[String] =>
     Generators.unicode()
 
-  fun ref property(sample: String, ph: PropertyHelper) ? =>
-    let sender = TCPSender(ph.env.root as AmbientAuth)
+  fun ref property(sample: String, ph: PropertyHelper) =>
+    let sender = TCPSender(ph.env.root)
     ph.dispose_when_done(
       TCPListener(
-        ph.env.root as AmbientAuth,
+        ph.env.root,
         recover MyTCPListenNotify(sender, ph, "PONYCHECK") end,
         "127.0.0.1",
         "0"))
