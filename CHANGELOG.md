@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Update for change in type of Env.root ([PR #58](https://github.com/ponylang/ponycheck/pull/58))
 
 ## [0.6.1] - 2022-01-11
 
