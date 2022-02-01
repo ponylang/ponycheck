@@ -5,7 +5,7 @@ use "itertools"
 use "random"
 use "time"
 
-actor Main is TestList
+actor \nodoc\ Main is TestList
   new create(env: Env) => PonyTest(env, this)
 
   new make() => None
@@ -91,7 +91,7 @@ actor Main is TestList
     test(Property1UnitTest[(ILong, ILong)](_RandomnessProperty[ILong, _RandomCaseILong]("ILong")))
 
 
-class iso _StringifyTest is UnitTest
+class \nodoc\ iso _StringifyTest is UnitTest
   fun name(): String => "stringify"
 
   fun apply(h: TestHelper) =>
@@ -107,7 +107,7 @@ class iso _StringifyTest is UnitTest
     (let _, s) = _Stringify.apply[Array[U8]](a)
     h.assert_eq[String](s, "[0 42]")
 
-class iso _SuccessfulProperty is Property1[U8]
+class \nodoc\ iso _SuccessfulProperty is Property1[U8]
   """
   this just tests that a property is compatible with ponytest
   """
@@ -118,7 +118,7 @@ class iso _SuccessfulProperty is Property1[U8]
   fun ref property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(10))
 
-class iso _SuccessfulPropertyTest is UnitTest
+class \nodoc\ iso _SuccessfulPropertyTest is UnitTest
   fun name(): String => "as_unit_test/successful"
 
   fun apply(h: TestHelper) =>
@@ -135,7 +135,7 @@ class iso _SuccessfulPropertyTest is UnitTest
       h.env)
     runner.run()
 
-class iso _FailingProperty is Property1[U8]
+class \nodoc\ iso _FailingProperty is Property1[U8]
   fun name(): String => "as_unit_test/failing/property"
 
   fun gen(): Generator[U8] => Generators.u8(0, 10)
@@ -143,7 +143,7 @@ class iso _FailingProperty is Property1[U8]
   fun ref property(arg1: U8, h: PropertyHelper) =>
     h.assert_true(arg1 <= U8(5))
 
-class iso _FailingPropertyTest is UnitTest
+class \nodoc\ iso _FailingPropertyTest is UnitTest
   fun name(): String => "as_unit_test/failing"
 
   fun apply(h: TestHelper) =>
@@ -160,7 +160,7 @@ class iso _FailingPropertyTest is UnitTest
       h.env)
     runner.run()
 
-class iso _ErroringProperty is Property1[U8]
+class \nodoc\ iso _ErroringProperty is Property1[U8]
   fun name(): String => "as_unit_test/erroring/property"
 
   fun gen(): Generator[U8] => Generators.u8(0, 1)
@@ -170,7 +170,7 @@ class iso _ErroringProperty is Property1[U8]
       error
     end
 
-class iso _ErroringPropertyTest is UnitTest
+class \nodoc\ iso _ErroringPropertyTest is UnitTest
   fun name(): String => "as_unit_test/erroring"
 
   fun apply(h: TestHelper) =>
@@ -188,7 +188,7 @@ class iso _ErroringPropertyTest is UnitTest
     runner.run()
 
 
-class iso _SuccessfulProperty2 is Property2[U8, U8]
+class \nodoc\ iso _SuccessfulProperty2 is Property2[U8, U8]
   fun name(): String => "as_unit_test/successful2/property"
   fun gen1(): Generator[U8] => Generators.u8(0, 1)
   fun gen2(): Generator[U8] => Generators.u8(2, 3)
@@ -196,7 +196,7 @@ class iso _SuccessfulProperty2 is Property2[U8, U8]
   fun ref property2(arg1: U8, arg2: U8, h: PropertyHelper) =>
     h.assert_ne[U8](arg1, arg2)
 
-class iso _SuccessfulProperty2Test is UnitTest
+class \nodoc\ iso _SuccessfulProperty2Test is UnitTest
   fun name(): String => "as_unit_test/successful2"
 
   fun apply(h: TestHelper) =>
@@ -213,7 +213,7 @@ class iso _SuccessfulProperty2Test is UnitTest
       h.env)
     runner.run()
 
-class iso _SuccessfulProperty3 is Property3[U8, U8, U8]
+class \nodoc\ iso _SuccessfulProperty3 is Property3[U8, U8, U8]
   fun name(): String => "as_unit_test/successful3/property"
   fun gen1(): Generator[U8] => Generators.u8(0, 1)
   fun gen2(): Generator[U8] => Generators.u8(2, 3)
@@ -224,7 +224,7 @@ class iso _SuccessfulProperty3 is Property3[U8, U8, U8]
     h.assert_ne[U8](arg2, arg3)
     h.assert_ne[U8](arg1, arg3)
 
-class iso _SuccessfulProperty3Test is UnitTest
+class \nodoc\ iso _SuccessfulProperty3Test is UnitTest
 
   fun name(): String => "as_unit_test/successful3"
 
@@ -242,7 +242,7 @@ class iso _SuccessfulProperty3Test is UnitTest
       h.env)
     runner.run()
 
-class iso _SuccessfulProperty4 is Property4[U8, U8, U8, U8]
+class \nodoc\ iso _SuccessfulProperty4 is Property4[U8, U8, U8, U8]
   fun name(): String => "as_unit_test/successful4/property"
   fun gen1(): Generator[U8] => Generators.u8(0, 1)
   fun gen2(): Generator[U8] => Generators.u8(2, 3)
@@ -257,7 +257,7 @@ class iso _SuccessfulProperty4 is Property4[U8, U8, U8, U8]
     h.assert_ne[U8](arg2, arg4)
     h.assert_ne[U8](arg3, arg4)
 
-class iso _SuccessfulProperty4Test is UnitTest
+class \nodoc\ iso _SuccessfulProperty4Test is UnitTest
 
   fun name(): String => "as_unit_test/successful4"
 
@@ -275,28 +275,28 @@ class iso _SuccessfulProperty4Test is UnitTest
       h.env)
     runner.run()
 
-class iso _RunnerAsyncPropertyCompleteTest is UnitTest
+class \nodoc\ iso _RunnerAsyncPropertyCompleteTest is UnitTest
 
   fun name(): String => "property_runner/async/complete"
 
   fun apply(h: TestHelper) =>
     _Async.run_async_test(h, {(ph) => ph.complete(true) }, true)
 
-class iso _RunnerAsyncPropertyCompleteFalseTest is UnitTest
+class \nodoc\ iso _RunnerAsyncPropertyCompleteFalseTest is UnitTest
 
   fun name(): String => "property_runner/async/complete-false"
 
   fun apply(h: TestHelper) =>
     _Async.run_async_test(h,{(ph) => ph.complete(false) }, false)
 
-class iso _RunnerAsyncFailTest is UnitTest
+class \nodoc\ iso _RunnerAsyncFailTest is UnitTest
 
   fun name(): String => "property_runner/async/fail"
 
   fun apply(h: TestHelper) =>
     _Async.run_async_test(h, {(ph) => ph.fail("Oh noes!") }, false)
 
-class iso _RunnerAsyncMultiCompleteSucceedTest is UnitTest
+class \nodoc\ iso _RunnerAsyncMultiCompleteSucceedTest is UnitTest
 
   fun name(): String => "property_runner/async/multi_succeed"
 
@@ -308,7 +308,7 @@ class iso _RunnerAsyncMultiCompleteSucceedTest is UnitTest
         ph.complete(false)
       }, true)
 
-class iso _RunnerAsyncMultiCompleteFailTest is UnitTest
+class \nodoc\ iso _RunnerAsyncMultiCompleteFailTest is UnitTest
   fun name(): String => "property_runner/async/multi_fail"
 
   fun apply(h: TestHelper) =>
@@ -319,7 +319,7 @@ class iso _RunnerAsyncMultiCompleteFailTest is UnitTest
         ph.complete(true)
       }, false)
 
-class iso _RunnerAsyncCompleteActionTest is UnitTest
+class \nodoc\ iso _RunnerAsyncCompleteActionTest is UnitTest
 
   fun name(): String => "property_runner/async/complete_action"
 
@@ -333,7 +333,7 @@ class iso _RunnerAsyncCompleteActionTest is UnitTest
       },
       true)
 
-class iso _RunnerAsyncCompleteFalseActionTest is UnitTest
+class \nodoc\ iso _RunnerAsyncCompleteFalseActionTest is UnitTest
 
   fun name(): String => "property_runner/async/complete_action"
 
@@ -346,7 +346,7 @@ class iso _RunnerAsyncCompleteFalseActionTest is UnitTest
         ph.fail_action(action)
       }, false)
 
-class iso _RunnerAsyncCompleteMultiActionTest is UnitTest
+class \nodoc\ iso _RunnerAsyncCompleteMultiActionTest is UnitTest
 
   fun name(): String => "property_runner/async/complete_multi_action"
 
@@ -361,7 +361,7 @@ class iso _RunnerAsyncCompleteMultiActionTest is UnitTest
       },
       false)
 
-class iso _RunnerAsyncCompleteMultiSucceedActionTest is UnitTest
+class \nodoc\ iso _RunnerAsyncCompleteMultiSucceedActionTest is UnitTest
 
   fun name(): String => "property_runner/async/complete_multi_fail_action"
 
@@ -376,14 +376,14 @@ class iso _RunnerAsyncCompleteMultiSucceedActionTest is UnitTest
       },
       true)
 
-class iso _ForAllTest is UnitTest
+class \nodoc\ iso _ForAllTest is UnitTest
   fun name(): String => "ponycheck/for_all"
 
   fun apply(h: TestHelper) ? =>
     Ponycheck.for_all[U8](recover Generators.unit[U8](0) end, h)(
       {(u, h) => h.assert_eq[U8](u, 0, u.string() + " == 0") })?
 
-class iso _MultipleForAllTest is UnitTest
+class \nodoc\ iso _MultipleForAllTest is UnitTest
   fun name(): String => "ponycheck/multiple_for_all"
 
   fun apply(h: TestHelper) ? =>
@@ -393,7 +393,7 @@ class iso _MultipleForAllTest is UnitTest
     Ponycheck.for_all[U8](recover Generators.unit[U8](1) end, h)(
       {(u, h) => h.assert_eq[U8](u, 1, u.string() + " == 1") })?
 
-class iso _ForAll2Test is UnitTest
+class \nodoc\ iso _ForAll2Test is UnitTest
   fun name(): String => "ponycheck/for_all2"
 
   fun apply(h: TestHelper) ? =>
@@ -405,7 +405,7 @@ class iso _ForAll2Test is UnitTest
           h.assert_false(arg2.contains(String.from_array([as U8: arg1])))
         })?
 
-class iso _ForAll3Test is UnitTest
+class \nodoc\ iso _ForAll3Test is UnitTest
   fun name(): String => "ponycheck/for_all3"
 
   fun apply(h: TestHelper) ? =>
@@ -419,7 +419,7 @@ class iso _ForAll3Test is UnitTest
           h.assert_false(str.contains(String.from_array([b2])))
         })?
 
-class iso _ForAll4Test is UnitTest
+class \nodoc\ iso _ForAll4Test is UnitTest
   fun name(): String => "ponycheck/for_all4"
 
   fun apply(h: TestHelper) ? =>
@@ -434,7 +434,7 @@ class iso _ForAll4Test is UnitTest
           h.assert_false(str.contains(cmp))
         })?
 
-class iso _GenRndTest is UnitTest
+class \nodoc\ iso _GenRndTest is UnitTest
   fun name(): String => "Gen/random_behaviour"
 
   fun apply(h: TestHelper) ? =>
@@ -455,7 +455,7 @@ class iso _GenRndTest is UnitTest
     h.assert_ne[U32](same, 100)
 
 
-class iso _GenFilterTest is UnitTest
+class \nodoc\ iso _GenFilterTest is UnitTest
   fun name(): String => "Gen/filter"
 
   fun apply(h: TestHelper) ? =>
@@ -472,7 +472,7 @@ class iso _GenFilterTest is UnitTest
       h.assert_true((v%2) == 0)
     end
 
-class iso _GenUnionTest is UnitTest
+class \nodoc\ iso _GenUnionTest is UnitTest
   fun name(): String => "Gen/union"
 
   fun apply(h: TestHelper) ? =>
@@ -498,7 +498,7 @@ class iso _GenUnionTest is UnitTest
       end
     end
 
-class iso _GenFrequencyTest is UnitTest
+class \nodoc\ iso _GenFrequencyTest is UnitTest
   fun name(): String => "Gen/frequency"
 
   fun apply(h: TestHelper) ? =>
@@ -528,7 +528,7 @@ class iso _GenFrequencyTest is UnitTest
       empty_gen.generate_value(Randomness(Time.millis()))?
     })
 
-class iso _GenFrequencySafeTest is UnitTest
+class \nodoc\ iso _GenFrequencySafeTest is UnitTest
   fun name(): String => "Gen/frequency_safe"
 
   fun apply(h: TestHelper) =>
@@ -536,7 +536,7 @@ class iso _GenFrequencySafeTest is UnitTest
       Generators.frequency_safe[U8](Array[WeightedGenerator[U8]](0))?
     })
 
-class iso _GenOneOfTest is UnitTest
+class \nodoc\ iso _GenOneOfTest is UnitTest
   fun name(): String => "Gen/one_of"
 
   fun apply(h: TestHelper) =>
@@ -553,7 +553,7 @@ class iso _GenOneOfTest is UnitTest
       empty_gen.generate_value(Randomness(Time.millis()))?
     })
 
-class iso _GenOneOfSafeTest is UnitTest
+class \nodoc\ iso _GenOneOfSafeTest is UnitTest
   fun name(): String => "Gen/one_of_safe"
 
   fun apply(h: TestHelper) =>
@@ -561,7 +561,7 @@ class iso _GenOneOfSafeTest is UnitTest
       Generators.one_of_safe[U8](Array[U8](0))?
     })
 
-class iso _SeqOfTest is UnitTest
+class \nodoc\ iso _SeqOfTest is UnitTest
   fun name(): String => "Gen/seq_of"
 
   fun apply(h: TestHelper) ? =>
@@ -597,7 +597,7 @@ class iso _SeqOfTest is UnitTest
       h.fail("Generators.seq_of did not produce any shrinks")
     end
 
-class iso _IsoSeqOfTest is UnitTest
+class \nodoc\ iso _IsoSeqOfTest is UnitTest
   let min: USize = 0
   let max: USize = 200
   fun name(): String => "Gen/iso_seq_of"
@@ -635,7 +635,7 @@ class iso _IsoSeqOfTest is UnitTest
       h.fail("Generators.iso_seq_of did not produce any shrinks")
     end
 
-class iso _SetOfTest is UnitTest
+class \nodoc\ iso _SetOfTest is UnitTest
   fun name(): String => "Gen/set_of"
 
   fun apply(h: TestHelper) ? =>
@@ -653,7 +653,7 @@ class iso _SetOfTest is UnitTest
       h.assert_true(sample.size() <= 256, "something about U8 is not right")
     end
 
-class iso _SetOfMaxTest is UnitTest
+class \nodoc\ iso _SetOfMaxTest is UnitTest
   fun name(): String => "Gen/set_of_max"
 
   fun apply(h: TestHelper) ? =>
@@ -670,7 +670,7 @@ class iso _SetOfMaxTest is UnitTest
     end
 
 
-class iso _SetOfEmptyTest is UnitTest
+class \nodoc\ iso _SetOfEmptyTest is UnitTest
   fun name(): String => "Gen/set_of_empty"
 
   fun apply(h: TestHelper) ? =>
@@ -686,7 +686,7 @@ class iso _SetOfEmptyTest is UnitTest
       h.assert_true(sample.size() == 0, "non-empty set created.")
     end
 
-class iso _SetIsOfIdentityTest is UnitTest
+class \nodoc\ iso _SetIsOfIdentityTest is UnitTest
   fun name(): String => "Gen/set_is_of_identity"
   fun apply(h: TestHelper) ? =>
     """
@@ -700,7 +700,7 @@ class iso _SetIsOfIdentityTest is UnitTest
     h.assert_true(sample.size() <= 1,
         "invalid SetIs instances generated: size " + sample.size().string())
 
-class iso _MapOfEmptyTest is UnitTest
+class \nodoc\ iso _MapOfEmptyTest is UnitTest
   fun name(): String => "Gen/map_of_empty"
 
   fun apply(h: TestHelper) ? =>
@@ -719,7 +719,7 @@ class iso _MapOfEmptyTest is UnitTest
     let sample = map_gen.generate_value(rnd)?
     h.assert_eq[USize](sample.size(), 0, "non-empty map created")
 
-class iso _MapOfMaxTest is UnitTest
+class \nodoc\ iso _MapOfMaxTest is UnitTest
   fun name(): String => "Gen/map_of_max"
 
   fun apply(h: TestHelper) ? =>
@@ -739,7 +739,7 @@ class iso _MapOfMaxTest is UnitTest
       h.assert_true(sample.size() <= size, "generated map is too big.")
     end
 
-class iso _MapOfIdentityTest is UnitTest
+class \nodoc\ iso _MapOfIdentityTest is UnitTest
   fun name(): String => "Gen/map_of_identity"
 
   fun apply(h: TestHelper) ? =>
@@ -757,7 +757,7 @@ class iso _MapOfIdentityTest is UnitTest
     let sample = map_gen.generate_value(rnd)?
     h.assert_true(sample.size() <= 1)
 
-class iso _MapIsOfEmptyTest is UnitTest
+class \nodoc\ iso _MapIsOfEmptyTest is UnitTest
   fun name(): String => "Gen/map_is_of_empty"
 
   fun apply(h: TestHelper) ? =>
@@ -776,7 +776,7 @@ class iso _MapIsOfEmptyTest is UnitTest
     let sample = map_is_gen.generate_value(rnd)?
     h.assert_eq[USize](sample.size(), 0, "non-empty map created")
 
-class iso _MapIsOfMaxTest is UnitTest
+class \nodoc\ iso _MapIsOfMaxTest is UnitTest
   fun name(): String => "Gen/map_is_of_max"
 
   fun apply(h: TestHelper) ? =>
@@ -796,7 +796,7 @@ class iso _MapIsOfMaxTest is UnitTest
       h.assert_true(sample.size() <= size, "generated map is too big.")
     end
 
-class iso _MapIsOfIdentityTest is UnitTest
+class \nodoc\ iso _MapIsOfIdentityTest is UnitTest
   fun name(): String => "Gen/map_is_of_identity"
 
   fun apply(h: TestHelper) ? =>
@@ -811,7 +811,7 @@ class iso _MapIsOfIdentityTest is UnitTest
     let sample = map_gen.generate_value(rnd)?
     h.assert_true(sample.size() <= 1)
 
-class iso _ASCIIRangeTest is UnitTest
+class \nodoc\ iso _ASCIIRangeTest is UnitTest
   fun name(): String => "Gen/ascii_range"
   fun apply(h: TestHelper) ? =>
     let rnd = Randomness(Time.millis())
@@ -822,7 +822,7 @@ class iso _ASCIIRangeTest is UnitTest
       h.assert_true(ASCIIAll().contains(sample), "\"" + sample + "\" not valid ascii")
     end
 
-class iso _UTF32CodePointStringTest is UnitTest
+class \nodoc\ iso _UTF32CodePointStringTest is UnitTest
   fun name(): String => "Gen/utf32_codepoint_string"
   fun apply(h: TestHelper) ? =>
     let rnd = Randomness(Time.millis())
@@ -838,14 +838,14 @@ class iso _UTF32CodePointStringTest is UnitTest
       end
     end
 
-class iso _SuccessfulIntProperty is IntProperty
+class \nodoc\ iso _SuccessfulIntProperty is IntProperty
   fun name(): String  => "property/int/property"
 
   fun ref int_property[T: (Int & Integer[T] val)](x: T, h: PropertyHelper) =>
     h.assert_eq[T](x.min(T.max_value()), x)
     h.assert_eq[T](x.max(T.min_value()), x)
 
-class iso _SuccessfulIntPropertyTest is UnitTest
+class \nodoc\ iso _SuccessfulIntPropertyTest is UnitTest
   fun name(): String => "property/int"
 
   fun apply(h: TestHelper) =>
@@ -862,13 +862,13 @@ class iso _SuccessfulIntPropertyTest is UnitTest
       h.env)
     runner.run()
 
-class iso _SuccessfulIntPairProperty is IntPairProperty
+class \nodoc\ iso _SuccessfulIntPairProperty is IntPairProperty
   fun name(): String => "property/intpair/property"
 
   fun int_property[T: (Int & Integer[T] val)](x: T, y: T, h: PropertyHelper) =>
     h.assert_eq[T](x * y, y * x)
 
-class iso _SuccessfulIntPairPropertyTest is UnitTest
+class \nodoc\ iso _SuccessfulIntPairPropertyTest is UnitTest
   fun name(): String => "property/intpair"
 
   fun apply(h: TestHelper) =>
@@ -885,7 +885,7 @@ class iso _SuccessfulIntPairPropertyTest is UnitTest
       h.env)
     runner.run()
 
-class iso _InfiniteShrinkProperty is Property1[String]
+class \nodoc\ iso _InfiniteShrinkProperty is Property1[String]
   fun name(): String => "property_runner/inifinite_shrink/property"
 
   fun gen(): Generator[String] =>
@@ -902,7 +902,7 @@ class iso _InfiniteShrinkProperty is Property1[String]
     ph.assert_true(arg1.size() >  100) // assume this failing
 
 
-class iso _RunnerInfiniteShrinkTest is UnitTest
+class \nodoc\ iso _RunnerInfiniteShrinkTest is UnitTest
   """
   ensure that having a failing property with an infinite generator
   is not shrinking infinitely
@@ -924,7 +924,7 @@ class iso _RunnerInfiniteShrinkTest is UnitTest
       h.env)
     runner.run()
 
-class iso _ErroringGeneratorProperty is Property1[String]
+class \nodoc\ iso _ErroringGeneratorProperty is Property1[String]
   fun name(): String => "property_runner/erroring_generator/property"
 
   fun gen(): Generator[String] =>
@@ -937,7 +937,7 @@ class iso _ErroringGeneratorProperty is Property1[String]
   fun ref property(sample: String, h: PropertyHelper) =>
     None
 
-class iso _RunnerErroringGeneratorTest is UnitTest
+class \nodoc\ iso _RunnerErroringGeneratorTest is UnitTest
   fun name(): String => "property_runner/erroring_generator"
 
   fun apply(h: TestHelper) =>
@@ -954,7 +954,7 @@ class iso _RunnerErroringGeneratorTest is UnitTest
       h.env)
     runner.run()
 
-class iso _SometimesErroringGeneratorProperty is Property1[String]
+class \nodoc\ iso _SometimesErroringGeneratorProperty is Property1[String]
   fun name(): String => "property_runner/sometimes_erroring_generator"
   fun params(): PropertyParams =>
     PropertyParams(where
@@ -978,7 +978,7 @@ class iso _SometimesErroringGeneratorProperty is Property1[String]
     None
 
 
-class iso _RunnerSometimesErroringGeneratorTest is UnitTest
+class \nodoc\ iso _RunnerSometimesErroringGeneratorTest is UnitTest
   fun name(): String => "property_runner/sometimes_erroring_generator"
 
   fun apply(h: TestHelper) =>
@@ -995,13 +995,13 @@ class iso _RunnerSometimesErroringGeneratorTest is UnitTest
       h.env)
     runner.run()
 
-class iso _ReportFailedSampleProperty is Property1[U8]
+class \nodoc\ iso _ReportFailedSampleProperty is Property1[U8]
   fun name(): String => "property_runner/sample_reporting/property"
   fun gen(): Generator[U8] => Generators.u8(0, 1)
   fun ref property(sample: U8, h: PropertyHelper) =>
     h.assert_eq[U8](sample, U8(0))
 
-class iso _RunnerReportFailedSampleTest is UnitTest
+class \nodoc\ iso _RunnerReportFailedSampleTest is UnitTest
   fun name(): String => "property_runner/sample_reporting"
   fun apply(h: TestHelper) =>
     let property = recover iso _ReportFailedSampleProperty end
@@ -1035,7 +1035,7 @@ class iso _RunnerReportFailedSampleTest is UnitTest
       h.env)
     runner.run()
 
-trait _ShrinkTest is UnitTest
+trait \nodoc\ _ShrinkTest is UnitTest
   fun shrink[T](gen: Generator[T], shrink_elem: T): Iterator[T^] =>
     (_, let shrinks': Iterator[T^]) = gen.shrink(consume shrink_elem)
     shrinks'
@@ -1086,7 +1086,7 @@ trait _ShrinkTest is UnitTest
       actual_count <= max_count,
       "generated too much values from " + x.string() + " : " + actual_count.string() + " > " + max_count.string())
 
-class iso _UnsignedShrinkTest is _ShrinkTest
+class \nodoc\ iso _UnsignedShrinkTest is _ShrinkTest
   fun name(): String => "shrink/unsigned_generators"
 
   fun apply(h: TestHelper)? =>
@@ -1098,7 +1098,7 @@ class iso _UnsignedShrinkTest is _ShrinkTest
     let gen_min = Generators.u64(where min=min)
     _test_int_constraints[U64](h, gen_min, 42, min)?
 
-class iso _SignedShrinkTest is _ShrinkTest
+class \nodoc\ iso _SignedShrinkTest is _ShrinkTest
   fun name(): String => "shrink/signed_generators"
 
   fun apply(h: TestHelper) ? =>
@@ -1111,7 +1111,7 @@ class iso _SignedShrinkTest is _ShrinkTest
     _test_int_constraints[I64](h, gen2, -12, -10)? // weird case but should still work
 
 
-class iso _ASCIIStringShrinkTest is _ShrinkTest
+class \nodoc\ iso _ASCIIStringShrinkTest is _ShrinkTest
   fun name(): String => "shrink/ascii_string_generators"
 
   fun apply(h: TestHelper) =>
@@ -1130,7 +1130,7 @@ class iso _ASCIIStringShrinkTest is _ShrinkTest
     let short_shrinks = _collect_shrinks[String](gen, short_sample)
     h.assert_array_eq[String]([""], short_shrinks, "shrinking 'A' returns wrong results")
 
-class iso _MinASCIIStringShrinkTest is _ShrinkTest
+class \nodoc\ iso _MinASCIIStringShrinkTest is _ShrinkTest
   fun name(): String => "shrink/min_ascii_string_generators"
 
   fun apply(h: TestHelper) =>
@@ -1145,7 +1145,7 @@ class iso _MinASCIIStringShrinkTest is _ShrinkTest
       Iter[String](shrinks)
         .all({(s: String): Bool => s.size() >= min}), "generated shrinks that violate minimum string length")
 
-class iso _UnicodeStringShrinkTest is _ShrinkTest
+class \nodoc\ iso _UnicodeStringShrinkTest is _ShrinkTest
   fun name(): String => "shrink/unicode_string_generators"
 
   fun apply(h: TestHelper) =>
@@ -1163,7 +1163,7 @@ class iso _UnicodeStringShrinkTest is _ShrinkTest
     let shrinks3 = _collect_shrinks[String](gen, sample3)
     h.assert_array_eq[String]([""], shrinks3, "minimal non-empty string not properly shrunk")
 
-class iso _MinUnicodeStringShrinkTest is _ShrinkTest
+class \nodoc\ iso _MinUnicodeStringShrinkTest is _ShrinkTest
   fun name(): String => "shrink/min_unicode_string_generators"
 
   fun apply(h: TestHelper) =>
@@ -1184,7 +1184,7 @@ class iso _MinUnicodeStringShrinkTest is _ShrinkTest
       shrinks.contains(sample),
       "shrinks contain sample value")
 
-class iso _FilterMapShrinkTest is _ShrinkTest
+class \nodoc\ iso _FilterMapShrinkTest is _ShrinkTest
   fun name(): String => "shrink/filter_map"
 
   fun apply(h: TestHelper) =>
@@ -1200,7 +1200,7 @@ class iso _FilterMapShrinkTest is _ShrinkTest
           (u > 20) and ((u % 2) == 0) }),
       "shrinking does not maintain filter invariants")
 
-primitive _Async
+primitive \nodoc\ _Async
   """
   utility to run tests for async properties
   """
@@ -1225,7 +1225,7 @@ primitive _Async
       h.env)
     runner.run()
 
-class val _UnitTestPropertyLogger is PropertyLogger
+class \nodoc\ val _UnitTestPropertyLogger is PropertyLogger
   """
   just forwarding logs to the TestHelper log
   with a custom prefix
@@ -1238,7 +1238,7 @@ class val _UnitTestPropertyLogger is PropertyLogger
   fun log(msg: String, verbose: Bool) =>
     _th.log("[PROPERTY] " + msg, verbose)
 
-class val _UnitTestPropertyNotify is PropertyResultNotify
+class \nodoc\ val _UnitTestPropertyNotify is PropertyResultNotify
   let _th: TestHelper
   let _should_succeed: Bool
 
@@ -1255,7 +1255,7 @@ class val _UnitTestPropertyNotify is PropertyResultNotify
     _th.complete(result)
 
 
-actor _AsyncDelayingActor
+actor \nodoc\ _AsyncDelayingActor
   """
   running the given action in a behavior
   """
@@ -1270,7 +1270,7 @@ actor _AsyncDelayingActor
   be do_it() =>
     _action.apply(_ph)
 
-class iso _AsyncProperty is Property1[String]
+class \nodoc\ iso _AsyncProperty is Property1[String]
   """
   A simple property running the given action
   asynchronously in an `AsyncDelayingActor`.
@@ -1291,14 +1291,14 @@ class iso _AsyncProperty is Property1[String]
   fun ref property(arg1: String, ph: PropertyHelper) =>
     _AsyncDelayingActor(ph, _action).do_it()
 
-interface val _RandomCase[A: Comparable[A] #read]
+interface \nodoc\ val _RandomCase[A: Comparable[A] #read]
   new val create()
 
   fun test(min: A, max: A): A
 
   fun generator(): Generator[A]
 
-primitive _RandomCaseU8 is _RandomCase[U8]
+primitive \nodoc\ _RandomCaseU8 is _RandomCase[U8]
   fun test(min: U8, max: U8): U8 =>
     let rnd = Randomness(Time.millis())
     rnd.u8(min, max)
@@ -1306,7 +1306,7 @@ primitive _RandomCaseU8 is _RandomCase[U8]
   fun generator(): Generator[U8] =>
     Generators.u8()
 
-primitive _RandomCaseU16 is _RandomCase[U16]
+primitive \nodoc\ _RandomCaseU16 is _RandomCase[U16]
   fun test(min: U16, max: U16): U16 =>
     let rnd = Randomness(Time.millis())
     rnd.u16(min, max)
@@ -1314,7 +1314,7 @@ primitive _RandomCaseU16 is _RandomCase[U16]
   fun generator(): Generator[U16] =>
     Generators.u16()
 
-primitive _RandomCaseU32 is _RandomCase[U32]
+primitive \nodoc\ _RandomCaseU32 is _RandomCase[U32]
   fun test(min: U32, max: U32): U32 =>
     let rnd = Randomness(Time.millis())
     rnd.u32(min, max)
@@ -1322,7 +1322,7 @@ primitive _RandomCaseU32 is _RandomCase[U32]
   fun generator(): Generator[U32] =>
     Generators.u32()
 
-primitive _RandomCaseU64 is _RandomCase[U64]
+primitive \nodoc\ _RandomCaseU64 is _RandomCase[U64]
   fun test(min: U64, max: U64): U64 =>
     let rnd = Randomness(Time.millis())
     rnd.u64(min, max)
@@ -1330,7 +1330,7 @@ primitive _RandomCaseU64 is _RandomCase[U64]
   fun generator(): Generator[U64] =>
     Generators.u64()
 
-primitive _RandomCaseU128 is _RandomCase[U128]
+primitive \nodoc\ _RandomCaseU128 is _RandomCase[U128]
   fun test(min: U128, max: U128): U128 =>
     let rnd = Randomness(Time.millis())
     rnd.u128(min, max)
@@ -1338,7 +1338,7 @@ primitive _RandomCaseU128 is _RandomCase[U128]
   fun generator(): Generator[U128] =>
     Generators.u128()
 
-primitive _RandomCaseI8 is _RandomCase[I8]
+primitive \nodoc\ _RandomCaseI8 is _RandomCase[I8]
   fun test(min: I8, max: I8): I8 =>
     let rnd = Randomness(Time.millis())
     rnd.i8(min, max)
@@ -1346,7 +1346,7 @@ primitive _RandomCaseI8 is _RandomCase[I8]
   fun generator(): Generator[I8] =>
     Generators.i8()
 
-primitive _RandomCaseI16 is _RandomCase[I16]
+primitive \nodoc\ _RandomCaseI16 is _RandomCase[I16]
   fun test(min: I16, max: I16): I16 =>
     let rnd = Randomness(Time.millis())
     rnd.i16(min, max)
@@ -1354,7 +1354,7 @@ primitive _RandomCaseI16 is _RandomCase[I16]
   fun generator(): Generator[I16] =>
     Generators.i16()
 
-primitive _RandomCaseI32 is _RandomCase[I32]
+primitive \nodoc\ _RandomCaseI32 is _RandomCase[I32]
   fun test(min: I32, max: I32): I32 =>
     let rnd = Randomness(Time.millis())
     rnd.i32(min, max)
@@ -1362,7 +1362,7 @@ primitive _RandomCaseI32 is _RandomCase[I32]
   fun generator(): Generator[I32] =>
     Generators.i32()
 
-primitive _RandomCaseI64 is _RandomCase[I64]
+primitive \nodoc\ _RandomCaseI64 is _RandomCase[I64]
   fun test(min: I64, max: I64): I64 =>
     let rnd = Randomness(Time.millis())
     rnd.i64(min, max)
@@ -1370,7 +1370,7 @@ primitive _RandomCaseI64 is _RandomCase[I64]
   fun generator(): Generator[I64] =>
     Generators.i64()
 
-primitive _RandomCaseI128 is _RandomCase[I128]
+primitive \nodoc\ _RandomCaseI128 is _RandomCase[I128]
   fun test(min: I128, max: I128): I128 =>
     let rnd = Randomness(Time.millis())
     rnd.i128(min, max)
@@ -1378,7 +1378,7 @@ primitive _RandomCaseI128 is _RandomCase[I128]
   fun generator(): Generator[I128] =>
     Generators.i128()
 
-primitive _RandomCaseISize is _RandomCase[ISize]
+primitive \nodoc\ _RandomCaseISize is _RandomCase[ISize]
   fun test(min: ISize, max: ISize): ISize =>
     let rnd = Randomness(Time.millis())
     rnd.isize(min, max)
@@ -1386,7 +1386,7 @@ primitive _RandomCaseISize is _RandomCase[ISize]
   fun generator(): Generator[ISize] =>
     Generators.isize()
 
-primitive _RandomCaseILong is _RandomCase[ILong]
+primitive \nodoc\ _RandomCaseILong is _RandomCase[ILong]
   fun test(min: ILong, max: ILong): ILong =>
     let rnd = Randomness(Time.millis())
     rnd.ilong(min, max)
@@ -1394,7 +1394,7 @@ primitive _RandomCaseILong is _RandomCase[ILong]
   fun generator(): Generator[ILong] =>
     Generators.ilong()
 
-class iso _RandomnessProperty[A: Comparable[A] #read, R: _RandomCase[A] val] is Property1[(A, A)]
+class \nodoc\ iso _RandomnessProperty[A: Comparable[A] #read, R: _RandomCase[A] val] is Property1[(A, A)]
   """
   Ensure Randomness generates a random number within the given range.
   """
