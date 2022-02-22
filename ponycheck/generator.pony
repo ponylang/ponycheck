@@ -19,8 +19,6 @@ type GenerateResult[T2] is (T2^ | ValueAndShrink[T2])
 
 class CountdownIter[T: (Int & Integer[T] val) = USize] is Iterator[T]
   """
-  workaround until 0.21.0 is released and Range supports negative steps
-
   `from` is exclusive, `to` is inclusive
   """
   var _cur: T
